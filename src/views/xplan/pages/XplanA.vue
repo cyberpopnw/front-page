@@ -216,7 +216,7 @@
                             <ul>
                                 <li>UGC PROJECT APPROVAL</li>
                                 <li>WEBSITE LAUNCHED</li>
-                                <li>GAME DEMO ONLING</li>
+                                <li>GAME DEMO ONLINE</li>
                                 <li>CHARACTER MODELING</li>
                             </ul>
                         </div>
@@ -607,6 +607,7 @@ onMounted(() => {
                                 top: 3.8vw;
                                 left: 8.6vw;
                                 font-size: 1.5vw;
+                                // font-family: Aideep;
                                 letter-spacing:.1vw;
                             }
                             .title-tips{

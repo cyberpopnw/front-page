@@ -231,13 +231,16 @@
             </div>
             <div class="address">
                 <div class="email">
-                    <input type="text" placeholder="Enter your email address" v-model="email">
+                    <input type="text" v-model="email" placeholder="" @focus="inputAnimation()" @blur="stopInputAnimation()">
+                    <div class="input-placeholder" :class="addInput == 1 ? 'inputAnimation' : 'stopInputAnimation'" id="inputA">Enter your email address</div>
                     <img src="https://d1td2c8hf7fv9k.cloudfront.net/section2_1.png" class="section" alt="">
                     <img src="https://d1td2c8hf7fv9k.cloudfront.net/email_bottm.png" class="email_bottom" alt="">
                 </div>
-                <div class="submit" @click="submit">
+                <div class="submit" @click="submit()"  @mouseenter="mouseEnter()" @mouseleave="mouseLeave()">
                     SUBMIT
                     <div class="x">x</div>
+                    <div class="mask" :class="submitMove == true ? 'submitAnimation' : 'stopSubmitAnimation'"></div>
+                    <div class="rtIcon"></div>
                 </div>
             </div>
         </header>
@@ -303,11 +306,12 @@
     </div>
 </template>
 <script setup lang="ts">
-import { onMounted, ref, reactive, computed } from 'vue'
+import { onMounted, ref, reactive, getCurrentInstance, computed } from 'vue'
 import store from '@/store'
 import {  useRouter } from 'vue-router'
 import Web3 from '@/tools/web3' 
 
+const { proxy } = getCurrentInstance() as any;
 
 const router = useRouter()
 
@@ -341,7 +345,6 @@ const deckd = () => {
 
 const submit = () => {
     let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
-    console.log(email.value);
     
     if(email.value === ""){ //输入不能为空
 　　　　alert("not null!");
@@ -351,16 +354,41 @@ const submit = () => {
 　　　　return false;
 　　 }else{
 　　　　alert("received!");
-       email.value = "";
-　　　　return true;
+    //    email.value = "";
 　　 }
 
-    // alert('received')
-    // proxy.$api.get('http://127.0.0.1:3010/addUser?email="1"').then((res: any) => {
-        
-    // })
+    proxy.$api.get('http://127.0.0.1:3001/addUser?email=' + email.value ).then((res: any) => {
+        if( res.serverStatus === 2 && res.affectedRows === 1){
+            email.value = "";
+            alert('success');
+        }else{
+            alert(res.message);
+        }
+    }).catch( (err: any) => {
+        console.log(err)
+    })
 }
 
+let addInput: any = ref(0);
+const inputAnimation = () => {
+    addInput.value = 1;
+}
+
+const stopInputAnimation = () => {
+    if( email.value == '' ){
+        addInput.value = 2;
+    }
+}
+
+
+let submitMove: any = ref(false);
+const mouseEnter = () => {
+    submitMove.value = true;
+}
+
+const mouseLeave = () => {
+    submitMove.value = false;
+}
 
 let isPlay: any = ref(false);
 let type2: any = ref(3)
@@ -467,6 +495,46 @@ onMounted(() => {
             -webkit-transform: translateY(0);
             -ms-transform: translateY(0);
             transform: translateY(0);
+        }
+    }
+     @keyframes inputPlaceholder{
+        0% {
+            top: 3.6vw;
+            left: 3vw;
+            font-size: 2vw;
+        }
+        100% {
+            top: 1vw;
+            left: 0vw;
+            font-size: 1vw;
+            transform: scale(.8);
+        }
+    }
+    @keyframes stopInputPlaceholder{
+        0% {
+            top: 1vw;
+            font-size: 1vw;
+            transform: scale(.8);
+        }
+        100% {
+            top: 3.6vw;
+            font-size: 2vw;
+        }
+    }
+    @keyframes submitAnimation {
+        0%{
+            left: 44.6vw;
+        }
+        100%{
+            left: -1.7vw;
+        }
+    }
+    @keyframes stopSubmitAnimation {
+        0%{
+            left: -1.7vw;
+        }
+        100%{
+            left: 44.6vw;
         }
     }
     .mask{
@@ -1138,11 +1206,32 @@ onMounted(() => {
                         border: none;
                         outline: none;
                         color: #fff;
-                        font-size: 1vw;
+                        font-size: 2vw;
                         font-family: Aideep;
                     }
                     input::-webkit-input-placeholder {
                         color: #fff;
+                    }
+                    .input-placeholder{
+                        z-index: -1;
+                        position: absolute;
+                        top: 3.6vw;
+                        left: 3vw;
+                        color: #fff;
+                        font-size: 2vw;
+                        font-family: Aideep;
+                    }
+                    .inputAnimation{
+                        animation: inputPlaceholder .1s ease-in;
+                        top: 1vw;
+                        left: 0vw;
+                        font-size: 1vw;
+                        transform: scale(.8);
+                    }
+                    .stopInputAnimation{
+                        animation: stopInputPlaceholder .1s ease-in;
+                        top: 3.6vw;
+                        font-size: 2vw;
                     }
                     .email_bottom{
                         width: 100%;
@@ -1169,13 +1258,44 @@ onMounted(() => {
                     align-items: center;
                     justify-content: center;
                     font-family: EDIX;
-                    font-size: 1.3vw;
+                    // font-size: 1.3vw;
+                    font-size: 3vw;
                     position: relative;
+                    overflow: hidden;
                     .x{
                         position: absolute;
-                        bottom: -1vw;
+                        bottom: -.2vw;
                         font-size: 0.7vw;
-                        right: 2.5vw;
+                        right: 3.6vw;
+                    }
+                    .mask{
+                        z-index: -1;
+                        position: absolute;
+                        top: 0;
+                        left: 44.6vw;
+                        width: 43.6vw;
+                        height: 100%;
+                        background-color: #cd2e86;
+                        opacity: .6;
+                        transform: skewX(42deg);
+                    }
+                    .rtIcon{
+                        position: absolute;
+                        right: -12.2vw;
+                        width: 0;
+                        height: 0;
+                        border-top: 10vw solid #112C53;
+                        border-left: 10vw solid transparent;
+                        border-right: 10vw solid transparent;
+                        border-bottom: 10vw solid transparent;
+                    }
+                    .submitAnimation{
+                        animation: submitAnimation 0.2s linear;
+                        animation-fill-mode: forwards;
+                    }
+                    .stopSubmitAnimation{
+                        animation: stopSubmitAnimation 0.2s linear;
+                        animation-fill-mode: forwards;
                     }
                 }
             }

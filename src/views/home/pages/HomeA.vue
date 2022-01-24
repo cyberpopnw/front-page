@@ -70,8 +70,8 @@
     <div class="welcome">
         <div class="cover_up"></div>
         <div class="warp">
-            <div class="title" :class="isAddClass1 == true ? 'bounceInLeft' : ''" id="ele1">WELCOMETO  THE &nbsp;<span class="yellow">NEW WORLD</span></div>
-            <div class="content" :class="isAddClass2 == true ? 'bounceInLeft' : ''" id="ele2">
+            <div class="title" id="ele1">WELCOMETO  THE &nbsp;<span class="yellow">NEW WORLD</span></div>
+            <div class="content" id="ele2">
                 <div class="left">
                     <img src="@/assets/icon/left.png" alt="">
                 </div>
@@ -115,7 +115,7 @@
     </div>
     <div class="news">
         <div class="cover_up"></div>
-        <div class="title" :class="isAddClass3 == true ? 'bounceInLeft' : ''" id="ele3">
+        <div class="title" id="ele3">
              <img src="https://d1td2c8hf7fv9k.cloudfront.net/section2_2.png" alt="" class="line">
              <div class="news_box">
                  <img src="@/assets/icon/NEWS.png" alt="">
@@ -123,7 +123,7 @@
              </div>
              <img src="https://d1td2c8hf7fv9k.cloudfront.net/section2_2.png" alt="" class="line">
         </div>
-        <div class="news_content " :class="isAddClass4 == true ? 'bounceInRight' : ''" id="ele4">
+        <div class="news_content " id="ele4">
             <img src="https://d1td2c8hf7fv9k.cloudfront.net/BK3-2.jpg" class="bg1" alt="">
             <img src="https://d1td2c8hf7fv9k.cloudfront.net/BK3-4.png" class="bg2" alt="">
             <img src="https://d1td2c8hf7fv9k.cloudfront.net/BK3-5.jpg" class="bg3" alt="">
@@ -156,7 +156,7 @@
     </div>
     <div class="about">
         <!-- <div class="cover_up"></div> -->
-        <div class="about_content" :class="isAddClass5 == true ? 'bounceInRight' : ''" id="ele5">
+        <div class="about_content" id="ele5">
             <div class="left">
                 <div class="content">
                     <div class="title3">ABOUT US</div>
@@ -177,13 +177,16 @@
             </div>
             <div class="address">
                 <div class="email">
-                    <input type="text" v-model="email" placeholder="Enter your email address" >
+                    <input type="text" v-model="email" placeholder="" @focus="inputAnimation()" @blur="stopInputAnimation()">
+                    <div class="input-placeholder" :class="addInput == 1 ? 'inputAnimation' : 'stopInputAnimation'" id="inputA">Enter your email address</div>
                     <img src="https://d1td2c8hf7fv9k.cloudfront.net/section2_1.png" class="section" alt="">
                     <img src="https://d1td2c8hf7fv9k.cloudfront.net/email_bottm.png" class="email_bottom" alt="">
                 </div>
-                <div class="submit" @click="submit()">
+                <div class="submit" @click="submit()"  @mouseenter="mouseEnter()" @mouseleave="mouseLeave()">
                     SUBMIT
                     <div class="x">x</div>
+                    <div class="mask" :class="submitMove == true ? 'submitAnimation' : 'stopSubmitAnimation'"></div>
+                    <div class="rtIcon"></div>
                 </div>
             </div>
         </header>
@@ -297,7 +300,6 @@ const down = () => {
 
 const submit = () => {
     let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
-    console.log(email.value);
     
     if(email.value === ""){ //输入不能为空
 　　　　alert("not null!");
@@ -307,22 +309,44 @@ const submit = () => {
 　　　　return false;
 　　 }else{
 　　　　alert("received!");
-       email.value = "";
-　　　　return true;
+    //    email.value = "";
 　　 }
 
-    // alert('received')
-    // proxy.$api.get('http://127.0.0.1:3010/addUser?email="1"').then((res: any) => {
-        
-    // })
+
+    proxy.$api.get('http://127.0.0.1:3001/addUser?email=' + email.value ).then((res: any) => {
+        if( res.serverStatus === 2 && res.affectedRows === 1){
+            email.value = "";
+            // alert('success');
+        }else{
+            alert(res.message);
+        }
+    }).catch( (err: any) => {
+        console.log(err)
+    })
 }
 
 
-let isAddClass1: any = ref(false); 
-let isAddClass2: any = ref(false); 
-let isAddClass3: any = ref(false); 
-let isAddClass4: any = ref(false); 
-let isAddClass5: any = ref(false); 
+let addInput: any = ref(0);
+const inputAnimation = () => {
+    addInput.value = 1;
+}
+
+const stopInputAnimation = () => {
+    if( email.value == '' ){
+        addInput.value = 2;
+    }
+}
+
+
+let submitMove: any = ref(false);
+const mouseEnter = () => {
+    submitMove.value = true;
+}
+
+const mouseLeave = () => {
+    submitMove.value = false;
+}
+
 const checkScrollHeightAndLoadAnimation: any = () => {
         const windowHeight: Number = window.innerHeight;
 
@@ -340,35 +364,26 @@ const checkScrollHeightAndLoadAnimation: any = () => {
         let arr = [
             {
                 el: ele1,
-                top: ele1Top,
-                isAdd: false
+                top: ele1Top
             },
             {
                 el: ele2,
-                top: ele2Top,
-                isAdd: false
+                top: ele2Top
             },
             {
                 el: ele3,
-                top: ele3Top,
-                isAdd: false
+                top: ele3Top
             },
         ]
         for(let i = 0; i < arr.length; i++){
             if(arr[i].top < windowHeight){
                 arr[i].el.classList.add('bounceInLeft')
-                // arr[i].isAdd = true
 
             }
             
         }
         if(ele4Top < windowHeight) ele4.classList.add('bounceInRight')
         if(ele5Top < windowHeight) ele5.classList.add('bounceInRight')
-        // if(ele1Top < windowHeight) isAddClass1.value = true
-        // if(ele2Top < windowHeight) isAddClass2.value = true
-        // if(ele3Top < windowHeight) isAddClass3.value = true
-        // if(ele4Top < windowHeight) isAddClass4.value = true
-        // if(ele5Top < windowHeight) isAddClass5.value = true
 }
 
 
@@ -388,11 +403,47 @@ onMounted(() => {
 
 </script>
 <style lang="less" scoped>
+    @keyframes inputPlaceholder{
+        0% {
+            top: .77vw;
+            font-size: 1vw;
+        }
+        100% {
+            top: -.82vw;
+            font-size: .7vw;
+        }
+    }
+    @keyframes stopInputPlaceholder{
+        0% {
+            top: -.82vw;
+            font-size: .7vw;
+        }
+        100% {
+            top: .77vw;
+            font-size: 1vw;
+        }
+    }
+    @keyframes submitAnimation {
+        0%{
+            left: 13.4vw;
+        }
+        100%{
+            left: -.5vw;
+        }
+    }
+    @keyframes stopSubmitAnimation {
+        0%{
+            left: -.5vw;
+        }
+        100%{
+            left: 13.4vw;
+        }
+    }
     .home{
         background-image: url('https://d1td2c8hf7fv9k.cloudfront.net/BK1.jpg');
         height: 100vh;
         background-size: auto 100%;
-        background-repeat: no-repeat;
+        // background-repeat: no-repeat;
         background-position: 20% top;
         animation: home 10s linear;
         header{
@@ -990,6 +1041,25 @@ onMounted(() => {
                     input::-webkit-input-placeholder {
                         color: #fff;
                     }
+                    .input-placeholder{
+                        z-index: -1;
+                        position: absolute;
+                        top: .77vw;
+                        left: 1vw;
+                        color: #fff;
+                        font-size: 1vw;
+                        font-family: Aideep;
+                    }
+                    .inputAnimation{
+                        animation: inputPlaceholder .2s ease-in;
+                        top: -.82vw;
+                        font-size: .7vw;
+                    }
+                    .stopInputAnimation{
+                        animation: stopInputPlaceholder .2s ease-in;
+                        top: .77vw;
+                        font-size: 1vw;
+                    }
                     .email_bottom{
                         width: 100%;
                         position: absolute;
@@ -1017,11 +1087,41 @@ onMounted(() => {
                     font-size: 1.3vw;
                     position: relative;
                     cursor: pointer;
+                    overflow: hidden;
                     .x{
                         position: absolute;
-                        bottom: -0.3vw;
+                        bottom: -0.2vw;
                         font-size: 0.7vw;
                         right: 1vw;
+                    }
+                    .mask{
+                        z-index: -1;
+                        position: absolute;
+                        top: 0;
+                        left: 13.4vw;
+                        width: 13vw;
+                        height: 100%;
+                        background-color: #cd2e86;
+                        opacity: .6;
+                        transform: skewX(42deg);
+                    }
+                    .rtIcon{
+                        position: absolute;
+                        right: -10.7vw;
+                        width: 0;
+                        height: 0;
+                        border-top: 10vw solid #112C53;
+                        border-left: 10vw solid transparent;
+                        border-right: 10vw solid transparent;
+                        border-bottom: 10vw solid transparent;
+                    }
+                    .submitAnimation{
+                        animation: submitAnimation 0.2s linear;
+                        animation-fill-mode: forwards;
+                    }
+                    .stopSubmitAnimation{
+                        animation: stopSubmitAnimation 0.2s linear;
+                        animation-fill-mode: forwards;
                     }
                 }
             }

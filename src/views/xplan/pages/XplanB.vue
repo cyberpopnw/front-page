@@ -175,7 +175,7 @@
                             <ul>
                                 <li>UGC PROJECT APPROVAL</li>
                                 <li>WEBSITE LAUNCHED</li>
-                                <li>GAME DEMO ONLING</li>
+                                <li>GAME DEMO ONLINE</li>
                                 <li>CHARACTER MODELING</li>
                             </ul>
                         </div>
