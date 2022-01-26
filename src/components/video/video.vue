@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { computed, readonly, ref, defineProps, onMounted } from 'vue'
 const props = defineProps({
-    videoSrc: String, // 显示隐藏
+    videoSrc: String,
     videotype: Number,
     mobel: Boolean,
 })
@@ -78,30 +78,25 @@ onMounted(() => {
         height: 100%;
     }
 }
- //播放按钮
+ 
 // video::-webkit-media-controls-play-button {
 //     display: none;
 // }
-//进度条
 // video::-webkit-media-controls-timeline {
 //     display: none;
 // }
-//观看的当前时间
 // video::-webkit-media-controls-current-time-display{
 //     display: none;           
 // }
-//剩余时间
 // video::-webkit-media-controls-time-remaining-display {
 //     display: none;           
 // }
-//音量按钮
 // video::-webkit-media-controls-mute-button {
 //     display: none;           
 // }
 // video::-webkit-media-controls-toggle-closed-captions-button {
 //     display: none;           
 // }
-// //音量的控制条
 // video::-webkit-media-controls-volume-slider {
 //     display: none;           
 // }

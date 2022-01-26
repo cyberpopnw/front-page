@@ -299,12 +299,12 @@ const down = () => {
 }
 
 const submit = () => {
-    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
+    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //
     
-    if(email.value === ""){ //输入不能为空
+    if(email.value === ""){ //
 　　　　alert("not null!");
 　　　　return false;
-　　 }else if(!reg.test(email.value)){ //正则验证不通过，格式不对
+　　 }else if(!reg.test(email.value)){ //
 　　　　alert("please input email!");
 　　　　return false;
 　　 }else{

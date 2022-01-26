@@ -10,7 +10,7 @@ import HomeB from './pages/AboutB.vue'
 
 const innerWidth = computed(() => {
     return store.state.sys?.innerWidth || 0
-}) // 监听屏幕宽度
+}) // 
 
 </script>
 <style lang="less" scoped>

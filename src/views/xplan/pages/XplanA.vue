@@ -14,7 +14,6 @@
                 <img class="section4-last" src="@/assets/support/section4-2.png" alt="">
             </div>
         </div>
-        <!-- 添加support后打开section5        -->
         <!-- <div class="section5"></div> -->
         <div class="foot-bottom"></div>
         <div class="content">

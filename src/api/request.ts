@@ -3,9 +3,8 @@ import axios from "axios";
  
 axios.defaults.baseURL = '' 
  
-//post请求头
 axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded;charset=UTF-8";
-//设置超时
+
 axios.defaults.timeout = 10000;
  
 axios.interceptors.request.use(
