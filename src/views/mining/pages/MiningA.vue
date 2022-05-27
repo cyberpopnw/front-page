@@ -471,7 +471,7 @@ onMounted(async () => {
         text-decoration: none;
     }
     .section{
-        z-index: 8;
+        z-index: 12;
         position: fixed;
         display: flex;
         justify-content: center;

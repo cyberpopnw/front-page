@@ -431,7 +431,7 @@ onMounted(() => {
         position: relative;
         width: 100%;
         header{
-            z-index: 9;
+            z-index: 99;
             position: fixed;
             top: 0;
             right: 0;

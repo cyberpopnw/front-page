@@ -300,7 +300,7 @@ const addressInfo = () => {
     })
 }
 
-左侧图标滚动
+// 左侧图标滚动
 const myNav:any = ref(null);
 const windowScroll: any = () => {
     if( data.value.length === 0 ) return
