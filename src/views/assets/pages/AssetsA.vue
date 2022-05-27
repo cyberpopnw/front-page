@@ -279,19 +279,17 @@ const copyUrl = (e: any) => {
         document.body.appendChild(input);
         input.setAttribute("value", e.target.innerText);
         input.select();
-        //返回值为一个Boolean，如果是 false 则表示操作不被支持或未被启用
         if (document.execCommand("copy")) {
             document.execCommand("copy");
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
         }else{
             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.mess_copy_err')}})
         }
-        //删除这个节点
         document.body.removeChild(input);
     }
 }
 
-// 获取address绑定的信息
+// Get address binding information
 const addressInfo = () => {
     proxy.$api.get(`/code/user/baddress?address=${idTemp.value}`).then((result: any) => {
         email.value = result.data;
@@ -391,7 +389,7 @@ watch(() => hobby2.value, (now, old) => {
                 loop(index)
             }, 400);
         } else {
-            loadingState.value = 2; // 加载完毕
+            loadingState.value = 2; // Loading complete
             console.log(loadingState.value, 'loadingState filter Loading complete');
             
         }
@@ -456,7 +454,7 @@ const loadPool = async (item: any) => {
     }else if(item.type == "game_mumbai" || item.type == "game_fuji"){
         loadAddress.value = item.type == "role_fuji" ? game_Fuji.address : arms.address;
         loadAbi.value = game_Fuji.abi;
-        number.value = 1; // 1155需要传入数量
+        number.value = 1; // 1155 incoming quantity required
         return;
     }
     tokenId.value = item.id;

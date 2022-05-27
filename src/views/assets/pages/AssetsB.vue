@@ -309,7 +309,7 @@ const changeText = (parentLi:any) => {
     const selectedArr = parentLi.querySelectorAll('.selected')
     const selectArrLen = selectedArr.length
     if( selectArrLen == 0 ){
-        // 当不选择时，默认勾选第一项
+        // When not selected, the first item is checked by default
         firstLi = parentLi.parentElement.querySelectorAll('li')[1].querySelector('div').innerText;
         (parentLi.parentElement.querySelector('li').querySelector('div') as HTMLElement).innerText = firstLi;
         parentLi.parentElement.querySelectorAll('li')[1].querySelector('div').classList.add('selected');
