@@ -107,11 +107,11 @@
             <div @click="signout">{{t('message.common.login_logout')}}</div>
         </div>
     </div>
-    <!-- 添加网络弹窗 -->
+    <!-- Add network Popup -->
     <metamask-a v-if="metaMaskActive"></metamask-a>
-    <!-- 切换网络弹窗 -->
+    <!-- Switch network Popup -->
     <wrongNetWorkA :isShowTips="isShowTips" @changeSwitch="changeSwitch"></wrongNetWorkA>
-    <!-- 经销商注册 -->
+    <!-- Dealer registration -->
     <register-a v-if="register" :register="register" :registerTrans="registerTrans" :code="code" :level="level" @closeRegister="closeRegister"></register-a>
 </template>
 
@@ -128,7 +128,7 @@ const code: any = ref('');
 const isShowTips = ref(false);
 const register = ref(false);
 const registerTrans = ref(false);
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 const props = defineProps({
     path: String, 
     type: Number
@@ -174,7 +174,7 @@ const chainList = ref({
 const showChainList = ref(false);
 const chainId: any = computed(() => store.state.user?.chainId );
 
-// 自动判断当前所在链
+// Automatically determine the current chain
 watch(chainId, (newVal, oldVal) => {
     if(!oldVal) return;
     let temp: any;
@@ -207,12 +207,12 @@ const mouseLeaveChain: any = () => {
     showChainList.value = false;
 }
 
-const switchChain = () => { //切换链
+const switchChain = () => { //Switching chain
     if(chainId.value == 97 || chainId.value == 43113) return;
     store.dispatch('user/xplanChangeAni', true);
     isShowTips.value = !isShowTips.value;
 }
-const changeSwitch = () => { //子组件，弹窗属性
+const changeSwitch = () => { //Subassemblies, popup properties
     isShowTips.value = !isShowTips.value;
 }
 
@@ -244,7 +244,7 @@ const mouseLeave = () => {
     mask.classList.remove('submitAnimation');
 }
 
-const messSing = computed(() => store?.state.user?.messSing); // 签名消息
+const messSing = computed(() => store?.state.user?.messSing); // Signature message
 
 const active = computed(() => store?.state.user?.active);
 const menuHover = (type: any) => {
@@ -343,7 +343,7 @@ const metaMaskActive = computed(() => store?.state.user?.metaMaskActive);
 
 const loggined = computed(() => store?.state.user?.loggined);
 
-// 登录埋点
+// Login burying point
 const logined = (accounts: string) => {
     proxy.$api.post(`/code/connection/general`, {
         "action":"connectWallet",
@@ -385,7 +385,7 @@ const connect: any = async () => {
         id.value = accounts;
         let len = id.value.length-1;
         id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('user/connectWallet',{realId:id.value, idTemp:accounts});// 存放星号id、完整id
+        store.dispatch('user/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
         store.dispatch('user/dataSumSearch',{flag:0});
         if(readyAssetsF.value <= 0) logined(accounts);
         const Web3 = (window as any).Web3;
@@ -401,10 +401,10 @@ const connect: any = async () => {
     }
 }
 
-// 邀请用户注册
-const level = ref(0) as any; // 用户等级
+// Invite users to register
+const level = ref(0) as any; // User level
 const isRegister = (isClick?: boolean) => {
-    if(isClick) { // 表示是点击的按钮
+    if(isClick) { // Indicates the clicked button
         register.value = true;
         registerTrans.value = true;
         code.value = router.currentRoute.value.query.code;
@@ -475,7 +475,7 @@ onMounted(() => {
         select.value = localStorage.getItem('lang');        
     }
     code.value = router.currentRoute.value.query.code;
-    if(realId.value == -1) login() // 判断是否已经登陆过了 然后自动登录
+    if(realId.value == -1) login() //Determine whether you have logged in and then log in automatically
     let temp: any;
     Object.keys(chainList._rawValue).forEach((key: any) => {
         if(chainList._rawValue[key].chainId == chainId.value) temp = chainList._rawValue[key]

@@ -742,7 +742,6 @@ const onSlideChangeEnd = (swiper: any) => {
 };
 
 
-// banner视频播放
 // let videoControls: any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwhome/section-btnPlay.svg') 
 // let playFlag: any = ref(false);
 // const stopPlay = () => {
@@ -760,7 +759,7 @@ const onSlideChangeEnd = (swiper: any) => {
 // }
  
 
-// 右侧图标滚动
+// Right icon scroll
 const myNav:any = ref(null);
 const windowScroll: any = () => {
     const navHeight: number = myNav.value.offsetHeight;
@@ -873,12 +872,12 @@ const playVideo = (type: any) => {
 
 
 const submit = () => {
-    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
+    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //regular
     
-    if(email.value === ""){ //输入不能为空
+    if(email.value === ""){ //Input cannot be empty
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.home.mess_register_null')}})
 　　　　return false;
-　　 }else if(!reg.test(email.value)){ //正则验证不通过，格式不对
+　　 }else if(!reg.test(email.value)){ //The regular validation failed. The format is incorrect
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.home.mess_register_regtest')}})
 　　　　return false;
 　　 }
@@ -912,7 +911,7 @@ const checkScrollHeightAndLoadAnimation: any = () => {
         // let role = document.getElementById("role") as HTMLElement;
         let roles = document.getElementsByClassName("role");
         const roleListLen = roles.length;
-        const ele1Top: Number = ele1.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele1Top: Number = ele1.getBoundingClientRect().top; //Distance from top of screen
         const ele2Top: Number = ele2.getBoundingClientRect().top; 
         const ele3Top: Number = ele3.getBoundingClientRect().top; 
         const ele4Top: Number = ele4.getBoundingClientRect().top; 

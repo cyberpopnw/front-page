@@ -142,11 +142,11 @@ const messgSing = async (publicAddress: any) => {
 }
 
 
-//验证邮箱是否已经注册过了
+//Verify that the mailbox has been registered
 const verification = () => {
     proxy.$api.get(`/code/user/bemail?email=${emailAddress.value}`).then(async (res: any) => {
-        if(res.data === true) { // 该邮箱没有注册过
-            const ethereum = (window as any).ethereum // 获取小狐狸实例
+        if(res.data === true) { // This mailbox has not been registered
+            const ethereum = (window as any).ethereum // Get fox instance
             console.log(ethereum, 'ethereum');
             if(!ethereum){
                 getPublicAddress(emailAddress.value, code.value, '')
@@ -186,7 +186,7 @@ const emailCodeErr = ref(false);
 const ReferralCodeErr = ref(false);
 const Sended = ref(60);
 const emailInput = () => {
-    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
+    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //regular
     emailErr.value = false;
     console.log(reg.test(emailAddress.value));
 

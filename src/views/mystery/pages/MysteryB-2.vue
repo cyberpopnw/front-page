@@ -21,7 +21,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
             </video-bg>
             <div class="maskBlur"></div>
         </div>
-        <!-- 元素里面必须要有这个，要不然监听readyAssetsF不生效 -->
+        <!-- There must be this in the element, otherwise listening to readyasassetsf will not take effect -->
         <!-- <span style="color: #000">{{ readyAssetsF }} </span> -->
         <div class="blind" v-if="data.length > 0">
             <div class="title">{{ $t('message.box.type_title_1') }} <span>{{ $t('message.box.type_title_2') }}</span>({{ $t('message.box.testnet') }}) </div>
@@ -122,7 +122,7 @@ const chainId: any = computed(() => store.state.user?.chainId);
 const isProduction = ref(true);
 
 const data: any = ref([]);
-const idTemp: any = computed(() => store?.state.user?.idTemp);  // 完整地址
+const idTemp: any = computed(() => store?.state.user?.idTemp);  // Full address
 const Remaining: any = ref([]);
 watch(chainId, (newVal, oldVal: any) => {
     if(!oldVal || oldVal == -1) return;
@@ -178,7 +178,7 @@ const getData = async (boxData: any[]) => {
     })(0)
     if(chainId.value != 80001) {
         Remaining.value = [0, 0, 0];
-        return; // 目前只有mumbai能用购买盒子
+        return; // At present, only Mumbai can buy boxes with
     }
     let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.user?.box, MarketV2.address); // 查询已上架的资产
     Remaining.value = [1, 0, 0] || LootBox_result;
@@ -190,7 +190,7 @@ const toDetails = (type:any) => {
 
 // 開盒子
 const open = async (boxId: any, number: any) => {
-    // getLast(); // 查询资产合约中最后一位为立马开启的资产
+    // getLast(); // Query the last asset opened immediately in the asset contract
     if(number == 0) return;
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'), addNetwork: false, boxId: boxId, haveNFT: number }});
@@ -209,7 +209,7 @@ onMounted(() => {
     setTimeout(() => {
         getBalance(chainId.value)
     }, 1000);
-    if(process.env.NODE_ENV == 'development') isProduction.value = false; //判断开发 生产环境
+    if(process.env.NODE_ENV == 'development') isProduction.value = false; 
 })
 
 </script>

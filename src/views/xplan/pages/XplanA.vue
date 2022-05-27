@@ -1,5 +1,5 @@
 <template>
-    <!--  mask黑幕  -->
+    <!--  mask background  -->
     <div class="mask" v-if="token0Number<=0"></div>
 
     <div class="welcome" v-else>
@@ -17,7 +17,7 @@
                 <img class="section4-last" src="https://d3bhixjyozyk2o.cloudfront.net/section4-2.png" alt="">
             </div>
         </div>
-        <!-- 添加support后打开section5        -->
+        <!-- add support open section5        -->
         <!-- <div class="section5"></div> -->
         <div class="foot-bottom"></div>
         <div class="content">
@@ -322,15 +322,15 @@ const checkScrollHeightAndLoadAnimation: any = () => {
         let eTime3 = document.getElementById("eTime3") as HTMLElement;
         let eTime4 = document.getElementById("eTime4") as HTMLElement;
         let eTime5 = document.getElementById("eTime5") as HTMLElement;
-        const ele1Top: Number = ele1.getBoundingClientRect().top; //距离屏幕顶部的距离
-        const ele2Top: Number = ele2.getBoundingClientRect().top; //距离屏幕顶部的距离
-        const ele3Top: Number = ele3.getBoundingClientRect().top; //距离屏幕顶部的距离
-        const ele4Top: Number = ele4.getBoundingClientRect().top; //距离屏幕顶部的距离
-        const eTime1Top: Number = eTime1.getBoundingClientRect().top; //距离屏幕顶部的距离
-        const eTime2Top: Number = eTime2.getBoundingClientRect().top; //距离屏幕顶部的距离
-        const eTime3Top: Number = eTime3.getBoundingClientRect().top; //距离屏幕顶部的距离
-        const eTime4Top: Number = eTime4.getBoundingClientRect().top; //距离屏幕顶部的距离
-        const eTime5Top: Number = eTime5.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele1Top: Number = ele1.getBoundingClientRect().top; //Distance from top of screen
+        const ele2Top: Number = ele2.getBoundingClientRect().top; //Distance from top of screen
+        const ele3Top: Number = ele3.getBoundingClientRect().top; //Distance from top of screen
+        const ele4Top: Number = ele4.getBoundingClientRect().top; //Distance from top of screen
+        const eTime1Top: Number = eTime1.getBoundingClientRect().top; //Distance from top of screen
+        const eTime2Top: Number = eTime2.getBoundingClientRect().top; //Distance from top of screen
+        const eTime3Top: Number = eTime3.getBoundingClientRect().top; //Distance from top of screen
+        const eTime4Top: Number = eTime4.getBoundingClientRect().top; //Distance from top of screen
+        const eTime5Top: Number = eTime5.getBoundingClientRect().top; //Distance from top of screen
 
         let arr = [
             {
@@ -649,7 +649,7 @@ onMounted(() => {
                                 .wrap1{
                                     position: relative;
                                     height: 2vw;
-                                    width: 90%; // 控制进度
+                                    width: 90%; // Control progress
                                     background-color: #dbba11;
                                     background-image: linear-gradient(-60deg, transparent 0rem, transparent 0.8rem, #f5de6b 0.8rem, #e2c94d 1.6rem, transparent 1.6rem, transparent 2.4rem, #e6d273 2.4rem);
                                     background-size: 30px 38px;
@@ -658,7 +658,7 @@ onMounted(() => {
                                 .wrap2{
                                     position: relative;
                                     height: 2vw;
-                                    width: 80%; // 控制进度
+                                    width: 80%; // Control progress
                                     background-color: #CCF493;
                                     background-image: linear-gradient(-60deg, transparent 0rem, transparent 0.8rem, #aed37a 0.8rem, #99c063 1.6rem, transparent 1.6rem, transparent 2.4rem, #acd670 2.4rem);
                                     background-size: 30px 38px;

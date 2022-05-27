@@ -2,26 +2,26 @@
     "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/types/.d.ts/moralis.d.ts"],
     "noUnusedParameters": false,
     "compilerOptions": {
-        "outDir": "./dist", // 指定输出目录
-        "target": "esnext", // 目标语言的版本
+        "outDir": "./dist", // Specify output directory
+        "target": "esnext", // Target language version
         "useDefineForClassFields": true,
-        "module": "esnext", // 生成代码的模板标准
-        "moduleResolution": "node", // 模块解析策略，ts默认用node的解析策略，即相对的方式导入
-        "strict": true, // 开启所有严格的类型检查
+        "module": "esnext", // Template standard for generating code
+        "moduleResolution": "node", // Module resolution strategy: TS uses node resolution strategy by default, that is, import in a relative way
+        "strict": true, // Open all strict type checks
         "jsx": "preserve",
-        "sourceMap": true, // 生成目标文件的sourceMap文件
+        "sourceMap": true, // Generate sourcemap file for target file
         "resolveJsonModule": true,
-        "esModuleInterop": true, // 允许export=导出，由import from 导入
-        "lib": ["esnext", "dom"], // TS需要引用的库，即声明文件，es5 默认引用dom、es5、scripthost,如需要使用es的高级版本特性，通常都需要配置，如es8的数组新特性需要引入"ES2019.Array"
+        "esModuleInterop": true,
+        "lib": ["esnext", "dom"],
         "skipLibCheck": true,
-        "baseUrl": "./", // 解析非相对模块的基地址，默认是当前目录
+        "baseUrl": "./", // Resolve the base address of the non relative module. The default is the current directory
         "paths": {
-            // 路径映射，相对于baseUrl
+            // Path mapping, relative to baseurl
             "@/*": ["./src/*"]
-            // 如使用jq时不想使用默认版本，而需要手动指定版本，可进行如下配置
+            // If you do not want to use the default version when using JQ, but need to specify the version manually, you can configure it as follows
             // "jquery": ["node_modules/jquery/dist/jquery.min.js"]
         },
-        "checkJs": false, // 允许在JS文件中报错，通常与allowJS一起使用
-        "removeComments": true // 删除注释
+        "checkJs": false, // It is allowed to report errors in JS files. It is usually used with allowjs
+        "removeComments": true // Delete Note
     }
 }

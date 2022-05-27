@@ -75,7 +75,7 @@ const props = defineProps({
     },
 })
 
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 
 // input
@@ -94,7 +94,7 @@ watch(active, (newVal: any, oldVal) => {
 
 const inputNumber = (e:any) => {
     console.log(e.target.value);
-    let regExp = /^[0-9]+$/; // 驗證是否為正整數
+    let regExp = /^[0-9]+$/; // Verify that is a positive integer
     valueIn.value = e.target.value
     if (!e.target.value || !(regExp.test(valueIn.value)) || Number(valueIn.value) > Number(props.haveCTY)) {
         numState.value = 'error' 
@@ -122,7 +122,7 @@ const stakingCYT =  async () => {
         if(stake_result) {
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
             store.dispatch('user/stakingState', { show: true, info: { state: 7, haveCTY: props.haveCTY }});
-            store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // 操作成功 页面监听到，再刷新数据
+            store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
             return;
         }
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})

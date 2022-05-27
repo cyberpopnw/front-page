@@ -1243,7 +1243,7 @@ const nft_fuji = {
         }
     ]
 }
-// 游戏合约 mumbai
+// game mumbai
 const arms = {
     address: '0x3B52df1CAcb5d397f7A23Bf136DE110584d0Cd60',
     abi: [
@@ -1879,7 +1879,7 @@ const arms = {
         }
     ]
 }
-// 武器合约 mumbai
+// weapons mumbai
 const weapons = {
     address: '0x8c7afbc6cabb0f97d71a0775b062b333c654fb5b',
     abi: [
@@ -3295,7 +3295,7 @@ const erc721 = {
         }
     ]
 }
-// 游戏池 mumbai
+// game pool mumbai
 const gamePool = {
     address: '0xB2172269b03BD2b5c89dcB2A7187632B435E8484',
     abi: [
@@ -3762,7 +3762,7 @@ const gamePool = {
         }
     ]
 }
-// 礼盒合约 fuji
+// giftbox fuji
 const GiftBox = {
     address: '0x55eFD6D4cF31F925E36d268C12353848c9e782fD',
     abi: [
@@ -4580,7 +4580,7 @@ const GiftBox = {
         }
     ]
 }
-// 礼盒 mumbai
+// lootbox mumbai
 const LootBox = {
     address: '0xC5FE394692a469BD5789D8247F281403e064E576',
     abi: [
@@ -5398,7 +5398,7 @@ const LootBox = {
         }
     ]
 }
-// 头像合约
+// header
 const cyberClub = {
     address: '0x04b5D133394F360A3B88600043b8153AaA1C0e59',
     abi: [
@@ -6110,7 +6110,7 @@ const cyberClub = {
         }
     ]
 }
-// 头像合约
+// hader fuji
 const cyberClub_Fuji = {
     address: '0x4B4cbe55125B48e868AA68E08b7527524C46E8AC',
     abi: [
@@ -6822,7 +6822,7 @@ const cyberClub_Fuji = {
         }
     ]
 }
-// 角色合约
+// cyborg
 const Cyborg = {
     address: '0x37e769d34Cb48fb074fDd181bB4d803fBD49C712',
     abi: [  
@@ -7622,7 +7622,7 @@ const Cyborg = {
         }
     ]
 }
-// 角色合约
+// role fuji
 const Cyborg_Fuji = {
     address: '0x78F66E37e9fE077d2F0126E3a26e6FB0D14F2BB0',
     abi: [
@@ -8423,7 +8423,7 @@ const Cyborg_Fuji = {
     ]
 }
 
-// 游戏合约
+// game
 const game_Fuji= {
     address: '0xD4c27B5A5c15B1524FC909F0FE0d191C4e893695',
     abi: [
@@ -9297,7 +9297,7 @@ const game_Fuji= {
         }
     ]
 }
-// 市场合约 mumbao
+// shop mumbao
 const MarketV2 = {
     address: '0x1b4BbE8885399E0676D1Cad726B8eFD35C5f13FD',
     abi: [

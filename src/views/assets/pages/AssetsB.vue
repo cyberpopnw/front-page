@@ -210,8 +210,8 @@ import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 const router = useRouter()
 const { proxy } = getCurrentInstance() as any;
-const realId = computed(() => store?.state.user?.realId);  // 星号地址
-const idTemp: any = computed(() => store?.state.user?.idTemp);  // 完整地址
+const realId = computed(() => store?.state.user?.realId);  // Asterisk address
+const idTemp: any = computed(() => store?.state.user?.idTemp);  // Full address
 const tokenId = ref(1);
 const loadAddress: any = ref(0)
 const loadAbi: any = ref(0);
@@ -226,7 +226,6 @@ const copyUrl = (e:any) => {
         document.body.appendChild(input);
         input.setAttribute("value", e.target.innerText);
         input.select();
-        //返回值为一个Boolean，如果是 false 则表示操作不被支持或未被启用
         if (document.execCommand("copy")) {
             document.execCommand("copy");
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
@@ -238,7 +237,7 @@ const copyUrl = (e:any) => {
     }
 }
 
-// 获取address绑定的信息
+// Get address binding information
 const addressInfo = () => {
     proxy.$api.get(`/code/user/baddress?address=${idTemp.value}`).then((result: any) => {
         email.value = result.data;
@@ -310,7 +309,7 @@ const changeText = (parentLi:any) => {
     const selectedArr = parentLi.querySelectorAll('.selected')
     const selectArrLen = selectedArr.length
     if( selectArrLen == 0 ){
-        // 当不选择时，默认勾选第一项
+        // When not selected, the first item is checked by default
         firstLi = parentLi.parentElement.querySelectorAll('li')[1].querySelector('div').innerText;
         (parentLi.parentElement.querySelector('li').querySelector('div') as HTMLElement).innerText = firstLi;
         parentLi.parentElement.querySelectorAll('li')[1].querySelector('div').classList.add('selected');
@@ -367,9 +366,9 @@ const selectItem = (e:any) => {
         if( e.target.innerText == 'ALL' || e.target.innerText == 'ERC 721' || e.target.innerText == 'ERC 1155' ){
             // changeText(parentLi);
             (parentLi.parentElement.querySelector('li').querySelector('div') as HTMLElement).innerText = e.target.innerText;
-            var eDiv = e.target.parentNode.children;//获取父级所有子集元素
+            var eDiv = e.target.parentNode.children;//Get all subset elements of parent
             for (var i = 0, elen = eDiv.length; i < elen; i++) {
-                if ( eDiv[i] !== e.target) {           //排除自己
+                if ( eDiv[i] !== e.target) {           //Exclude yourself
                     eDiv[i].classList.remove('selected')
                 }
             }
@@ -432,21 +431,21 @@ const { nft, nft_fuji, arms, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_
 const getData: any = async (type: Number, filter?: any) => {
     if(!filter) data.value = [];
     if(loadingState.value == 1) return;
-    loadingState.value = 1; // 初始化为0 1表示加载中 2表示加载完毕
+    loadingState.value = 1; // Initialize to 0. 1 means loading. 2 means loading is complete
     let result: any = await getGamePool(idTemp.value)
     let weapons = [];
     let role = [];
     let badge = [];
     for (const iterator in result) {
-        if(iterator.length == 6){ // 武器id
+        if(iterator.length == 6){ // arms id
             let key = iterator 
             let val = result[iterator]
             weapons.push({
                 [ key ]: val
             })
-        }else if(iterator.length == 11){ // 角色id
+        }else if(iterator.length == 11){ // role id
             role.push(iterator)
-        }else if(iterator.length == 7){ //徽章id
+        }else if(iterator.length == 7){ //bagel id
             let key = iterator 
             let val = result[iterator]
             badge.push({
@@ -461,7 +460,7 @@ const getData: any = async (type: Number, filter?: any) => {
     
     if(chainId.value == 80001){  //mumbai
         if(!type){
-            if(filter){ // 左侧栏目筛选
+            if(filter){ // Left column filter
                 if(filter == 'Game'){
                     let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.user?.game);
                     await getNFTData(game_resulte, 'game', 'game_mumbai');
@@ -492,7 +491,7 @@ const getData: any = async (type: Number, filter?: any) => {
             let box_result = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.user?.box);
             await getNFTData(box_result, 'box', 'box_mumbai', store.state.user?.box);
         }else if(type == 1){
-            if(filter){ // 左侧栏目筛选
+            if(filter){ // Left column filter
                 if(filter == 'role'){
                     let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
                     await getHead(role_result, 'role', 'role_mumbai');
@@ -509,7 +508,7 @@ const getData: any = async (type: Number, filter?: any) => {
         }else{
             // let result = await Web3.batchBalanceOf(nft.abi, nft.address);
             // await getNFTData(result, 'server', 'server_mumbai');
-            if(filter){ // 左侧栏目筛选
+            if(filter){ // Left column filter
                 if(filter == 'Game'){
                     let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.user?.game);
                     await getNFTData(game_resulte, 'game', 'game_mumbai', store.state.user?.game);
@@ -532,7 +531,7 @@ const getData: any = async (type: Number, filter?: any) => {
     }
     if(chainId.value == 43113){ // fuji
         if(!type){
-            if(filter){ // 左侧栏目筛选
+            if(filter){ // Left column filter
                 if(filter == 'Game'){
                     let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.user?.game);
                     await getNFTData(game_result, 'game', 'game_fuji', store.state.user?.game)
@@ -563,7 +562,7 @@ const getData: any = async (type: Number, filter?: any) => {
             await getNFTData(box_result, 'box', 'box_fuji', store.state.user?.box);
             
         }else if(type == 1){
-            if(filter){ // 左侧栏目筛选
+            if(filter){ // Left column filter
                 if(filter == 'role'){
                     let Cyborg_result = await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
                     await getHead(Cyborg_result, 'role', 'role_fuji');
@@ -578,7 +577,7 @@ const getData: any = async (type: Number, filter?: any) => {
             let cyberClub_result = await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address);
             await getHead(cyberClub_result, 'head', 'head_fuji');
         }else{
-            if(filter){ // 左侧栏目筛选
+            if(filter){ // Left column filter
                 if(filter == 'Game'){
                     let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.user?.game);
                     await getNFTData(game_result, 'game', 'game_fuji', store.state.user?.game)
@@ -600,10 +599,9 @@ const getData: any = async (type: Number, filter?: any) => {
         }
     }
     
-    if(!filter) loadingState.value = 2; // 加载完毕
+    if(!filter) loadingState.value = 2; // Loading complete
 }
 
-// 头像的nft 数组[0, 1]表示 有两个nft资产，id分别为0和1
 const getHead: any = async (res: any, path: any, type: any, isLoading?: any) => {
     return new Promise((resolve, reject) => {
         if(res.length == 0) {
@@ -632,11 +630,10 @@ const getHead: any = async (res: any, path: any, type: any, isLoading?: any) => 
 }
 
 
-// 正常的nft 数组[0,1]表示id为0的nft没有资产， id为1的ntf资产为1
 const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoading?: any) => {
     return new Promise((resolve, reject) => {
          (function loop(index){
-             if(res[index] == 0) { //为了减少不必要的请求
+             if(res[index] == 0) { //To reduce unnecessary requests
                  if (++index<res.length) {
                     loop(index);
                 } else {
@@ -733,7 +730,7 @@ const initMyAssetes = async () => {
     myAssets.value.cyt = a || 0;
     myAssets.value.coin = b || 0;
     console.log(myAssets.value, 'cyt');
-        // 是否购买了白皮书
+        // Have you purchased a white paper
     proxy.$api.post(`/bobabrewery/boba/api/v1/cyberpop?walletAddress=${idTemp.value}`).then((res: any) => {
         console.log(res.data, 'data');
         res.data?.code != 200 ? bobabrewery.value = 'request fail' : bobabrewery.value = '';
@@ -746,7 +743,7 @@ const initMyAssetes = async () => {
 
 
 
-// 开盒子
+// Open the box
 const open = async (item: any) => {
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'), addNetwork: false, boxId: item.id, haveNFT: item.number }});

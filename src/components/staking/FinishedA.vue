@@ -53,7 +53,7 @@ defineExpose({
 
 
 
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 
 //state
@@ -67,7 +67,6 @@ const closeDialog = () => {
     }, 300);
 }
 
-// 确认选择
 const confirm = async () => {
     if(selected.value == 0){
         let result = await Web3.getReward(staking.abi, staking.address)

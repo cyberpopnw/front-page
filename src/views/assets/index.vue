@@ -10,7 +10,7 @@ import AssetsB from './pages/AssetsB.vue'
 
 const innerWidth = computed(() => {
     return store.state.sys?.innerWidth || 0
-}) // 监听屏幕宽度
+}) // Monitor screen width
 
 </script>
 <style lang="less" scoped>

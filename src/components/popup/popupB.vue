@@ -41,7 +41,7 @@ const props = defineProps({
 
 const transferActive = computed(() => store?.state.user?.transferActive);
 const transferAni = computed(() => store?.state.user?.transferAni);
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 let transferInfoMsg:any = ref(null) 
 let abiMsg:any = ref(null) 
 let addressMsg:any = ref(null) 
@@ -65,7 +65,7 @@ watch(props,(newVal,oldVal) => {
     
     transferInfoMsg.value = newVal
     haveNFT.value = transferInfoMsg.value.transferInfo.number
-    haveNFTCount.value = haveNFT.value.length - 1 // 拥有nft的数量位数
+    haveNFTCount.value = haveNFT.value.length - 1 // Number of bits with NFT
     idMsg.value = transferInfoMsg.value.transferInfo.id 
     abiMsg.value = transferInfoMsg.value.abi
     addressMsg.value = transferInfoMsg.value.address
@@ -167,16 +167,16 @@ const transfer = async () => {
         inputState.value = ''
         addressState.value = 'empty'
     }else if( inputState.value == 'success' && numState.value == ''){
-       if( Number(valueIn.value) > Number(haveNFT.value) ){ // 如果输入数量大于持有数量
+       if( Number(valueIn.value) > Number(haveNFT.value) ){ // If the entered quantity is greater than the held quantity
             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_exce')}})
         }else{
             console.log(abiMsg.value, addressMsg.value, inputAddress.value, idMsg.value, valueIn.value);
             console.log(props.transferInfo?.type, 'props.transferInfo?.type');
             if(props.transferInfo?.type == 'role_mumbai' || props.transferInfo?.type == 'role_fuji' || props.transferInfo?.type == 'head_mumbai' || props.transferInfo?.type == 'head_fuji'){
                 let result = await Web3.safeTransferFrom(abiMsg.value, addressMsg.value, inputAddress.value, Number(idMsg.value));
-                if(!result){ // 如果转账失败
+                if(!result){ // If the transfer fails
                     store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
-                }else{ // 转账成功
+                }else{ // Transfer succeeded
                     closeDialog();
                     store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
                     store.dispatch('user/transferSuccess', result)
@@ -184,13 +184,13 @@ const transfer = async () => {
                 return;
             }
             let result = await Web3.safeTransferFrom(abiMsg.value, addressMsg.value, inputAddress.value, Number(idMsg.value), valueIn.value);
-            if(!result){ // 如果转账失败
+            if(!result){ // If the transfer fails
                 store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
-            }else{ // 转账成功
+            }else{ // Transfer succeeded
                 closeDialog();
                 store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
                 store.dispatch('user/transferSuccess', result)
-                store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // 操作成功刷新数据
+                store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // Number of bits with NFT
             }
        }
     }
