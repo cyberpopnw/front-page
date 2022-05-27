@@ -60,20 +60,20 @@ const isChinese = (val: any) => {
     }
 }
 
-const cname = ref(0) // 城市名字
+const cname = ref(0) // City name
 
 
 onMounted(() => {
     const ethereum = (window as any).ethereum 
-    window.onresize = () => store.dispatch('sys/get_screen_size') // 监听屏幕尺寸
+    window.onresize = () => store.dispatch('sys/get_screen_size') // Monitor screen size
     
-    if(ethereum){  // 如果安装了metamask才执行
+    if(ethereum){  // Only execute if metamask is installed
         ethereum.on("accountsChanged", (accounts: any) => {
-            console.log(accounts[0]);//一旦切换账号这里就会执行
+            console.log(accounts[0]); //Once the account is switched, it will be executed here
             let id = accounts[0];
             let len = id.length-1;
             id = id[0]+id[1]+id[2]+id[3]+id[4]+"*****"+id[len-3]+id[len-2]+id[len-1]+id[len];
-            store.dispatch('user/connectWallet',{realId:id, idTemp:accounts[0]});// 存放星号id、完整id
+            store.dispatch('user/connectWallet',{realId:id, idTemp:accounts[0]});// Store asterisk ID and complete id
             store.dispatch('user/dataSumSearch',{flag:0});
         });
         ethereum.on('chainChanged', (chainId: string) => {
@@ -91,17 +91,17 @@ onMounted(() => {
         });
     }
 
-    // 如果携带了邀请的code自动跳转
+    // If the code of the invitation is carried, it will jump automatically
     console.log(router.currentRoute.value.query.code, 'router.currentRoute.value.query.code');
     
     // setTimeout(() => {
     //     if(router.currentRoute.value.query.code) router.push({ path: '/download', query: { code: router.currentRoute.value.query.code || '' } })
     // }, 500);
      
-    // 验证是否是中国IP
+    // Verify whether it is a Chinese IP
     var returnCitySN = (window as any).returnCitySN;
     console.log(returnCitySN, 'returnCitySN');
-    let HongShou = '125.69.86.177' // ip 白名单
+    let HongShou = '125.69.86.177' // ip White list
     let HongShou5G = '125.69.86.216'
     let indiegame = "171.223.208.133"
     console.log(process.env.NODE_ENV, 'process.env'); 

@@ -55,7 +55,7 @@ const { t } = useI18n()
 const emit = defineEmits(['closeRegister']);
 const { proxy } = getCurrentInstance() as any;
 const props = defineProps({
-    register: {  //是否显示
+    register: {  //Whether to display
         type: Boolean,
         default: false
     }, 
@@ -121,7 +121,7 @@ const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: stri
 const messgSing = async (publicAddress: any) => {
     try {
         const Web3 = (window as any).Web3;
-        const web3 = new Web3((window as any).ethereum) // 创建一个新的web3 对象
+        const web3 = new Web3((window as any).ethereum) // Create a new Web3 object
         const result = await web3.eth.personal.sign(
             `cyber-business`,
             publicAddress,
@@ -140,12 +140,12 @@ const messgSing = async (publicAddress: any) => {
 }
 
 
-//验证邮箱是否已经注册过了
+//Verify that the mailbox has been registered
 const verification = () => {
     return new Promise((resolve, reject) => {
         proxy.$api.get(`/code/user/bemail?email=${email.value}`).then((res: any) => {
-            if(res.data === true) { // 该邮箱没有注册过
-                const ethereum = (window as any).ethereum // 获取小狐狸实例
+            if(res.data === true) { // This mailbox has not been registered
+                const ethereum = (window as any).ethereum // Get fox instance
                 console.log(ethereum, 'ethereum');
                 if(!ethereum){
                     getPublicAddress(email.value, props.code, '')
@@ -175,7 +175,7 @@ const submit = async () => {
     // if(emailInput() && emailCodeInput()){
     //     proxy.$api.get(`/game/verify_email?email=${email.value}&verify_code=${emailCode.value}`).then((res: any) => {
     //         if(res.error == 'ok'){
-    //             const ethereum = (window as any).ethereum // 获取小狐狸实例
+    //             const ethereum = (window as any).ethereum //Get fox instance
     //             console.log(ethereum, 'ethereum');
     //             if(!ethereum){
     //                 getPublicAddress(email.value, props.code, '')
@@ -201,7 +201,7 @@ const blur = (type: any) => {
         nicknameErr.value = false;
         if(nickname.value.trim().length == 0 || nickname.value.trim().length > 50) nicknameErr.value = true;
     }else if(type == 1){
-        // let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
+        // let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/;
         // emailErr.value = false;
         // if(!reg.test(email.value)) emailErr.value = true;
     }else if(type == 2){
@@ -241,7 +241,7 @@ const send = () => {
 }
 
 const emailInput = () => {
-    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
+    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/;
     emailErr.value = false;
     if(!reg.test(email.value)) {
         emailErr.value = true;

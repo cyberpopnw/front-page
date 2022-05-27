@@ -52,9 +52,9 @@ const emit = defineEmits(['initLoad']);
 
 const { proxy } = getCurrentInstance() as any;
 const { MarketV2, cyt, Cyborg, gamePool } = Web3.contracts;
-const state = ref(0) // 状态值
+const state = ref(0) // Status value
 const props = defineProps({
-    isShowTips: {  //是否显示
+    isShowTips: {  //Whether to display
         type: Boolean,
         default: false
     }, 
@@ -80,7 +80,7 @@ const props = defineProps({
     }
 })
 
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 
 
 // input
@@ -101,9 +101,9 @@ const initLoadGame = async () => {
     
     let result = props.number ? await Web3.isApprovedForAll(props.loadAbi, props.loadAddress, gamePool.address) : await Web3.getApproved(props.loadAbi, props.loadAddress, props.tokenId);
     console.log(result);
-    if(!Number(result)) { //没有授权
+    if(!Number(result)) { //No authorization
         let res = props.number ? await Web3.setApprovalForAll(props.loadAbi, props.loadAddress) : Web3.approvePool(props.loadAbi, props.loadAddress, props.tokenId);
-        if(!res) { // 如果放弃授权
+        if(!res) { // If authorization is waived
             state.value = 2;
             return;
         }
@@ -118,7 +118,7 @@ const initLoadGame = async () => {
     }else{
         state.value = 4;
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}});
-        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // 操作成功 页面监听到，再刷新数据
+        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
         emit('initLoad');
     }
 }

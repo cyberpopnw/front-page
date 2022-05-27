@@ -65,20 +65,20 @@ const props = defineProps({
 
 
 const options = reactive({
-//   width: '800px', //播放器高度
-//   height: '450px', //播放器高度
-  color: "#409eff", //主题色
-  title: '', //视频名称
-  src: "https://d2cimmz3cflrbm.cloudfront.net/nwhome/output.mp4", //视频源
-  muted: true, //静音
+//   width: '800px', //Player height
+//   height: '450px', //Player height
+  color: "#409eff", //Theme color
+  title: '', //Video name
+  src: "https://d2cimmz3cflrbm.cloudfront.net/nwhome/output.mp4", //Video source
+  muted: true, //Mute
   webFullScreen: true,
-  speedRate: ["0.75", "1.0", "1.25", "1.5", "2.0"], //播放倍速
-  autoPlay: true, //自动播放
-  loop: true, //循环播放
-  mirror: false, //镜像画面
-  ligthOff: false,  //关灯模式
-  volume: 0.3, //默认音量大小
-  control: true, //是否显示控制器
+  speedRate: ["0.75", "1.0", "1.25", "1.5", "2.0"], //Playback speed
+  autoPlay: true, //Autoplay
+  loop: true, //Loop Playback
+  mirror: false, //Mirror image
+  ligthOff: false,  //lights-out mode
+  volume: 0.3, //Default volume size
+  control: true, //Show controller
 })
 
 
@@ -122,34 +122,4 @@ onMounted(() => {
 ::deeep(.d-player-wrap .d-player-control) {
     transform: translateY(100px);
 }
-
-
-
- //播放按钮
-// video::-webkit-media-controls-play-button {
-//     display: none;
-// }
-//进度条
-// video::-webkit-media-controls-timeline {
-//     display: none;
-// }
-//观看的当前时间
-// video::-webkit-media-controls-current-time-display{
-//     display: none;           
-// }
-//剩余时间
-// video::-webkit-media-controls-time-remaining-display {
-//     display: none;           
-// }
-//音量按钮
-// video::-webkit-media-controls-mute-button {
-//     display: none;           
-// }
-// video::-webkit-media-controls-toggle-closed-captions-button {
-//     display: none;           
-// }
-// //音量的控制条
-// video::-webkit-media-controls-volume-slider {
-//     display: none;           
-// }
 </style>

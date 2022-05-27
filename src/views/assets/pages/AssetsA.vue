@@ -237,8 +237,8 @@ const { t } = useI18n();
 
 const router = useRouter()
 const { proxy } = getCurrentInstance() as any
-const realId = computed(() => store?.state.user?.realId);  // 星号地址
-const idTemp: any = computed(() => store?.state.user?.idTemp);  // 完整地址
+const realId = computed(() => store?.state.user?.realId);  // Asterisk address
+const idTemp: any = computed(() => store?.state.user?.idTemp);  // Full address
 const TipsState: any = ref(false as any)  // has popup-a 
 const transition = ref(true);
 const tokenId = ref(1);
@@ -249,7 +249,7 @@ const loadingState: any = ref(0);
 const chainId: any = computed(() => store.state.user?.chainId );
 const transferSuccess = computed(() => store.state.user?.transferSuccess);
 const email: any = ref('')
-const whiteList: any = ref(false); //是否购买了白皮书
+const whiteList: any = ref(false); //Have you purchased a white paper
 
 watch(chainId, (newVal, oldVal: any) => {
     if(!oldVal || oldVal == -1) return;
@@ -300,13 +300,13 @@ const addressInfo = () => {
     })
 }
 
-左侧图标滚动
+// Left Icon scroll
 const myNav:any = ref(null);
 const windowScroll: any = () => {
     if( data.value.length === 0 ) return
-    const navHeight: number = myNav.value.offsetHeight;  // 该元素离顶部的距离
-    const cHeight: number = document.documentElement.clientHeight; // 窗口高度
-    const scrollHeight: number = document.documentElement.scrollTop; // 向下滑动了多少px
+    const navHeight: number = myNav.value.offsetHeight;  // Distance of the element from the top
+    const cHeight: number = document.documentElement.clientHeight; // Window height
+    const scrollHeight: number = document.documentElement.scrollTop; // How many PX slides down
     startMove(Math.ceil((cHeight - navHeight - 196) + scrollHeight));
 }
 
@@ -324,10 +324,10 @@ const startMove = (target : any) => {
 // const ecrchange: any = ref(null);
 // const head: any = ref(null);
 // const windowScroll: any = () => {
-//     let navHeight: number = myNav.value.offsetHeight;  // nav元素高度
+//     let navHeight: number = myNav.value.offsetHeight;  // NAV element height
 //     let content = ecrchange.value.offsetTop;
-//     let cHeight: number = document.documentElement.clientHeight; // 窗口高度
-//     let scrollHeight: number = document.documentElement.scrollTop; // 向下滑动了多少px
+//     let cHeight: number = document.documentElement.clientHeight; // Window height
+//     let scrollHeight: number = document.documentElement.scrollTop; // How many PX slides down
 //     console.log(navHeight, navHeight, cHeight, scrollHeight, content);
 //     myNav.value.style.top =  scrollHeight + content - (navHeight / 3) + 'px';
 // }
@@ -344,7 +344,7 @@ const initMyAssetes = async () => {
     myAssets.value.cyt = a || 0;
     myAssets.value.coin = b || 0;
     // console.log(myAssets.value, 'cyt');
-    // 是否购买了白皮书
+    // Have you purchased a white paper
     console.log(idTemp.value, 'idTemp');
     proxy.$api.post(`/bobabrewery/boba/api/v1/cyberpop?walletAddress=${idTemp.value}`).then((res: any) => {
         console.log(res.data, 'data');
@@ -366,7 +366,7 @@ let selectArr = ref([])
 let tbool:any = ref(false)
 let qbool:any = ref(false)
 let typeRef = ref([])
-const hobby2: any = ref([]); // 已经选择的复选框
+const hobby2: any = ref([]); // Checkboxes already selected
 watch(() => hobby2.value, (now, old) => {
     console.log(now, 'now'); //Proxy {0: 'Game'}
     if(now.length == 0) {
@@ -374,7 +374,7 @@ watch(() => hobby2.value, (now, old) => {
         return; 
     };
 
-    console.log(loadingState.value, '哈哈哈哈');
+    console.log(loadingState.value, 'loadingState');
     
     if(loadingState.value == 1) return;
     (async function loop(index){
@@ -392,7 +392,7 @@ watch(() => hobby2.value, (now, old) => {
             }, 400);
         } else {
             loadingState.value = 2; // 加载完毕
-            console.log(loadingState.value, 'loadingState filter 加载完毕');
+            console.log(loadingState.value, 'loadingState filter Loading complete');
             
         }
     })(0)
@@ -465,7 +465,7 @@ const loadPool = async (item: any) => {
     return;
 }
 
-// 提现取回
+// Withdrawal and withdrawal
 const withdrawRole =  async (item: any) => {
     if(chainId.value != 80001 || !item.isLoading) return;
     console.log(item);
@@ -484,13 +484,13 @@ const initLoad = () => {
 
 const { nft, nft_fuji, arms, gamePool, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, LootBox, cytV2, coin } = Web3.contracts;
 
-const getData: any = async (type: Number, filter: any = false) => { // erc正常的数据模式
+const getData: any = async (type: Number, filter: any = false) => {
     if(!filter) {
         data.value = [];
         window.scrollTo(0,0);
     }
     if(loadingState.value == 1) return;
-    loadingState.value = 1; // 初始化为0 1表示加载中 2表示加载完毕
+    loadingState.value = 1; // Initialize to 0. 1 means loading. 2 means loading is complete
     console.log(loadingState.value, 'loadingState');
     
     let result: any = await getGamePool(idTemp.value)
@@ -498,15 +498,15 @@ const getData: any = async (type: Number, filter: any = false) => { // erc正常
     let role = [];
     let badge = [];
     for (const iterator in result) {
-        if(iterator.length == 6){ // 武器id
+        if(iterator.length == 6){ // arms id
             let key = iterator  
             let val = result[iterator]
             weapons.push({
                 [ key ]: val
             })
-        }else if(iterator.length == 11){ // 角色id
+        }else if(iterator.length == 11){ // role id
             role.push(iterator)
-        }else if(iterator.length == 7){ //徽章id
+        }else if(iterator.length == 7){ // badge id
             let key = iterator 
             let val = result[iterator]
             badge.push({
@@ -521,7 +521,7 @@ const getData: any = async (type: Number, filter: any = false) => { // erc正常
     return new Promise(async (resolve, reject) => {
             if(chainId.value == 80001){  //mumbai
                 if(!type){
-                    if(filter){ // 左侧栏目筛选
+                    if(filter){ // Left column filter
                         console.log(filter, 'filter');
                         
                         if(filter == 'Game'){
@@ -531,8 +531,6 @@ const getData: any = async (type: Number, filter: any = false) => { // erc正常
                             // let nft = await Web3.batchBalanceOf(nft.abi , nft.address, store.state.user?.badge);
                             // await getNFTData(nft, 'server', 'server_mumbai', store.state.user?.badge);
                         }else if(filter == 'role'){
-                            console.log('来了');
-                            
                             let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
                             await getHead(role_result, 'role', 'role_mumbai');
                         }else if(filter == 'head'){
@@ -557,7 +555,7 @@ const getData: any = async (type: Number, filter: any = false) => { // erc正常
                     let box_result = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.user?.box);
                     await getNFTData(box_result, 'box', 'box_mumbai', store.state.user?.box);
                 }else if(type == 1){
-                    if(filter){ // 左侧栏目筛选
+                    if(filter){ // Left column filter
                         if(filter == 'role'){
                             let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
                             await getHead(role_result, 'role', 'role_mumbai');
@@ -575,7 +573,7 @@ const getData: any = async (type: Number, filter: any = false) => { // erc正常
                 }else{
                     // let result = await Web3.batchBalanceOf(nft.abi, nft.address);
                     // await getNFTData(result, 'server', 'server_mumbai');
-                    if(filter){ // 左侧栏目筛选
+                    if(filter){ // Left column filter
                         if(filter == 'Game'){
                             let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.user?.game);
                             await getNFTData(game_resulte, 'game', 'game_mumbai', store.state.user?.game);
@@ -598,7 +596,7 @@ const getData: any = async (type: Number, filter: any = false) => { // erc正常
             }
             if(chainId.value == 43113){ // fuji
                 if(!type){
-                    if(filter){ // 左侧栏目筛选
+                    if(filter){ // Loading complete
                         if(filter == 'Game'){
                             let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.user?.game);
                             await getNFTData(game_result, 'game', 'game_fuji', store.state.user?.game)
@@ -630,7 +628,7 @@ const getData: any = async (type: Number, filter: any = false) => { // erc正常
                     await getNFTData(box_result, 'box', 'box_fuji', store.state.user?.box);
                     
                 }else if(type == 1){
-                    if(filter){ // 左侧栏目筛选
+                    if(filter){ // Left column filter
                         if(filter == 'role'){
                             let Cyborg_result = await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
                             await getHead(Cyborg_result, 'role', 'role_fuji');
@@ -646,7 +644,7 @@ const getData: any = async (type: Number, filter: any = false) => { // erc正常
                     let cyberClub_result = await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address);
                     await getHead(cyberClub_result, 'head', 'head_fuji');
                 }else{
-                    if(filter){ // 左侧栏目筛选
+                    if(filter){ // Left column filter
                         if(filter == 'Game'){
                             let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.user?.game);
                             await getNFTData(game_result, 'game', 'game_fuji', store.state.user?.game)
@@ -669,12 +667,12 @@ const getData: any = async (type: Number, filter: any = false) => { // erc正常
                 }
             }
 
-            loadingState.value = 2; // 加载完毕 
+            loadingState.value = 2; // Left column filter
             resolve(1);
     })
 }
 
-// 头像的nft 数组[0, 1]表示 有两个nft资产，id分别为0和1
+// array [0, 1] Indicates that there are two NFT assets with IDS 0 and 1 respectively
 const getHead: any = async (res: any, path: any, type: any, isLoading?: any) => {
     return new Promise((resolve, reject) => {
         if(res.length == 0) {
@@ -702,11 +700,11 @@ const getHead: any = async (res: any, path: any, type: any, isLoading?: any) => 
     })
 }
 
-// 正常的nft 数组[0,1]表示id为0的nft没有资产， id为1的ntf资产为1
+// The array [0,1] indicates that the NFT with ID 0 has no assets, and the NTF asset with ID 1 is 1
 const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoading?: any) => {
     return new Promise((resolve, reject) => {
          (function loop(index){
-             if(res[index] == 0) { //为了减少不必要的请求
+             if(res[index] == 0) { //To reduce unnecessary requests
                  if (++index<res.length) {
                     loop(index);
                 } else {
@@ -797,10 +795,10 @@ const transferPopup = (item:any) => {
 }
 
 
-// 開盒子
+// Open the box
 const open = (item: any) => {
     if(item.number == 0) return;
-    // getLast(); // 查询资产合约中最后一位为立马开启的资产
+    // getLast(); // Query the last asset opened immediately in the asset contract
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: true, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'),   addNetwork: false, boxId: item.id, haveNFT: item.number }});
 }
@@ -1287,7 +1285,7 @@ onMounted(() => {
             margin-top: 10vw;
             border: 2px solid;
             width: 56.74vw;
-            background-color: rgba(255, 0, 0, 0); /* 不支持线性的时候显示 */
+            background-color: rgba(255, 0, 0, 0); /* Display when linear is not supported */
             background-image: linear-gradient(to right, rgba(81, 105, 139, 0.027) , rgba(77, 122, 165, 0.582));
             border: 2px solid;
             border-image: linear-gradient(206deg, rgb(255, 255, 255), rgba(139, 255, 178, 0.31)) 2 2;

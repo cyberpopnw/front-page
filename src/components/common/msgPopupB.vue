@@ -13,7 +13,7 @@
                         <span @click="changeChain(85)">{{ $t('message.common.metamask.switchGate') }}</span>  
                     </div>
                 </div>
-                <!-- 開啟盒子 -->
+                <!-- Open the box -->
                 <div v-if="boxId != undefined">
                     <div class="tips" v-show="numState == ''">{{$t('message.assets.pop.tips')}}</div>
                     <div class="tips" v-show="numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
@@ -32,7 +32,7 @@
                         <img src="@/assets/nwhomePhone/loading-phone.svg" alt="">
                     </div>
                 </div>
-                <!-- 轉帳狀態 -->
+                <!-- Transfer status -->
                 <div v-if="boxId == undefined && isLoading">
                     <div v-if="props.content" class="text">{{ props.content }}</div>
                     <div v-if="props.content" class="loading">
@@ -56,13 +56,13 @@ const canAdd = ref('');
 let canReduce:any = ref('disable')
 let canTransfer:any = ref('disable')
 const xplanAni = computed(() => store?.state.user?.xplanAni);
-const chainId: any = computed(() => store.state.user?.chainId); // vuex state狀態管理器中獲取chain狀態
+const chainId: any = computed(() => store.state.user?.chainId); // vuex state Get chain status from status manager
 const { GiftBox, LootBox } = Web3.contracts;
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 
 //
 const isUnpack: any = ref(false)
-// 開盒子
+// Open the box
 const unpack = async () => {
     // getLast(); //    
     if(numState.value == 'error') return;
@@ -74,7 +74,7 @@ const unpack = async () => {
     store.dispatch('user/TipsState', {show: false, info: { }});
     if(result) {
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
-        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // 操作成功 页面监听到，再刷新数据
+        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
         store.dispatch('user/boxOpened', true);
         store.dispatch('user/xplanChangeAni', true);
         store.dispatch('user/boxId', props.boxId);
@@ -84,14 +84,14 @@ const unpack = async () => {
 }
 
 const props: any = defineProps({
-    content: String, // 文案内容
+    content: String, // Copy content
     isLoading: {
         type: Boolean,
         default: false,
     },
-    isClose: Boolean,  // 现实叉叉按钮
-    title: String,  // 标题
-    isShowTips: Boolean, //是否显示
+    isClose: Boolean,  // Realistic fork button
+    title: String,  // title
+    isShowTips: Boolean, //Whether to display
     addNetwork: Boolean,
     boxId: {
         type: Number,
@@ -126,7 +126,7 @@ watch(active, (newVal: any, oldVal) => {
 }, {immediate:true,deep:true});
 
 
-let regExp = /^[0-9]+$/; // 驗證是否為正整數
+let regExp = /^[0-9]+$/; // Verify that is a positive integer
 let inputState:any = ref('')
 const inputNumber = (e:any) => {
     valueIn.value = e.target.value

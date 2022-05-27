@@ -249,7 +249,7 @@ const router = useRouter()
 const Route = useRoute() //获取到值
 const { proxy } = getCurrentInstance() as any;
 const { GiftBox, LootBox, MarketV2, cyt, Cyborg, Cyborg_Fuji, cyberClub, cyberClub_Fuji } = Web3.contracts;
-const index: any = Route.query.type || 1; //当前盒子类型
+const index: any = Route.query.type || 1; //Current box type
 const isProduction = ref(true);
 
 // changeMenu
@@ -331,7 +331,6 @@ const copyUrl = (e:any) => {
     document.body.appendChild(input);
     input.setAttribute("value", e);
     input.select();
-    //返回值为一个Boolean，如果是 false 则表示操作不被支持或未被启用
     if (document.execCommand("copy")) {
         document.execCommand("copy");
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
@@ -359,7 +358,6 @@ const getData = async (result: any) => {
 
 
 
-// 正常的nft 数组[0,1]表示id为0的nft没有资产， id为1的ntf资产为1
 const getNFTData: any = async (res: any) => {
     proxy.$api.get(`https://api.cyberpop.online/${'role'}`).then((result:any) => {
          console.log(result);
@@ -369,13 +367,13 @@ const getNFTData: any = async (res: any) => {
     })
 }
 
-// 开盒子
+// Open the box
 const open = async () => {
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'), addNetwork: false, boxId: index - 1, haveNFT: ownerNumber.value }});
 }
 
-// 购买盒子
+// Buy box
 const purchase = async () => {
     // let result = Web3.balanceOfBatch(MarketV2.abi, MarketV2.address, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], true);
     if(data.value.Remaining == 0 || isProduction.value) return;

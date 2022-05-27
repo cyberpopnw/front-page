@@ -274,9 +274,9 @@ import CancelStake from '@/components/staking/cancelStakeA.vue';
 const { staking, cytV2 } = Web3.contracts;
 const { t, locale } = useI18n();
 const router = useRouter()
-const realId = computed(() => store?.state.user?.realId);  // 星号地址
+const realId = computed(() => store?.state.user?.realId);  // Asterisk address
 const chainId: any = computed(() => store.state.user?.chainId);
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 watch(readyAssetsF, (newVal, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssetsF');
     if(!oldVal || oldVal == -1) return;
@@ -305,22 +305,22 @@ watch(realId, (newVal, oldVal: any) => {
 
 
 
-// 子组件Finished（质押完成领取奖励）
+// Sub component finished (pledge completed to receive reward)
 const Finished = ref(null);
 const isShowFinished = ref(false as boolean);
 console.log(Finished, 'Finished');
 
 
-//子组件SelectNFT
+//Subcomponents SelectNFT
 const SelectNFT = ref(null);
 const isShowSelectNFT = ref(false as boolean);
 
 
-// 子组件 取消质押弹窗
+// Sub assembly cancel pledge pop-up
 const isShowCancelStake = ref(false) as any;
 
 
-// progress 进度
+// progress
 const progress = ref(0) as any;
 
 // coming soon
@@ -374,7 +374,7 @@ const test = ref(0) as any
 const stakingCyt = async () => {
     console.log(progress.value, 'progress.value');
     
-    if(myTime.value > 0 && progress.value < 100) { // 还没到时间 还可以继续质押
+    if(myTime.value > 0 && progress.value < 100) { // You can continue to pledge before the time is up
         store.dispatch('user/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
         store.dispatch('user/xplanChangeAni', true);
         return;

@@ -61,7 +61,7 @@ defineExpose({
 
 
 
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 
 //state
@@ -75,7 +75,6 @@ const closeDialog = () => {
     }, 300);
 }
 
-// 确认选择
 const confirm = async () => {
     if(selected.value == 0){
         let result = await Web3.getReward(staking.abi, staking.address)
@@ -204,14 +203,14 @@ onMounted(() => {
                             background: rgba(182, 156, 199, 0.17);
                         }
                     }
-                    .tbody::-webkit-scrollbar{/*滚动条整体部分，其中的属性有width,height,background,border等（就和一个块级元素一样）（位置1）*/
+                    .tbody::-webkit-scrollbar{
                         width: 1px;
                         background: #fff;
                     }
-                    .tbody::-webkit-scrollbar-track-piece{/*内层轨道，滚动条中间部分（位置4）*/
+                    .tbody::-webkit-scrollbar-track-piece{
                         background:#f8f9fa;
                     }
-                    .tbody::-webkit-scrollbar-thumb{/*滚动条里面可以拖动的那部分（位置5）*/
+                    .tbody::-webkit-scrollbar-thumb{
                         background: #DE2DCF;
                     }
                     .nothing{

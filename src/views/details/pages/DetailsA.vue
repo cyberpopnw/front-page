@@ -281,10 +281,10 @@ import {  useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n';
 const { t, locale } = useI18n();
 const router = useRouter()
-const Route = useRoute() //获取到值
+const Route = useRoute() //Get value
 const { proxy } = getCurrentInstance() as any
 const { GiftBox, LootBox, MarketV2, cyt, Cyborg, Cyborg_Fuji, cyberClub, cyberClub_Fuji } = Web3.contracts;
-const index: any = Route.query.type || 1; //当前盒子类型
+const index: any = Route.query.type || 1; //Current box type
 const isProduction = ref(true);
 
 // changeMenu
@@ -303,7 +303,6 @@ const copyUrl = (e:any) => {
     document.body.appendChild(input);
     input.setAttribute("value", e);
     input.select();
-    //返回值为一个Boolean，如果是 false 则表示操作不被支持或未被启用
     if (document.execCommand("copy")) {
         document.execCommand("copy");
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
@@ -377,14 +376,14 @@ watch(readyAssetsF, (newVal, oldVal) => {
 }, {immediate:true,deep:true});
 
 
-// 開盒子
+// Open the box
 const open = () => {
     if(ownerNumber.value == 0 || isProduction.value) return;
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: true, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'), addNetwork: false, boxId: index-1, haveNFT: ownerNumber.value }});
 }
 
-// 獲取開出來的東西
+// Get the open items
 const getLast = async () => {
     if(chainId.value == 80001){
         if(index == 1){
@@ -414,7 +413,6 @@ const getLast = async () => {
     }
 }
 
-// 正常的nft 数组[0,1]表示id为0的nft没有资产， id为1的ntf资产为1
 const getNFTData: any = async (res: any, path: any) => {
     return new Promise((resolve, reject)=>{
         proxy.$api.get(`https://api.cyberpop.online/${path}/${res}`).then((result:any) => {
@@ -438,7 +436,7 @@ onMounted(() => {
     store.dispatch('user/showDialog', { show: false, info: {} });// close message dialog
     store.dispatch('user/metaChange', false);
     // purchase()
-    if(process.env.NODE_ENV == 'development') isProduction.value = false; //判断开发 生产环境
+    if(process.env.NODE_ENV == 'development') isProduction.value = false;
 })
 
 </script>

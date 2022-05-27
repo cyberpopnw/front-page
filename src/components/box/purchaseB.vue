@@ -69,10 +69,10 @@ const { proxy } = getCurrentInstance() as any;
 const { MarketV2, cyt } = Web3.contracts;
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 const props = defineProps({
-    content1: String, // 文案内容
-    content2: String, // 文案内容
-    title: String,  // 标题
-    isShowTips: Boolean, //是否显示
+    content1: String, // Copy content
+    content2: String, // Copy content
+    title: String,  // title
+    isShowTips: Boolean, //Whether to display
     boxId: Number,
     state: {
         type: Number,
@@ -84,7 +84,7 @@ const props = defineProps({
     },
 })
 
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 
 
 // input
@@ -106,7 +106,7 @@ watch(active, (newVal: any, oldVal) => {
 const inputNumber = (e:any) => {
     console.log(e.target.value);
     // console.log(e.target.value,regExp.test(e.target.value));
-    let regExp = /^[0-9]+$/; // 驗證是否為正整數
+    let regExp = /^[0-9]+$/; // Verify that is a positive integer
     valueIn.value = e.target.value
     if ( e.target.value && !(regExp.test(e.target.value)) || Number(valueIn.value) > Number(props.haveNFT)) {
         numState.value = 'error' 
@@ -143,7 +143,7 @@ const closeDialog = () => {
     }, 300);
 }
 
-// 购买埋点
+// Purchase buried point
 const logined = (accounts: any) => {
     proxy.$api.post(`/code/connection/general`, {
         "action": "buyBox",
@@ -162,30 +162,30 @@ const logined = (accounts: any) => {
 const purchase =  async () => {
     if( numState.value == 'error') return;
 
-    // 去检查是否授权过了，或者正在授权中
+    // Check whether it is authorized or under authorization
     store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 3, haveNFT: props.haveNFT, boxId: props.boxId }});
 
-    let allowance_res: any = await Web3.allowance(cyt.abi, cyt.address, MarketV2.address); //用自己的cyt去给授权市场合约授权的个数
+    let allowance_res: any = await Web3.allowance(cyt.abi, cyt.address, MarketV2.address); //Use your own cyt to authorize the number of authorized market contracts
     console.log(allowance_res, 'allowance_res');
     
     if(allowance_res < 30 * valueIn.value){
         let approve_res = await Web3.approve(cyt.abi, cyt.address, MarketV2.address, 30 * valueIn.value + 1);
-        if(!approve_res) { // 授权失败
+        if(!approve_res) { // privilege grant failed
             store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 5, haveNFT: props.haveNFT, boxId: props.boxId }});
             return;
         }
     }
 
-    // 正常流程
+    // Normal process
     store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 6, haveNFT: props.haveNFT, boxId: props.boxId }});
     console.log(props.boxId, 'props.boxId');
     
     let reuslt = await Web3.buyLootBox(MarketV2.abi, MarketV2.address, props.boxId, 30, valueIn.value);
-    if(reuslt){ //购买成功
+    if(reuslt){ //Purchase success
         store.dispatch('user/purchaseState', { show: false, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 7, haveNFT: props.haveNFT, boxId: props.boxId }});
-        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // 操作成功 页面监听到，再刷新数据
+        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
         logined(store.state.user?.idTemp)
-    }else{ // 购买拒绝
+    }else{ // Purchase rejection
         store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 8, haveNFT: props.haveNFT, boxId: props.boxId }});
     }
 }

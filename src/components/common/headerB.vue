@@ -59,7 +59,7 @@
     </div>
     <metamask-b v-if="metaMaskActive"></metamask-b>
     <coming-b v-show="showComingFlag"></coming-b>
-    <!-- 经销商注册 -->
+    <!-- Dealer registration -->
     <register-b v-if="register" :register="register" :registerTrans="registerTrans" :code="code" :level="level" @closeRegister="closeRegister"></register-b>
 </template>
 
@@ -71,7 +71,7 @@ import {  useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter()
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 const register = ref(false);
 const registerTrans = ref(false);
 
@@ -131,7 +131,7 @@ const chainList = ref({
 }) as any
 
 const chainId: any = computed(() => store.state.user?.chainId );
-// 自动判断当前所在链
+// Automatically determine the current chain
 watch(chainId, (newVal, oldVal) => {
     if(!oldVal) return;
     let temp: any;
@@ -285,7 +285,7 @@ const connect: any = async () => {
         id.value = accounts;
         let len = id.value.length-1;
         id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('user/connectWallet',{realId:id.value, idTemp:accounts});// 存放星号id、完整id
+        store.dispatch('user/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
         store.dispatch('user/dataSumSearch',{flag:0});
         if(readyAssetsF.value <= 0) logined(accounts);
         const Web3 = (window as any).Web3
@@ -307,10 +307,10 @@ const closeRegister = () => {
 }
 
 
-// 用户注册
-const level = ref(0); // 用户等级
+// User registration
+const level = ref(0); // User level
 const isRegister = (isClick?: boolean) => {
-    if(isClick) { // 表示是点击的按钮
+    if(isClick) { // Indicates the clicked button
         register.value = true;
         registerTrans.value = true;
         code.value = router.currentRoute.value.query.code;
@@ -333,7 +333,7 @@ const isRegister = (isClick?: boolean) => {
 
 
 
-// 登录相关
+// Login related
 const login = () =>{
     connect();
 }
@@ -371,7 +371,7 @@ const toAssets = () => {
 
 
 const cursor:any = ref(null)
-const handleOtherClick = (e:any) => { // click 收起 菜单
+const handleOtherClick = (e:any) => { 
     if( cursor.value.contains(e.target) ){
         return
     }else{
@@ -383,7 +383,7 @@ onUnmounted(() => {
 })
 
 onMounted(() => {
-    window.addEventListener('click', handleOtherClick, true) // click 收起 菜单
+    window.addEventListener('click', handleOtherClick, true)
     if( realId.value != -1){
         store.dispatch('user/walletloggined',true);
     }
@@ -396,7 +396,7 @@ onMounted(() => {
         select.value = localStorage.getItem('lang');        
     }
     code.value = router.currentRoute.value.query.code;
-    if(realId.value == -1) login() // 判断是否已经登陆过了 然后自动登录
+    if(realId.value == -1) login() // Determine whether you have logged in and then log in automatically
     let temp: any;
     Object.keys(chainList._rawValue).forEach((key: any) => {
         if(chainList._rawValue[key].chainId == chainId.value) temp = chainList._rawValue[key]

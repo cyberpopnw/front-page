@@ -234,7 +234,7 @@
     <coming-a v-show="showComingFlag"></coming-a>
     <FinishedA ref="Finished" :isShowTips="isShowFinished" v-if="isShowFinished" @closeFinshed="isShowFinished = false"></FinishedA>
 
-    <!-- 切换网络弹窗 -->
+    <!-- Switch network Popup -->
     <!-- <wrongNetWorkA :isShowTips="isShowTips" @changeSwitch="changeSwitch"></wrongNetWorkA> -->
 </template>
 <script setup lang="ts">
@@ -250,9 +250,9 @@ import FinishedA from '@/components/staking/FinishedA.vue';
 const { staking, cytV2, EasyStaking, cyt_ice } = Web3.contracts;
 const { t, locale } = useI18n();
 const router = useRouter()
-const realId = computed(() => store?.state.user?.realId);  // 星号地址
+const realId = computed(() => store?.state.user?.realId);  // Asterisk address
 const chainId: any = computed(() => store.state.user?.chainId);
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 watch(readyAssetsF, (newVal, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssetsF');
     if(!oldVal || oldVal == -1) return;
@@ -280,14 +280,14 @@ watch(realId, (newVal, oldVal: any) => {
 }, {immediate:true,deep:true});
 
 
-// 子组件Finished（质押完成领取奖励）
+// Sub component finished (pledge completed to receive reward)
 const Finished = ref(null);
 const isShowFinished = ref(false as boolean);
 console.log(Finished, 'Finished');
 
 
 
-// progress 进度
+// progress
 const progress = ref(0) as any;
 
 // coming soon

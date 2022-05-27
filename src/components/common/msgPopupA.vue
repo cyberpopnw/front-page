@@ -19,7 +19,7 @@
                         <span @click="changeChain(85)">{{ $t('message.common.metamask.switchGate') }}</span>  
                     </div>
                 </div>
-                <!-- 開啟盒子 -->
+                <!-- Open the box -->
                 <div v-if="boxId != undefined">
                     <div class="tips" v-show="numState == ''">{{$t('message.assets.pop.tips')}}</div>
                     <div class="tips" v-show="numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
@@ -38,7 +38,7 @@
                         <img src="@/assets/nwhomePhone/loading-phone.svg" alt="">
                     </div>
                 </div>
-                <!-- 轉帳狀態 -->
+                <!-- Open the boxTransfer status -->
                 <div v-if="boxId == undefined && props.isLoading">
                     <div v-if="props.content" class="text">{{ props.content }}</div>
                     <div v-if="props.content" class="loading">
@@ -60,16 +60,16 @@ import router from '@/router';
 
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
-const chainId: any = computed(() => store.state.user?.chainId); // vuex state狀態管理器中獲取chain狀態
+const chainId: any = computed(() => store.state.user?.chainId); // vuex state Get chain status from status manager
 const { GiftBox, LootBox, Cyborg, MarketV2, cyt } = Web3.contracts;
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // 连接的状态值
+const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 
 //unpack
 const isUnpack: any = ref(false)
-// 開盒子
+// Open the box
 const unpack = async () => {
-    // getLast(); // 查询资产合约中最后一位为立马开启的资产
+    // getLast(); // Query the last asset opened immediately in the asset contract
     if(numState.value == 'error') return;
     isUnpack.value = true;
     console.log(props.boxId, valueIn.value);
@@ -79,7 +79,7 @@ const unpack = async () => {
     store.dispatch('user/TipsState', {show: false, info: { }});
     if(result) {
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
-        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // 操作成功 页面监听到，再刷新数据
+        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); //After the operation is successful, the page listens and refreshes the data
         store.dispatch('user/boxOpened', true);
         store.dispatch('user/xplanChangeAni', true);
         store.dispatch('user/boxId', props.boxId);
@@ -109,7 +109,7 @@ watch(active, (newVal: any, oldVal) => {
 const inputNumber = (e:any) => {
     console.log(e.target.value);
     // console.log(e.target.value,regExp.test(e.target.value));
-    let regExp = /^[0-9]+$/; // 驗證是否為正整數
+    let regExp = /^[0-9]+$/; // Verify that is a positive integer
     valueIn.value = e.target.value
     if ( e.target.value && !(regExp.test(e.target.value)) || Number(valueIn.value) > Number(haveNFT.value)) {
         numState.value = 'error' 
@@ -141,14 +141,14 @@ const reduceNft = () => {
 
 // props
 const props = defineProps({
-    content: String, // 文案内容
+    content: String, // Copy content
     isLoading: {
         type: Boolean,
         default: false,
     },
-    isClose: Boolean,  // 现实叉叉按钮
-    title: String,  // 标题
-    isShowTips: Boolean, //是否显示
+    isClose: Boolean,  // Realistic fork button
+    title: String,  // title
+    isShowTips: Boolean, //Whether to display
     addNetwork: Boolean,
     boxId: {
         type: Number,

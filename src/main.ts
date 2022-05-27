@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router/index' // 引入vue-router
+import router from './router/index' // import vue-router
 import store, { key } from './store'
-import './index.css' // 自定义全局样式
+import './index.css' // Customize global styles
 import MyVideo from './components/video/video.vue'
 import ComingA from './components/coming/comingA.vue'
 import ComingB from './components/coming/comingB.vue'
@@ -42,16 +42,16 @@ import 'default-passive-events'
 
 
 
-const app = createApp(App) // 创建实例
+const app = createApp(App) // Create instance
 app.config.globalProperties.$api = api;
 
 
-app.use(router) // 挂载路由
-app.use(store, key) // 挂载vuex
+app.use(router) // Mount route
+app.use(store, key) // Mount vuex
 app.use(VueI18n)
 
 
-app.component('MyVideo', MyVideo) //视频组件
+app.component('MyVideo', MyVideo) //Video components
 app.component('ComingA', ComingA)
 app.component('ComingB', ComingB)
 app.component('MessageA', MessageA)

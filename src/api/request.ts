@@ -1,12 +1,12 @@
 import axios from "axios";
- // 引入qs
+ // import qs
 import qs from 'qs'
  
 axios.defaults.baseURL = '' 
  
-//post请求头
+//post header
 axios.defaults.headers.post["Content-Type"] = "application/json;charset=UTF-8";
-//设置超时
+//setting timeout
 axios.defaults.timeout = 10000;
  
 axios.interceptors.request.use(
