@@ -8,12 +8,12 @@ const routes = [
             keepAlive: false,
             showFooter: true,
             transition: 'slide-right',
-        },
+        }
     },
     {
-        name: 'about',
-        path: '/about',
-        component: () => import('../views/about/index.vue'),
+        name: 'download',
+        path: '/download',
+        component: () => import('../views/download/index.vue'),
         meta: {
             keepAlive: false,
             showFooter: true,
@@ -21,9 +21,9 @@ const routes = [
         },
     },
     {
-        name: 'support',
-        path: '/support',
-        component: () => import('../views/support/index.vue'),
+        name: 'privacy',
+        path: '/privacy',
+        component: () => import('../views/privacy/index.vue'),
         meta: {
             keepAlive: false,
             showFooter: true,
@@ -31,19 +31,114 @@ const routes = [
         },
     },
     {
-        name: 'xplan',
-        path: '/xplan',
-        component: () => import('../views/xplan/index.vue'),
+        name: 'terms',
+        path: '/terms',
+        component: () => import('../views/terms/index.vue'),
         meta: {
             keepAlive: false,
             showFooter: true,
             transition: 'slide-right',
         },
     },
+    {
+        name: 'mining',
+        path: '/mining',
+        component: () => import('../views/mining/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
+        name: 'mystery',
+        path: '/mystery',
+        component: () => import('../views/mystery/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
+        name:'details',
+        path:'/details',
+        component: () => import('../views/details/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+        // children:[{
+        //         name:'introduction',
+        //         path:'/introduction',
+        //         component: () => import('../views/details/introduction/index.vue'),
+        //         meta: {
+        //             keepAlive: false,
+        //             showFooter: true,
+        //             transition: 'slide-right',
+        //         },
+        // }]
+    },
+    {
+        name: 'cyberspace',
+        path: '/cyberspace',
+        component: () => import('../views/cyberspace/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
+        name: 'knapsack',
+        path: '/knapsack',
+        component: () => import('../views/assets/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
+        name: 'space',
+        path: '/space',
+        component: () => import('../views/space/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
+        name: 'IPshielding',
+        path: '/IPshielding',
+        component: () => import('../views/IPshielding/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    }
 ]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes,
+    routes
 })
+
+// router.beforeEach((to , from, next) => {
+//     let realId = localStorage.getItem('realIdLocal');
+//     if( to.matched.some( record => record.meta.requiresAuth ) ){
+//         if( !realId ){
+//             return
+//         }else{
+//             next();
+//         }
+//     }else{
+//         next();
+//     }
+// })
+
+
 export default router

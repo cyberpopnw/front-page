@@ -6,3 +6,6 @@ declare module '*.vue' {
     const component: DefineComponent<{}, {}, any>
     export default component
 }
+declare module 'vue-videobg';
+declare module 'vue3-video-play';
+declare module 'default-passive-events';

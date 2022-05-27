@@ -4,17 +4,146 @@
             <component :is="Component" :key="$route.path" v-if="$route.meta.keepAlive" />
         </keep-alive>
         <component :is="Component" :key="$route.path" v-if="!$route.meta.keepAlive" />
+        <msg-popup-a v-if="innerWidth > 1025 && TipsState" :addNetwork="TipsInfo.addNetwork" :isShowTips="TipsState" :isLoading="TipsInfo.hasLoading" :isClose="TipsInfo.hasClose" :title="TipsInfo.title" :content="TipsInfo.content" :boxId="TipsInfo.boxId" :haveNFT="TipsInfo.haveNFT"/>
+        <msg-popup-b v-if="innerWidth <= 1025 && TipsState" :addNetwork="TipsInfo.addNetwork" :isShowTips="TipsState" :isLoading="TipsInfo.hasLoading" :isClose="TipsInfo.hasClose" :title="TipsInfo.title" :content="TipsInfo.content" :boxId="TipsInfo.boxId" :haveNFT="TipsInfo.haveNFT"/>
+        <message-a v-if="innerWidth > 1025 && showDialog" :state="alertInfo.state" :txt="alertInfo.txt"></message-a>
+        <message-b v-if="innerWidth <= 1025 && showDialog" :state="alertInfo.state" :txt="alertInfo.txt"></message-b>
+        <purchaseA v-if="innerWidth > 1025 && purchaseState" :isShowTips="purchaseState" :title="purchaseInfo.title" :content1="purchaseInfo.content1" :content2="purchaseInfo.content2" :state="purchaseInfo.state" :haveNFT="purchaseInfo.haveNFT" :boxId="purchaseInfo.boxId"/>
+        <purchaseB v-if="innerWidth <= 1025 && purchaseState" :isShowTips="purchaseState" :title="purchaseInfo.title" :content1="purchaseInfo.content1" :content2="purchaseInfo.content2" :state="purchaseInfo.state" :haveNFT="purchaseInfo.haveNFT" :boxId="purchaseInfo.boxId"/>
+        <staking-a v-if="innerWidth > 1025 && stakingState" :isShowTips="stakingState" :haveCTY="stakingInfo.haveCTY" :state="stakingInfo.state"/>
+        <staking-b v-if="innerWidth <= 1025 && stakingState" :isShowTips="stakingState" :haveCTY="stakingInfo.haveCTY" :state="stakingInfo.state"/>
+        <boxOpenedA v-if="innerWidth > 1025 && boxOpened" :isShowTips="boxOpened" :boxId="boxId"></boxOpenedA>
+        <boxOpenedB v-if="innerWidth <= 1025 && boxOpened" :isShowTips="boxOpened" :boxId="boxId"></boxOpenedB>
+        <div class="ip_error" v-if="iperror && innerWidth > 1025">
+            {{$t('message.common.ip')}}
+        </div>
+        <div class="ip_error_Mobile" v-if="iperror && innerWidth <= 1025">
+            {{$t('message.common.ip')}}
+        </div>
+        <!-- <div style="background: #333;color: #fff" v-if="cname">{{ cname }}</div> -->
     </router-view>
 </template>
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import store from './store'
+import { onMounted, computed, ref, getCurrentInstance } from 'vue'
+import { useStore } from 'vuex'
+import store from '@/store'
+import { useI18n } from 'vue-i18n';
+import {  useRouter } from 'vue-router'
+const route = useRouter()
+const { t } = useI18n();
+const { proxy } = getCurrentInstance() as any;
+const $store: any = useStore()
+const router = useRouter()
+
+
+const innerWidth = computed(() => store.state.sys?.innerWidth || 0)
+const iperror = ref(false);
+
+
+const TipsState = computed(() => store.state.user?.TipsState );
+const TipsInfo = computed(() => store.state.user?.TipsInfo);
+const alertInfo = computed(() => store.state.user?.alertInfo);
+const showDialog = computed(() => store.state.user?.showDialog);
+const boxOpened = computed(() => store.state.user?.boxOpened);
+const boxId = computed(() => store.state.user?.boxId);
+const purchaseState = computed(() => store.state.user?.purchaseState );
+const purchaseInfo = computed(() => store.state.user?.purchaseInfo);
+const stakingState = computed(() => store.state.user?.stakingState );
+const stakingInfo = computed(() => store.state.user?.stakingInfo);
+
+const isChinese = (val: any) => {
+    var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
+　　if(reg.test(val) && val !== '国内未能识别的地区' || val == 'CHINA'){     
+        return false;
+　　}else{
+        return true;
+    }
+}
+
+const cname = ref(0) // 城市名字
+
 
 onMounted(() => {
-    window.onresize = () => store.dispatch('sys/get_screen_size')
+    const ethereum = (window as any).ethereum 
+    window.onresize = () => store.dispatch('sys/get_screen_size') // 监听屏幕尺寸
+    
+    if(ethereum){  // 如果安装了metamask才执行
+        ethereum.on("accountsChanged", (accounts: any) => {
+            console.log(accounts[0]);//一旦切换账号这里就会执行
+            let id = accounts[0];
+            let len = id.length-1;
+            id = id[0]+id[1]+id[2]+id[3]+id[4]+"*****"+id[len-3]+id[len-2]+id[len-1]+id[len];
+            store.dispatch('user/connectWallet',{realId:id, idTemp:accounts[0]});// 存放星号id、完整id
+            store.dispatch('user/dataSumSearch',{flag:0});
+        });
+        ethereum.on('chainChanged', (chainId: string) => {
+            let id: any = Number(chainId);
+            // console.log(id);
+            
+            store.dispatch('user/chageChainId', Number(chainId))
+            
+            if(id != 97 && id != 43113 && id != 85 && id != 80001) {
+                store.dispatch('user/xplanChangeAni', true);
+                store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
+                return;
+            }
+            store.dispatch('user/TipsState', {show: false, info: { }});
+        });
+    }
+
+    // 如果携带了邀请的code自动跳转
+    console.log(router.currentRoute.value.query.code, 'router.currentRoute.value.query.code');
+    
+    // setTimeout(() => {
+    //     if(router.currentRoute.value.query.code) router.push({ path: '/download', query: { code: router.currentRoute.value.query.code || '' } })
+    // }, 500);
+     
+    // 验证是否是中国IP
+    var returnCitySN = (window as any).returnCitySN;
+    console.log(returnCitySN, 'returnCitySN');
+    let HongShou = '125.69.86.177' // ip 白名单
+    let HongShou5G = '125.69.86.216'
+    let indiegame = "171.223.208.133"
+    console.log(process.env.NODE_ENV, 'process.env'); 
+    cname.value = returnCitySN.cname;
+    if(!isChinese(returnCitySN.cname)) {
+        // route.push({ path: '/IPshielding' })
+        iperror.value = true;
+        console.log(2222);
+    }else{ 
+        setTimeout(() => {
+            console.log(route.currentRoute.value, 'route.currentRoute.value');
+            if(route.currentRoute.value.path == '/IPshielding') route.push({ path: '/' })
+        }, 1000);
+    }//
 })
 </script>
 <style>
+    .ip_error, .ip_error_Mobile{
+        z-index: 6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0vw;
+        left: 50%;
+        font-size: 1vw;
+        transform: translateX(-50%);
+        width: 60.75vw;
+        height: 2.16vw;
+        margin-top: 8vw;
+        background: rgba(255, 82, 82, 0.42);
+        border-radius: 4px 4px 4px 4px;
+        border: 1px solid #FF5CA1;
+        color: #FF5CA1;
+        /* animation-fill-mode: forwards; */
+    }
+    .ip_error_Mobile{
+        width: auto;
+        height: auto;
+        padding: 2vw 2vw;
+        top: 10vw;
+    }
     @keyframes springtimeAniamtScale2 {
         0% {
             bottom: 2.5vw;
@@ -64,23 +193,65 @@ onMounted(() => {
             transform: translateX(-2000px);
         }
         60% {
-            opacity: 1;
-            -webkit-transform: translateX(30px);
-            -ms-transform: translateX(30px);
-            transform: translateX(30px);
+            opacity: .4;
+            -webkit-transform: translateX(-100px);
+            -ms-transform: translateX(-100px);
+            transform: translateX(-100px);
         }
         80% {
-            -webkit-transform: translateX(-10px);
-            -ms-transform: translateX(-10px);
-            transform: translateX(-10px);
+            opacity: .8;
+            -webkit-transform: translateX(-30px);
+            -ms-transform: translateX(-30px);
+            transform: translateX(-30px);
         }
         100% {
+            opacity: 1;
             -webkit-transform: translateX(0);
             -ms-transform: translateX(0);
             transform: translateX(0);
         }
     }
-    @keyframes fadeInDown {
+    @keyframes bounceInRight {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(2000px);
+            -ms-transform: translateX(2000px);
+            transform: translateX(2000px);
+        }
+        60% {
+            opacity: .4;
+            -webkit-transform: translateX(100px);
+            -ms-transform: translateX(100px);
+            transform: translateX(100px);
+        }
+        80% {
+            opacity: .8;
+            -webkit-transform: translateX(30px);
+            -ms-transform: translateX(30px);
+            transform: translateX(30px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(30px);
+            -ms-transform: translateY(30px);
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    /* @keyframes fadeInDown {
         0% {
             opacity: 0;
             -webkit-transform: translateY(-30px);
@@ -92,6 +263,26 @@ onMounted(() => {
             -webkit-transform: translateY(0);
             -ms-transform: translateY(0);
             transform: translateY(0);
+        }
+    } */
+    @keyframes fadeInDown {
+        0% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+            -ms-transform: translateY(0px);
+            transform: translateY(0px);
+        }
+        50% {
+            opacity: 1;
+            -webkit-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+            -ms-transform: translateY(0px);
+            transform: translateY(0px);
         }
     }
     @keyframes bounceIn {
@@ -154,39 +345,68 @@ onMounted(() => {
             background-size: auto 100%;
         }
     }
-
-     @keyframes bounceInRight {
+    @keyframes bounceShow {
         0% {
             opacity: 0;
-            -webkit-transform: translateX(2000px);
-            -ms-transform: translateX(2000px);
-            transform: translateX(2000px);
+            -webkit-transform: scale(0.3);
+            -ms-transform: scale(0.3);
+            transform: scale(0.3);
         }
-        60% {
+        50% {
             opacity: 1;
-            -webkit-transform: translateX(-30px);
-            -ms-transform: translateX(-30px);
-            transform: translateX(-30px);
-        }
-        80% {
-            -webkit-transform: translateX(10px);
-            -ms-transform: translateX(10px);
-            transform: translateX(10px);
+            -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            transform: scale(1.05);
         }
         100% {
-            -webkit-transform: translateX(0);
-            -ms-transform: translateX(0);
-            transform: translateX(0);
+            opacity: 1;
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    @keyframes bounceHide {
+        0% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+        50% {
+            opacity: 1;
+            -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            transform: scale(1.05);
+        }
+        99% {
+            opacity: 0;
+            -webkit-transform: scale(0.3);
+            -ms-transform: scale(0.3);
+            transform: scale(0.3);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            -ms-transform: scale(0);
+            transform: scale(0);
         }
     }
 
+    .fadeInUp{
+        animation: fadeInUp 1s linear;
+    }
     .fadeInDown{
-        animation: fadeInDown 1s linear;
-
+        animation: fadeInDown 3s linear infinite;
     }
     .bounceIn{
         animation: bounceIn 1s linear;
-
+    }
+    .bounceShow{
+        animation: bounceShow 0.2s linear;
+    }
+    .bounceHide{
+        animation: bounceHide 0.2s linear;
+        animation-fill-mode: forwards;
     }
     .fadeInLeft{
          animation: fadeInLeft 1s linear;
@@ -198,6 +418,6 @@ onMounted(() => {
         animation: bounceInLeft 1s linear;
     }
     .bounceInRight{
-         animation: bounceInRight 1s linear;
+         animation: bounceInRight 1.5s linear;
     }
 </style>

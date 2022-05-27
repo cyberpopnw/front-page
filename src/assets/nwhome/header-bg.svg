@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="106px" viewBox="0 0 1920 106" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <filter x="-37.6%" y="-155.2%" width="175.2%" height="410.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="45" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-37.6%" y="-155.2%" width="175.2%" height="410.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="45" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="顶部菜单栏背景" transform="translate(0.000000, -2.000000)">
+            <rect id="矩形" fill="#0C0911" opacity="0.915606831" x="0" y="0" width="1920" height="106"></rect>
+            <ellipse id="椭圆形" fill="#250A84" opacity="0.730854833" filter="url(#filter-1)" cx="968.5" cy="48.5" rx="179.5" ry="43.5"></ellipse>
+            <ellipse id="椭圆形" fill="#282141" opacity="0.857081214" filter="url(#filter-2)" cx="1588.5" cy="48.5" rx="179.5" ry="43.5"></ellipse>
+            <rect id="矩形" x="0" y="2" width="1920" height="106"></rect>
+        </g>
+    </g>
+</svg>

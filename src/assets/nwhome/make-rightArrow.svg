@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>long-arrow-down</title>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-878.000000, -4266.000000)" fill-rule="nonzero" id="long-arrow-down">
+            <g transform="translate(896.526557, 4284.200000) rotate(-90.000000) translate(-896.526557, -4284.200000) translate(878.526557, 4266.200000)">
+                <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="36" height="36"></rect>
+                <polygon id="路径" fill="#373D41" points="15.75 27.74925 15.75 0 20.25 0 20.25 27.74925 28.50075 19.50075 31.5 22.5 18 36 4.5 22.5 7.49925 19.50075"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

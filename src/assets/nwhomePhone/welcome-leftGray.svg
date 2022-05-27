@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2px" height="24px" viewBox="0 0 2 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.25061319">
+        <g id="home-phone" transform="translate(-24.000000, -617.000000)" fill="#FFFFFF">
+            <g id="进度" transform="translate(10.000000, 608.037765)">
+                <polygon id="矩形" points="14.838825 10.735725 15.794351 9.35306688 15.794351 31.6610669 14.838825 33.043725"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

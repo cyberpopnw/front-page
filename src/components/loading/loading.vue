@@ -13,8 +13,8 @@
 <script setup lang="ts">
 import { computed, readonly, ref } from 'vue'
 const props = defineProps({
-    show: Boolean, 
-    index: [String, Number], 
+    show: Boolean, // 显示隐藏
+    index: [String, Number], // 层级
 })
 const Style: any = computed(() => {
     let style = {
@@ -31,25 +31,21 @@ const Style: any = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .mask {
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    display: flex;
+    // background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
     color: #ffffff;
     transition: all 230ms ease-out;
     opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
     .spinner {
-        margin: 100px auto;
-        width: 100px;
-        height: 60px;
+        margin: 0 auto;
+        width: 20vw;
+        height: 10vw;
         text-align: center;
         font-size: 10px;
     }

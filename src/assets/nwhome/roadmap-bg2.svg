@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="267px" height="236px" viewBox="0 0 267 236" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 2</title>
+    <defs>
+        <filter x="-14.3%" y="-16.6%" width="128.5%" height="133.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.845012754   0 0 0 0 0.580151927   0 0 0 0 0.918110281  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <radialGradient cx="58.5006167%" cy="17.0074919%" fx="58.5006167%" fy="17.0074919%" r="97.6808348%" gradientTransform="translate(0.585006,0.170075),scale(0.859805,1.000000),rotate(90.000000),translate(-0.585006,-0.170075)" id="radialGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FDFCFE" offset="17.2183976%"></stop>
+            <stop stop-color="#AC84FE" offset="72.0143138%"></stop>
+            <stop stop-color="#5513FF" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.390420603">
+        <g transform="translate(-1056.000000, -5971.000000)" fill="url(#radialGradient-2)" id="时间轴" stroke="#9A7AFC" stroke-width="0.5">
+            <g transform="translate(369.615596, 5551.000000)">
+                <g id="编组-6" transform="translate(710.530442, 443.735523)" filter="url(#filter-1)">
+                    <path d="M6.94827348,27.3279525 L32.4898944,39.0788923 L43.2208982,56.2520882 L33.9769484,70.5828742 L46.1955279,90.136689 L69.3111052,84.9447496 L82.1582275,105.504443 L67.8438789,124.781293 L82.1582275,147.689039 L98.0797447,171.866641 L98.0797447,188.683114 L91.1457348,188.683114 L-4.26325641e-13,42.8194477 L6.94827348,27.3279525 Z M212.500537,27.3279525 L219.44881,42.8194477 L128.303075,188.683114 L121.369065,188.683114 L121.369065,171.866641 L137.290583,147.689039 L151.604931,124.781293 L137.290583,105.504443 L150.137705,84.9447496 L173.253282,90.136689 L185.471862,70.5828742 L176.227912,56.2520882 L186.958916,39.0788923 L212.500537,27.3279525 Z M91.7700202,44.4832076 L128.724391,45.1282486 L142.560213,70.0882076 L124.261213,70.0882076 L119.206487,60.9687003 L100.729302,60.6461798 L91.2113983,76.4866315 L100.17068,92.6496037 L118.647866,92.9721242 L126.088213,80.5882076 L144.758213,80.5882076 L127.607147,109.135096 L90.6527765,108.490055 L72.7342129,76.164111 L91.7700202,44.4832076 Z M195.544373,0 L204.999882,14.1017118 L181.499523,29.5351855 L161.249262,29.5351855 L153.994613,14.1017118 L130.937177,14.1017118 L122.97148,38.9492398 L98.7279334,38.9492398 L90.0850085,14.1017118 L63.0726887,14.1017118 L57.4047586,27.2098395 L36.7669392,27.2098395 L16.2458361,14.1017118 L23.545088,0 L195.544373,0 Z" id="形状结合"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

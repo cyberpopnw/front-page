@@ -1,10 +1,12 @@
 import axios from "axios";
- 
+ // 引入qs
+import qs from 'qs'
  
 axios.defaults.baseURL = '' 
  
-axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded;charset=UTF-8";
-
+//post请求头
+axios.defaults.headers.post["Content-Type"] = "application/json;charset=UTF-8";
+//设置超时
 axios.defaults.timeout = 10000;
  
 axios.interceptors.request.use(
@@ -25,7 +27,6 @@ axios.interceptors.response.use(
         }
     },
     error => {
-
         console.log(error);
     }
 );
@@ -44,6 +45,15 @@ export default {
                 .catch(err => {
                     reject(err)
                 })
+        })
+    },
+    post(url: any, body: any) {
+        return new Promise((resolve, reject) => {
+            axios.post(url, body).then((result) => {
+                resolve(result);
+            }).catch((err)=>{
+                reject(err);
+            })
         })
     }
 };

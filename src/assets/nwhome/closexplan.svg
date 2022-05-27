@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="206px" height="207px" viewBox="0 0 206 207" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 13</title>
+    <defs>
+        <filter x="-117.4%" y="-116.1%" width="334.8%" height="332.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="24" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="pc" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="点击x-如果没有确权" transform="translate(-1362.000000, -184.000000)">
+            <g id="编组-22" transform="translate(374.905998, 236.000000)">
+                <g id="编组-13" transform="translate(1059.135574, 20.089953)">
+                    <g id="add" transform="translate(-0.000000, 0.000000)" fill="#4F00FF">
+                        <ellipse id="椭圆形" opacity="0.856422602" filter="url(#filter-1)" cx="30.6630435" cy="31" rx="30.6630435" ry="31"></ellipse>
+                        <rect id="矩形" fill-rule="nonzero" opacity="0" x="12.7241522" y="11.0684478" width="29.8327826" height="35.0973913"></rect>
+                        <path d="M12.7241522,27.2672438 L42.5569348,27.2672438 L42.5569348,29.9670431 L12.7241522,29.9670431 L12.7241522,27.2672438 Z M26.4931288,11.0684478 L28.7879582,11.0684478 L28.7879582,46.1658391 L26.4931288,46.1658391 L26.4931288,11.0684478 Z" id="形状" fill-rule="nonzero" transform="translate(27.640543, 28.617143) rotate(-137.000000) translate(-27.640543, -28.617143) "></path>
+                    </g>
+                    <g id="add" transform="translate(4.472113, 4.424689)" fill="#FFFFFF" fill-rule="nonzero">
+                        <rect id="矩形" opacity="0" x="7.25378953" y="7.25378953" width="35.0973913" height="35.0973913"></rect>
+                        <path d="M7.25378953,23.4525855 L42.3511808,23.4525855 L42.3511808,26.1523849 L7.25378953,26.1523849 L7.25378953,23.4525855 Z M23.4525855,7.25378953 L26.1523849,7.25378953 L26.1523849,42.3511808 L23.4525855,42.3511808 L23.4525855,7.25378953 Z" id="形状" transform="translate(24.802485, 24.802485) rotate(-47.000000) translate(-24.802485, -24.802485) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

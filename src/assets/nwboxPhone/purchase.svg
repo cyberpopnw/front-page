@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="283px" height="50px" viewBox="0 0 283 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <linearGradient x1="3.52374747%" y1="48.0758934%" x2="100%" y2="51.0346443%" id="linearGradient-1">
+            <stop stop-color="#CB33DF" offset="0%"></stop>
+            <stop stop-color="#8D30DF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mysterybox-phone" transform="translate(-46.000000, -933.000000)" fill="url(#linearGradient-1)">
+            <g id="button" transform="translate(46.628114, 933.656649)">
+                <polygon id="矩形" points="0 0 281.531291 0 281.531291 40.8656251 281.531291 48.5874765 0 48.5874765"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

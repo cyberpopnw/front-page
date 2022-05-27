@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="255px" height="59px" viewBox="0 0 255 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mining" transform="translate(-680.000000, -1066.000000)">
+            <g id="button" transform="translate(680.738822, 833.981727)" filter="url(#filter-1)">
+                <g transform="translate(0.000000, 232.564889)">
+                    <path d="M252.9135,0.9765 L252.9135,56.6835 L0.9765,56.6835 L0.9765,0.9765 L252.9135,0.9765 Z" id="矩形" stroke="#FFFFFF" stroke-width="1.953"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

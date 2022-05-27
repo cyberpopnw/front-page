@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="175px" height="47px" viewBox="0 0 175 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 21</title>
+    <g id="pc" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(-726.000000, -3896.000000)">
+            <g id="编组-21" transform="translate(726.000000, 3896.000000)">
+                <g id="ethereum-eth-logo" transform="translate(0.000000, 0.480000)" fill-rule="nonzero">
+                    <polygon id="路径" fill="#9B9191" points="14.6175758 0 14.3114354 1.05249861 14.3114354 31.5908669 14.6175758 31.9 28.6228709 23.5208673"></polygon>
+                    <polygon id="路径" fill="#D6CDCD" points="14.3114354 0 0 23.5208673 14.3114354 31.9 14.3114354 17.0775221"></polygon>
+                    <polygon id="路径" fill="#9B9191" points="14.4854949 34.7010987 14.3114354 34.912183 14.3114354 45.6946877 14.4854949 46.2 28.6228709 26.4"></polygon>
+                    <polygon id="路径" fill="#D6CDCD" points="14.3114354 46.2 14.3114354 34.7010987 0 26.4"></polygon>
+                    <polygon id="路径" fill="#141414" points="14.3114354 31.9 28.6228709 23.8162235 14.3114354 17.6"></polygon>
+                    <polygon id="路径" fill="#393939" points="0 23.8162235 14.3114354 31.9 14.3114354 17.6"></polygon>
+                </g>
+                <text id="Ethereum" font-family="Arial-Black, Arial Black" font-size="22" font-weight="700" line-spacing="66" fill="#FFFFFF">
+                    <tspan x="37.9073567" y="24">Ethereum</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

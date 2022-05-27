@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="97px" height="28px" viewBox="0 0 97 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>buy 按钮</title>
+    <defs>
+        <linearGradient x1="-4.99600361e-14%" y1="45.8337762%" x2="100%" y2="54.1662238%" id="linearGradient-1">
+            <stop stop-color="#8E18F5" offset="0%"></stop>
+            <stop stop-color="#E01ADF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板备份-4" transform="translate(-641.000000, -1663.000000)">
+            <g id="编组-17" transform="translate(641.000000, 1663.000000)">
+                <rect id="矩形" x="0" y="0" width="97" height="28"></rect>
+                <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="97" height="28"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

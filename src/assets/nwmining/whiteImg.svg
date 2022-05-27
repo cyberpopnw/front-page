@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="236px" height="237px" viewBox="0 0 236 237" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 13</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.309714 0 0 0 0 0.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter x="-79.1%" y="-78.3%" width="258.2%" height="256.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="24" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-13.6%" y="-11.5%" width="127.1%" height="123.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="2" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter color-interpolation-filters="auto" id="filter-4">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter color-interpolation-filters="auto" id="filter-5">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter x="-46.1%" y="-46.1%" width="192.2%" height="192.2%" filterUnits="objectBoundingBox" id="filter-6">
+            <feGaussianBlur stdDeviation="8" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mining" transform="translate(-693.000000, -843.000000)">
+            <g id="编组-11" transform="translate(680.738822, 833.981727)">
+                <g id="编组-13" transform="translate(85.000000, 82.000000)">
+                    <g filter="url(#filter-1)" id="add">
+                        <g>
+                            <ellipse id="椭圆形" fill="#8700FF" opacity="0.856422602" filter="url(#filter-2)" cx="45.5" cy="46" rx="45.5" ry="46"></ellipse>
+                            <rect id="矩形" fill="#000000" fill-rule="nonzero" opacity="0" x="18.881" y="16.4241483" width="44.268" height="52.08"></rect>
+                            <path d="M18.881,40.4610714 L63.149,40.4610714 L63.149,44.4672252 L18.881,44.4672252 L18.881,40.4610714 Z M39.3123846,16.4241483 L42.7176154,16.4241483 L42.7176154,68.5041483 L39.3123846,68.5041483 L39.3123846,16.4241483 Z" id="形状" fill="#000000" fill-rule="nonzero"></path>
+                            <path d="M18.881,40.4610714 L63.149,40.4610714 L63.149,44.4672252 L18.881,44.4672252 L18.881,40.4610714 Z M39.3123846,16.4241483 L42.7176154,16.4241483 L42.7176154,68.5041483 L39.3123846,68.5041483 L39.3123846,16.4241483 Z" id="形状" fill="#000000" fill-rule="nonzero" filter="url(#filter-3)"></path>
+                        </g>
+                    </g>
+                    <g filter="url(#filter-4)" id="add">
+                        <g transform="translate(17.399726, 17.329355)">
+                            <rect id="矩形" fill="#000000" fill-rule="nonzero" opacity="0" x="0" y="0" width="52.08" height="52.08"></rect>
+                            <path d="M0,24.0369231 L52.08,24.0369231 L52.08,28.043077 L0,28.043077 L0,24.0369231 Z M24.0369231,0 L28.043077,0 L28.043077,52.08 L24.0369231,52.08 L24.0369231,0 Z" id="形状" fill="#000000" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                    <g filter="url(#filter-5)" id="add">
+                        <g transform="translate(17.399726, 17.329355)">
+                            <rect id="矩形" fill="#000000" fill-rule="nonzero" opacity="0" x="0" y="0" width="52.08" height="52.08"></rect>
+                            <path d="M0,24.0369231 L52.08,24.0369231 L52.08,28.043077 L0,28.043077 L0,24.0369231 Z M24.0369231,0 L28.043077,0 L28.043077,52.08 L24.0369231,52.08 L24.0369231,0 Z" id="形状" fill="#000000" fill-rule="nonzero" filter="url(#filter-6)"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

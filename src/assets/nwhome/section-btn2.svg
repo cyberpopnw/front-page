@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="360px" height="139px" viewBox="0 0 360 139" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <filter x="-10.4%" y="-50.2%" width="120.8%" height="200.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="制作画板备份" transform="translate(-914.000000, -662.000000)">
+            <g id="大banner" transform="translate(-1.000000, -3.000000)">
+                <g id="button-bg-外发光" transform="translate(915.000000, 665.000000)">
+                    <polygon id="路径-13" fill="#D236A5" points="36.4013855 40.9319728 51.7929834 54.7329932 51.7929834 78.1947279 76.2929834 100.736395 324.774589 100.736395 324.774589 59.3333333 305.264552 41.8520408"></polygon>
+                    <polygon id="路径-13" fill="#C52EDD" filter="url(#filter-1)" points="36.4013855 40.9319728 51.7929834 54.7329932 51.7929834 78.1947279 76.2929834 100.736395 324.774589 100.736395 324.774589 59.3333333 305.264552 41.8520408"></polygon>
+                    <polygon id="路径-15" fill="#FFFFFF" points="51.7929834 54.7329932 10.074913 18.0749214 9.03654684 18.0749214 48.9034826 56.5731293 49.9406471 76.2900146 51.774589 78.8405156"></polygon>
+                    <rect id="矩形" x="0.0365468362" y="0.168401425" width="359" height="138"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

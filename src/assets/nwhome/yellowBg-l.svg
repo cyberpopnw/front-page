@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="268px" height="52px" viewBox="0 0 268 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="制作画板备份" transform="translate(-368.000000, -4120.000000)">
+            <g id="section3" transform="translate(0.473443, 3333.200000)">
+                <g id="边框装饰线" transform="translate(367.526557, 787.000000)">
+                    <polygon id="路径-22" fill="#EDFF00" transform="translate(133.370318, 25.462404) scale(-1, 1) translate(-133.370318, -25.462404) " points="-8.62387978e-13 41.7248088 260.340636 41.7248088 260.340636 0.124808847 266.740636 0.124808847 266.740636 50.8 258.420636 50.8 92.660636 50.8 84.4362835 45.9676104 12.8676736 45.9676104 10.647195 48.5288393 3.07084576 48.5288393"></polygon>
+                    <rect id="矩形" x="0.473443223" y="0" width="267" height="51"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

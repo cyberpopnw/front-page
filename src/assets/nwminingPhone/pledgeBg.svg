@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="278px" height="288px" viewBox="0 0 278 288" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 11</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#171C28" offset="0%"></stop>
+            <stop stop-color="#38285D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#8D5AFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#8D5AFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="57.4401673%" y1="4.58062917%" x2="57.4401673%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#171222" offset="0%"></stop>
+            <stop stop-color="#161B27" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#3F4245" offset="0%"></stop>
+            <stop stop-color="#979797" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="21.6196856%" y1="79.4770728%" x2="52.2853623%" y2="57.1496048%" id="linearGradient-5">
+            <stop stop-color="#6900FF" offset="0%"></stop>
+            <stop stop-color="#5800FF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-11.1%" y="-26.5%" width="122.1%" height="153.1%" filterUnits="objectBoundingBox" id="filter-6">
+            <feGaussianBlur stdDeviation="8.37" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mining-phone" transform="translate(-47.000000, -1474.000000)">
+            <g id="编组-10" transform="translate(72.842093, 1474.702143)">
+                <path d="M225.99,167.4584 L225.99,260.3654 L0.837,260.3654 L0.837,167.4584 L225.99,167.4584 Z" id="矩形" stroke="url(#linearGradient-2)" stroke-width="1.674" fill="url(#linearGradient-1)"></path>
+                <rect id="矩形" stroke="url(#linearGradient-4)" stroke-width="1.674" fill="url(#linearGradient-3)" x="1.2555" y="0.837" width="224.7345" height="167.4"></rect>
+                <g id="编组-3" transform="translate(0.000000, 0.895400)">
+                    <rect id="矩形" fill="url(#linearGradient-5)" opacity="0.42909702" x="0.837" y="0" width="225.99" height="260.307"></rect>
+                    <path d="M224.7345,167.8185 L224.7345,258.2145 L2.0925,258.2145 L2.0925,167.8185 L224.7345,167.8185 Z" id="矩形" stroke="url(#linearGradient-2)" stroke-width="4.185" filter="url(#filter-6)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

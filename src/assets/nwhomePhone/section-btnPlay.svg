@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>play</title>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home-phone" transform="translate(-308.000000, -242.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="大banner" transform="translate(-96.111179, 26.595676)">
+                <g id="编组-20" transform="translate(111.571120, 189.038010)">
+                    <g id="play" transform="translate(292.603122, 26.623135)">
+                        <rect id="矩形" opacity="0" x="0" y="0" width="10.9512" height="10.9512"></rect>
+                        <path d="M5.47707194,0.695608556 C2.83312032,0.695608556 0.691105185,2.83834598 0.691105185,5.48157531 C0.691105185,8.12481558 2.83312032,10.267553 5.47707194,10.267553 C8.12029032,10.267553 10.2630496,8.12481558 10.2630496,5.48157531 C10.2630496,2.83834598 8.12029032,0.695608556 5.47707194,0.695608556 Z M3.94425327,7.75636038 L3.94425327,3.27170873 L7.82846348,5.51367341 L3.94425327,7.75636038 Z" id="形状"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="95px" height="554px" viewBox="0 0 95 554" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <linearGradient x1="50%" y1="1.69089181%" x2="50%" y2="87.306301%" id="linearGradient-1">
+            <stop stop-color="#9D00FF" offset="0%"></stop>
+            <stop stop-color="#1600FF" stop-opacity="0.592848558" offset="77.3737981%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.894190589">
+        <g transform="translate(-1825.000000, -622.000000)" fill="url(#linearGradient-1)" id="跟随social">
+            <g transform="translate(1825.000000, 541.000000)">
+                <polygon id="矩形" transform="translate(48.500000, 318.008634) scale(1, -1) translate(-48.500000, -318.008634) " points="0 68.0027421 97 0 97 524.895151 0 636.017268"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

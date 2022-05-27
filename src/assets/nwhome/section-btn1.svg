@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="318px" height="81px" viewBox="0 0 318 81" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <filter x="-10.9%" y="-51.0%" width="121.7%" height="202.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-10.9%" y="-18.4%" width="121.8%" height="136.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="4" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="制作画板备份" transform="translate(-673.000000, -702.000000)">
+            <g id="大banner" transform="translate(-1.000000, -3.000000)">
+                <g id="左边button" transform="translate(674.000000, 705.000000)">
+                    <g id="button-右边" transform="translate(153.186416, 30.834184) scale(-1, -1) translate(-153.186416, -30.834184) translate(8.808180, 0.931973)">
+                        <polygon id="路径-13" stroke="#979797" fill="#000000" filter="url(#filter-1)" points="4.79006323 1.03744134e-16 15.7748666 13.8010204 15.7748666 37.2627551 40.2748666 59.8044218 288.756472 59.8044218 288.756472 18.4013605 269.246435 0.920068027"></polygon>
+                        <polygon id="路径-13" fill="#000000" opacity="0.488258539" points="4.79006323 1.03744134e-16 15.7748666 13.8010204 15.7748666 37.2627551 40.2748666 59.8044218 288.756472 59.8044218 288.756472 18.4013605 269.246435 0.920068027"></polygon>
+                        <polygon id="路径-13" stroke="#C4C4C4" stroke-width="2" points="0 0 15.7748666 13.8010204 15.7748666 37.2627551 40.2748666 59.8044218 288.756472 59.8044218 288.756472 18.4013605 269.246435 0.920068027"></polygon>
+                    </g>
+                    <polygon id="路径-15" fill="#E52AE1" transform="translate(299.370245, 50.155612) scale(-1, -1) translate(-299.370245, -50.155612) " points="317.929147 52.9979466 281.849709 21.1734694 280.811343 21.1734694 314.645722 55.0302327 315.658354 77.297619 317.929147 79.1377551"></polygon>
+                    <polygon id="路径-7" fill="#E529E0" points="7.76799329 0.0119047619 7.76799329 42.6549153 28.2015136 60.7363946 110.131937 60.7363946 110.131937 63.5630765 63.8573113 63.5630765 63.8573113 65.3367347 23.2830574 65.3367347 0.225411015 43.255102 0.225411015 0.0119047619"></polygon>
+                    <polygon id="路径-7" fill="#941E9B" filter="url(#filter-2)" points="7.76799329 0.0119047619 7.76799329 42.6549153 28.2015136 60.7363946 110.131937 60.7363946 110.131937 63.5630765 63.8573113 63.5630765 63.8573113 65.3367347 23.2830574 65.3367347 0.225411015 43.255102 0.225411015 0.0119047619"></polygon>
+                    <rect id="矩形" x="0" y="0" width="318" height="81"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

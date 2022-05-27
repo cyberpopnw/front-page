@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="216px" height="49px" viewBox="0 0 216 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <linearGradient x1="3.52374747%" y1="46.6681006%" x2="100%" y2="51.7916527%" id="linearGradient-1">
+            <stop stop-color="#CB33DF" offset="0%"></stop>
+            <stop stop-color="#8D30DF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mystery-box-list" transform="translate(-422.000000, -639.000000)" fill="url(#linearGradient-1)">
+            <g id="button" transform="translate(422.634279, 639.067973)">
+                <polygon id="矩形" points="0 0 214.486272 0 214.486272 40.9696587 214.486272 48.711168 0 48.711168"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

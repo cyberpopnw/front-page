@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="109px" height="103px" viewBox="0 0 109 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <rect id="path-1" x="3.41060513e-13" y="1.5" width="108" height="101.981326"></rect>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mystery-box-list" transform="translate(-424.000000, -483.000000)">
+            <g id="编组-12" transform="translate(424.642399, 481.866365)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <rect stroke="#483C6E" stroke-width="1.5" x="0.75" y="2.25" width="106.5" height="100.481326"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

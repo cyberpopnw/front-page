@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192px" height="104px" viewBox="0 0 192 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <linearGradient x1="50%" y1="70.5228359%" x2="50%" y2="99.2679196%" id="linearGradient-1">
+            <stop stop-color="#FF18FF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FF18FF" stop-opacity="0.62347028" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="制作画板备份" transform="translate(-438.000000, 0.000000)">
+            <g id="top" transform="translate(0.000000, -2.000000)">
+                <g id="菜单选中状态" transform="translate(438.000000, 2.000000)">
+                    <polygon id="矩形" fill="url(#linearGradient-1)" points="31 0 192 0 161 104 0 104"></polygon>
+                    <rect id="矩形" x="0" y="0" width="192" height="104"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

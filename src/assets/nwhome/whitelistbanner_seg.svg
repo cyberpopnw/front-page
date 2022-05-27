@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="51px" height="102px" viewBox="0 0 51 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>whitelistbanner_seg</title>
+    <g id="白名单页面" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页banner" transform="translate(-910.000000, -15.000000)" fill="#12FD00">
+            <g id="编组-2" transform="translate(397.000000, 15.000000)">
+                <polygon id="whitelistbanner_seg" points="560 0 526.834835 43.0875276 543.417418 48.943285 513 101.892408 563.848824 48.943285 543.417418 38.5112949"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

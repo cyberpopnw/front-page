@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="349px" height="443px" viewBox="0 0 349 443" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 10</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#171C28" offset="0%"></stop>
+            <stop stop-color="#38285D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#8D5AFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#8D5AFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="57.4401673%" y1="4.58062917%" x2="57.4401673%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#323C50" offset="0%"></stop>
+            <stop stop-color="#161B27" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#3F4245" offset="0%"></stop>
+            <stop stop-color="#979797" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-7.6%" y="-15.1%" width="115.2%" height="130.2%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="7.638462" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mysterybox-phone" transform="translate(-12.000000, -1782.000000)">
+            <g id="编组-10" transform="translate(35.835330, 1782.241128)">
+                <path d="M300.753209,268.494125 L300.753209,418.940894 L0.7638462,418.940894 L0.7638462,268.494125 L300.753209,268.494125 Z" id="矩形" stroke="url(#linearGradient-2)" stroke-width="1.5276924" fill="url(#linearGradient-1)"></path>
+                <rect id="矩形" stroke="url(#linearGradient-4)" stroke-width="1.5276924" fill="url(#linearGradient-3)" x="1.32015073" y="0.7638462" width="299.433058" height="270.143468"></rect>
+                <g id="编组-3" transform="translate(0.000000, 267.730279)" stroke="url(#linearGradient-2)" stroke-width="3.819231">
+                    <path d="M299.607439,1.9096155 L299.607439,150.064846 L1.9096155,150.064846 L1.9096155,1.9096155 L299.607439,1.9096155 Z" id="矩形" filter="url(#filter-5)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

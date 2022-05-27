@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="213px" height="74px" viewBox="0 0 213 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>右边button</title>
+    <defs>
+        <filter x="-10.4%" y="-50.2%" width="120.8%" height="200.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="6.084" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home-phone" transform="translate(-165.000000, -211.000000)">
+            <g id="大banner" transform="translate(-96.111179, 26.595676)">
+                <g id="编组-20" transform="translate(111.571120, 189.038010)">
+                    <g id="右边button" transform="translate(151.985095, 0.000000)">
+                        <g id="button-bg" transform="translate(16.648768, 13.906230)">
+                            <polygon id="路径-13" fill="#D236A5" points="0 0 9.36424819 8.39654082 9.36424819 22.6706602 24.2700482 36.3850102 175.446257 36.3850102 175.446257 11.1953878 163.57635 0.559769388"></polygon>
+                            <polygon id="路径-13" fill="#C52EDD" filter="url(#filter-1)" points="0 0 9.36424819 8.39654082 9.36424819 22.6706602 24.2700482 36.3850102 175.446257 36.3850102 175.446257 11.1953878 163.57635 0.559769388"></polygon>
+                        </g>
+                        <polygon id="路径-15" fill="#FFFFFF" points="26.013016 22.3027709 0.631741958 0 0 0 24.2550437 23.4223097 24.8860546 35.4180627 26.0018248 36.9697875"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

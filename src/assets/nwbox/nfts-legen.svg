@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="142px" height="52px" viewBox="0 0 142 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 16</title>
+    <defs>
+        <linearGradient x1="94.8577183%" y1="47.8439101%" x2="2.29155262%" y2="51.262119%" id="linearGradient-1">
+            <stop stop-color="#A240FF" offset="0%"></stop>
+            <stop stop-color="#35FFAD" offset="32.8684987%"></stop>
+            <stop stop-color="#D9E1FF" offset="74.760469%"></stop>
+            <stop stop-color="#691EFF" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-13.5%" y="-71.4%" width="127.0%" height="242.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="5" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mystery-box-list" transform="translate(-807.000000, -951.000000)" fill="url(#linearGradient-1)">
+            <g id="编组-16" transform="translate(822.430421, 966.582999)">
+                <polygon id="矩形" points="0 0 111 0 111 12.2863005 101.345564 21 0 21"></polygon>
+                <polygon id="矩形" filter="url(#filter-2)" points="0 0 111 0 111 12.2863005 101.345564 21 0 21"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

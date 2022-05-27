@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>椭圆形备份</title>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="制作画板备份" transform="translate(-1275.000000, -2866.000000)">
+            <g id="section2" transform="translate(36.000000, 2259.000000)">
+                <g id="video" transform="translate(1018.259364, 539.593963)">
+                    <g id="播放按钮" transform="translate(221.375000, 67.750000)">
+                        <circle id="椭圆形" fill="#EDFF00" cx="27.5" cy="27.5" r="27.5"></circle>
+                        <g id="play" transform="translate(3.000000, 3.000000)" fill="#000000" fill-rule="nonzero">
+                            <rect id="矩形" opacity="0" x="0" y="0" width="49" height="49"></rect>
+                            <path d="M24.506586,3.11242779 C12.6765008,3.11242779 3.09227793,12.6998825 3.09227793,24.5267359 C3.09227793,36.3536383 12.6765008,45.941093 24.506586,45.941093 C36.3333905,45.941093 45.9209431,36.3536383 45.9209431,24.5267359 C45.9209431,12.6998825 36.3333905,3.11242779 24.506586,3.11242779 Z M17.6481491,34.705024 L17.6481491,14.6389188 L35.0276418,24.6703555 L17.6481491,34.705024 Z" id="形状"></path>
+                        </g>
+                        <circle id="椭圆形备份" cx="27.5" cy="27.5" r="27.5"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

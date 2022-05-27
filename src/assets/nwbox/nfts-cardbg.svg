@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="343px" height="438px" viewBox="0 0 343 438" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 10</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#171C28" offset="0%"></stop>
+            <stop stop-color="#38285D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#8D5AFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#8D5AFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="57.4401673%" y1="4.58062917%" x2="57.4401673%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#323C50" offset="0%"></stop>
+            <stop stop-color="#161B27" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#3F4245" offset="0%"></stop>
+            <stop stop-color="#979797" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-7.6%" y="-15.1%" width="115.2%" height="130.2%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="7.533" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mystery-box-list" transform="translate(-791.000000, -958.000000)">
+            <g id="编组-10" transform="translate(813.712384, 958.608554)">
+                <path d="M296.600798,264.787106 L296.600798,413.1567 L0.7533,413.1567 L0.7533,264.787106 L296.600798,264.787106 Z" id="矩形" stroke="url(#linearGradient-2)" stroke-width="1.5066" fill="url(#linearGradient-1)"></path>
+                <rect id="矩形" stroke="url(#linearGradient-4)" stroke-width="1.5066" fill="url(#linearGradient-3)" x="1.3019238" y="0.7533" width="295.298874" height="266.413677"></rect>
+                <g id="编组-3" transform="translate(0.000000, 264.033806)" stroke="url(#linearGradient-2)" stroke-width="3.7665">
+                    <path d="M295.470848,1.88325 L295.470848,147.992944 L1.88325,147.992944 L1.88325,1.88325 L295.470848,1.88325 Z" id="矩形" filter="url(#filter-5)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
