@@ -280,7 +280,7 @@ const us = {
         // miningA
         mining: {
             coming: 'COMING SOON',
-            title: 'MINING',
+            title: 'NFT MINING',
             subtitle: 'STAKE NFT FOR MINING REWARDS',
             total_title: 'TOTAL REWARDS',
             total_subtitle: '（CYT）',

@@ -51,7 +51,7 @@ const closePopUp = () => {
     }
 }
 .metamask{
-    z-index: 9;
+    z-index: 13;
     position: fixed;
     top: 0;
     left: 0;

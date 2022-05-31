@@ -35,7 +35,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                     </div>
                     <div class="name">{{ data[0].info.name }} </div>
                     <div class="introduce">
-                        {{ locale == 'us' ? data[0].info.description : data[0].info.description_zh}}
+                        {{ locale == 'cn' ? data[0].info.description_zh : data[0].info.description }}
                     </div>
                     <div class="price">
                         <img src="@/assets/nwbox/nfts-icon.svg" alt="">
@@ -57,7 +57,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                     </div>
                    <div class="name">{{ data[1].info.name }}</div>
                     <div class="introduce">
-                        {{ locale == 'us' ? data[1].info.description : data[1].info.description_zh}}
+                        {{ locale == 'cn' ? data[1].info.description_zh : data[1].info.description }}
                     </div>
                     <div class="price">
                         <img src="@/assets/nwbox/nfts-icon.svg" alt="">
@@ -79,7 +79,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                     </div>
                     <div class="name">{{ data[2].info.name }}</div>
                     <div class="introduce">
-                        {{ locale == 'us' ? data[2].info.description : data[2].info.description_zh}}
+                        {{ locale == 'cn' ? data[2].info.description_zh : data[2].info.description }}
                     </div>
                     <div class="price">
                         <img src="@/assets/nwbox/nfts-icon.svg" alt="">
