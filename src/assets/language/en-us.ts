@@ -372,6 +372,10 @@ const us = {
                 desc5: 'Kakulupia is a foreigner of this age, a prince from a distant era. He was supposed to be a hero who had already been dead and nearly been forgotten. After Ahriman, the God of Dark awakened, he responded to the call of scholars in the Sand Sea to come to this age with the power of his dagger. However, the power was exhausted due to the transition caused by this time travel. Kakulupia witnessed the deplorable situation of the Sand Sea during searching for materials with mysterious energy to restore the power of his dagger, so he was determined to travel back to the time before Ahriman awakened so as to stop this tragedy.',
                 desc6: 'An hourglass from the Golden Age, in which there is not much left of the mysterious grit stored. According to legend, it is a tool built by the ancients to use the power of traveling through time and space. But now that knowledge has been forgotten,the method of using the hourglass has disappeared in the dust of history.',
                 desc7: 'The liquid stored in the container will  repair your damaged flesh to continue putting into action and combat.',
+
+                type1_desc: '盒子中，裝有平行世界的一部分碎片，是世界與世界之間碰撞後的產物，是Cyberpop文明概念的體現。 賽博世界通過獨有科技將其融合，使其具有獨特的功能，以讓賽博居民們能更好地辨識與控制自我。 同時，賽博世界所提供的合成物具有較為强烈的獨特視覺風格，包含有義眼、智慧目鏡、呼吸器、螢光紋身等，這種合成物常常被獻給剛剛來到子世界的降臨者們。',
+                type2_desc: '盒子中，裝有世界的一部分碎片。 它儲存了人類最先進的科技，科技造物、或許能够幫到你在賽博世界的每一個角落完成屬於你自己的使命，也可以改變賽博世界的未來。',
+                type3_desc: '盒子中，一個具有隨機屬性的角色可以被隨機获取。',
             }
         },
 

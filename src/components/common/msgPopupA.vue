@@ -212,7 +212,7 @@ onMounted(() => {
             bottom: 0;
             width: 31.51vw;
             min-width: 380px;
-            min-height: 180px;
+            min-height: 280px;
             margin: auto;
             padding: 2.5vw;
             box-shadow: -1.51vw .83vw .2vw .05vw rgba(0, 0, 0, 0.4);
@@ -282,17 +282,23 @@ onMounted(() => {
                     line-height: 1vw;
                     .buttons{
                         display: flex;
-                        justify-content: space-between;
+                        justify-content: flex-end;
                         span{
                             float: right;
                             display: inline-block;
-                            padding: 1.4px 3px;
-                            margin: 1.4vw .8vw 0 0;
-                            background: #30304D;
+                            padding: .46vw 1.04vw;
+                            margin: 1.4vw 0 0 .72vw;
+                            font-size: 1.04vw;
+                            color: #FFFFFF;
+                            line-height: 1.04vw;
+                            border: 1px solid #FFFFFF;
+                            -webkit-background-clip: text;
                             cursor: pointer;
                         }
                         span:hover{
                             color: rgb(255, 24, 255);
+                            border: 1px solid rgb(255, 24, 255);
+                            filter: drop-shadow(0 0 1px rgb(255, 24, 255));
                         }
                         span:last-child{
                             margin-right: 0;

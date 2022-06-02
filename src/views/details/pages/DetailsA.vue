@@ -202,7 +202,8 @@
                         <li>
                             <div class="title">{{ data.info.name }}</div>
                             <div class="desc">
-                                {{ locale == 'cn' ? data.info.description_zh : data.info.description }}
+                                {{$t('message.details.intro.type1_desc')}}
+                                <!-- {{ locale == 'cn' ? data.info.description_zh : data.info.description }} -->
                             </div>
                         </li>
                     </ul>
@@ -212,7 +213,8 @@
                         <li>
                             <div class="title">{{ data.info.name }}</div>
                             <div class="desc">
-                                {{ locale == 'cn' ? data.info.description_zh : data.info.description }}
+                                <!-- {{ locale == 'cn' ? data.info.description_zh : data.info.description }} -->
+                                {{$t('message.details.intro.type2_desc')}}
                             </div>
                         </li>
                         <li>
@@ -234,7 +236,8 @@
                         <li>
                             <div class="title">{{ data.info.name }}</div>
                             <div class="desc">
-                                {{ locale == 'cn' ? data.info.description_zh : data.info.description }}
+                                <!-- {{ locale == 'cn' ? data.info.description_zh : data.info.description }} -->
+                                {{$t('message.details.intro.type3_desc')}}
                             </div>
                         </li>
                         <li>

@@ -169,7 +169,8 @@
                         <li>
                             <div class="title">{{ data.info.name }}</div>
                             <div class="desc">
-                                {{ locale == 'us' ? data.info.description : data.info.description_zh }}
+                                <!-- {{ locale == 'us' ? data.info.description : data.info.description_zh }} -->
+                                {{$t('message.details.intro.type1_desc')}}
                             </div>
                         </li>
                     </ul>
@@ -179,7 +180,8 @@
                         <li>
                             <div class="title">{{ data.info.name }}</div>
                             <div class="desc">
-                                {{ locale == 'us' ? data.info.description : data.info.description_zh }}
+                                <!-- {{ locale == 'us' ? data.info.description : data.info.description_zh }} -->
+                                {{$t('message.details.intro.type2_desc')}}
                             </div>
                         </li>
                         <li>
@@ -201,7 +203,8 @@
                         <li>
                             <div class="title">{{ data.info.name }}</div>
                             <div class="desc">
-                                {{ locale == 'us' ? data.info.description : data.info.description_zh }}
+                                <!-- {{ locale == 'us' ? data.info.description : data.info.description_zh }} -->
+                                {{$t('message.details.intro.type3_desc')}}
                             </div>
                         </li>
                         <li>
@@ -577,6 +580,7 @@ onMounted( () => {
             }
         }
         .list{
+            padding-bottom: 40px;
             .content{
                 .attr_warp{
                     width: 100%;

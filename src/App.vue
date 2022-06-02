@@ -15,9 +15,11 @@
         <boxOpenedA v-if="innerWidth > 1025 && boxOpened" :isShowTips="boxOpened" :boxId="boxId"></boxOpenedA>
         <boxOpenedB v-if="innerWidth <= 1025 && boxOpened" :isShowTips="boxOpened" :boxId="boxId"></boxOpenedB>
         <div class="ip_error" v-if="iperror && innerWidth > 1025">
+            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">
             {{$t('message.common.ip')}}
         </div>
         <div class="ip_error_Mobile" v-if="iperror && innerWidth <= 1025">
+            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">
             {{$t('message.common.ip')}}
         </div>
         <!-- <div style="background: #333;color: #fff" v-if="cname">{{ cname }}</div> -->
@@ -129,20 +131,36 @@ onMounted(() => {
         left: 50%;
         font-size: 1vw;
         transform: translateX(-50%);
-        width: 60.75vw;
-        height: 2.16vw;
+        /* width: 52.34vw; */
+        height: 2.3vw;
+        padding: 0 2vw;
         margin-top: 8vw;
-        background: rgba(255, 82, 82, 0.42);
-        border-radius: 4px 4px 4px 4px;
-        border: 1px solid #FF5CA1;
-        color: #FF5CA1;
+        font-size: .83vw;
+        font-family: AlibabaPuHuiTi_2_55_Regular;
+        color: #F2FF0B;
+        line-height: 2.3vw;
+        background: rgba(243, 255, 41, 0.42);
+        border-radius: 4px;
+        border: 1px solid #F3FF29;
+        white-space: nowrap;
         /* animation-fill-mode: forwards; */
     }
+    .ip_error > img{
+        width: 1.6vw;
+        margin-right: .4vw;
+    }
     .ip_error_Mobile{
+        top: 10vw;
         width: auto;
         height: auto;
-        padding: 2vw 2vw;
-        top: 10vw;
+        padding: 6px;
+        line-height: 2.6vw;
+        white-space: normal;
+    }
+    .ip_error_Mobile > img{
+        float: left;
+        width: 4vw;
+        margin-right: 2vw;
     }
     @keyframes springtimeAniamtScale2 {
         0% {

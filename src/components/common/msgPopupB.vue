@@ -320,14 +320,18 @@ onMounted(() => {
                     line-height: 20px;
                     span{
                         float: right;
-                        display: inline-block;
-                        padding: 1.4px 3px;
-                        margin: 1.4vw .8vw 0 0;
-                        background: #30304D;
+                        padding: 9px 20px;
+                        margin-top: 20px;
+                        font-size: 1.04vw;
+                        color: #FFFFFF;
+                        line-height: 1.04vw;
+                        border: 1px solid #FFFFFF;
                         cursor: pointer;
                     }
                     span:hover{
                         color: rgb(255, 24, 255);
+                        border: 1px solid rgb(255, 24, 255);
+                        filter: drop-shadow(0 0 1px rgb(255, 24, 255));
                     }
                     .buttons{
                         display: flex;

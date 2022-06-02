@@ -170,42 +170,47 @@ onMounted(() => {
                 width: 100%;
                 max-width: 31vw;
                 position: absolute;
-                bottom: 2vw;
+                bottom: 3vw;
                 right: 2vw;
                 display: flex;
                 justify-content: flex-end;
                 .btn{
                     // padding: 0.73vw 1.75vw;
-                    padding: 0.73vw 1.2vw;
+                    padding: .46vw 1.04vw;
+                    margin-left: .72vw;
+                    font-size: 1.04vw;
+                    color: #FFFFFF;
+                    font-family: AlibabaPuHuiTi_2_55_Regular;
+                    line-height: 1.04vw;
+                    border: 1px solid #FFFFFF;
+                    -webkit-background-clip: text;
                     transition: all 0.2s ease;
                     cursor: pointer;
-                    // font-size: 1.04vw;
-                    font-size: .83vw;
-                    font-family: AlibabaPuHuiTi_2_115_Black;
-                    font-weight: normal;
-                    color: #FFFFFF;
                 }
-                .btn:first-child{
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
-                    background-size: 100% 100%;
-                    margin-right: 1.25vw;
-                }
-                .btn:nth-child(2){
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
-                    background-size: 100% 100%;
-                    margin-right: 1.25vw;
-                }
-                .btn:nth-child(3){
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
-                    background-size: 100% 100%;
-                    margin-right: 1.25vw;
-                }
-                .btn:last-child{
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/purchase.png');
-                    background-size: 100% 100%;
-                }
+                // .btn:first-child{
+                //     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
+                //     background-size: 100% 100%;
+                //     margin-right: 1.25vw;
+                // }
+                // .btn:nth-child(2){
+                //     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
+                //     background-size: 100% 100%;
+                //     margin-right: 1.25vw;
+                // }
+                // .btn:nth-child(3){
+                //     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
+                //     background-size: 100% 100%;
+                //     margin-right: 1.25vw;
+                // }
+                // .btn:last-child{
+                //     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/purchase.png');
+                //     background-size: 100% 100%;
+                // }
                 .btn:hover{
-                    filter: drop-shadow(0 0 0.4vw #fff);
+                    // filter: drop-shadow(0 0 0.4vw #fff);
+                    color: rgb(255, 24, 255);
+                    border: 1px solid rgb(255, 24, 255);
+                    filter: drop-shadow(0 0 1px rgb(255, 24, 255));
                 }
             }
         }
