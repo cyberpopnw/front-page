@@ -226,20 +226,20 @@ const addChain = (chainId: Number) => {
                 }
             ]
         }
-    }else if(chainId == 97){
+    }else if(chainId == 56){
         info = {
             method: 'wallet_addEthereumChain',
             params: [
                 {
-                    chainId: web3.utils.numberToHex(97),
+                    chainId: web3.utils.numberToHex(56),
                     chainName: 'BSC',
                     nativeCurrency: {
                         name: 'BSC',
                         symbol: 'BSC', // 2-6 characters long
                         decimals: 18
                     },
-                    rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org'],
-                    blockExplorerUrls: ['https://testnet.bscscan.com/']
+                    rpcUrls: ['https://bsc-dataseed1.defibit.io'],
+                    blockExplorerUrls: ['https://bscscan.com/']
                 }
             ]
         }

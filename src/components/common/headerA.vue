@@ -13,7 +13,7 @@
                         @mouseleave="mouseLeaveChain"
                         v-show="realId !== -1"
                     >
-                        <div class="select_chain" @click="switchChain" :class="{'selected': chainId == 97 || chainId == 43113 || chainId == 80001 || chainId == 85}"><img :src="chainId == 97 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 97 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.name : chainList.notSupported.name }}</span><div class="blur"></div></div>
+                        <div class="select_chain" @click="switchChain" :class="{'selected': chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85}"><img :src="chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.name : chainList.notSupported.name }}</span><div class="blur"></div></div>
                         <div class="hover_chunk" v-show="showChainList">
                             <div class="chunk_wrap">
                                 <div v-for="(value,key,index) in chainList" @click="changeChain(value)" :key="index" class="item" v-show="!value.active"><img :src="value.img" alt=""><span>{{ value.name }}</span></div>
@@ -139,7 +139,7 @@ const chainList = ref({
     BSC: {
         name: 'BSC',
         img: 'https://testnet.bscscan.com/images/favicon.ico',
-        chainId: 97,
+        chainId: 56,
     },
     avax: {
         name: 'Fuji',
@@ -159,7 +159,7 @@ const chainList = ref({
     select: {
         name: 'BSC',
         img: 'https://testnet.bscscan.com/images/favicon.ico',
-        chainId: 97,
+        chainId: 56,
         active: 1,
     },
     notSupported: {
@@ -198,7 +198,7 @@ const changeChain = async (value?: any) => {
 
 const mouseOver: any = () => {
     console.log(chainId.value);
-    if(chainId.value == 97 || chainId.value == 43113 || chainId.value == 85 || chainId.value == 80001){
+    if(chainId.value == 56 || chainId.value == 43113 || chainId.value == 85 || chainId.value == 80001){
         showChainList.value = true;
     }
 }
@@ -208,7 +208,7 @@ const mouseLeaveChain: any = () => {
 }
 
 const switchChain = () => { //Switching chain
-    if(chainId.value == 97 || chainId.value == 43113) return;
+    if(chainId.value == 56 || chainId.value == 43113 || chainId.value == 85 || chainId.value == 80001) return;
     store.dispatch('user/xplanChangeAni', true);
     isShowTips.value = !isShowTips.value;
 }
@@ -392,7 +392,7 @@ const connect: any = async () => {
         let web3obj = new Web3((Web3 as any).givenProvider);
         await web3obj.eth.net.getId().then((chainId: any) => {
             store.dispatch('user/chageChainId', Number(chainId))
-            if(chainId != 97 && chainId != 43113 && chainId != 80001 && chainId != 85) {
+            if(chainId != 56 && chainId != 43113 && chainId != 80001 && chainId != 85) {
                 store.dispatch('user/xplanChangeAni', true);
                 store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
             }
