@@ -21,7 +21,10 @@
                 <div class="search" ref="myNav">
                     <div class="whiteList">
                         <p v-if="bobabrewery">{{ bobabrewery }}</p>
-                        <p v-else>{{ whiteList ? $t('message.assets.haveWhite') : $t('message.assets.notHaveWhite') }}</p>
+                        <p v-else>
+                            <span v-if="whiteList" @click="whiteListWindows">{{ $t('message.assets.haveWhite')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/whitelist.png" alt=""></span>
+                            <span v-else>{{ $t('message.assets.notHaveWhite') }}</span>
+                        </p>
                     </div>
                     <div class="line"></div>
                     <div class="myAssets">
@@ -169,7 +172,7 @@
                     </div>
                 </div>
             </div>
-            <div class="nothing" v-if="readyAssetsF == -1">
+            <div class="nothing" v-if="readyAssetsF == -1" ref="nothing">
             <!-- <div class="nothing" v-if="true"> -->
                 <div class="txt">{{t('message.assets.nothing')}}<a href="/">{{t('message.assets.nothing_home')}}</a></div>
                 <img src="@/assets/nwAssets/nothing.svg" alt="">
@@ -223,6 +226,7 @@
     <footer-a></footer-a>
     <load-game-a :isShowTips="TipsState" :transition="transition" :tokenId="tokenId" v-if="TipsState" :loadAbi="loadAbi" :loadAddress="loadAddress" :number="number" @initLoad='initLoad'></load-game-a>
     <popup-a v-show="transferActive" :transferInfo="transferItem" :abi="abiSelect" :address="addressSelect"></popup-a>
+    <WhiteList :isShowTips="haveWhiteWindow" v-if="haveWhiteWindow" @closeFinshed="haveWhiteWindow = false"/>
 </template>
 <script setup lang="ts">
 import { onBeforeMount, onMounted, ref, reactive, computed, getCurrentInstance, onUnmounted, watch } from 'vue'
@@ -232,6 +236,8 @@ import Web3 from '@/tools/web3'
 import { toRaw } from '@vue/reactivity'
 import { useI18n } from 'vue-i18n';
 import { log } from 'console'
+import WhiteList from '@/components/assets/whiteListA.vue'
+
 const { t } = useI18n();
 
 
@@ -305,16 +311,16 @@ const windowScroll: any = () => {
     const navHeight: number = myNav.value.offsetHeight;  // Distance of the element from the top
     const cHeight: number = document.documentElement.clientHeight; // Window height
     const scrollHeight: number = document.documentElement.scrollTop; // How many PX slides down
-    startMove(Math.ceil((cHeight - navHeight - 196) + scrollHeight));
+    startMove(Math.ceil((cHeight - navHeight - 160) + scrollHeight));
 }
 
 let timer: any = null;
 const startMove = (target : any) => {
-    let a = document.getElementsByClassName('ecr')[0] as HTMLElement;
-    let speed = (target - myNav.value.offsetTop) / 1;
+    let a = document.getElementsByClassName('ecr')[0] as HTMLElement || document.getElementsByClassName('nothing')[0] as HTMLElement;
+    let speed = target - myNav.value.offsetTop;
     speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
     myNav.value.style.top = myNav.value.offsetTop + speed + 'px';
-    if(parseInt(myNav.value.style.top) < a.offsetTop)  myNav.value.style.top = a.offsetTop - 80 + 'px';
+    if(parseInt(myNav.value.style.top) < (a.offsetTop || 500))  myNav.value.style.top = a.offsetTop + 'px';
 }
 
 
@@ -331,9 +337,10 @@ const startMove = (target : any) => {
 // }
 
 
-//myAssets 
+//myAssets & whiteList 
 const myAssets = ref({}) as any;
 const bobabrewery = ref('') as any;
+const haveWhiteWindow = ref(false);
 const initMyAssetes = async () => {
     if(chainId.value == 43113){
         var a = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address);
@@ -346,12 +353,18 @@ const initMyAssetes = async () => {
     console.log(idTemp.value, 'idTemp');
     proxy.$api.post(`/bobabrewery/boba/api/v1/cyberpop?walletAddress=${idTemp.value}`).then((res: any) => {
         console.log(res.data, 'data');
+        res.data.data = 1
         res.data?.code != 200 ? bobabrewery.value = 'request fail' : bobabrewery.value = '';
         res.data?.data ? whiteList.value = true : whiteList.value = false;
     }).catch( (err: any) => {
         console.log(err)
     })
 }
+const whiteListWindows = () => {
+    store.dispatch('user/xplanChangeAni', true);
+    haveWhiteWindow.value = true;
+}
+
 
 
 // select
@@ -830,6 +843,14 @@ onMounted(() => {
 
 </script>
 <style lang="less" scoped>
+     @keyframes neon3 {
+        from {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+        }
+        to {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+        }
+    }
     .section{
         z-index: 8;
         position: fixed;
@@ -970,6 +991,17 @@ onMounted(() => {
                     }
                     .whiteList{
                         font-size: .83vw;
+                        display: flex;
+                        cursor: pointer;
+                        img{
+                            
+                            width: 1vw;
+                        }
+                    }
+                    .whiteList:hover{
+                        -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+                        -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+                        animation: neon1 1.5s ease-in-out infinite alternate;
                     }
                     .line{
                         height: 0px;
