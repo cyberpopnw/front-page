@@ -3,6 +3,10 @@ import { createStore, Store } from 'vuex'
 
 import sys, { typeof_sys } from './modules/sys'
 import user, { typeof_user } from './modules/user'
+import myAssets, { typeof_myAssets } from './modules/myAssets'
+import myBox, { typeof_myBox } from './modules/myBox'
+import staking, { typeof_staking } from './modules/staking'
+import wallet, { typeof_wallet } from './modules/wallet'
 // create InjectionKey
 export const key: InjectionKey<Store<State>> = Symbol()
 
@@ -12,6 +16,10 @@ export type State = {
     vuexTestVar: string
     sys?: typeof_sys
     user?: typeof_user
+    myAssets?: typeof_myAssets
+    myBox?: typeof_myBox
+    staking?: typeof_staking
+    wallet?: typeof_wallet
 }
 
 const store = createStore({
@@ -47,6 +55,10 @@ const store = createStore({
     modules: {
         sys,
         user,
+        myAssets,
+        myBox,
+        staking,
+        wallet
     },
 })
 export default store

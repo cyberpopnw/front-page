@@ -29,7 +29,7 @@ onMounted(() => {
     // store.dispatch('user/changeActive', 0)
     window.scrollTo(0,0);
     store.dispatch('user/showDialog',{show: false, info: {}});// close message dialog
-    store.dispatch('user/metaChange',false);
+    store.dispatch('wallet/metaChange',false);
 })
 
 </script>

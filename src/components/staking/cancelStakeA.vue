@@ -59,7 +59,7 @@ defineExpose({
 
 
 
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); 
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); 
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 
 //state

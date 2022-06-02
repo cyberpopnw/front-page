@@ -638,8 +638,8 @@ const teamCard = (index: any) =>  {
 
 
 // xplan
-const realId = computed(() => store?.state.user?.realId);
-const idTemp = computed(() => store?.state.user?.idTemp);
+const realId = computed(() => store?.state.wallet?.realId);
+const idTemp = computed(() => store?.state.wallet?.idTemp);
 const xplanActive = computed(() => store?.state.user?.xplanActive);
 const chainId: any = computed(() => store.state.user?.chainId );
 
@@ -682,30 +682,30 @@ const playToEarn = () => {
 }
 
 const id: any = ref(0)
-const loggined = computed(() => store?.state.user?.loggined);
+const loggined = computed(() => store?.state.wallet?.loggined);
 
 const connect: any = async () => {
     const ismessage: any = await Web3.hasMetaMask()
     
     if( ismessage == 'No install' ){
-        store.dispatch('user/metaChange',true);
-        store.dispatch('user/metaChangeAni',true);
-        store.dispatch('user/checkInstall',false);
+        store.dispatch('wallet/metaChange',true);
+        store.dispatch('wallet/metaChangeAni',true);
+        store.dispatch('wallet/checkInstall',false);
     }else{
-        store.dispatch('user/metaChange',true);
-        store.dispatch('user/metaChangeAni',true);
-        store.dispatch('user/checkInstall',true);
+        store.dispatch('wallet/metaChange',true);
+        store.dispatch('wallet/metaChangeAni',true);
+        store.dispatch('wallet/checkInstall',true);
         const [accounts]: any = await Web3.login().then((res: any) => {
-            store.dispatch('user/metaChange',false);
-            store.dispatch('user/metaChangeAni',false);
-            store.dispatch('user/walletloggined',true);
+            store.dispatch('wallet/metaChange',false);
+            store.dispatch('wallet/metaChangeAni',false);
+            store.dispatch('wallet/walletloggined',true);
             return res;
         })
         
         id.value = accounts;
         let len = id.value.length-1;
         id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('user/connectWallet',{realId:id.value, idTemp:accounts});// 存放星号id、完整id
+        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// 存放星号id、完整id
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
     }
 }

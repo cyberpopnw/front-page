@@ -35,28 +35,6 @@ const states = {
     metaMaskActive: false, // install metamask
     metaAni: false,
     messSing: '', // 签名消息
-
-
-    // assets
-    transferActive: false, // 背包页-TRANSFER按钮
-    transferAni: false,
-    dataSum: ref([]) as any, // search NFT & dao data 
-    readyAssets: -1 ,// 判断是否查询完毕
-    contract: ref([]) , // 存放transfer所需abi，address
-    transferSuccess: 0, // 转账成功状态
-    boxOpened: false, //盒子打开以后的弹窗
-    boxId: 0,
-
-    // NFT
-    purchaseState: false, // 主要是用于有多种状态流程 （比如售卖，上架， 购买）布局比较复杂，且能够被复用
-    purchaseInfo: {} as any,
-    badge: [0, 1, 2, 3, 4, 5],
-    game: [2, 3, 101101],
-    box: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-
-    //staking
-    stakingState: false, //质押流程
-    stakingInfo: {} as any,
 }
 export type typeof_user = typeof states
 export default {
@@ -140,50 +118,6 @@ export default {
         messSing(state, payload: any){
             state.messSing = payload;
         },
-
-
-        // assets
-        transferChange(state, payload: any) {
-            state.transferActive = payload;
-        },
-        transferChangeAni(state, payload: any) {
-            state.transferAni = payload;
-        },
-        dataSumSearch(state, payload: any) {
-            state.dataSum = payload;
-        },
-        readyAssets(state, payload: any) {
-            state.readyAssets = payload;
-        },
-        contractData(state, payload: any) {
-            state.contract = payload;
-        },
-        transferSuccess(state, payload: any) {
-            state.transferSuccess = payload;
-        },
-        boxOpened(state, payload: any){
-            state.boxOpened = payload
-        },
-        boxId(state, payload: any){
-            state.boxId = payload
-        },
-
-
-        // box 
-        purchaseState(state, payload: any) {
-            state.purchaseState = payload;
-        },
-        purchaseInfo(state, payload: any) {
-            state.purchaseInfo = payload;
-        },
-
-        //staking
-        stakingState(state, payload: any) {
-            state.stakingState = payload;
-        },
-        stakingInfo(state, payload: any) {
-            state.stakingInfo = payload;
-        }
     },
     actions: {
         // 初始化用户
@@ -199,6 +133,9 @@ export default {
         // 注销
         logout({ commit }, paylaod: boolean) {
             commit('logout', paylaod)
+        },
+        chageChainId({ commit }, paylaod: any){
+            commit('chageChainId', paylaod)
         },
 
         // home header
@@ -243,48 +180,6 @@ export default {
         },
         messSing({ commit }, paylaod: any) {
             commit('messSing', paylaod)
-        },
-
-        
-        // assets
-        transferChange({ commit }, paylaod: any) {
-            commit('transferChange', paylaod)
-        },
-        transferChangeAni({ commit }, paylaod: any) {
-            commit('transferChangeAni', paylaod)
-        },
-        dataSumSearch({ commit }, paylaod: any) {
-            commit('dataSumSearch', paylaod.data)
-            commit('readyAssets', paylaod.flag)
-        },
-        contractData({ commit }, paylaod: any) {
-            commit('contractData', paylaod)
-        },
-        chageChainId({ commit }, paylaod: any){
-            commit('chageChainId', paylaod)
-        },
-        transferSuccess({ commit }, payload: any) {
-            commit('transferSuccess', payload);
-        },
-        boxOpened({ commit }, payload: any) {
-            commit('boxOpened', payload);
-        },
-        boxId({ commit }, payload: any){
-            commit('boxId', payload);
-        },
-
-
-        //box
-        purchaseState({ commit }, paylaod: any) {
-            commit('purchaseState', paylaod.show)
-            commit('purchaseInfo', paylaod.info)
-        },
-
-
-        //staking
-        stakingState({ commit }, paylaod: any) {
-            commit('stakingState', paylaod.show)
-            commit('stakingInfo', paylaod.info)
         },
     },
 } as Module<typeof_user, State>

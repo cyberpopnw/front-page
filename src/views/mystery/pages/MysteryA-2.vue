@@ -136,7 +136,7 @@ const Remaining = ref([0, 0, 0]);
 
 const isProduction: any = ref(true);
 const chainId: any = computed(() => store.state.user?.chainId);
-const idTemp: any = computed(() => store?.state.user?.idTemp);  // Full address
+const idTemp: any = computed(() => store?.state.wallet?.idTemp);  // Full address
 watch(chainId, (newVal, oldVal: any) => {
     if(!oldVal || oldVal == -1) return;
     window.scrollTo(0,0);
@@ -157,9 +157,9 @@ const loadingState: any = ref(true)
 
 const getBalance = async (chainid: number) => {
     if(chainid == 80001){
-        var result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.user?.box);
+        var result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
     }else if(chainid == 43113){
-        var result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.user?.box);
+        var result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
     }else{
         var result: any = [0, 0, 0]
     }
@@ -205,7 +205,7 @@ const getData = async (boxData: any[]) => {
         Remaining.value = [0, 0, 0]
         return; // At present, only Mumbai can buy boxes with
     }
-    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.user?.box, MarketV2.address); // Query assets on the shelves
+    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box, MarketV2.address); // Query assets on the shelves
     Remaining.value = LootBox_result;
     console.log(Remaining.value, 'RemainingRemainingv');
 }
@@ -218,7 +218,7 @@ const toDetails = (type:any) => {
 
 const purchase = async (boxId: number, number: any) => {
     if(number == 0 || isProduction.value) return;
-    store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 0, boxId, haveNFT: number || 1 }});
+    store.dispatch('myBox/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 0, boxId, haveNFT: number || 1 }});
 }
 
 const getNFTData: any = async (res: any) => {
@@ -237,7 +237,7 @@ onMounted(() => {
         getBalance(chainId.value)
     }, 1000);
     store.dispatch('user/showDialog',{show: false, info: {}});// close message dialog
-    store.dispatch('user/metaChange',false);
+    store.dispatch('wallet/metaChange',false);
     if(process.env.NODE_ENV == 'development') isProduction.value = false; //Judge the environment
 })
 

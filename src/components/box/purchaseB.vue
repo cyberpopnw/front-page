@@ -84,7 +84,7 @@ const props = defineProps({
     },
 })
 
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 
 
 // input
@@ -139,7 +139,7 @@ const reduceNft = () => {
 const closeDialog = () => {
     store.dispatch('user/xplanChangeAni', false);
     setTimeout(() => {
-        store.dispatch('user/purchaseState', { show: false, info: { } });
+        store.dispatch('myBox/purchaseState', { show: false, info: { } });
     }, 300);
 }
 
@@ -163,7 +163,7 @@ const purchase =  async () => {
     if( numState.value == 'error') return;
 
     // Check whether it is authorized or under authorization
-    store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 3, haveNFT: props.haveNFT, boxId: props.boxId }});
+    store.dispatch('myBox/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 3, haveNFT: props.haveNFT, boxId: props.boxId }});
 
     let allowance_res: any = await Web3.allowance(cyt.abi, cyt.address, MarketV2.address); //Use your own cyt to authorize the number of authorized market contracts
     console.log(allowance_res, 'allowance_res');
@@ -171,22 +171,22 @@ const purchase =  async () => {
     if(allowance_res < 30 * valueIn.value){
         let approve_res = await Web3.approve(cyt.abi, cyt.address, MarketV2.address, 30 * valueIn.value + 1);
         if(!approve_res) { // privilege grant failed
-            store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 5, haveNFT: props.haveNFT, boxId: props.boxId }});
+            store.dispatch('myBox/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 5, haveNFT: props.haveNFT, boxId: props.boxId }});
             return;
         }
     }
 
     // Normal process
-    store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 6, haveNFT: props.haveNFT, boxId: props.boxId }});
+    store.dispatch('myBox/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 6, haveNFT: props.haveNFT, boxId: props.boxId }});
     console.log(props.boxId, 'props.boxId');
     
     let reuslt = await Web3.buyLootBox(MarketV2.abi, MarketV2.address, props.boxId, 30, valueIn.value);
     if(reuslt){ //Purchase success
-        store.dispatch('user/purchaseState', { show: false, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 7, haveNFT: props.haveNFT, boxId: props.boxId }});
-        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
-        logined(store.state.user?.idTemp)
+        store.dispatch('myBox/purchaseState', { show: false, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 7, haveNFT: props.haveNFT, boxId: props.boxId }});
+        store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+        logined(store.state.wallet?.idTemp)
     }else{ // Purchase rejection
-        store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 8, haveNFT: props.haveNFT, boxId: props.boxId }});
+        store.dispatch('myBox/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 8, haveNFT: props.haveNFT, boxId: props.boxId }});
     }
 }
 

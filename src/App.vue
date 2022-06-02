@@ -46,12 +46,12 @@ const TipsState = computed(() => store.state.user?.TipsState );
 const TipsInfo = computed(() => store.state.user?.TipsInfo);
 const alertInfo = computed(() => store.state.user?.alertInfo);
 const showDialog = computed(() => store.state.user?.showDialog);
-const boxOpened = computed(() => store.state.user?.boxOpened);
-const boxId = computed(() => store.state.user?.boxId);
-const purchaseState = computed(() => store.state.user?.purchaseState );
-const purchaseInfo = computed(() => store.state.user?.purchaseInfo);
-const stakingState = computed(() => store.state.user?.stakingState );
-const stakingInfo = computed(() => store.state.user?.stakingInfo);
+const boxOpened = computed(() => store.state.myAssets?.boxOpened);
+const boxId = computed(() => store.state.myAssets?.boxId);
+const purchaseState = computed(() => store.state.myBox?.purchaseState );
+const purchaseInfo = computed(() => store.state.myBox?.purchaseInfo);
+const stakingState = computed(() => store.state.staking?.stakingState );
+const stakingInfo = computed(() => store.state.staking?.stakingInfo);
 
 const isChinese = (val: any) => {
     var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
@@ -75,8 +75,8 @@ onMounted(() => {
             let id = accounts[0];
             let len = id.length-1;
             id = id[0]+id[1]+id[2]+id[3]+id[4]+"*****"+id[len-3]+id[len-2]+id[len-1]+id[len];
-            store.dispatch('user/connectWallet',{realId:id, idTemp:accounts[0]});// Store asterisk ID and complete id
-            store.dispatch('user/dataSumSearch',{flag:0});
+            store.dispatch('wallet/connectWallet',{realId:id, idTemp:accounts[0]});// Store asterisk ID and complete id
+            store.dispatch('myAssets/dataSumSearch',{flag:0});
         });
         ethereum.on('chainChanged', (chainId: string) => {
             let id: any = Number(chainId);
@@ -121,6 +121,9 @@ onMounted(() => {
 })
 </script>
 <style>
+    body{
+        overflow-y: scroll !important;
+    }
     .ip_error, .ip_error_Mobile{
         z-index: 6;
         display: flex;

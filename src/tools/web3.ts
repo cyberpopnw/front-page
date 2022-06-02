@@ -84,7 +84,7 @@ const getBalance = async (id: any) => {
 // }
 
 // 资产转移
-const accounts = computed(() => store?.state.user?.idTemp);
+const accounts = computed(() => store?.state.wallet?.idTemp);
 const safeTransferFrom = async (abi:any, address:any, TransferFrom:any, id:any, number?:any) => {
     console.log(abi, address, TransferFrom, id, number);
     const web3 = new Web3((window as any ).ethereum)

@@ -47,7 +47,7 @@
     const router = useRouter()
     const { t } = useI18n()
 
-    const idTemp = computed(() => store?.state.user?.idTemp);
+    const idTemp = computed(() => store?.state.wallet?.idTemp);
     const isClick = ref(false as any);
 
     // download
@@ -87,7 +87,7 @@
         
             if(res.data.code != 55555) {
                 isDonload.value = true;
-                store.dispatch('user/messSing', code.value);
+                store.dispatch('wallet/messSing', code.value);
                 store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}});
                 return
             }
@@ -138,7 +138,7 @@
                 messgSing(account)
             }else{
                 isDonload.value = true;
-                store.dispatch('user/messSing', code.value);
+                store.dispatch('wallet/messSing', code.value);
                 store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}});
             }
         }).catch( (err: any) => {

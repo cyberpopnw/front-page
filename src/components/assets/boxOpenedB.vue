@@ -49,7 +49,7 @@ const xplanAni = computed(() => store?.state.user?.xplanAni);
 const close = () => {
     store.dispatch('user/xplanChangeAni', false);
     setTimeout(() => {
-        store.dispatch('user/boxOpened', false);
+        store.dispatch('myAssets/boxOpened', false);
     }, 300);
 }
 
@@ -61,10 +61,10 @@ const lastNFT = async () => {
     let boxId = props.boxId;
     console.log(boxId ,'boxId');
     if(chainId.value == 80001){
-        let result: any = boxId == 0 ? await Web3.tokensOfOwner(cyberClub.abi, cyberClub.address) : boxId == 1 ? await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.user?.game) : await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
+        let result: any = boxId == 0 ? await Web3.tokensOfOwner(cyberClub.abi, cyberClub.address) : boxId == 1 ? await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.myBox?.game) : await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
         nftID.value = result[result.length-1]
     }else if(chainId.value == 43113){
-        let result: any = boxId == 0 ? await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address) : boxId == 1 ? await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.user?.game) : await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
+        let result: any = boxId == 0 ? await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address) : boxId == 1 ? await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.myBox?.game) : await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
         nftID.value = result[result.length-1]
     }
 }

@@ -39,9 +39,9 @@ const props = defineProps({
     address: String,
 })
 
-const transferActive = computed(() => store?.state.user?.transferActive);
-const transferAni = computed(() => store?.state.user?.transferAni);
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
+const transferActive = computed(() => store?.state.myAssets?.transferActive);
+const transferAni = computed(() => store?.state.myAssets?.transferAni);
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 let transferInfoMsg:any = ref(null) 
 let abiMsg:any = ref(null) 
 let addressMsg:any = ref(null) 
@@ -179,7 +179,7 @@ const transfer = async () => {
                 }else{ // Transfer succeeded
                     closeDialog();
                     store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
-                    store.dispatch('user/transferSuccess', result)
+                    store.dispatch('myAssets/transferSuccess', result)
                 }
                 return;
             }
@@ -189,15 +189,15 @@ const transfer = async () => {
             }else{ // Transfer succeeded
                 closeDialog();
                 store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
-                store.dispatch('user/transferSuccess', result)
-                store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // Number of bits with NFT
+                store.dispatch('myAssets/transferSuccess', result)
+                store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // Number of bits with NFT
             }
        }
     }
 }
 
 const closeDialog = () => {
-    store.dispatch('user/transferChangeAni',false)
+    store.dispatch('myAssets/transferChangeAni',false)
     valueIn.value = 1 
     inputAddress.value = ''
     numState.value = ''

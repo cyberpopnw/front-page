@@ -25,7 +25,7 @@ const router = useRouter()
 
 onMounted(() => {
     store.dispatch('user/showDialog',{show: false, info: {}});// close message dialog
-    store.dispatch('user/metaChange',false);
+    store.dispatch('wallet/metaChange',false);
 })
 
 </script>

@@ -78,8 +78,8 @@ import Web3 from '@/tools/web3'
 const router = useRouter()
 
 
-const realId = computed(() => store?.state.user?.realId);
-const idTemp = computed(() => store?.state.user?.idTemp);
+const realId = computed(() => store?.state.wallet?.realId);
+const idTemp = computed(() => store?.state.wallet?.idTemp);
 const id: any = ref(0)
 
 
