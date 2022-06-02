@@ -1,8 +1,8 @@
 <template>
     <header-a path="/mining" :type="1"></header-a>
-    <!-- <div class="section">
+    <div class="section">
         <div class="title">{{$t('message.mining.coming')}}</div>
-    </div> -->
+    </div>
     <div class="mining">
         <div class="banner">
             <div class="titles">
@@ -417,7 +417,7 @@ onMounted(async () => {
         text-decoration: none;
     }
     .section{
-        z-index: 8;
+        z-index: 12;
         position: fixed;
         display: flex;
         justify-content: center;

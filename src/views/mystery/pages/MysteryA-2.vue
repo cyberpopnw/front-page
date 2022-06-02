@@ -38,7 +38,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                         <div class="name"><span class="name-content">{{ data[0].info.name }}</span></div>
                         <div class="left_over">Left: <span class="number">{{ Remaining[0] + '/2000'}}</span></div>
                         <div class="introduce">
-                            {{ locale ==  'us' ? data[0].info.description : data[0].info.description_zh }}
+                            {{ locale == 'cn' ? data[0].info.description_zh : data[0].info.description }}
                         </div>
                         <div class="price">
                             <img src="@/assets/nwbox/nfts-icon.svg" alt="">
@@ -48,8 +48,9 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                         <div class="btn">
                             <div class="purchase" :class="{'not-allowed': Remaining[0] == 0 || isProduction}" @click="purchase(0, Remaining[0])">{{$t('message.details.box_btn_pur')}}</div>
                             <div class="open" :class="{'not-allowed': data[0].number == 0}" @click="open(0, data[0].number)">{{$t('message.box.open')}}</div>
-                            <div class="details" @click="toDetails(1)"></div>
-                            <span class="details-text">{{$t('message.box.btn_det')}}</span>
+                            <div class="details" @click="toDetails(1)">
+                                <span class="details-text">{{$t('message.box.btn_det')}}</span>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -64,7 +65,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                         <div class="name"><span class="name-content">{{ data[1].info.name }}</span></div>
                         <div class="left_over">Left: <span class="number">{{ Remaining[1] + '/2000'}}</span></div>
                         <div class="introduce">
-                            {{ locale == 'us' ? data[1].info.description : data[1].info.description_zh}}
+                            {{ locale == 'cn' ? data[1].info.description_zh : data[1].info.description }}
                         </div>
                         <div class="price">
                             <img src="@/assets/nwbox/nfts-icon.svg" alt="">
@@ -74,8 +75,9 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                         <div class="btn">
                             <div class="purchase" :class="{'not-allowed': Remaining[1] == 0}" @click="purchase(1, Remaining[1])">{{$t('message.details.box_btn_pur')}}</div>
                             <div class="open" :class="{'not-allowed': data[1].number == 0}" @click="open(1, data[1].number)">{{$t('message.box.open')}}</div>
-                            <div class="details" @click="toDetails(2)"></div>
-                            <span class="details-text">{{$t('message.box.btn_det')}}</span>
+                            <div class="details" @click="toDetails(2)">
+                                <span class="details-text">{{$t('message.box.btn_det')}}</span>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -90,7 +92,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                         <div class="name"><span class="name-content">{{ data[2].info.name }}</span></div>
                         <div class="left_over">Left: <span class="number">{{ Remaining[2] + '/2000'}}</span></div>
                         <div class="introduce">
-                            {{ locale == 'us' ? data[2].info.description : data[2].info.description_zh }}
+                            {{ locale == 'cn' ? data[2].info.description_zh : data[2].info.description }}
                         </div>
                         <div class="price">
                             <img src="@/assets/nwbox/nfts-icon.svg" alt="">
@@ -100,8 +102,9 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                         <div class="btn">
                             <div class="purchase" :class="{'not-allowed': Remaining[2] == 0}" @click="purchase(2, Remaining[2])">{{$t('message.details.box_btn_pur')}}</div>
                             <div class="open" :class="{'not-allowed': data[2].number == 0}" @click="open(2, data[2].number)">{{$t('message.box.open')}}</div>
-                            <div class="details" @click="toDetails(3)"></div>
-                            <span class="details-text">{{$t('message.box.btn_det')}}</span>
+                            <div class="details" @click="toDetails(3)">
+                                <span class="details-text">{{$t('message.box.btn_det')}}</span>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -504,18 +507,26 @@ onMounted(() => {
                                 transition: all 0.2s ease;
                             }
                             .details{
+                                position: relative;
                                 width: 9.89vw;
                                 height: 2.81vw;
                                 background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withboder.png');
                                 background-size: 100% 100%;
-                                cursor: pointer;
                                 z-index: 5;
                                 transition: all 0.2s ease;
-                            }
-                            .details-text{
-                                position: absolute;
-                                right: 1.7vw;
-                                z-index: 0;
+                                cursor: pointer;
+                                &-border{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                                &-text{
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                     width: 100%;
+                                    height: 100%;
+                                    z-index: 0;
+                                }
                             }
                             .details:hover{
                                 background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/details.png');

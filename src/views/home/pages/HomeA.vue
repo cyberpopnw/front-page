@@ -502,6 +502,9 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             <div>
                 <img class="logo11" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_richmeta.png" alt="">
             </div>
+            <a href="https://coinmarketcap.com/" target="view_window">
+                <img class="logo14" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_coinMarkrt.png" alt="">
+            </a>
         </div>
     </div>
     <div class="will">
@@ -2550,6 +2553,9 @@ onMounted(() => {
                 }
                 .logo13{
                     height: 3vw;
+                }
+                .logo14{
+                    width: 8vw;
                 }
                 
             }

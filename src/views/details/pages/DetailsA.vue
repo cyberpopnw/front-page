@@ -202,7 +202,7 @@
                         <li>
                             <div class="title">{{ data.info.name }}</div>
                             <div class="desc">
-                                {{ locale == 'us' ? data.info.description : data.info.description_zh }}
+                                {{ locale == 'cn' ? data.info.description_zh : data.info.description }}
                             </div>
                         </li>
                     </ul>
@@ -212,7 +212,7 @@
                         <li>
                             <div class="title">{{ data.info.name }}</div>
                             <div class="desc">
-                                {{ locale == 'us' ? data.info.description : data.info.description_zh }}
+                                {{ locale == 'cn' ? data.info.description_zh : data.info.description }}
                             </div>
                         </li>
                         <li>
@@ -234,7 +234,7 @@
                         <li>
                             <div class="title">{{ data.info.name }}</div>
                             <div class="desc">
-                                {{ locale == 'us' ? data.info.description : data.info.description_zh }}
+                                {{ locale == 'cn' ? data.info.description_zh : data.info.description }}
                             </div>
                         </li>
                         <li>
