@@ -84,7 +84,7 @@ onMounted(() => {
             
             store.dispatch('user/chageChainId', Number(chainId))
             
-            if(id != 97 && id != 43113 && id != 85 && id != 80001) {
+            if(id != 56 && id != 43113 && id != 85 && id != 80001) {
                 store.dispatch('user/xplanChangeAni', true);
                 store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
                 return;

@@ -10,7 +10,7 @@
             </div>
             <div class="menuMask" ref="cursor" :class="isPage && (showMenuAni ? 'menuAnimation' : 'stopMenuAnimation')">
                 <div class="close-menu">
-                    <div class="select_chain" v-show="realId !== -1" @click="showMsgPop()"><img :src="chainId == 97 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 97 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.name : chainList.notSupported.name }}</span></div>
+                    <div class="select_chain" v-show="realId !== -1" @click="showMsgPop()"><img :src="chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.name : chainList.notSupported.name }}</span></div>
                     <img @click="closeMenuIcon()" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/close-menu.svg" alt="">
                 </div>
                 <div class="login_in" v-if="!loggined" @click="login()">
@@ -100,7 +100,7 @@ const chainList = ref({
     BSC: {
         name: 'BSC',
         img: 'https://testnet.bscscan.com/images/favicon.ico',
-        chainId: 97,
+        chainId: 56,
     },
     avax: {
         name: 'Fuji',
@@ -120,7 +120,7 @@ const chainList = ref({
     select: {
         name: 'BSC',
         img: 'https://testnet.bscscan.com/images/favicon.ico',
-        chainId: 97,
+        chainId: 56,
         active: 1,
     },
     notSupported: {
@@ -292,7 +292,7 @@ const connect: any = async () => {
         let web3obj = new Web3((Web3 as any).givenProvider)
         await web3obj.eth.net.getId().then((chainId: any) => {
             store.dispatch('user/chageChainId', Number(chainId))
-            if(chainId != 97 && chainId != 43113 && chainId != 85 && chainId != 80001) store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
+            if(chainId != 56 && chainId != 43113 && chainId != 85 && chainId != 80001) store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
         })
         if(code.value && messSing.value == '') isRegister();
     }
