@@ -71,7 +71,7 @@ import {  useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter()
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 const register = ref(false);
 const registerTrans = ref(false);
 
@@ -90,7 +90,7 @@ const openLang = () => {
 const { locale, t } = useI18n()
 let select:any = ref('us');
 const selectLang = (index:any) => {
-    store.dispatch('user/walletMenuAni', false)
+    store.dispatch('wallet/walletMenuAni', false)
     select.value = index
     locale.value = index
     localStorage.setItem('lang', index)
@@ -156,7 +156,7 @@ const ctimer:any = ref(null)
 const showComing = () => {
     clearTimeout(ctimer.value);
     // Stow menu
-    store.dispatch('user/walletMenuAni', false)
+    store.dispatch('wallet/walletMenuAni', false)
     // default animation
     store.dispatch('user/addComingOut', false)
     // show coming view
@@ -170,15 +170,15 @@ const showComing = () => {
 
 
 // menu
-const showMenuAni = computed(() => store?.state.user?.showMenuAni);
+const showMenuAni = computed(() => store?.state.wallet?.showMenuAni);
 let isPage:any = ref(false);
 const showMenu = () => {
     isPage.value = true;
-    store.dispatch('user/walletMenuAni', true)
+    store.dispatch('wallet/walletMenuAni', true)
 }
 const closeMenuIcon = () => {
     // isPage.value = false;
-    store.dispatch('user/walletMenuAni', false)
+    store.dispatch('wallet/walletMenuAni', false)
 }
 
 
@@ -192,7 +192,7 @@ const docMenu = () => {
 
 // pdf click
 const closeMenu = () => {
-    store.dispatch('user/walletMenuAni', false)
+    store.dispatch('wallet/walletMenuAni', false)
     showDoc.value = !showDoc.value
     changeArrow.value = !changeArrow.value
 }
@@ -245,7 +245,7 @@ const menuHover = (type: any) => {
 
 let menuFlag:any = ref(1);
 const changeMenu = (type: any, route?: any) => {
-    store.dispatch('user/walletMenuAni', false)
+    store.dispatch('wallet/walletMenuAni', false)
     menuFlag.value = type;
     store.dispatch('user/changeActive', type)
     if(route) router.push({ path: `${route}`, query: {
@@ -256,37 +256,37 @@ const changeMenu = (type: any, route?: any) => {
 
 
 
-const realId = computed(() => store?.state.user?.realId);
-const idTemp = computed(() => store?.state.user?.idTemp);
+const realId = computed(() => store?.state.wallet?.realId);
+const idTemp = computed(() => store?.state.wallet?.idTemp);
 const id: any = ref(0)
-const metaMaskActive = computed(() => store?.state.user?.metaMaskActive);
-const messSing = computed(() => store?.state.user?.messSing); // 签名消息
+const metaMaskActive = computed(() => store?.state.wallet?.metaMaskActive);
+const messSing = computed(() => store?.state.wallet?.messSing); // 签名消息
 const code: any = ref(''); // 邀请码
 
-const loggined = computed(() => store?.state.user?.loggined); // 登录信息
+const loggined = computed(() => store?.state.wallet?.loggined); // 登录信息
 const connect: any = async () => {
-    store.dispatch('user/walletMenuAni', false)
+    store.dispatch('wallet/walletMenuAni', false)
     const ismessage: any = await NFT.hasMetaMask()
 
     if( ismessage == 'No install' ){
-        // store.dispatch('user/metaChange',true);
-        // store.dispatch('user/metaChangeAni',true);
-        // store.dispatch('user/checkInstall',false);
+        // store.dispatch('wallet/metaChange',true);
+        // store.dispatch('wallet/metaChangeAni',true);
+        // store.dispatch('wallet/checkInstall',false);
     }else{
-        store.dispatch('user/metaChange',true);
-        store.dispatch('user/metaChangeAni',true);
-        store.dispatch('user/checkInstall',true);
+        store.dispatch('wallet/metaChange',true);
+        store.dispatch('wallet/metaChangeAni',true);
+        store.dispatch('wallet/checkInstall',true);
         const [accounts]: any = await NFT.login().then((res: any) => {
-            store.dispatch('user/metaChange',false);
-            store.dispatch('user/metaChangeAni',false);
-            store.dispatch('user/walletloggined',true);
+            store.dispatch('wallet/metaChange',false);
+            store.dispatch('wallet/metaChangeAni',false);
+            store.dispatch('wallet/walletloggined',true);
             return res;
         })
         id.value = accounts;
         let len = id.value.length-1;
         id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('user/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
-        store.dispatch('user/dataSumSearch',{flag:0});
+        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
+        store.dispatch('myAssets/dataSumSearch',{flag:0});
         if(readyAssetsF.value <= 0) logined(accounts);
         const Web3 = (window as any).Web3
         let web3obj = new Web3((Web3 as any).givenProvider)
@@ -354,9 +354,9 @@ const logined = (accounts: string) => {
 }
 
 const signout = () => {
-    store.dispatch('user/walletMenuAni', false);
-    store.dispatch('user/connectWallet',{realId: -1});
-    store.dispatch('user/walletloggined',false);
+    store.dispatch('wallet/walletMenuAni', false);
+    store.dispatch('wallet/connectWallet',{realId: -1});
+    store.dispatch('wallet/walletloggined',false);
 
     store.dispatch('user/showDialog',{show: false, info: {}});
     if( proxy.$route.path == '/knapsack' ){
@@ -366,7 +366,7 @@ const signout = () => {
 
 const toAssets = () => {
     router.push('/knapsack');
-    store.dispatch('user/walletMenuAni', false);
+    store.dispatch('wallet/walletMenuAni', false);
 }
 
 
@@ -375,7 +375,7 @@ const handleOtherClick = (e:any) => {
     if( cursor.value.contains(e.target) ){
         return
     }else{
-        store.dispatch('user/walletMenuAni', false)
+        store.dispatch('wallet/walletMenuAni', false)
     }
 }
 onUnmounted(() => {
@@ -385,11 +385,11 @@ onUnmounted(() => {
 onMounted(() => {
     window.addEventListener('click', handleOtherClick, true)
     if( realId.value != -1){
-        store.dispatch('user/walletloggined',true);
+        store.dispatch('wallet/walletloggined',true);
     }
     logoHImport();
     store.dispatch('user/changeActive', props.type)
-    store.dispatch('user/metaChange',false)
+    store.dispatch('wallet/metaChange',false)
     store.dispatch('user/showDialog',{show: false, info: {}});
     
     if( localStorage.getItem('lang') ){

@@ -58,7 +58,7 @@ let canTransfer:any = ref('disable')
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 const chainId: any = computed(() => store.state.user?.chainId); // vuex state Get chain status from status manager
 const { GiftBox, LootBox } = Web3.contracts;
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 
 //
 const isUnpack: any = ref(false)
@@ -74,10 +74,10 @@ const unpack = async () => {
     store.dispatch('user/TipsState', {show: false, info: { }});
     if(result) {
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
-        store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
-        store.dispatch('user/boxOpened', true);
+        store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+        store.dispatch('myAssets/boxOpened', true);
         store.dispatch('user/xplanChangeAni', true);
-        store.dispatch('user/boxId', props.boxId);
+        store.dispatch('myAssets/boxId', props.boxId);
     }else{
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.reject_transaction')}})
     }

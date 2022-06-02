@@ -49,7 +49,7 @@ const xplanAni = computed(() => store?.state.user?.xplanAni);
 const close = () => {
     store.dispatch('user/xplanChangeAni', false);
     setTimeout(() => {
-        store.dispatch('user/boxOpened', false);
+        store.dispatch('myAssets/boxOpened', false);
     }, 300);
 }
 

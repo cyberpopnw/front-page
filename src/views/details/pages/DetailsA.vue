@@ -343,7 +343,7 @@ const getData = async (result: any) => {
         data.value.Remaining = 0;
         return;
     };
-    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.user?.box, MarketV2.address); // 查询已上架的资产
+    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box, MarketV2.address); // 查询已上架的资产
     console.log(LootBox_result, 'LootBox_result');
     console.log(LootBox_result[index-1]);
     data.value.Remaining = LootBox_result[index-1];
@@ -352,9 +352,9 @@ const getData = async (result: any) => {
 
 const getBalance = async (chainid: number) => {
     if(chainid == 80001){
-        var result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.user?.box);
+        var result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
     }else if(chainid == 43113){
-        var result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.user?.box);
+        var result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
     }else{
         var result: any = [0, 0, 0]
     }
@@ -369,10 +369,10 @@ watch(chainId, (newVal, oldVal) => {
 }, {immediate:true,deep:true});
 
 const readyAssetsF: any = computed(() => {
-    console.log(store?.state.user?.readyAssets, 'store?.state.user?.readyAssets');
+    console.log(store?.state.myAssets?.readyAssets, 'store?.state.myAssets?.readyAssets');
     getBalance(chainId.value)
     data.value = {}
-    return store.state.user?.readyAssets
+    return store.state.myAssets?.readyAssets
 });
 watch(readyAssetsF, (newVal, oldVal) => {
     if(!oldVal) return;
@@ -430,14 +430,14 @@ const getNFTData: any = async (res: any, path: any) => {
 const purchase = async () => {
     // let result = Web3.balanceOfBatch(MarketV2.abi, MarketV2.address, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], true);
     if(data.value.Remaining == 0) return;
-    store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 0, boxId: index-1,  haveNFT: data.value.Remaining} });
+    store.dispatch('myBox/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 0, boxId: index-1,  haveNFT: data.value.Remaining} });
 }
 
 
 onMounted(() => {
     window.scrollTo(0,0);
     store.dispatch('user/showDialog', { show: false, info: {} });// close message dialog
-    store.dispatch('user/metaChange', false);
+    store.dispatch('wallet/metaChange', false);
     // purchase()
     if(process.env.NODE_ENV == 'development') isProduction.value = false;
 })

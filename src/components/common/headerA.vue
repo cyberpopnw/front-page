@@ -128,7 +128,7 @@ const code: any = ref('');
 const isShowTips = ref(false);
 const register = ref(false);
 const registerTrans = ref(false);
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 const props = defineProps({
     path: String, 
     type: Number
@@ -244,7 +244,7 @@ const mouseLeave = () => {
     mask.classList.remove('submitAnimation');
 }
 
-const messSing = computed(() => store?.state.user?.messSing); // Signature message
+const messSing = computed(() => store?.state.wallet?.messSing); // Signature message
 
 const active = computed(() => store?.state.user?.active);
 const menuHover = (type: any) => {
@@ -335,13 +335,13 @@ let logoHFlag: any = ref(false) ;
 let logoFlag: any = ref(false) ;
 
 
-const realId = computed(() => store?.state.user?.realId);
-const idTemp = computed(() => store?.state.user?.idTemp);
+const realId = computed(() => store?.state.wallet?.realId);
+const idTemp = computed(() => store?.state.wallet?.idTemp);
 const id: any = ref(0)
-const metaMaskActive = computed(() => store?.state.user?.metaMaskActive);
+const metaMaskActive = computed(() => store?.state.wallet?.metaMaskActive);
 
 
-const loggined = computed(() => store?.state.user?.loggined);
+const loggined = computed(() => store?.state.wallet?.loggined);
 
 // Login burying point
 const logined = (accounts: string) => {
@@ -364,29 +364,29 @@ const connect: any = async () => {
     const ismessage: any = await NFT.hasMetaMask()
 
     if( ismessage == 'No install' ){
-        store.dispatch('user/metaChange',true);
-        store.dispatch('user/metaChangeAni',true);
-        store.dispatch('user/checkInstall',false);
+        store.dispatch('wallet/metaChange',true);
+        store.dispatch('wallet/metaChangeAni',true);
+        store.dispatch('wallet/checkInstall',false);
         if(code.value && messSing.value == '') {
             register.value = true;
             registerTrans.value = true;
-            store.dispatch('user/messSing', 'ok');
+            store.dispatch('wallet/messSing', 'ok');
         };
     }else{
-        store.dispatch('user/metaChange',true);
-        store.dispatch('user/metaChangeAni',true);
-        store.dispatch('user/checkInstall',true);
+        store.dispatch('wallet/metaChange',true);
+        store.dispatch('wallet/metaChangeAni',true);
+        store.dispatch('wallet/checkInstall',true);
         const [accounts]: any = await NFT.login().then((res: any) => {
-            store.dispatch('user/metaChange',false);
-            store.dispatch('user/metaChangeAni',false);
-            store.dispatch('user/walletloggined',true);
+            store.dispatch('wallet/metaChange',false);
+            store.dispatch('wallet/metaChangeAni',false);
+            store.dispatch('wallet/walletloggined',true);
             return res;
         })
         id.value = accounts;
         let len = id.value.length-1;
         id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('user/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
-        store.dispatch('user/dataSumSearch',{flag:0});
+        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
+        store.dispatch('myAssets/dataSumSearch',{flag:0});
         if(readyAssetsF.value <= 0) logined(accounts);
         const Web3 = (window as any).Web3;
         let web3obj = new Web3((Web3 as any).givenProvider);
@@ -439,8 +439,8 @@ const login = () =>{
 const signout = () => {
     showloggedFlag.value = false;
     hoverLogged.value = false;
-    store.dispatch('user/connectWallet',{realId: -1});
-    store.dispatch('user/walletloggined',false);
+    store.dispatch('wallet/connectWallet',{realId: -1});
+    store.dispatch('wallet/walletloggined',false);
     store.dispatch('user/showDialog',{show: false, info: {}});
     
 
@@ -463,12 +463,12 @@ onUnmounted(() => {
 
 onMounted(() => {
     if( realId.value != -1){
-        store.dispatch('user/walletloggined',true);
+        store.dispatch('wallet/walletloggined',true);
     }
     logoHImport();
     window.addEventListener('click', handleOtherClick, true)
     store.dispatch('user/changeActive', props.type)
-    store.dispatch('user/metaChange',false)
+    store.dispatch('wallet/metaChange',false)
     store.dispatch('user/showDialog',{show: false, info: {}});
 
     if( localStorage.getItem('lang') ){
@@ -550,6 +550,7 @@ onMounted(() => {
                         justify-content: center;
                         align-items: center;
                         font-size: 0.83vw;
+                        padding-bottom: .5vw;
                         img{
                             margin-right: .4vw;
                             width: 1.56vw;
@@ -623,8 +624,9 @@ onMounted(() => {
                     .register{
                         height: 100%;
                         display: flex;
-                        align-items: center;
                         margin-right: .5vw;
+                        padding-bottom: .5vw;
+                        align-items: center;
                         .register_button{
                             padding: 0.26vw 0.41vw;
                             font-size: 0.63vw;
@@ -646,7 +648,7 @@ onMounted(() => {
                         align-items: center;
                         width: 10.3vw;
                         height: 2.3vw;
-                        margin-top: 1.55vw;
+                        margin-top: 1.34vw;
                         background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-loginBg.svg');
                         background-size: 102% 100%;
                         background-position: -.1vw top;
@@ -686,9 +688,9 @@ onMounted(() => {
                         align-items: center;
                         justify-content: center;
                         position: relative;
-                        // width: 12.13vw;
                         height: 2.3vw;
-                        margin-top: 1.6vw;
+                        margin: auto 0;
+                        padding-bottom: .5vw;
                         .wallet{
                             width: 1.4vw;
                             height: .98vw;
@@ -722,14 +724,15 @@ onMounted(() => {
                     }
                     .language{
                         position: relative;
-                        margin: 1.96vw 1.4vw 0;
+                        margin: auto 1.4vw;
+                        padding-bottom: .5vw;
                         img{
                             width: 1.56vw;
                             height: 1.56vw;
                         }
                         .langUl{
                             position: absolute;
-                            top: 3.9vw;
+                            top: 4.1vw;
                             left: -4.22vw;
                             .wrap{
                                 position: absolute;
@@ -985,7 +988,7 @@ onMounted(() => {
         }
     }
     .logged_menu{
-        z-index: 9;
+        z-index: 99;
         position: fixed;
         top: 3.8vw;
         right: 1.8vw;

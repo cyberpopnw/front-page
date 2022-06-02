@@ -250,9 +250,9 @@ import FinishedA from '@/components/staking/FinishedA.vue';
 const { staking, cytV2, EasyStaking, cyt_ice } = Web3.contracts;
 const { t, locale } = useI18n();
 const router = useRouter()
-const realId = computed(() => store?.state.user?.realId);  // Asterisk address
+const realId = computed(() => store?.state.wallet?.realId);  // Asterisk address
 const chainId: any = computed(() => store.state.user?.chainId);
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 watch(readyAssetsF, (newVal, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssetsF');
     if(!oldVal || oldVal == -1) return;
@@ -340,7 +340,7 @@ const test = ref(0) as any
 // start staking
 const stakingCyt = async () => {
     if(myTime.value > 0) { // 还没到时间 还可以继续质押
-        store.dispatch('user/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
+        store.dispatch('staking/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
         store.dispatch('user/xplanChangeAni', true);
         return;
     }

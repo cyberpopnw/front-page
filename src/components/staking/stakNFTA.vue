@@ -75,7 +75,7 @@ const props = defineProps({
     },
 })
 
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 
 // input
@@ -108,28 +108,28 @@ const inputNumber = (e:any) => {
 const closeDialog = () => {
     store.dispatch('user/xplanChangeAni', false);
     setTimeout(() => {
-        store.dispatch('user/stakingState', { show: false, info: { } });
+        store.dispatch('staking/stakingState', { show: false, info: { } });
     }, 300);
 }
 
 const stakingCYT =  async () => {
-    store.dispatch('user/stakingState', { show: true, info: { state: 3, haveCTY: props.haveCTY }});
+    store.dispatch('staking/stakingState', { show: true, info: { state: 3, haveCTY: props.haveCTY }});
     let result = await Web3.approve(cytV2.abi, cytV2.address, staking.address, valueIn.value);
     if(result) {
-        store.dispatch('user/stakingState', { show: true, info: { state: 6, haveCTY: props.haveCTY }});
+        store.dispatch('staking/stakingState', { show: true, info: { state: 6, haveCTY: props.haveCTY }});
         let stake_result = await Web3.stake(staking.abi, staking.address, valueIn.value);
         console.log(stake_result);
         if(stake_result) {
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
-            store.dispatch('user/stakingState', { show: true, info: { state: 7, haveCTY: props.haveCTY }});
-            store.dispatch('user/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+            store.dispatch('staking/stakingState', { show: true, info: { state: 7, haveCTY: props.haveCTY }});
+            store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
             return;
         }
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
-        store.dispatch('user/stakingState', { show: true, info: { state: 8, haveCTY: props.haveCTY }});
+        store.dispatch('staking/stakingState', { show: true, info: { state: 8, haveCTY: props.haveCTY }});
     }else{
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
-        store.dispatch('user/stakingState', { show: true, info: { state: 5, haveCTY: props.haveCTY }});
+        store.dispatch('staking/stakingState', { show: true, info: { state: 5, haveCTY: props.haveCTY }});
     }
     
 }

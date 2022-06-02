@@ -3,7 +3,7 @@
         <div class="mask">
             <div class="cover"></div>
             <div class="coverborder"></div>
-            <img class="close" src="@/assets/nwhome/close.svg" alt="" v-if="isInstall" @click="store.dispatch('user/metaChangeAni',false);">
+            <img class="close" src="@/assets/nwhome/close.svg" alt="" v-if="isInstall" @click="store.dispatch('wallet/metaChangeAni',false);">
             <div class="content">
                 <div class="title" v-if="!isInstall">{{$t('message.common.metamask.title')}}</div>
                 <div class="title" v-if="isInstall">{{$t('message.common.metamask.title1')}}</div>
@@ -30,12 +30,12 @@ import { onMounted, computed, readonly, ref } from 'vue'
 import store from '@/store'
 
 
-const isInstall = computed(() => store?.state.user?.isInstall);
-const metaMaskActive = computed(() => store?.state.user?.metaMaskActive);
-const metaAni = computed(() => store?.state.user?.metaAni);
+const isInstall = computed(() => store?.state.wallet?.isInstall);
+const metaMaskActive = computed(() => store?.state.wallet?.metaMaskActive);
+const metaAni = computed(() => store?.state.wallet?.metaAni);
 
 const closePopUp = () => {
-    store.dispatch('user/metaChangeAni',false);
+    store.dispatch('wallet/metaChangeAni',false);
 } 
 
 </script>

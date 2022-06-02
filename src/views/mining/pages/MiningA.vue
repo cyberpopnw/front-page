@@ -274,9 +274,9 @@ import CancelStake from '@/components/staking/cancelStakeA.vue';
 const { staking, cytV2 } = Web3.contracts;
 const { t, locale } = useI18n();
 const router = useRouter()
-const realId = computed(() => store?.state.user?.realId);  // Asterisk address
+const realId = computed(() => store?.state.wallet?.realId);  // Asterisk address
 const chainId: any = computed(() => store.state.user?.chainId);
-const readyAssetsF: any = computed(() => store.state.user?.readyAssets ); // Status value of the connection
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 watch(readyAssetsF, (newVal, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssetsF');
     if(!oldVal || oldVal == -1) return;
@@ -375,7 +375,7 @@ const stakingCyt = async () => {
     console.log(progress.value, 'progress.value');
     
     if(myTime.value > 0 && progress.value < 100) { // You can continue to pledge before the time is up
-        store.dispatch('user/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
+        store.dispatch('staking/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
         store.dispatch('user/xplanChangeAni', true);
         return;
     }

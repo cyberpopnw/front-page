@@ -72,7 +72,7 @@ const props = defineProps({
         default: ''
     }
 })
-const idTemp = computed(() => store?.state.user?.idTemp);
+const idTemp = computed(() => store?.state.wallet?.idTemp);
 
 //input
 const nickname = ref('');
@@ -104,7 +104,7 @@ const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: stri
         }
         
         if(res.data.code != 55555) {
-            store.dispatch('user/messSing', props.code);
+            store.dispatch('wallet/messSing', props.code);
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}});
             closeDialog()
             return

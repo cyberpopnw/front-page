@@ -45,7 +45,7 @@ import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
-const idTemp = computed(() => store?.state.user?.idTemp);
+const idTemp = computed(() => store?.state.wallet?.idTemp);
 const router = useRouter()
 const isClick = ref(false as any);
 
@@ -83,7 +83,7 @@ const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: stri
         
         if(res.data.code != 55555) {
             isDonload.value = true;
-            store.dispatch('user/messSing', code.value);
+            store.dispatch('wallet/messSing', code.value);
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}});
             return
         }
@@ -156,7 +156,7 @@ const verification = () => {
             messgSing(account)
         }else{
             isDonload.value = true;
-            store.dispatch('user/messSing', code.value);
+            store.dispatch('wallet/messSing', code.value);
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.download.tips4') }});
         }
     }).catch( (err: any) => {

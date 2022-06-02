@@ -122,7 +122,7 @@ const chainId: any = computed(() => store.state.user?.chainId);
 const isProduction = ref(true);
 
 const data: any = ref([]);
-const idTemp: any = computed(() => store?.state.user?.idTemp);  // Full address
+const idTemp: any = computed(() => store?.state.wallet?.idTemp);  // Full address
 const Remaining: any = ref([]);
 watch(chainId, (newVal, oldVal: any) => {
     if(!oldVal || oldVal == -1) return;
@@ -144,9 +144,9 @@ const getBalance = async (chainid: number) => {
     console.log('进来了');
     data.value = []; // 清空
     if(chainid == 80001){
-        var result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.user?.box);
+        var result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
     }else if(chainid == 43113){
-        var result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.user?.box);
+        var result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
     }else{
         var result: any = [0, 0, 0]
     }
@@ -180,7 +180,7 @@ const getData = async (boxData: any[]) => {
         Remaining.value = [0, 0, 0];
         return; // At present, only Mumbai can buy boxes with
     }
-    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.user?.box, MarketV2.address); // 查询已上架的资产
+    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box, MarketV2.address); // 查询已上架的资产
     Remaining.value = [1, 0, 0] || LootBox_result;
     console.log(Remaining.value, 'Remaining.valueRemaining.valueRemaining.valueRemaining.value');
 }
@@ -201,7 +201,7 @@ const purchase = async (boxId: number, number: any) => {
     // console.log(result);
     if(number == 0 || isProduction.value) return;
     store.dispatch('user/xplanChangeAni', true);
-    store.dispatch('user/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 0, boxId, haveNFT: number || 1 }});
+    store.dispatch('myBox/purchaseState', { show: true, info: { title: 'PURCHASE....', content1: 'Authorization in progress....', content2: 'In purchase....', state: 0, boxId, haveNFT: number || 1 }});
 }
 
 onMounted(() => {
