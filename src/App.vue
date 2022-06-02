@@ -121,9 +121,6 @@ onMounted(() => {
 })
 </script>
 <style>
-    body{
-        overflow-y: scroll !important;
-    }
     .ip_error, .ip_error_Mobile{
         z-index: 6;
         display: flex;
