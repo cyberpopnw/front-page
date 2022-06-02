@@ -439,6 +439,8 @@ const us = {
             not_data: 'NOT DATA',
             haveWhite: 'You are in whitelist (from Brewery)',
             notHaveWhite: 'You are not in whitelist',
+            whiteList1: "1. Free Mint is a sand of time NFT on Boba brewery's official website.",
+            whiteList2: "2. Obtain a first-class role NFT airdrop of the test network, and exchange it for the main network after going online",
         },
 
         //dowload
