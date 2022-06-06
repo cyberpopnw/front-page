@@ -58,7 +58,7 @@ const downloadGame = (type: number) => {
         return;
     }
     window.location.href = type == 0 ? 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop.apk' : 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.1_2022_05_13.rar';
-    proxy.$api.post(`/code/user/download?address=${idTemp.value}`).then((res: any) => {
+    proxy.$api.get(`/code/user/download?address=${idTemp.value}`).then((res: any) => {
         console.log(res);
     }).catch( (err: any) => {
         console.log(err)
