@@ -17,7 +17,11 @@
                 </div>
                 <div class="whiteList">
                     <p v-if="bobabrewery">{{ bobabrewery }}</p>
-                    <p v-else>{{ whiteList ? $t('message.assets.haveWhite') : $t('message.assets.notHaveWhite') }}</p>
+                    <p v-else>
+                        <span v-if="whiteList" @click="whiteListWindows">{{ $t('message.assets.haveWhite')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/whitelist.png" alt=""></span>
+                        <span v-else-if="boxId9" @click="whiteListWindows">{{ $t('message.assets.box9HaveWhite')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/whitelist.png" alt=""></span>
+                        <span v-else>{{ $t('message.assets.notHaveWhite') }}</span>
+                    </p>
                 </div>
                 <div class="myAssets">
                     <div class="item">
@@ -90,7 +94,7 @@
                             <li v-for="(item, index) in data" :key="index">
                                 <img :src="item.data.image" alt="">
                                 <div class="name">{{item.data.name}}<span>x{{item.number}}</span></div>
-                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji'">
+                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji' && item.type != 'box_bsc'">
                                     <div class="transfer" :class="{'not-allowed': item.isLoading}" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
                                     <div class="sell not-allowed">{{$t('message.assets.btn_sell')}}</div>
                                 </div>
@@ -98,9 +102,9 @@
                                     <div class="load" :class="{'not-allowed': item.isLoading}" @click="loadPool(item)">{{$t('message.assets.btn_load')}}</div>
                                     <div class="claim" :class="{'not-allowed': !item.isLoading}">&nbsp;&nbsp;{{$t('message.assets.but_claim')}}</div>
                                 </div>
-                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji'">
+                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji' || item.type == 'box_bsc'">
                                     <div class="transfer" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
-                                    <div class="sell" @click="open(item)">{{$t('message.assets.btn_unpack')}}</div>
+                                    <div class="sell" :class="{'not-allowed': item.tyoe == 'box_bsc'}" @click="open(item)">{{$t('message.assets.btn_unpack')}}</div>
                                 </div>
                             </li>
                         </ul>
@@ -110,7 +114,7 @@
                             <li v-for="(item, index) in data" :key="index">
                                 <img :src="item.data.image" alt="">
                                 <div class="name">{{item.data.name}}<span>x{{item.number}}</span></div>
-                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji'">
+                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji' && item.type != 'box_bsc'">
                                     <div class="transfer" :class="{'not-allowed': item.isLoading}" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
                                     <div class="sell not-allowed">{{$t('message.assets.btn_sell')}}</div>
                                 </div>
@@ -118,9 +122,9 @@
                                     <div class="load" :class="{'not-allowed': item.isLoading}" @click="loadPool(item)">{{$t('message.assets.btn_load')}}</div>
                                     <div class="claim" :class="{'not-allowed': !item.isLoading}">&nbsp;&nbsp;{{$t('message.assets.but_claim')}}</div>
                                 </div>
-                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji'">
+                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji' || item.type == 'box_bsc'">
                                     <div class="transfer" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
-                                    <div class="sell" @click="open(item)">{{$t('message.assets.btn_unpack')}}</div>
+                                    <div class="sell" :class="{'not-allowed': item.tyoe == 'box_bsc'}" @click="open(item)">{{$t('message.assets.btn_unpack')}}</div>
                                 </div>
                             </li>
                         </ul>
@@ -130,7 +134,7 @@
                             <li v-for="(item, index) in data" :key="index">
                                 <img :src="item.data.image" alt="">
                                 <div class="name">{{item.data.name}}<span>x{{item.number}}</span></div>
-                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji'">
+                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji' && item.type != 'box_bsc'">
                                     <div class="transfer" :class="{'not-allowed': item.isLoading}" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
                                     <div class="sell not-allowed">{{$t('message.assets.btn_sell')}}</div>
                                 </div>
@@ -138,9 +142,9 @@
                                     <div class="load" :class="{'not-allowed': item.isLoading}" @click="loadPool(item)">{{$t('message.assets.btn_load')}}</div>
                                     <div class="claim" :class="{'not-allowed': !item.isLoading}">&nbsp;&nbsp;{{$t('message.assets.but_claim')}}</div>
                                 </div>
-                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji'">
+                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji' || item.type == 'box_bsc'">
                                     <div class="transfer" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
-                                    <div class="sell" @click="open(item)">{{$t('message.assets.btn_unpack')}}</div>
+                                    <div class="sell" :class="{'not-allowed': item.tyoe == 'box_bsc'}" @click="open(item)">{{$t('message.assets.btn_unpack')}}</div>
                                 </div>
                             </li>
                         </ul>
@@ -200,6 +204,7 @@
     </div>
     <footer-b></footer-b>
     <popup-b v-show="transferActive" :transferInfo="transferItem" :abi="abiSelect" :address="addressSelect"></popup-b>
+    <WhiteList :isShowTips="haveWhiteWindow" :whiteList="whiteList" :isBoxId9="boxId9" v-if="haveWhiteWindow" @closeFinshed="haveWhiteWindow = false"/> 
 </template>
 <script setup lang="ts">
 import { onBeforeMount, onMounted, ref, reactive, computed, getCurrentInstance, onUnmounted, watch } from 'vue'
@@ -207,6 +212,8 @@ import Web3 from '@/tools/web3'
 import store from '@/store'
 import {  useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n';
+import WhiteList from '@/components/assets/whiteListB.vue'
+
 const { t } = useI18n();
 const router = useRouter()
 const { proxy } = getCurrentInstance() as any;
@@ -426,13 +433,14 @@ const initLoad = () => {
     }, 300);
 }
 
-const { nft, nft_fuji, arms, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, LootBox, cytV2, coin } = Web3.contracts;
+const { nft, nft_fuji, arms, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, LootBox, lootBox_Bsc, cytV2, coin } = Web3.contracts;
 
 const getData: any = async (type: Number, filter?: any) => {
     if(!filter) data.value = [];
     if(loadingState.value == 1) return;
     loadingState.value = 1; // Initialize to 0. 1 means loading. 2 means loading is complete
     let result: any = await getGamePool(idTemp.value)
+    boxId9.value = false;
     let weapons = [];
     let role = [];
     let badge = [];
@@ -598,6 +606,19 @@ const getData: any = async (type: Number, filter?: any) => {
             await getNFTData(box_result, 'box', 'box_fuji', store.state.myBox?.box);
         }
     }
+    if(chainId.value == 56){
+        if(!type){
+            let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
+            if(box_result[9] > 0) boxId9.value = true;
+            await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+        }else if(type == 1){
+
+        }else{
+            let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
+            if(box_result[9] > 0) boxId9.value = true;
+            await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+        }
+    }
     
     if(!filter) loadingState.value = 2; // Loading complete
 }
@@ -721,7 +742,9 @@ const searchSubmit = () => {
 //myAssets 
 const myAssets = ref({}) as any;
 const whiteList: any = ref(false);
+const boxId9: any = ref(false);
 const bobabrewery = ref('') as any;
+const haveWhiteWindow: any = ref(false);
 const initMyAssetes = async () => {
     if(chainId.value == 43113){
         var a = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address);
@@ -740,11 +763,17 @@ const initMyAssetes = async () => {
     })
 
 }
+const whiteListWindows = (isBoxId9?: any) => {
+    store.dispatch('user/xplanChangeAni', true);
+    haveWhiteWindow.value = true;
+}
+
 
 
 
 // Open the box
 const open = async (item: any) => {
+    if(item.number == 0 || item.type == 'box_bsc') return;
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'), addNetwork: false, boxId: item.id, haveNFT: item.number }});
 }
@@ -873,6 +902,9 @@ onMounted(async () => {
                     color: #8478FF;
                     margin: 15px 0;
                     font-size: 10px;
+                    img{
+                        vertical-align: middle;
+                    }
                     .item{
                         display: flex;
                         justify-content: center;
@@ -1184,6 +1216,10 @@ onMounted(async () => {
                                         background-image: url('../../../assets/nwAssets/purplebg.svg');
                                         background-position: left top;
                                         background-size: 100% 100%;
+                                    }
+                                    .not-allowed{
+                                        cursor: not-allowed !important;
+                                        opacity: .5;
                                     }
                                     .unpack{
                                         width: 271px;

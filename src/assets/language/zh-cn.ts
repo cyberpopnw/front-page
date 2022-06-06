@@ -436,8 +436,10 @@ const cn = {
             my_coin: '我的 COIN',
             not_data: '暫無數據',
             haveWhite: '你有白名單 (來自 Brewery)',
+            box9HaveWhite: '你有白名單',
             notHaveWhite: '你沒有白名單',
             whiteList1: "1.在Boba Brewery官网上free mint 一个时之沙NFT。",
+            whiteList1HavaBox: "1.free mint 一个时之沙NFT。",
             whiteList2: "2.获得一个测试网的一级角色nft空投，在上线后兑换主网",
         },
 

@@ -13,7 +13,7 @@
                 <!-- <div class="text">{{ props.content == 'netWork' ? $t('message.common.metamask.switch') : props.content }} <a v-if="props.addNetwork" href="https://chainlist.org/" target="_blank">{{ $t('message.common.metamask.add1') }}</a> </div> -->
                 <div class="text" v-if="props.addNetwork">{{ $t('message.common.metamask.switch') }} <br/>
                     <div class="buttons">
-                        <span @click="changeChain(97)">{{ $t('message.common.metamask.switchBSC') }}</span>
+                        <span @click="changeChain(56)">{{ $t('message.common.metamask.switchBSC') }}</span>
                         <span @click="changeChain(43113)">{{ $t('message.common.metamask.switchFuji') }}</span> 
                         <span @click="changeChain(80001)">{{ $t('message.common.metamask.switchMumbai') }}</span>    
                         <span @click="changeChain(85)">{{ $t('message.common.metamask.switchGate') }}</span>  
