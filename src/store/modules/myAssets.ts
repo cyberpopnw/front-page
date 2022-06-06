@@ -2,16 +2,16 @@ import { Module } from 'vuex'
 import { State } from '..'
 import { ref } from 'vue'
 
-// 定义state类型
+// state type
 const states = {
     // assets
-    transferActive: false, // 背包页-TRANSFER按钮
+    transferActive: false, // my assets-TRANSFER btn
     transferAni: false,
     dataSum: ref([]) as any, // search NFT & dao data 
-    readyAssets: -1 ,// 判断是否查询完毕
-    contract: ref([]) , // 存放transfer所需abi，address
-    transferSuccess: 0, // 转账成功状态
-    boxOpened: false, //盒子打开以后的弹窗
+    readyAssets: -1 ,// Judge whether the query is completed
+    contract: ref([]) , // abi and address required for transfer
+    transferSuccess: 0, // Transfer succeeded status
+    boxOpened: false, // Pop up window after the box is opened
     boxId: 0,
 }
 export type typeof_myAssets = typeof states

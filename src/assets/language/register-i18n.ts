@@ -5,7 +5,7 @@ import messages from '../language/index'
 const i18n = createI18n({
     locale: localStorage.getItem('lang') || 'us', // default language
     fallbackLocale: 'us',
-    // silentFallbackWarn: true, // 默认情况下回退到 fallbackLocale 会产生两个控制台警告
+    // silentFallbackWarn: true, // By default, fallback to fallbacklocale generates two console warnings
     messages
 })
 

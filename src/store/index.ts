@@ -46,7 +46,7 @@ const store = createStore({
         },
     },
     actions: {
-        // 调用 store.dispatch('set', { k: 'sys.innerHeight', v: '12312' })
+        // use store.dispatch('set', { k: 'sys.innerHeight', v: '12312' })
         set({ commit }, payload: any) {
             if (typeof payload.k !== 'string') return console.log(`---------->payload: error:`, { payload })
             commit('$changeStore', payload)

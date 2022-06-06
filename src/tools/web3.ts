@@ -2,13 +2,13 @@ import store from '@/store'
 import contracts from '@/tools/contracts'
 import { resolve } from 'path/posix'
 import { ref, computed } from 'vue'
-const Web3 = (window as any).Web3 // 引用全局的web3 在index.html文件cdn引入<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+const Web3 = (window as any).Web3 // Reference the global Web3 in index HTML file CDN import<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 
 
 
-// 登录钱包
+// login metamask
 const login = async () => {
-    const ethereum = (window as any).ethereum // 获取小狐狸实例
+    const ethereum = (window as any).ethereum // Get metamask instance
     // if (!ethereum) {
     //     return 'No install';
     // }
@@ -16,7 +16,7 @@ const login = async () => {
 }
 
 const testactouns = () => {
-    const web3 = new Web3((window as any).ethereum) // 创建一个新的web3 对象
+    const web3 = new Web3((window as any).ethereum) // create a new web3 object
     // if (!ethereum) {
     //     return 'No install';
     // }
@@ -27,9 +27,9 @@ const testactouns = () => {
     // return ethereum.request({ method: 'eth_requestAccounts' })
 }
 
-// 是否安装metamask
+// isinstall metamask
 const hasMetaMask = async () => {
-    const ethereum = (window as any).ethereum // 获取小狐狸实例
+    const ethereum = (window as any).ethereum // Get metamask instance
     if (!ethereum) {
         return 'No install';
     }
@@ -37,9 +37,9 @@ const hasMetaMask = async () => {
 
 
 
-// 账户列表
+// Account list
 const getAccounts = async () => {
-    const web3 = new Web3((window as any).ethereum) // 创建一个新的web3 对象
+    const web3 = new Web3((window as any).ethereum) // create a new web3 object
     const res = await web3.eth.getAccounts()
     console.log(`---------->:getAccounts`, res)
     return res;
@@ -47,25 +47,25 @@ const getAccounts = async () => {
 
 
 
-// 查询余额
+// Check the balance
 const getBalance = async (id: any) => {
     const { abi, address }  = (contracts as any)['nft']
-    const web3 = new Web3((window as any).ethereum) // 创建一个新的web3 对象
-    const contract = new web3.eth.Contract(abi, address) // 创建合约
+    const web3 = new Web3((window as any).ethereum) // create a new web3 object
+    const contract = new web3.eth.Contract(abi, address) // Create contract
     let res = await contract.methods.batchBalanceOf(id).call();
     return res;
 }
 
 
-// 授权某个合约可使用我的货币
+// Authorize a contract to use my currency
 // const approve = (contractName: string = 'test', contractAddress: string = '0xF55c6Be2F9390301bFc66Dd9f7f52495B56301dC', num: string = '10') => {
 //     const { abi, address } = (contracts as any)[contractName]
-//     const web3 = new Web3((window as any).ethereum) // 创建一个新的web3 对象
-//     const contract = new web3.eth.Contract(abi, address) // 创建合约
+//     const web3 = new Web3((window as any).ethereum) 
+//     const contract = new web3.eth.Contract(abi, address) // Create contract
 //     let user = store.state.moralis?.user.accounts[0]
 //     console.log(`---------->:user`, user)
 //     // console.log(`---------->日志输出:Moralis.Units.Token("0.5", "18")`, Moralis.Units.Token('0.5', '18'))
-//     // 发送交易，使用事件获取返回结果
+//     // Send the transaction and use the event to get the returned result
 //     contract.methods
 //         .approve(contractAddress, `${Number(num) * Math.pow(10, 18)}`)
 //         .send({ from: user })
@@ -83,14 +83,14 @@ const getBalance = async (id: any) => {
 //         })
 // }
 
-// 资产转移
+// Asset transfer
 const accounts = computed(() => store?.state.wallet?.idTemp);
 const safeTransferFrom = async (abi:any, address:any, TransferFrom:any, id:any, number?:any) => {
     console.log(abi, address, TransferFrom, id, number);
     const web3 = new Web3((window as any ).ethereum)
     const contract = new web3.eth.Contract(abi, address)
     return new Promise((resolve, reject) => {
-        if(!number){  // 721 不需要传数量
+        if(!number){  // 721 No need to transfer quantity
             console.log('这里');
             
             contract.methods.safeTransferFrom(accounts.value, TransferFrom, id, '0x').send({ from: accounts.value }).then( (receipt:any) => {
@@ -98,7 +98,7 @@ const safeTransferFrom = async (abi:any, address:any, TransferFrom:any, id:any, 
             }).catch((err:any) => {
                 resolve(0)
             })
-        }else{ // 1155需要传入数量
+        }else{ // 1155 need to transfer quantity
             contract.methods.safeTransferFrom(accounts.value, TransferFrom, id, number, '0x').send({ from: accounts.value }).then( (receipt:any) => {
                 resolve(receipt)
             }).catch((err:any) => {
@@ -108,7 +108,7 @@ const safeTransferFrom = async (abi:any, address:any, TransferFrom:any, id:any, 
     })
 }
 
-// 资产查询
+// Asset query
 const batchBalanceOf = (abi:any, address:any) => {
     return new Promise(async (resolve, reject) => {
         // console.log(abi, address, accounts.value);
@@ -119,7 +119,7 @@ const batchBalanceOf = (abi:any, address:any) => {
     })
 }
 
-// 原生1155查询资产
+// Native 1155 query assets
 const balanceOfBatch = (abi: any, address: any, ids: any, isMarketV2?: any) => {
     let tempAccounts: any = []
     for (const iterator of ids) {
@@ -133,7 +133,7 @@ const balanceOfBatch = (abi: any, address: any, ids: any, isMarketV2?: any) => {
     })
 }
 
-// 市场合约查询
+// Market contract query
 const balanceOf = (abi:any, address:any, id:any) => {
     console.log(abi, address, id);
     
@@ -145,7 +145,7 @@ const balanceOf = (abi:any, address:any, id:any) => {
     })
 }
 
-// lootbox礼盒专用 開發人員面向使用者介面，使用此功能從戰利品盒中獲得隨機獎勵
+// Lotbox gift box dedicated developers face the user interface, and use this function to obtain random rewards from the trophy box
 const unpack = (abi: any, address: any, id: any, number: any) => {
     console.log(abi);
     console.log(address);
@@ -176,7 +176,7 @@ const unpack = (abi: any, address: any, id: any, number: any) => {
 }
 
 
-// 查询721合约的
+// Query 721 contract
 const tokensOfOwner = (abi: any, address: any) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -188,8 +188,8 @@ const tokensOfOwner = (abi: any, address: any) => {
 
 
 const addChain = (chainId: Number) => {
-    const ethereum = (window as any).ethereum // 获取小狐狸实例
-    const web3 = new Web3((window as any).ethereum) // 创建一个新的web3 对象
+    const ethereum = (window as any).ethereum // Get metamask instance
+    const web3 = new Web3((window as any).ethereum)
     // console.log(web3.utils.numberToHex(chainId), 'web3.utils.numberToHex(chainId)');
     let info: any;
     if(chainId == 43113){
@@ -267,7 +267,7 @@ const addChain = (chainId: Number) => {
         }).then((res:any)=>{
             web3.eth.net.getId().then((realChainId: any) => {
                 // console.log('0',realChainId, info.params[0].chainId);
-                if( realChainId == info.params[0].chainId ){ // 通过切换结果判断切换成功 或 失败
+                if( realChainId == info.params[0].chainId ){ // Judge whether the handover is successful or failed by the handover result
                     resolve(1)
                     return
                 }
@@ -281,7 +281,7 @@ const addChain = (chainId: Number) => {
 }
 
 
-// 购买NFT
+// Purchase NFT
 const buyLootBox = (abi: any, address: any, boxId: any, price: any, number?: any) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -309,7 +309,7 @@ const allowance = (abi: any, address: any, contract_address: any) => {
     })
 }
 
-// 授权某个合约可使用我的货币
+// Authorize a contract to use my currency
 const approve = (abi: any, address: any, contract_address: any, number: any) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -333,7 +333,7 @@ const totolsuppl = async (abi: any[], address: string) => {
 
 }
 
-// 查询是否授权过了
+// Query whether authorized
 const getApproved = (abi: any, address: string, tokenId: any) => {
     return new Promise((resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -352,7 +352,7 @@ const isApprovedForAll = (abi: any, address: string, operator: any) => {
     })
 }
 
-// 游戏池子授权专用
+// Special for game pool authorization
 const approvePool = (abi: any[], address: string, tokenId: any) => {
     return new Promise((resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -366,7 +366,7 @@ const approvePool = (abi: any[], address: string, tokenId: any) => {
     })
 }
 
-// 1155授权专用
+// 1155 authorized
 const setApprovalForAll = (abi: any[], address: string) => {
     return new Promise((resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -381,7 +381,7 @@ const setApprovalForAll = (abi: any[], address: string) => {
 }
 
 
-// 加载角色
+// Load role
 const loadingNft = (abi: any[], address: string, tokenId: any) => {
     return new Promise((resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -395,7 +395,7 @@ const loadingNft = (abi: any[], address: string, tokenId: any) => {
     })
 }
 
-// 加载角色1155
+// Load role 1155
 const loadingErc1155 = (abi: any[], address: string, tokenId: any, number: any) => {
     return new Promise((resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -410,7 +410,7 @@ const loadingErc1155 = (abi: any[], address: string, tokenId: any, number: any) 
 }
 
 
-// 提现取回
+// Withdrawal and withdrawal
 const withdrawRole = (abi: any[], address: string, tokenId: any) => {
     return new Promise((resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -425,7 +425,7 @@ const withdrawRole = (abi: any[], address: string, tokenId: any) => {
 }
 
 
-// 质押合约查询以及质押了多少的操作
+// Query pledge contract and pledge amount
 const getBalanceOf = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -436,7 +436,7 @@ const getBalanceOf = (abi: any[], address: string) => {
 }
 
 
-// 质押池子总数
+// Total pledge pools
 const getTotalSupply = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -456,7 +456,7 @@ const ERC20balanceOf = (abi: any[], address: string) => {
     })
 } 
 
-// 质押cyt数量
+// Pledge cyt quantity
 const stake = (abi: any[], address: string, number: number) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -471,7 +471,7 @@ const stake = (abi: any[], address: string, number: number) => {
 }
 
 
-// 质押CYT剩余天数
+// Remaining days of pledge cyt
 const DaysRemaining = (abi: any[], address: string, tokenId: number) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -510,7 +510,7 @@ const DaysNeededPredictionx = (abi: any[], address: string) => {
 }
 
 
-// staking进度
+// staking progress
 const progress = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -523,7 +523,7 @@ const progress = (abi: any[], address: string) => {
 }
 
 
-// 质押之前调用一次
+// Call once before pledge
 const notifyrewardamount = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -538,7 +538,7 @@ const notifyrewardamount = (abi: any[], address: string) => {
 }
 
 
-// 质押完成以后， 获取CYT奖励
+// After the pledge is completed, get cyt reward
 const getReward = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -552,7 +552,7 @@ const getReward = (abi: any[], address: string) => {
     })
 }
 
-// 质押完成以后， 领取NFT奖励
+// After the pledge is completed, receive NFT rewards
 const getNFT = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
@@ -567,7 +567,7 @@ const getNFT = (abi: any[], address: string) => {
 }
 
 
-// 退钱
+// Refund
 const withdraw = (abi: any[], address: string, amount: number) =>  {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);

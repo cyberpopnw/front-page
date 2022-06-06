@@ -168,7 +168,7 @@ const getBalance = async (chainid: number) => {
    
 }
 
-// 開盒子
+// Open the box
 const open = (boxId: any, number: any) => {
     if(number == 0) return;
     // getLast(); // Query the last asset opened immediately in the asset contract

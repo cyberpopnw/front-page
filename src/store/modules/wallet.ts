@@ -1,17 +1,17 @@
 import { Module } from 'vuex'
 import { State } from '..'
 
-// 定义state类型
+// state type
 const states = {
     // wallet
-    isInstall: false, // 是否下载metamsk
-    realId: -1, // 带星号id，用于页面显示
-    idTemp: '' as string,  // 完整id，用于判断
-    loggined: false, // PC登录状态
-    showMenuAni: false, // mobile登录状态
+    isInstall: false, // is install metamsk
+    realId: -1, // includ * id
+    idTemp: '' as string,  // all number id
+    loggined: false, // PC login status
+    showMenuAni: false, // mobile login status
     metaMaskActive: false, // install metamask
     metaAni: false,
-    messSing: '', // 签名消息
+    messSing: '', // Signature message
 }
 export type typeof_wallet = typeof states
 export default {

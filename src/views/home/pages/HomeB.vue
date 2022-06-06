@@ -678,7 +678,7 @@ const connect: any = async () => {
         id.value = accounts;
         let len = id.value.length-1;
         id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// 存放星号id、完整id
+        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// include * id、all number id
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
     }
 }
@@ -718,7 +718,7 @@ const onSlideLeft = (swiper: any) => {
 };
  
 
-// 右侧图标滚动
+// Right icon scroll
 const myNav:any = ref(null);
 const windowScroll: any = () => {
     const navHeight: number = myNav.value.offsetHeight;
@@ -830,10 +830,10 @@ const playVideo = (type: any) => {
 const submit = () => {
     let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
     
-    if(email.value === ""){ //输入不能为空
+    if(email.value === ""){ // Input cannot be empty
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.home.mess_register_null')}})
         return false;
-     }else if(!reg.test(email.value)){ //正则验证不通过，格式不对
+     }else if(!reg.test(email.value)){ // The regular validation failed. The format is incorrect
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.home.mess_register_regtest')}})
         return false;
     }
@@ -873,7 +873,7 @@ const checkScrollHeightAndLoadAnimation: any = () => {
         let ele6 = document.getElementById("ele6") as HTMLElement;
         let mapList = document.getElementsByClassName('maptime');
         const mapListLen = mapList.length;
-        const ele1Top: Number = ele1.getBoundingClientRect().top; //距离屏幕顶部的距离
+        const ele1Top: Number = ele1.getBoundingClientRect().top; // Distance from top of screen
         const ele2Top: Number = ele2.getBoundingClientRect().top; 
         const ele3Top: Number = ele3.getBoundingClientRect().top; 
         const ele4Top: Number = ele4.getBoundingClientRect().top; 
@@ -1016,7 +1016,6 @@ onMounted(() => {
         overflow: hidden;
         section{
             width: 100%;
-            // height: 284px;
             height: 100vh;
             overflow: hidden;
             .titles{
@@ -1026,8 +1025,6 @@ onMounted(() => {
                 height: 100%;
                 background-image: url('../../../assets/nwhome/section-cover.png');
                 background-size: 101% 101%;
-                // background-size: 100% 100%;
-                // background-position: left top;
                 background-position: -1vw 1vw;
                 .title-wrap{
                     height: 100%;
@@ -1319,7 +1316,6 @@ onMounted(() => {
         position: relative;
         width: 100%;
         height: 472px;
-        // margin-top: -.1vw;
         background-color: #000000;
         z-index: -1;
         .warp{
@@ -1327,7 +1323,6 @@ onMounted(() => {
             position: absolute;
             display: flex;
             flex-direction: column;
-            // justify-content: center;
             width: 100%;
             height: 100%;
             .title{
@@ -1410,7 +1405,6 @@ onMounted(() => {
                     position: relative;
                     height: 265px;
                     width: 340px;
-                    // margin-top: 58px;
                     overflow: hidden;
                     .swiper-bg{
                         position: absolute;
@@ -1479,7 +1473,6 @@ onMounted(() => {
                         margin-left: 12px;
                         .swiper-bg3{
                             width: 290px;
-                            // height: 126px;
                             height: 125.6px;
                             img{
                                 width: 100.1%;
@@ -1511,9 +1504,6 @@ onMounted(() => {
                 position: relative;
                 width: 100%;
                 height: 321px;
-                // img{
-                //     height: 100%;
-                // }
                 .nobody-img{
                     z-index: 2;
                     pointer-events: none;
@@ -1713,7 +1703,6 @@ onMounted(() => {
             position: relative;
             display: flex;
             flex-direction: column;            
-            // justify-content: center;
             align-items: center;
             text-align: center;
             width: 100%;
@@ -1751,7 +1740,6 @@ onMounted(() => {
             }
             .desc{
                 z-index: 1;
-                // margin-bottom: 101px;
                 width: 332px;
                 height: 118px;
                 font-size: 14px;
@@ -1776,7 +1764,6 @@ onMounted(() => {
                 .icon-img{
                     display: flex;
                     flex-direction: column;
-                    // align-items: center;
                     div{
                         display: flex;
                         align-items: center;
@@ -1792,19 +1779,16 @@ onMounted(() => {
                     }
                     .icon3{
                         width: 96px;
-                        // margin-right: 10px;
                     }
                     .icon4{
                         width: 100px;
                         margin-right: 38px;
-                        // margin-left: 10px;
                     }
                 }
             }
             .make-img{
                 position: relative;
                 width: 319px;
-                // height: 1200px;
                 padding-bottom: 38px;
                 background: linear-gradient(90deg, #000000 0%, #000000 100%);
                 opacity: 0.83;
@@ -1829,7 +1813,6 @@ onMounted(() => {
                     flex-direction: column;
                     align-items: center;
                     height: 100%;
-                    // margin-top: 20px;
                     li{
                         display: flex;
                         flex-direction: column;
@@ -1843,7 +1826,6 @@ onMounted(() => {
                     li:nth-child(2){
                         width: 84px;
                         height: 199px;
-                        // margin-top: -30px;
                     }
                     li:nth-child(3){
                         width: 205px;
@@ -1882,7 +1864,6 @@ onMounted(() => {
                 width: 357px;
                 height: 175px;
                 margin-top: 70px;
-                // background: #EDFF00;
                 background-color: #565656;
                 clip-path: polygon(0 0, 100% 0, 100% 66%, 94% 100%, 0 100%);
                 .opensea-title{
@@ -1897,7 +1878,6 @@ onMounted(() => {
                     text-align: center;
                 }
                 .openUrl{
-                    // a{
                     div{
                         display: flex;
                         flex-direction: column;
@@ -2077,7 +2057,6 @@ onMounted(() => {
     }
     .roadmap{
         width: 100%;
-        // height: 731px;
         height: 1420px;
         background-color: #000000;
         overflow: hidden;
@@ -2466,7 +2445,6 @@ onMounted(() => {
             justify-content: center;
             flex-wrap: wrap;
             margin: 30px 0;
-            // overflow: hidden;  
             li{
                 display: flex;
                 align-items: center;

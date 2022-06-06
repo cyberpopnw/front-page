@@ -705,7 +705,7 @@ const connect: any = async () => {
         id.value = accounts;
         let len = id.value.length-1;
         id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// 存放星号id、完整id
+        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// include * id、all number id
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
     }
 }

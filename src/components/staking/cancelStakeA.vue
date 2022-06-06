@@ -73,7 +73,7 @@ const closeDialog = () => {
     }, 300);
 }
 
-// 确认选择
+// Confirm selection
 const confirm = async () => {
     if(selected.value == 0){
         let result = await Web3.getReward(staking.abi, staking.address)
