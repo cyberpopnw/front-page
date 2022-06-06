@@ -69,16 +69,6 @@ const routes = [
             showFooter: true,
             transition: 'slide-right',
         },
-        // children:[{
-        //         name:'introduction',
-        //         path:'/introduction',
-        //         component: () => import('../views/details/introduction/index.vue'),
-        //         meta: {
-        //             keepAlive: false,
-        //             showFooter: true,
-        //             transition: 'slide-right',
-        //         },
-        // }]
     },
     {
         name: 'cyberspace',
