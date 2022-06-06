@@ -201,7 +201,7 @@ const getData = async (boxData: any[]) => {
             }
         })
     })(0)
-    if(chainId.value != 80001) {
+    if(chainId.value != 80001 || chainId.value == 56) {
         Remaining.value = [0, 0, 0]
         return; // At present, only Mumbai can buy boxes with
     }

@@ -10,7 +10,7 @@
                 <div class="text">{{ $t('message.common.metamask.wrongContent') }}</div>
             </div>
             <div class="btns">
-                <span class="btn" @click="changeChain(97)">{{ $t('message.common.metamask.switchBSC') }}</span>
+                <span class="btn" @click="changeChain(56)">{{ $t('message.common.metamask.switchBSC') }}</span>
                 <span class="btn" @click="changeChain(43113)">{{ $t('message.common.metamask.switchFuji') }}</span> 
                 <span class="btn" @click="changeChain(80001)">{{ $t('message.common.metamask.switchMumbai') }}</span>    
                 <span class="btn" @click="changeChain(85)">{{ $t('message.common.metamask.switchGate') }}</span>  

@@ -97,8 +97,8 @@ onMounted(() => {
             left: 0;
             right: 0;
             bottom: 0;
-            width: 35.38vw;
-            height: 25.81vw;
+            width: 350px;
+            height: 300px;
             margin: auto;
             padding: 2.5vw;
             box-shadow: -1.51vw .83vw .2vw .05vw rgba(0, 0, 0, 0.4);
@@ -129,31 +129,31 @@ onMounted(() => {
             }
             .close{
                 position: absolute;
-                right: 1vw;
-                top: 1vw;
+                right: 20px;
+                top: 20px;
                 z-index: 11;
-                width: 2.8vw;
+                width: 40px;
             }
             .content{
                 position: absolute;
                 left: 0;
                 right: 0;
-                padding: 0 2.13vw;
+                padding: 50px 20px;
                 .title{
-                    font-size: 1.95vw;
+                    font-size: 30px;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     font-weight: normal;
                     line-height: 2.08vw;
                     text-align: center;
                     margin-bottom: 1.3vw;
-                    margin-bottom: 4vw;
+                    margin-bottom: 20px;
                 }
                 .text{
-                    font-size: 0.83vw;
+                    font-size: 16px;
                     font-family: AlibabaPuHuiTi_2_55_Regular;
                     font-weight: normal;
-                    line-height: 2vw;
-                    margin-bottom: 1.87vw;
+                    line-height: 25px;
+                    margin-bottom: 20px;
                     text-align: center;
                     word-break:break-all;
                     text-align: left;
