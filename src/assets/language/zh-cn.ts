@@ -450,6 +450,7 @@ const cn = {
             ios: '苹果',
             Android: '安卓',
             windows: '窗口',
+            version: '最新版本1.0.2',
             inputEmail: '输入电子邮件',
             tips2: '沒有ios app',
             tips3: '電子郵件錯誤',

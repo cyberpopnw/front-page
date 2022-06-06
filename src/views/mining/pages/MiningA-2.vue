@@ -283,7 +283,7 @@ watch(realId, (newVal, oldVal: any) => {
 // Sub component finished (pledge completed to receive reward)
 const Finished = ref(null);
 const isShowFinished = ref(false as boolean);
-console.log(Finished, 'Finished');
+console.log(Finished.value, 'Finished');
 
 
 
@@ -339,6 +339,8 @@ const test = ref(0) as any
 
 // start staking
 const stakingCyt = async () => {
+    console.log(myTime.value, 'myTime');
+    
     if(myTime.value > 0) { // 还没到时间 还可以继续质押
         store.dispatch('staking/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
         store.dispatch('user/xplanChangeAni', true);

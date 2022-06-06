@@ -28,6 +28,7 @@
                 </div>
                 <div class="down_cyberpop" @click="downloadGame(1)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
+                    <div class="version">{{ $t('message.download.version') }}</div>
                 </div>
                 <div class="down_cyberpop" @click="downloadGame(2)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/windows.png" alt="">
@@ -360,9 +361,16 @@
                     font-size: 16px;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     color: #FFFFFF;
+                    position: relative;
                     .media{
                         width: 22px;
                         height: 26px;
+                    }
+                    .version{
+                        position: absolute;
+                        top: -30px;
+                        width: 100vw;
+                        text-align: center;
                     }
                 }
                 .not-error{

@@ -446,6 +446,7 @@ const kr = {
             ios: '사과',
             Android: '안 드 로이드',
             windows: '윈도',
+            version: '최신 버전 1.0.2',
             inputEmail: 'e-메일 입력',
             tips2: 'ios 앱 없음',
             tips3: 'e-메일 오류',

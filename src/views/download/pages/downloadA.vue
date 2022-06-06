@@ -25,11 +25,13 @@
                 <div class="down_cyberpop" @click="downloadGame(1)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/windows.png" alt="">
                     <b>{{ $t('message.download.windows') }}</b>
+                    <div class="version">{{ $t('message.download.version') }}</div>
                 </div>
                 <div class="down_cyberpop not-error" @click="downloadGame(2)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
                     <b>{{ $t('message.download.ios') }}</b>
                 </div>
+
             </div>
         </div>
     </div>
@@ -371,10 +373,15 @@ onMounted(() => {
                     color: #FFFFFF;
                     line-height: 1.56vw;
                     transition: all .1s ease-in;
+                    position: relative;
                     .media{
                         margin-right: 0.52vw;
                         width: 1.4vw;
                         height: 1.66vw;
+                    }
+                    .version{
+                        position: absolute;
+                        top: -2vw;
                     }
                 }
                 .not-error{

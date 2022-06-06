@@ -446,6 +446,7 @@ const kr = {
             ios: 'リンゴ',
             Android: 'アンドロイド',
             windows: 'ウィンドウ',
+            version: '最新バージョン1.0.2',
             inputEmail: '電子メールの入力',
             tips2: 'ios appはありません',
             tips3: '電子メールエラー',

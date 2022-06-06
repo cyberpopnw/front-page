@@ -1,8 +1,8 @@
 <template>
     <header-a path="/mystery" :type="2"></header-a>
-    <div class="section">
+    <!-- <div class="section">
         <div class="title">COMING SOON</div>
-    </div>
+    </div> -->
     <div class="boxBg">
         <div class="video">
             <video-bg 
