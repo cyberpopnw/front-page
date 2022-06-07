@@ -210,7 +210,8 @@ const cn = {
             // homwA-register
             reg_title: '你是否準備好踏上征程？',
             reg_subtitle: '獲取INBOX最新消息',
-            reg_submit: 'Register email',
+            reg_submit1: 'Register',
+            reg_submit2: 'email',
             reg_link: '成為我們的推廣大使',
             inviter_Code: '邀请码',
             level: '等级',

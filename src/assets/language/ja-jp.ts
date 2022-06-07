@@ -210,7 +210,8 @@ const kr = {
             // homwA-register
             reg_title: '冒険への準備はできていますか？',
             reg_subtitle: 'INBOXから最新ニュースを手に入れよう',
-            reg_submit: 'Register email',
+            reg_submit1: 'Register',
+            reg_submit2: 'email',
             reg_link: 'プロモーションアンバサダーになりましょう',
             inviter_Code: '招待コード',
             level: 'レベル＃レベル＃',

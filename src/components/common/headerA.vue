@@ -38,7 +38,8 @@
                     <div class="register">
                         <div class="register_button" @click="isRegister(true)">
                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/register-email.svg" alt="">
-                            <span id="register">{{ $t('message.home.reg_submit') }}</span>
+                            <span>{{ $t('message.home.reg_submit1') }}</span>
+                            <span>{{ $t('message.home.reg_submit2') }}</span>
                         </div>
                     </div>
                     <div class="login_in" v-if="!loggined" @click="login()" @mouseenter="mouseEnter()" @mouseleave="mouseLeave()">
@@ -646,14 +647,13 @@ onMounted(() => {
                             img{
                                 width: .98vw;
                                 height: .67vw;
-                                margin: 1px auto;
+                                margin: 1px auto .14vw;
                             }
                             span{
                                 display: inline-block;
-                                min-width: 2.54vw;
-                                max-width: 2.54vw;
+                                word-break: break-all;
                                 font-size: .52vw;
-                                line-height: .6vw;
+                                line-height: .5vw;
                                 transform: scale(.8);
                             }
                         }
