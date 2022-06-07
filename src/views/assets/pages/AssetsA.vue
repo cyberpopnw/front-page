@@ -816,6 +816,9 @@ const transferPopup = (item:any) => {
     }else if( item.type == 'badge_fuji'){
         abiSelect.value = Web3.contracts.nft_fuji.abi
         addressSelect.value = Web3.contracts.nft_fuji.address
+    }else if( item.type == 'box_bsc'){
+        abiSelect.value = Web3.contracts.lootBox_Bsc.abi
+        addressSelect.value = Web3.contracts.lootBox_Bsc.address
     }
     console.log(item.type, 'item.type');
     console.log(transferItem.value , 'transferItem.value ');

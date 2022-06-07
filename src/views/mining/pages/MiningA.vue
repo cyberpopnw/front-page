@@ -1,8 +1,8 @@
 <template>
     <header-a path="/mining" :type="1"></header-a>
-    <!-- <div class="section">
+    <div class="section">
         <div class="title">{{$t('message.mining.coming')}}</div>
-    </div> -->
+    </div>
     <div class="mining">
         <div class="banner">
             <div class="titles">
@@ -373,8 +373,9 @@ const test = ref(0) as any
 // start staking
 const stakingCyt = async () => {
     console.log(progress.value, 'progress.value');
+    console.log(myTime.value, 'myTime');
     
-    if(myTime.value > 0 && progress.value < 100) { // You can continue to pledge before the time is up
+    if(myTime.value > 0 || progress.value < 100) { // You can continue to pledge before the time is up
         store.dispatch('staking/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
         store.dispatch('user/xplanChangeAni', true);
         return;
@@ -401,6 +402,7 @@ const cancelStake = () => {
 // init data
 const init = async () => {
     mycyt.value = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address);
+    console.log(mycyt, 'mycyt');
     myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address)
     console.log(myStakCyt.value, 'myStakCyt.value');
     let DaysResult = await Web3.DaysRemaining(staking.abi, staking.address, 3) as number;
@@ -415,10 +417,10 @@ const init = async () => {
 onMounted(async () => {
     // let a = await Web3.notifyrewardamount(staking.abi, staking.address)
     // console.log(a);
-    let result = await Web3.DaysNeededPrediction(staking.abi, staking.address)
-    console.log(result, 'DaysNeededPrediction');
-    let DaysNeededPredictionx = await Web3.DaysNeededPredictionx(staking.abi, staking.address)
-    console.log(DaysNeededPredictionx, 'DaysNeededPredictionx');
+    // let result = await Web3.DaysNeededPrediction(staking.abi, staking.address)
+    // console.log(result, 'DaysNeededPrediction');
+    // let DaysNeededPredictionx = await Web3.DaysNeededPredictionx(staking.abi, staking.address)
+    // console.log(DaysNeededPredictionx, 'DaysNeededPredictionx');
     
     setTimeout(() => {
         if(chainId.value != 43113){
@@ -793,22 +795,27 @@ onMounted(async () => {
                 margin: 2vw 0;
             }
             .content{
-                border: 1px solid #fff;
-                border-radius: 10px;
                 width: 100%;
-                height: 2vw;
+                height: 0.625vw;
                 display: flex;
                 font-size: 1vw;
-                overflow: hidden;
+                background: #212737;
                 & > div{
-                    line-height: 2vw;
-                    width: 1%;
+                    width: 713px;
                     height: 100%;
-                    text-align: center;
-                    background: radial-gradient(circle, #1551c2 1%, #10aa7c 40%, #c79c0e 80%);
-                    filter: blur(2px);
-                    position: relative;
+                    background: #A4F238;
                     transition: all 0.5s ease-in-out;
+                    position: relative;
+                }
+                & > div::after{
+                    content: " ";
+                    position: absolute;
+                    background: #A4F238;
+                    height: 200%;
+                    width: 0.31vw;
+                    right: 0;
+                    top: -0.3vw;
+
                 }
             }
             .total_day{

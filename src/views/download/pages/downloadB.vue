@@ -8,7 +8,8 @@
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/logo.png" alt="">
                     </div>
                     <div class="button">
-                        <input type="text" v-model="email" :placeholder="$t('message.download.inputEmail')"/>
+                        <input type="text" v-model="email"  @input="emailInput()" :placeholder="$t('message.download.inputEmail')"/>
+                        <div class="tip" v-if="emailErr">{{ $t('message.download.tips3') }}</div> 
                     </div>
                     <!-- <div class="button" style="margin-top: 28px;margin-bottom: 9px;">
                         <input type="text" v-model="emailCode" placeholder="Email verification code" @input="emailCodeInput"/>
@@ -268,7 +269,15 @@
                     line-height: 18px;
                     margin: 0 auto;
                     position: relative;
-                    
+                    .tip{
+                        position: absolute;
+                        color: #FF5CA1;
+                        bottom: -25px;
+                        text-align: center;
+                        margin: auto;
+                        left: 0;
+                        right: 0;
+                    }
                     input{
                         line-height: 18px;
                         border: none;
@@ -297,8 +306,8 @@
                     font-family: AlibabaPuHuiTi_2_55_Regular;
                     color: #FFFFFF;
                     line-height: 17px;
-                    margin-top: 9px;
-                    margin-bottom: 27px;
+                    margin-top: 30px;
+                    margin-bottom: 17px;
                     text-align: center;
                 }
                 button{

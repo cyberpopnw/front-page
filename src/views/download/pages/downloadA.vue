@@ -4,7 +4,8 @@
         <div class="register">
             <form action="#" onsubmit="">
                 <div class="button" style="margin-top: 4.68vw;margin-bottom: 2.36vw;">
-                    <input type="text" v-model="emailAddress" :placeholder="$t('message.download.inputEmail')"/>
+                    <input type="text" v-model="emailAddress" @input="emailInput()" :placeholder="$t('message.download.inputEmail')"/>
+                    <div class="tip" v-if="emailErr">{{ $t('message.download.tips3') }}</div> 
                 </div>
                 <!-- <div class="button" style="margin-top: 1.87vw;margin-bottom: 0.4vw;">
                     <input type="text" v-model="emailCode" placeholder="Email verification code"/>
@@ -96,7 +97,7 @@ const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: stri
     })
 }
 
-// 验证邮箱
+// is email
 const emailCodeVerification = () => {
     return new Promise((resolve, reject) => {
         if(emailInput() && emailCodeInput()){
@@ -118,6 +119,20 @@ const emailCodeVerification = () => {
         }
     })
 }
+// const inputNumber = (e:any) => {
+//     console.log(e.target.value);
+//     // console.log(e.target.value,regExp.test(e.target.value));
+//     let regExp = /^[0-9]+$/; // Verify that is a positive integer
+//     emailAddress.value = e.target.value
+//     if ( e.target.value && !(regExp.test(e.target.value))) {
+//         emailState.value = 'error' 
+//     } else if( !e.target.value ){
+//         emailState.value = 'error'
+//     }else{
+//         emailState.value = ''
+//     }
+// }
+
 
 
 // login
@@ -299,6 +314,15 @@ onMounted(() => {
                     top: 50%;
                     transform: translateY(-50%);
                     margin-right: 1.40vw;
+                }
+                .tip{
+                    position: absolute;
+                    color: #FF5CA1;
+                    bottom: -2vw;
+                    text-align: center;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
                 }
             }
             .tips{

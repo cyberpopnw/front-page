@@ -25,10 +25,10 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
         </div>
         <!-- There must be this in the element, otherwise listening to readyasassetsf will not take effect -->
         <div class="blind" v-if="data.length > 0">
-            <div class="title">{{ $t('message.box.type_title_1') }} <span>{{ $t('message.box.type_title_2') }} </span> ({{ $t('message.box.testnet') }})</div>
+            <div class="title">{{ $t('message.box.type_title_1') }} <span>{{ $t('message.box.type_title_2') }} </span> </div>
             <ul>
                 <li>
-                    <div class="boxVideo" @click="toDetails(1)">
+                    <div class="boxVideo" @click="toDetails(9)">
                         <img :src="data[0].info.image" v-if="!data[0].info.animation_url" alt="">
                         <video class="third" autoplay muted loop v-else>
                             <source :src="data[0].info.animation_url" type="video/mp4">
@@ -37,72 +37,17 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                     <div class="weapon">
                         <div class="name"><span class="name-content">{{ data[0].info.name }}</span></div>
                         <div class="left_over">Left: <span class="number">{{ Remaining[0] + '/2000'}}</span></div>
-                        <div class="introduce">
-                            {{ locale == 'cn' ? data[0].info.description_zh : data[0].info.description }}
-                        </div>
+                        <div class="introduce" v-html="locale == 'cn' ? data[0].info.description_zh : data[0].info.description"></div>
                         <div class="price">
-                            <img src="@/assets/nwbox/nfts-icon.svg" alt="">
-                            <div class="num">10.00</div>
-                            <div class="exchange">≈$20.00</div>
+                            <!-- <img src="@/assets/nwbox/nfts-icon.svg" alt="">
+                            <div class="num">100.00</div>
+                            <div class="exchange">≈$49.00</div> -->
+                            <div class="num">$49.00</div>
                         </div>
                         <div class="btn">
                             <div class="purchase" :class="{'not-allowed': Remaining[0] == 0 || isProduction}" @click="purchase(0, Remaining[0])">{{$t('message.details.box_btn_pur')}}</div>
                             <div class="open" :class="{'not-allowed': data[0].number == 0}" @click="open(0, data[0].number)">{{$t('message.box.open')}}</div>
-                            <div class="details" @click="toDetails(1)">
-                                <span class="details-text">{{$t('message.box.btn_det')}}</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li >
-                    <div class="boxVideo" @click="toDetails(2)">
-                        <img :src="data[1].info.image" v-if="!data[1].info.animation_url" alt="">
-                        <video autoplay loop muted v-else>
-                            <source :src="data[1].info.animation_url" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="weapon">
-                        <div class="name"><span class="name-content">{{ data[1].info.name }}</span></div>
-                        <div class="left_over">Left: <span class="number">{{ Remaining[1] + '/2000'}}</span></div>
-                        <div class="introduce">
-                            {{ locale == 'cn' ? data[1].info.description_zh : data[1].info.description }}
-                        </div>
-                        <div class="price">
-                            <img src="@/assets/nwbox/nfts-icon.svg" alt="">
-                            <div class="num">20.00</div>
-                            <div class="exchange">≈$40.00</div>
-                        </div>
-                        <div class="btn">
-                            <div class="purchase" :class="{'not-allowed': Remaining[1] == 0}" @click="purchase(1, Remaining[1])">{{$t('message.details.box_btn_pur')}}</div>
-                            <div class="open" :class="{'not-allowed': data[1].number == 0}" @click="open(1, data[1].number)">{{$t('message.box.open')}}</div>
-                            <div class="details" @click="toDetails(2)">
-                                <span class="details-text">{{$t('message.box.btn_det')}}</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="boxVideo" @click="toDetails(3)">
-                        <img :src="data[2].info.image" v-if="!data[2].info.animation_url" alt="">
-                        <video autoplay loop muted v-else>
-                            <source :src="data[2].info.animation_url" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="weapon">
-                        <div class="name"><span class="name-content">{{ data[2].info.name }}</span></div>
-                        <div class="left_over">Left: <span class="number">{{ Remaining[2] + '/2000'}}</span></div>
-                        <div class="introduce">
-                            {{ locale == 'cn' ? data[2].info.description_zh : data[2].info.description }}
-                        </div>
-                        <div class="price">
-                            <img src="@/assets/nwbox/nfts-icon.svg" alt="">
-                            <div class="num">— —</div>
-                            <div class="exchange">≈$- -</div>
-                        </div>
-                        <div class="btn">
-                            <div class="purchase" :class="{'not-allowed': Remaining[2] == 0}" @click="purchase(2, Remaining[2])">{{$t('message.details.box_btn_pur')}}</div>
-                            <div class="open" :class="{'not-allowed': data[2].number == 0}" @click="open(2, data[2].number)">{{$t('message.box.open')}}</div>
-                            <div class="details" @click="toDetails(3)">
+                            <div class="details" @click="toDetails(9)">
                                 <span class="details-text">{{$t('message.box.btn_det')}}</span>
                             </div>
                         </div>
@@ -164,11 +109,35 @@ const getBalance = async (chainid: number) => {
         var result: any = [0, 0, 0]
     }
     console.log(result, 'result');
-    getData(result)
-   
+    // getData(result)
+    proxy.$api.get(`https://api.cyberpop.online/box/${9}`).then((result: any) => {
+        let str: any = JSON.stringify(result.description);
+        str = str.slice(0, str.length - 1);
+        str = str.slice(1);
+        str = str.replace(/\\n/g, "<br/>");
+        console.log('str', str);
+        
+        let str_zh: any = JSON.stringify(result.description_zh);
+        str_zh = str_zh.slice(0, str_zh.length - 1);
+        str_zh = str_zh.slice(1);
+        str_zh = str_zh.replace(/\\n/g, "<br/>");
+        console.log('str_zh', str_zh);
+        
+        result.description = str;
+        result.description_zh = str_zh;
+        
+        let temp = [];
+        temp.push({
+            id: 9,
+            number: 0,
+            info: result,
+        })
+        loadingState.value = false;
+        data.value = temp;
+    })
 }
 
-// 開盒子
+// open box
 const open = (boxId: any, number: any) => {
     if(number == 0) return;
     // getLast(); // Query the last asset opened immediately in the asset contract
@@ -401,7 +370,7 @@ onMounted(() => {
                             position: absolute;
                             top: 50.2%;
                             left: 50%;
-                            width: 134%;
+                            width: 100%;
                             transform: translate(-50%,-50%);
                         }
                         img{
@@ -409,7 +378,7 @@ onMounted(() => {
                             height: 100%;
                         }
                         .third{
-                            width: 177%;
+                            width: 100%;
                         }
                     }
                     .weapon{

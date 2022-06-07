@@ -83,7 +83,7 @@
         <div class="days">
             <div class="title">Days</div>
             <div class="content">
-                <div :style="{'width': progress + '%'}"></div>
+                <div :style="{'width': 40 + '%'}"></div>
             </div>
             <div class="total_day">Cycle days: 30day</div>
         </div>
@@ -741,22 +741,27 @@ onMounted(async () => {
                 margin: 2vw 0;
             }
             .content{
-                border: 1px solid #fff;
-                border-radius: 10px;
                 width: 100%;
-                height: 2vw;
+                height: 0.625vw;
                 display: flex;
                 font-size: 1vw;
-                overflow: hidden;
+                background: #212737;
                 & > div{
-                    line-height: 2vw;
-                    width: 1%;
+                    width: 713px;
                     height: 100%;
-                    text-align: center;
-                    background: radial-gradient(circle, #1551c2 1%, #10aa7c 40%, #c79c0e 80%);
-                    filter: blur(2px);
-                    position: relative;
+                    background: #A4F238;
                     transition: all 0.5s ease-in-out;
+                    position: relative;
+                }
+                & > div::after{
+                    content: " ";
+                    position: absolute;
+                    background: #A4F238;
+                    height: 200%;
+                    width: 0.31vw;
+                    right: 0;
+                    top: -0.3vw;
+
                 }
             }
             .total_day{

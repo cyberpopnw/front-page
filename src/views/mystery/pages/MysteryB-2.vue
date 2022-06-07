@@ -27,69 +27,24 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
             <div class="title">{{ $t('message.box.type_title_1') }} <span>{{ $t('message.box.type_title_2') }}</span>({{ $t('message.box.testnet') }}) </div>
             <ul>
                 <li>
-                    <div class="boxVideo" >
-                        <img :src="data[0].info.image" v-if="!data[1].info.animation_url" alt="">
+                    <div class="boxVideo">
+                        <img :src="data[0].info.image" v-if="!data[0].info.animation_url" alt="">
                         <video autoplay muted loop v-else>
                             <source :src="data[0].info.animation_url" type="video/mp4">
                         </video>
                     </div>
                     <div class="name">{{ data[0].info.name }} </div>
-                    <div class="introduce">
-                        {{ locale == 'cn' ? data[0].info.description_zh : data[0].info.description }}
-                    </div>
+                    <div class="introduce" v-html="locale == 'cn' ? data[0].info.description_zh : data[0].info.description"></div>
                     <div class="price">
                         <img src="@/assets/nwbox/nfts-icon.svg" alt="">
-                        <div class="num">10</div>
-                        <div class="exchange">≈$20</div>
+                        <!-- <div class="num">100.00</div> -->
+                        <!-- <div class="exchange">≈$20</div> -->
+                        <div class="num">$49.00</div>
                     </div>
                     <div class="btn">
                         <div class="purchase" :class="{'not-allowed': Remaining[0] == 0 || isProduction}" @click="purchase(0, Remaining[0])">{{$t('message.details.box_btn_pur')}}</div>
                         <div class="open" :class="{'not-allowed': data[0].number == 0}" @click="open(0, data[0].number)">{{$t('message.box.open')}}</div>
                         <div class="details" @click="toDetails(1)">{{$t('message.box.btn_det')}}</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="boxVideo">
-                        <img :src="data[1].info.image" v-if="!data[1].info.animation_url" alt="">
-                        <video autoplay muted loop v-else>
-                            <source :src="data[1].info.animation_url" type="video/mp4">
-                        </video>
-                    </div>
-                   <div class="name">{{ data[1].info.name }}</div>
-                    <div class="introduce">
-                        {{ locale == 'cn' ? data[1].info.description_zh : data[1].info.description }}
-                    </div>
-                    <div class="price">
-                        <img src="@/assets/nwbox/nfts-icon.svg" alt="">
-                        <div class="num">20</div>
-                        <div class="exchange">≈$40</div>
-                    </div>
-                    <div class="btn">
-                        <div class="purchase" :class="{'not-allowed': Remaining[1] == 0}" @click="purchase(1, Remaining[1])">{{$t('message.details.box_btn_pur')}}</div>
-                        <div class="open" :class="{'not-allowed': data[1].number == 0}" @click="open(1, data[1].number)">{{$t('message.box.open')}}</div>
-                        <div class="details" @click="toDetails(2)">{{$t('message.box.btn_det')}}</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="boxVideo">
-                        <img :src="data[2].info.image" v-if="!data[1].info.animation_url" alt="">
-                        <video autoplay muted loop v-else>
-                            <source :src="data[2].info.animation_url" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="name">{{ data[2].info.name }}</div>
-                    <div class="introduce">
-                        {{ locale == 'cn' ? data[2].info.description_zh : data[2].info.description }}
-                    </div>
-                    <div class="price">
-                        <img src="@/assets/nwbox/nfts-icon.svg" alt="">
-                        <div class="num">— —</div>
-                        <div class="exchange">≈$- -</div>
-                    </div>
-                    <div class="btn">
-                        <div class="purchase" :class="{'not-allowed': Remaining[2] == 0}" @click="purchase(2, Remaining[2])">{{$t('message.details.box_btn_pur')}}</div>
-                        <div class="open" :class="{'not-allowed': data[2].number == 0}" @click="open(2, data[2].number)">{{$t('message.box.open')}}</div>
-                        <div class="details" @click="toDetails(3)">{{$t('message.box.btn_det')}}</div>
                     </div>
                 </li>
             </ul>
@@ -123,11 +78,10 @@ const isProduction = ref(true);
 
 const data: any = ref([]);
 const idTemp: any = computed(() => store?.state.wallet?.idTemp);  // Full address
-const Remaining: any = ref([]);
+const Remaining: any = ref([0, 0, 0]);
 watch(chainId, (newVal, oldVal: any) => {
     if(!oldVal || oldVal == -1) return;
     window.scrollTo(0,0);
-    data.value = [];
     getBalance(chainId.value)
 }, {immediate:true,deep:true});
 
@@ -135,7 +89,6 @@ watch(idTemp, (newVal, oldVal) => {
     if(!oldVal) return;
     getBalance(chainId.value)
     window.scrollTo(0,0);
-    data.value = [];
 }, {immediate:true,deep:true});
 
 
@@ -152,8 +105,31 @@ const getBalance = async (chainid: number) => {
     }
     console.log(result, 'result');
     console.log(chainId.value);
-    getData(result)
-   
+    // getData(result)
+    proxy.$api.get(`https://api.cyberpop.online/box/${9}`).then((result: any) => {
+        let str: any = JSON.stringify(result.description);
+        str = str.slice(0, str.length - 1);
+        str = str.slice(1);
+        str = str.replace(/\\n/g, "<br/>");
+        console.log('str', str);
+        
+        let str_zh: any = JSON.stringify(result.description_zh);
+        str_zh = str_zh.slice(0, str_zh.length - 1);
+        str_zh = str_zh.slice(1);
+        str_zh = str_zh.replace(/\\n/g, "<br/>");
+        console.log('str_zh', str_zh);
+        
+        result.description = str;
+        result.description_zh = str_zh;
+        
+        let temp = [];
+        temp.push({
+            id: 9,
+            number: 0,
+            info: result,
+        })
+        data.value = temp;
+    })
 }
 
 const getData = async (boxData: any[]) => {

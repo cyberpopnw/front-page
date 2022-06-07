@@ -380,7 +380,7 @@ const cn = {
         // assetsA
         assets: {
             wel_name: '嗨，韋德·沃倫',
-            wel_desc: '你的NFT資產如有變動，將同步在遊戲和Opensea中。你在遊戲中所進行的任何活動，無論大小，對賽博新世界DAO都有價值。',
+            wel_desc: '你的NFT資產如有變動，將同步在遊戲和NFT market中。你在遊戲中所進行的任何活動，無論大小，對賽博新世界DAO都有價值。',
             search_title: '搜索',
             input_pla: '關鍵字、名字、數字',
             type1: '種類',

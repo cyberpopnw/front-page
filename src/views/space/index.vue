@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <!-- <header-a path="/space" :type="5"></header-a> -->
-        <iframe src="https://cyberpop-webgl.s3.ap-southeast-1.amazonaws.com/index.html" frameborder="0"></iframe>
+        <iframe src="https://dxbnr9g4gaip4.cloudfront.net/index.html" frameborder="0"></iframe>
     </div>
 </template>
 <script setup lang="ts">

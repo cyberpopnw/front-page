@@ -380,7 +380,7 @@ const kr = {
         // assetsA
         assets: {
             wel_name: '안녕，웨이드·워런',
-            wel_desc: 'NFT 자산이 변동되면 게임과 Opensea에 동기화됩니다.게임에서 진행하는 모든 활동은 사이버 뉴월드 DAO에 가치가 있습니다.',
+            wel_desc: 'NFT 자산이 변동되면 게임과 NFT market에 동기화됩니다.게임에서 진행하는 모든 활동은 사이버 뉴월드 DAO에 가치가 있습니다.',
             search_title: '검색',
             input_pla: '키워드、이름、숫자',
             type1: '종류',

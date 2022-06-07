@@ -380,7 +380,7 @@ const kr = {
         // assetsA
         assets: {
             wel_name: 'やあ、ウェイドウォーレン',
-            wel_desc: 'NFT資産が変動されると、ゲームとOpenseaで反映します。ゲーム内で行うあらゆる行動はいくら小さいでもサイバーワールドDAOにとって価値が存在します。',
+            wel_desc: 'NFT資産が変動されると、ゲームとNFT marketで反映します。ゲーム内で行うあらゆる行動はいくら小さいでもサイバーワールドDAOにとって価値が存在します。',
             search_title: '検索',
             input_pla: 'キーワード、名前、数字',
             type1: 'カテゴリ',

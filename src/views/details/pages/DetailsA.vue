@@ -15,10 +15,10 @@
                 <div class="title"><span class="title-content">{{ data.info.name }}</span></div>
                 <div class="price">
                     <div class="left">
-                        <div class="text1">{{$t('message.details.box_price')}} ≈ $4545</div>
+                        <div class="text1">{{$t('message.details.box_price')}}: $49.00</div>
                         <div class="text2">
                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/eth_icon.png" alt="">
-                            <div>0.36 <span>{{$t('message.details.box_eth')}}</span></div>
+                            <div>0.03<span>{{$t('message.details.box_eth')}}</span></div>
                         </div>
                     </div>
                     <div class="line"></div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="btn">
                     <div class="purchase" :class="{'not-allowed': data.Remaining == 0 || isProduction}" @click="purchase">{{$t('message.details.box_btn_pur')}}</div>
-                    <div class="unpack" :class="{'not-allowed': ownerNumber == 0 }" @click="open">{{$t('message.details.box_btn_open')}}</div>
+                    <div class="unpack" :class="{'not-allowed': ownerNumber == 0 || chainId == 56}" @click="open">{{$t('message.details.box_btn_open')}}</div>
                     <div class="view" @click="opensea">{{$t('message.details.box_btn_view')}}</div>
                 </div>
             </div>
@@ -195,6 +195,82 @@
                         </li> 
                     </ul>    
                 </li>
+                <li v-if="index == 11">
+                    <ul class="list_box">
+                        <li>
+                            <div class="wrap">
+                                <div class="pic">
+                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/person2.png" alt="">
+                                </div>
+                                <div class="data">
+                                    <div class="prob">
+                                        <div class="name">{{$t('message.details.list.name1')}}</div>
+                                        <div class="num">50%</div>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="attr">
+                                        <div class="name">{{$t('message.details.list.name2')}}</div>
+                                        <div class="item">
+                                            <div>{{$t('message.details.list.name2_item1')}}</div>
+                                            <div>-5~<span class="yell">8</span></div>
+                                            <div>{{$t('message.details.list.name2_item3')}}</div>
+                                            <div>-3~<span class="yell">6</span></div>
+                                        </div>
+                                        <div class="item">
+                                            <div>{{$t('message.details.list.name2_item5')}}</div>
+                                            <div>-3~<span>8</span></div>
+                                            <div>{{$t('message.details.list.name2_item4')}}</div>
+                                            <div>-3~<span>6</span></div>
+                                        </div>
+                                        <div class="item">
+                                            <div>{{$t('message.details.list.name2_item2')}}</div>
+                                            <div>-4~<span>8</span></div>
+                                            <div>{{$t('message.details.list.name2_item6')}}</div>
+                                            <div>-3~<span>6</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prince">{{$t('message.details.list.prince')}}</div>
+                        </li> 
+                        <li>
+                            <div class="wrap">
+                                <div class="pic">
+                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/person1.png" alt="">
+                                </div>
+                                <div class="data">
+                                    <div class="prob">
+                                        <div class="name">{{$t('message.details.list.name1')}}</div>
+                                        <div class="num">50%</div>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="attr">
+                                        <div class="name">{{$t('message.details.list.name2')}}</div>
+                                        <div class="item">
+                                            <div>{{$t('message.details.list.name2_item1')}}</div>
+                                            <div>-5~<span class="yell">8</span></div>
+                                            <div>{{$t('message.details.list.name2_item3')}}</div>
+                                            <div>-3~<span class="yell">6</span></div>
+                                        </div>
+                                        <div class="item">
+                                            <div>{{$t('message.details.list.name2_item5')}}</div>
+                                            <div>-3~<span>8</span></div>
+                                            <div>{{$t('message.details.list.name2_item4')}}</div>
+                                            <div>-3~<span>6</span></div>
+                                        </div>
+                                        <div class="item">
+                                            <div>{{$t('message.details.list.name2_item2')}}</div>
+                                            <div>-4~<span>8</span></div>
+                                            <div>{{$t('message.details.list.name2_item6')}}</div>
+                                            <div>-3~<span>6</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prince">{{$t('message.details.list.prince0')}}</div>
+                        </li> 
+                    </ul>    
+                </li>
             </ul>
             <div class="introduction" v-show="exMenu == 1" v-if="data.info">
                 <div v-if="index == 1">
@@ -260,6 +336,14 @@
                         </li>
                     </ul>
                 </div>
+                <div v-if="index == 9">
+                    <ul>
+                        <li>
+                            <div class="title">{{ data.info.name }}</div>
+                            <div class="desc" v-html="locale == 'cn' ? data.info.description_zh : data.info.description"></div>
+                        </li>
+                    </ul>
+                </div>
                 <!-- <li>
                     <div class="title">{{$t('message.details.intro.title1')}} 2</div>
                     <div class="desc">
@@ -286,12 +370,12 @@ const { t, locale } = useI18n();
 const router = useRouter()
 const Route = useRoute() //Get value
 const { proxy } = getCurrentInstance() as any
-const { GiftBox, LootBox, MarketV2, cyt, Cyborg, Cyborg_Fuji, cyberClub, cyberClub_Fuji } = Web3.contracts;
-const index: any = Route.query.type || 1; //Current box type
+const { GiftBox, LootBox, MarketV2, cyt, Cyborg, Cyborg_Fuji, cyberClub, cyberClub_Fuji, lootBox_Bsc } = Web3.contracts;
+const index: any = Route.query.type || 9; //Current box type
 const isProduction = ref(true);
 
 // changeMenu
-let exMenu:any = ref(0) 
+let exMenu:any = ref(1) 
 const intClick = (type:any) => {
     exMenu.value = type    
 }
@@ -322,11 +406,11 @@ const data = ref({} as any);
 
 const opensea = () => {
     if(chainId.value == 43113){
-        window.open(`https://testnets.nftrade.com/assets/fuji/0x55eFD6D4cF31F925E36d268C12353848c9e782fD/${index-1}`)
+        window.open(`https://testnets.nftrade.com/assets/fuji/0x55eFD6D4cF31F925E36d268C12353848c9e782fD/${index}`)
     }else if(chainId.value == 80001){
-        window.open(`https://testnets.nftrade.com/assets/fuji/0xC5FE394692a469BD5789D8247F281403e064E576/${index-1}`)
+        window.open(`https://testnets.nftrade.com/assets/fuji/0xC5FE394692a469BD5789D8247F281403e064E576/${index}`)
     }else{
-        window.open(`https://testnets.nftrade.com/assets/fuji/0x55eFD6D4cF31F925E36d268C12353848c9e782fD/${index-1}`)
+        window.open(`https://nftrade.com/assets/bsc/0x10fde59432d1d6ee7ad25448e3d8b9b3d2c08b89/9`)
     }
 }
 
@@ -351,15 +435,43 @@ const getData = async (result: any) => {
 
 
 const getBalance = async (chainid: number) => {
+    console.log(chainid, 'chainid');
+    
     if(chainid == 80001){
         var result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
     }else if(chainid == 43113){
         var result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
+    }else if(chainid == 56){
+        var result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
+        let LootBox_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box, MarketV2.address); // 查询已上架的资产
+        console.log(LootBox_result, 'LootBox_result');
+        console.log(LootBox_result[index-1]);
+        data.value.Remaining = LootBox_result[index-1];
     }else{
-        var result: any = [0, 0, 0]
+        var result: any = store.state.myBox?.box
     }
-    console.log(result, 'result');
-    getData(result)
+    console.log(result, 'result', store.state.myBox?.box);
+    // getData(result)
+    proxy.$api.get(`https://api.cyberpop.online/box/${9}`).then((result: any) => {
+        let str: any = JSON.stringify(result.description);
+        str = str.slice(0, str.length - 1);
+        str = str.slice(1);
+        str = str.replace(/\\n/g, "<br/>");
+
+        let str_zh: any = JSON.stringify(result.description_zh);
+        str_zh = str_zh.slice(0, str_zh.length - 1);
+        str_zh = str_zh.slice(1);
+        str_zh = str_zh.replace(/\\n/g, "<br/>");
+        console.log('str_zh', str_zh);
+        
+        result.description = str;
+        result.description_zh = str_zh;
+
+        data.value.info = result;
+        data.value.Remaining = 0;
+    })
+    
+    ownerNumber.value = result[index]
 }
 
 
@@ -381,7 +493,7 @@ watch(readyAssetsF, (newVal, oldVal) => {
 
 // Open the box
 const open = () => {
-    if(ownerNumber.value == 0 || isProduction.value) return;
+    if(ownerNumber.value == 0 || isProduction.value || chainId.value == 56) return;
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: true, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'), addNetwork: false, boxId: index-1, haveNFT: ownerNumber.value }});
 }
@@ -496,7 +608,7 @@ onMounted(() => {
                     top: 50.4%;
                     left: 50%;
                     transform: translate(-50%,-50%);
-                    width: 134%;
+                    width: 100%;
                 }
                 video.third{
                     top: 49.9%;

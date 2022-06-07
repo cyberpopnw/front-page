@@ -382,7 +382,7 @@ const us = {
         // assetsA
         assets: {
             wel_name: 'Hi, Wade Warren',
-            wel_desc: 'The change of your Cyberpop NFT assets will be synchronized to Opensea and within the game. Any thing you do--no matter trivial or big one--in Cyberpop New World is valuable to Cyberpop DAO.',
+            wel_desc: 'The change of your Cyberpop NFT assets will be synchronized to NFT market and within the game. Any thing you do--no matter trivial or big one--in Cyberpop New World is valuable to Cyberpop DAO.',
             search_title: 'Search',
             input_pla: 'Keywords, name, number',
             type1: 'Types',

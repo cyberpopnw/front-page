@@ -30,7 +30,7 @@
             </div>
             <div class="btn">
                 <div class="purchase" :class="{'not-allowed': data.Remaining == 0 || isProduction }" @click="purchase">{{$t('message.details.box_btn_pur')}}</div>
-                <div class="unpack" :class="{'not-allowed': ownerNumber == 0 }" @click="open">{{$t('message.details.box_btn_open')}}</div>
+                <div class="unpack" :class="{'not-allowed': ownerNumber == 0 || chainId == 56 }" @click="open">{{$t('message.details.box_btn_open')}}</div>
                 <div class="view" @click="opensea">{{$t('message.details.box_btn_view')}}</div>
             </div>
         </div>
@@ -227,6 +227,14 @@
                         </li>
                     </ul>
                 </div>
+                <div v-if="index == 9">
+                    <ul>
+                        <li>
+                            <div class="title">{{ data.info.name }}</div>
+                            <div class="desc" v-html="locale == 'cn' ? data.info.description_zh : data.info.description"></div>
+                        </li>
+                    </ul>
+                </div>
             </ul>
             <!-- <div class="terms" v-show="exMenu == 2"></div>
             <div class="link">
@@ -251,12 +259,12 @@ const { t, locale } = useI18n();
 const router = useRouter()
 const Route = useRoute() //获取到值
 const { proxy } = getCurrentInstance() as any;
-const { GiftBox, LootBox, MarketV2, cyt, Cyborg, Cyborg_Fuji, cyberClub, cyberClub_Fuji } = Web3.contracts;
+const { GiftBox, LootBox, MarketV2, cyt, Cyborg, Cyborg_Fuji, cyberClub, cyberClub_Fuji, lootBox_Bsc } = Web3.contracts;
 const index: any = Route.query.type || 1; //Current box type
 const isProduction = ref(true);
 
 // changeMenu
-let exMenu:any = ref(0) 
+let exMenu:any = ref(1) 
 const intClick = (type:any) => {
     exMenu.value = type    
 }
@@ -300,11 +308,38 @@ const getBalance = async (chainid: number) => {
         var result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
     }else if(chainid == 43113){
         var result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
+    }else if(chainid == 56){
+        var result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
+        let LootBox_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box, MarketV2.address); // 查询已上架的资产
+        console.log(LootBox_result, 'LootBox_result');
+        console.log(LootBox_result[index-1]);
+        data.value.Remaining = LootBox_result[index-1];
     }else{
-        var result: any = [0, 0, 0]
+        var result: any = store.state.myBox?.box
     }
-    console.log(result, 'result');
-    getData(result)
+
+    // getData(result)
+    proxy.$api.get(`https://api.cyberpop.online/box/${9}`).then((result: any) => {
+        let str: any = JSON.stringify(result.description);
+        str = str.slice(0, str.length - 1);
+        str = str.slice(1);
+        str = str.replace(/\\n/g, "<br/>");
+        console.log('str', str);
+        
+        let str_zh: any = JSON.stringify(result.description_zh);
+        str_zh = str_zh.slice(0, str_zh.length - 1);
+        str_zh = str_zh.slice(1);
+        str_zh = str_zh.replace(/\\n/g, "<br/>");
+        console.log('str_zh', str_zh);
+        
+        result.description = str;
+        result.description_zh = str_zh;
+
+        data.value.info = result;
+        data.value.Remaining = 0;
+    })
+
+    ownerNumber.value = result[index]
 }
 
 
@@ -316,11 +351,8 @@ watch(chainId, (newVal, oldVal) => {
 
 const readyAssetsF: any = computed(() => {
     console.log(store?.state.myAssets?.readyAssets, 'store?.state.myAssets?.readyAssets');
-    if( store?.state.myAssets?.readyAssets !== -1 && chainId.value == 80001 || chainId.value == 43113){
-        getBalance(chainId.value)
-    }else{
-        data.value = {}
-    }
+    getBalance(chainId.value)
+    data.value = {}
     return store.state.myAssets?.readyAssets
 });
 watch(readyAssetsF, (newVal, oldVal) => {
@@ -372,6 +404,7 @@ const getNFTData: any = async (res: any) => {
 
 // Open the box
 const open = async () => {
+    if(ownerNumber.value == 0 || isProduction.value || chainId.value == 56) return;
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'), addNetwork: false, boxId: index - 1, haveNFT: ownerNumber.value }});
 }
