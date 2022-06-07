@@ -182,7 +182,7 @@ const transfer = async () => {
             }, 300);
             if(!result){ // If the transfer fails
                 store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
-            }else{ // 转账成功
+            }else{ // Transfer succeeded
                 closeDialog();
                 store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
                 store.dispatch('myAssets/transferSuccess', result)

@@ -385,7 +385,7 @@ const getData = async (result: any) => {
         data.value.Remaining = 0;
         return;
     };
-    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box, MarketV2.address); // 查询已上架的资产
+    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box, MarketV2.address); // Query assets on the shelves
     console.log(LootBox_result, 'LootBox_result');
     console.log(LootBox_result[index-1]);
     data.value.Remaining = LootBox_result[index-1];

@@ -70,15 +70,17 @@ const cn = {
             },
             //register
             register: {
-                REGISTER: '注册',
-                inputEmail: '输入电子邮件',
-                Email: '电子邮件',
-                tips1: '郵件已注册',
+                REGISTER: '確認',
+                inputEmail: '輸入電子郵件',
+                placeholder: '輸入您的電子郵件',
+                Email: '電子郵件',
+                tips1: '郵件已註冊',
                 tips2: '用戶資訊錯誤',
                 tips3: '邀請程式碼錯誤',
                 tips4: '電子郵件錯誤',
-                tips5: '郵箱已注册',
+                tips5: '郵箱已註冊',
                 level: '等级',
+                tips0: '帳戶將自動註冊'
             },
             //common
             ip: '我們的服務僅適用於部分合規國家和地區。 非法訪問將不受保護。'
@@ -208,7 +210,7 @@ const cn = {
             // homwA-register
             reg_title: '你是否準備好踏上征程？',
             reg_subtitle: '獲取INBOX最新消息',
-            reg_submit: '註冊',
+            reg_submit: 'Register email',
             reg_link: '成為我們的推廣大使',
             inviter_Code: '邀请码',
             level: '等级',
@@ -445,19 +447,27 @@ const cn = {
 
         //dowload
         download: {
-            tips1: '帳戶將自動注册',
-            REGISTER: '注册',
-            ios: '苹果',
+            tips1: '帳戶將自動註冊',
+            REGISTER: '註冊',
+            ios: '蘋果',
             Android: '安卓',
-            windows: '窗口',
+            windows: '視窗',
             version: '最新版本1.0.2',
-            inputEmail: '输入电子邮件',
+            inputEmail: '電子郵箱地址',
             tips2: '沒有ios app',
             tips3: '電子郵件錯誤',
-            tips4: '郵件已注册',
+            tips4: '郵件已註冊',
             tips5: '用戶資訊錯誤',
             tips6: '邀請程式碼錯誤',
-            tips7: '郵箱已注册',
+            tips7: '郵箱已註冊',
+            nav_txt1: '主頁',
+            nav_txt2: '註冊',
+            welmsg_txt1: '歡迎來到',
+            welmsg_txt2: '註冊介面',
+            title: '賽博元宇宙',
+            step1_name: '步驟1',
+            step2_name: '步驟2',
+            download_txt: '下載 CYBERPOP'
         }
 
     }

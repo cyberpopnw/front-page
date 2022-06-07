@@ -103,7 +103,7 @@ const emailCodeVerification = () => {
         if(emailInput() && emailCodeInput()){
             proxy.$api.get(`/game/verify_email?email=${emailAddress.value}&verify_code=${emailCode.value}`).then((res: any) => {
                 if(res.error == 'ok'){
-                    const ethereum = (window as any).ethereum // 获取小狐狸实例
+                    const ethereum = (window as any).ethereum // Get metamask instance
                     console.log(ethereum, 'ethereum');
                     if(!ethereum){
                         getPublicAddress(emailAddress.value, emailAddress.value, '')
@@ -139,7 +139,7 @@ const emailCodeVerification = () => {
 const messgSing = async (publicAddress: any) => {
     try {
         const Web3 = (window as any).Web3;
-        const web3 = new Web3((window as any).ethereum) // 创建一个新的web3 对象
+        const web3 = new Web3((window as any).ethereum)
         const result = await web3.eth.personal.sign(
             `cyber-business`,
             publicAddress,

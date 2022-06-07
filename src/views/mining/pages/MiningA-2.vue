@@ -341,7 +341,7 @@ const test = ref(0) as any
 const stakingCyt = async () => {
     console.log(myTime.value, 'myTime');
     
-    if(myTime.value > 0) { // 还没到时间 还可以继续质押
+    if(myTime.value > 0) { // You can continue to pledge before the time is up
         store.dispatch('staking/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
         store.dispatch('user/xplanChangeAni', true);
         return;

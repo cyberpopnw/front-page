@@ -72,6 +72,7 @@ const kr = {
             register: {
                 REGISTER: '등록',
                 inputEmail: 'e-메일 입력',
+                placeholder: '이메일 입력',
                 Email: '전자 우편',
                 tips1: '메일이 등록되었습니다',
                 tips2: '사용자 정보 오류',
@@ -79,6 +80,7 @@ const kr = {
                 tips4: 'e-메일 오류',
                 tips5: '메일박스 등록',
                 level: '등급',
+                tips0: '계정이 자동으로 등록됩니다',
             },
             //common
             ip: '우리의 서비스는 일부 규정 준수 국가 및 지역에만 적용됩니다.불법 방문은 보호되지 않을 것이다.'
@@ -208,7 +210,7 @@ const kr = {
             // homwA-register
             reg_title: '장도에 오를 준비가 돼 있습니까?',
             reg_subtitle: 'INBOX의 최신정보 가져오기 ',
-            reg_submit: '계정 생성',
+            reg_submit: 'Register email',
             reg_link: '저희의 홍보대사로 되기',
             inviter_Code: '초대 코드',
             level: '등급',
@@ -442,18 +444,26 @@ const kr = {
         //dowload
         download: {
             tips1: '계정은 자동으로 등록될 것이다',
-            REGISTER: '등록',
+            REGISTER: '확인',
             ios: '사과',
             Android: '안 드 로이드',
             windows: '윈도',
             version: '최신 버전 1.0.2',
-            inputEmail: 'e-메일 입력',
+            inputEmail: '이메일 주소',
             tips2: 'ios 앱 없음',
             tips3: 'e-메일 오류',
             tips4: '메일 등록됨',
             tips5: '사용자 정보 오류',
             tips6: '초대장 코드 오류',
             tips7: '메일박스 등록됨',
+            nav_txt1: '홈페이지',
+            nav_txt2: '등록',
+            welmsg_txt1: '오신 것을 환영합니다',
+            welmsg_txt2: '등록 인터페이스',
+            title: '사이버 뉴월드',
+            step1_name: '단계1',
+            step2_name: '단계2',
+            download_txt: '다운로드 CYBERPOP'
         }
 
     }

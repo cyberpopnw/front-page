@@ -1,10 +1,10 @@
 import { Module } from 'vuex'
 import { State } from '..'
 
-// 定义state类型
+// state type
 const states = {
     //staking
-    stakingState: false, //质押流程
+    stakingState: false, // Pledge process
     stakingInfo: {} as any,
 }
 export type typeof_staking = typeof states

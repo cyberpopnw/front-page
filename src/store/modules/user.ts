@@ -1,20 +1,18 @@
 import { Module } from 'vuex'
 import { State } from '..'
-import { ref } from 'vue'
 
-// 定义数组item的类型
 type role = {
     name: string
 }
 
-// 定义state类型
+// state type
 const states = {
     name: 'test' as string,
     age: 0 as number,
     roles: [] as role[],
-    account: '' as string, // 用户地址
-    nativeBalance: '' as string, // 本地余额
-    tokenBalances: '' as string, // 令牌余额
+    account: '' as string, // user address
+    nativeBalance: '' as string, // local balance
+    tokenBalances: '' as string, // token balance
     chainId: -1 as Number, // chainid
 
     // home header
@@ -23,15 +21,15 @@ const states = {
     xplanAni: false,
     showDialog: false,
     alertInfo: {} as any, // messageAlert Info
-    TipsState: false, // 自定义弹窗show
-    TipsInfo: {} as any, // 自定义弹窗信息
+    TipsState: false, // Custom Popup show
+    TipsInfo: {} as any, // Custom Popup infomation
 }
 export type typeof_user = typeof states
 export default {
     namespaced: true,
     state: states,
     mutations: {
-        // 初始化用户
+        // init user
         init(state, paylaod: typeof_user) {
             console.log(`---------->日志输出:paylaod`, paylaod)
             // for (const key in paylaod) {
@@ -41,12 +39,12 @@ export default {
             state['age'] = paylaod['age']
             state['roles'] = paylaod['roles']
         },
-        // 初始化用户角色
+        // init user role
         initRoles(state, paylaod: role[]) {
             console.log(`---------->日志输出:paylaod`, paylaod)
             state.roles = paylaod
         },
-        // 添加用户角色
+        // add user role
         addRole(state, payload: role) {
             state.roles.push(payload)
         },
@@ -84,7 +82,7 @@ export default {
         },
     },
     actions: {
-        // 初始化用户
+        // init user
         init({ commit }, paylaod: typeof_user) {
             commit('init', paylaod)
         },
@@ -94,7 +92,7 @@ export default {
         addRole({ commit }, paylaod: role) {
             commit('addRole', paylaod)
         },
-        // 注销
+        // logout
         logout({ commit }, paylaod: boolean) {
             commit('logout', paylaod)
         },

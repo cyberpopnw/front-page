@@ -95,7 +95,7 @@ watch(idTemp, (newVal, oldVal) => {
 
 const getBalance = async (chainid: number) => {
     console.log('进来了');
-    data.value = []; // 清空
+    data.value = []; // clear
     if(chainid == 80001){
         var result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
     }else if(chainid == 43113){
@@ -156,7 +156,7 @@ const getData = async (boxData: any[]) => {
         Remaining.value = [0, 0, 0];
         return; // At present, only Mumbai can buy boxes with
     }
-    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box, MarketV2.address); // 查询已上架的资产
+    let LootBox_result: any = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box, MarketV2.address); // Query assets on the shelves
     Remaining.value = [1, 0, 0] || LootBox_result;
     console.log(Remaining.value, 'Remaining.valueRemaining.valueRemaining.valueRemaining.value');
 }
@@ -164,7 +164,7 @@ const toDetails = (type:any) => {
     router.push({ name: 'details', query:{ type }})
 }
 
-// 開盒子
+// Open the box
 const open = async (boxId: any, number: any) => {
     // getLast(); // Query the last asset opened immediately in the asset contract
     if(number == 0) return;

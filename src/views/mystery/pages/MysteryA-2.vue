@@ -125,7 +125,7 @@ const getBalance = async (chainid: number) => {
         
         result.description = str;
         result.description_zh = str_zh;
-        
+
         let temp = [];
         temp.push({
             id: 9,

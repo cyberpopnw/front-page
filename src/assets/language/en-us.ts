@@ -73,6 +73,7 @@ const us = {
             register: {
                 REGISTER: 'REGISTER',
                 inputEmail: 'input email',
+                placeholder: 'Input your email',
                 Email: 'Email',
                 tips1: 'The message has been registered',
                 tips2: 'User information error',
@@ -80,6 +81,7 @@ const us = {
                 tips4: 'Email error',
                 tips5: 'Mailbox has been registered',
                 level: 'level',
+                tips0: 'Account will be automatically registered',
                 
             },
             // common
@@ -210,7 +212,7 @@ const us = {
             // homwA-register
             reg_title: 'READY FOR YOUR JOURNEY?',
             reg_subtitle: 'GET THE LASTEST IN INBOX',
-            reg_submit: 'Register',
+            reg_submit: 'Register email',
             reg_link: 'Become an ambassador',
             inviter_Code: 'inviter Code',
             level: 'level',
@@ -448,18 +450,26 @@ const us = {
         //dowload
         download: {
             tips1: 'Account will be automatically registered',
-            REGISTER: 'REGISTER',
+            REGISTER: 'CONFIRM',
             ios: 'iOS',
             Android: 'Android',
             windows: 'Windows',
             version: 'Latest Version 1.0.2',
-            inputEmail: 'input email',
+            inputEmail: 'Email address',
             tips2: 'Not Ios App',
             tips3: 'Email error',
             tips4: 'The message has been registered',
             tips5: 'User information error',
             tips6: 'Invitation code error',
             tips7: 'Mailbox has been registered',
+            nav_txt1: 'Home',
+            nav_txt2: 'Register',
+            welmsg_txt1: 'WELCOME TO',
+            welmsg_txt2: 'REGISTER',
+            title: 'CYBERPOP',
+            step1_name: 'STEP1',
+            step2_name: 'STEP2',
+            download_txt: 'DOWNLOAD CYBERPOP'
         },
     }
 }

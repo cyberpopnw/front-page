@@ -1,42 +1,49 @@
 <template>
     <header-b path="/download" :type="0" v-if="isClick"></header-b>
     <div class="download bounceShow">
+        <div class="banner">
+            <div class="welmsg">{{ $t('message.download.welmsg_txt1') }} <span>{{ $t('message.download.welmsg_txt2') }}</span></div>
+            <div class="title">{{ $t('message.download.title') }}</div>
+        </div>
         <div class="download-mask">
-            <div class="wrap">
-                <form action="#" onsubmit="">
-                    <div class="logo">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/logo.png" alt="">
-                    </div>
-                    <div class="button">
-                        <input type="text" v-model="email"  @input="emailInput()" :placeholder="$t('message.download.inputEmail')"/>
-                        <div class="tip" v-if="emailErr">{{ $t('message.download.tips3') }}</div> 
-                    </div>
-                    <!-- <div class="button" style="margin-top: 28px;margin-bottom: 9px;">
-                        <input type="text" v-model="emailCode" placeholder="Email verification code" @input="emailCodeInput"/>
-                        <span @click="send"> {{ Sended == 60 ? 'Send code' : Sended }}</span>
-                    </div> -->
-                    <p class="tips">{{ $t('message.download.tips1') }}</p>
-                    <button type="button" @click="submit">{{ $t('message.download.REGISTER') }}</button>
-                </form>
-            </div>
+            <div class="step1"><span class="green">{{ $t('message.download.step1_name') }} :</span> {{ $t('message.download.welmsg_txt2') }}</div>
+            <form action="#" onsubmit="">
+                <label for="Email">{{ $t('message.common.register.Email') }}</label>
+                <div class="button">
+                    <input type="text" v-model="email" :placeholder="$t('message.download.inputEmail')"/>
+                </div>
+                <!-- <div class="button" style="margin-top: 28px;margin-bottom: 9px;">
+                    <input type="text" v-model="emailCode" placeholder="Email verification code" @input="emailCodeInput"/>
+                    <span @click="send"> {{ Sended == 60 ? 'Send code' : Sended }}</span>
+                </div> -->
+                <p class="tips">{{ $t('message.download.tips1') }}</p>
+                <button type="button" @click="submit">{{ $t('message.download.REGISTER') }}</button>
+            </form>
         </div>
         <div class="down_button">
-            <img class="person" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
-            <div class="tips">DOWNLOAD CYBERPOP</div>
+            <div class="arrow"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_arrow.svg" alt=""></div>
+            <div class="step2">
+                <span class="green">{{ $t('message.download.step2_name') }} :</span> <br/>{{ $t('message.download.download_txt') }} <br/> 
+                <div>{{ $t('message.download.version') }}</div>
+            </div>
+            <div class="person"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt=""></div>
             <div class="buttons">
                 <div class="down_cyberpop" @click="downloadGame(0)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
+                    <b>{{ $t('message.download.Android') }}</b>
+                </div>
+                <div class="down_cyberpop not-error" @click="downloadGame(2)">
+                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
+                    <b>{{ $t('message.download.ios') }}</b>
                 </div>
                 <div class="down_cyberpop" @click="downloadGame(1)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
-                    <div class="version">{{ $t('message.download.version') }}</div>
-                </div>
-                <div class="down_cyberpop" @click="downloadGame(2)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/windows.png" alt="">
+                    <b>{{ $t('message.download.windows') }}</b>
                 </div>
             </div>
         </div>
     </div>
+    <footer-b></footer-b>
 </template>
 
 <script setup lang='ts'> 
@@ -225,59 +232,92 @@
 </script>
 
 <style lang="less">
+    @keyframes arrow{
+        0% {
+            transform: translateY(0);
+        }
+        25% {
+            transform: translateY(10px);
+        }
+        50% {
+            transform: translateY(0px);
+        }
+        75% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
     .download{
         z-index: 6;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_backgournd2.png');
-        background-size: auto 100%;
-        background-position: center top;
-        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        background: #080808;
+        overflow: hidden;
+        .banner{
+            width: 100%;
+            height: 260px;
+            margin-top: 55px;
+            color: #fff;
+            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_background_pc3-b-2.png');
+            background-size: auto 100%;
+            background-position: center top;
+            text-align: center;
+            overflow: hidden;
+            .welmsg{
+                margin: 30px auto 14px;
+                font-size: 20px;
+                font-family: AlibabaPuHuiTi_2_65_Medium;
+                line-height: 18px;
+                filter: drop-shadow(0.1vw 0 0 #D236A5) drop-shadow(-0.15vw 0 0.05rem #72F0D9);
+                span{
+                    color: #EBFF11;
+                }
+            }
+            .title{
+                width: 90%;
+                text-align: center;
+                margin: 0 auto;
+                font-size: 36px;
+                font-family: AlibabaPuHuiTi_2_115_Black;
+                line-height: 30px;
+                filter: drop-shadow(0.155vw 0 0 #D236A5) drop-shadow(-0.15vw 0 0.05rem #72F0D9);
+            }
+        }
         .download-mask{
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 150px;
-            left: 0;
-            margin: auto;
-            width: 332px;
-            height: 291px;
-            background: #000000;
-            .wrap{
-                .logo{
-                    width: 310px;
-                    height: 82px;
-                    margin: 0 auto;
-                    margin-top: 10px;
-                    margin-bottom: 19px;
-                    img{
-                        width: 100%;
-                        height: 100%;
-                    }
+            padding: 0 12px;
+            color: #FFFFFF;
+            .step1{
+                margin: 20px auto;
+                font-size: 20px;
+                font-family: AlibabaPuHuiTi_2_105_Heavy;
+                line-height: 28px;
+                text-align: center;
+            }
+            form{
+                height: 257px;
+                margin: 0 auto;
+                padding: 30px 26px 24px;
+                background: linear-gradient(145deg, rgba(0, 0, 0, 0.32) 0%, rgba(31, 38, 110, 0.21) 45%, rgba(108, 250, 166, 0.18) 59%, rgba(32, 38, 110, 0.3) 72%, rgba(0, 0, 0, 0.35) 100%);
+                border: 1px solid;
+                border-image: linear-gradient(270deg, rgba(108, 248, 167, 1), rgba(93, 16, 244, 0.5), rgba(108, 248, 167, 1)) 1 1;
+                backdrop-filter: blur(22px);
+                label{
+                    font-size: 18px;
+                    font-family: AlibabaPuHuiTi_2_85_Bold;
+                    line-height: 25px;
                 }
                 .button{
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/withborder.png');
-                    width: 302px;
+                    position: relative;
+                    width: 100%;
                     height: 44px;
-                    background-size: 100% 100%;
+                    display: inline-block;
+                    margin: 17px 0;
                     font-size: 13px;
                     font-family: AlibabaPuHuiTi_2_85_Bold;
-                    color: #FFFFFF;
                     line-height: 18px;
-                    margin: 0 auto;
-                    position: relative;
-                    .tip{
-                        position: absolute;
-                        color: #FF5CA1;
-                        bottom: -25px;
-                        text-align: center;
-                        margin: auto;
-                        left: 0;
-                        right: 0;
-                    }
+                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/withborder-2.svg');
+                    background-size: 100% 100%;
                     input{
                         line-height: 18px;
                         border: none;
@@ -302,84 +342,95 @@
                     }
                 }
                 .tips{
+                    margin-bottom: 29px;
                     font-size: 12px;
                     font-family: AlibabaPuHuiTi_2_55_Regular;
-                    color: #FFFFFF;
                     line-height: 17px;
-                    margin-top: 30px;
-                    margin-bottom: 17px;
-                    text-align: center;
                 }
                 button{
                     border: none;
                     background: transparent;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/greenButton.png');
+                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/greenButton-2.svg');
                     background-size: 100% 100%;
-                    width: 210px;
-                    height: 52px;
+                    width: 212px;
+                    height: 54px;
                     margin: 0 auto;
                     display: block;
                     font-size: 18px;
                     font-family: AlibabaPuHuiTi_2_85_Bold;
+                    font-weight: bold;
                     color: #000000;
+                    line-height: 25px;
                 }
             }
         }
         .down_button{
-            position: absolute;
-            width: 314px;
-            bottom: 100px;
-            z-index: -1;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            .person{
-                width: 114px;
-                height: 115px;
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: -80px;
-                margin: auto;
+            padding: 0 17px;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+            .arrow{
+                width: 32px;
+                height: 32px;
+                margin: 15px auto 13px;
+                img{
+                    width: 100%;
+                    -webkit-animation: arrow 2s linear infinite;
+                }
             }
-            .tips{
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: -8px;
-                margin: 0 auto;
+            .step2{
+                font-size: 20px;
+                font-family: AlibabaPuHuiTi_2_105_Heavy;
+                line-height: 28px;    
+                text-align: center;        
+                div{
+                    font-size: 16px;
+                }
+            }
+            .person{
+                position: relative;
+                width: 100%;
+                height: 160px;
+                margin-top: -20px;
                 text-align: center;
-                font-size: 16px;
-                font-family: AlibabaPuHuiTi_2_115_Black;
-                color: #FFFFFF;
-                line-height: 22px;
+                z-index: 1;
+                img{
+                    width: 160px;
+                    height: 160px;
+                }
             }
             .buttons{
                 display: flex;
-                margin-top: 40px;
-                justify-content: space-between;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                height: 316px;
+                margin: 0 auto;
+                margin-top: -80px;
+                padding-top: 79px;
+                background: linear-gradient(53deg, rgba(0, 0, 0, 0.35) 0%, rgba(32, 38, 110, 0.3) 30%, rgba(108, 250, 166, 0.18) 52%, rgba(31, 38, 110, 0.21) 61%, rgba(0, 0, 0, 0.32) 100%, rgba(0, 0, 0, 0.32) 100%);
+                border: 1px solid;
+                border-image: linear-gradient(270deg, rgba(108, 248, 167, 1), rgba(93, 16, 244, 0.5), rgba(108, 248, 167, 1)) 1 1;
+                backdrop-filter: blur(16px);
+                z-index: 0;
                 .down_cyberpop{
-                    width: 58px;
-                    height: 58px;
-                    border: 1px solid #FFFFFF;
-                    border-radius: 50%;
-                    background-size: 100% 100%;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 16px;
-                    font-family: AlibabaPuHuiTi_2_115_Black;
-                    color: #FFFFFF;
+                    width: 200px;
+                    height: 42px;
+                    margin-bottom: 40px;
+                    font-size: 18px;
+                    font-family: AlibabaPuHuiTi_2_85_Bold;
+                    font-weight: bold;
+                    line-height: 25px;
+                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_button2-2.png');
+                    background-size: 100% 100%;
+                    transition: all .1s ease-in;
                     position: relative;
                     .media{
-                        width: 22px;
-                        height: 26px;
-                    }
-                    .version{
-                        position: absolute;
-                        top: -30px;
-                        width: 100vw;
-                        text-align: center;
+                        margin-right: 10px;
+                        width: 28px;
+                        height: 28px;
                     }
                 }
                 .not-error{

@@ -1,10 +1,10 @@
 import { Module } from 'vuex'
 import { State } from '..'
 
-// 定义state类型
+// state type
 const states = {
     // NFT
-    purchaseState: false, // 主要是用于有多种状态流程 （比如售卖，上架， 购买）布局比较复杂，且能够被复用
+    purchaseState: false, // It is mainly used for processes with multiple states (such as sales, on the shelf, and purchase). The layout is complex and can be reused
     purchaseInfo: {} as any,
     badge: [0, 1, 2, 3, 4, 5],
     game: [2, 3, 101101],

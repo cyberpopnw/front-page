@@ -260,10 +260,10 @@ const realId = computed(() => store?.state.wallet?.realId);
 const idTemp = computed(() => store?.state.wallet?.idTemp);
 const id: any = ref(0)
 const metaMaskActive = computed(() => store?.state.wallet?.metaMaskActive);
-const messSing = computed(() => store?.state.wallet?.messSing); // 签名消息
-const code: any = ref(''); // 邀请码
+const messSing = computed(() => store?.state.wallet?.messSing); // Signature message
+const code: any = ref(''); // Invitation code
 
-const loggined = computed(() => store?.state.wallet?.loggined); // 登录信息
+const loggined = computed(() => store?.state.wallet?.loggined); // login information
 const connect: any = async () => {
     store.dispatch('wallet/walletMenuAni', false)
     const ismessage: any = await NFT.hasMetaMask()

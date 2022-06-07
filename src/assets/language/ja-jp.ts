@@ -72,6 +72,7 @@ const kr = {
             register: {
                 REGISTER: '登録',
                 inputEmail: '電子メールを入力',
+                placeholder: 'メール入力',
                 Email: 'Eメール',
                 tips1: 'メールは登録されています',
                 tips2: 'ユーザー情報エラー',
@@ -79,6 +80,7 @@ const kr = {
                 tips4: '電子メールエラー',
                 tips5: 'メールボックスは登録されています',
                 level: 'レベル',
+                tips0: 'アカウントは自動的に登録されます',
             },
             //common
             ip: '私たちのサービスは一部のコンプライアンス国と地域にしか適用されません。不正アクセスは保護されません。'
@@ -208,7 +210,7 @@ const kr = {
             // homwA-register
             reg_title: '冒険への準備はできていますか？',
             reg_subtitle: 'INBOXから最新ニュースを手に入れよう',
-            reg_submit: '登録',
+            reg_submit: 'Register email',
             reg_link: 'プロモーションアンバサダーになりましょう',
             inviter_Code: '招待コード',
             level: 'レベル＃レベル＃',
@@ -442,20 +444,27 @@ const kr = {
         //dowload
         download: {
             tips1: 'アカウントが自動的に登録されます',
-            REGISTER: '登録',
+            REGISTER: '確認',
             ios: 'リンゴ',
             Android: 'アンドロイド',
             windows: 'ウィンドウ',
             version: '最新バージョン1.0.2',
-            inputEmail: '電子メールの入力',
+            inputEmail: 'メールアドレス',
             tips2: 'ios appはありません',
             tips3: '電子メールエラー',
             tips4: 'メールが登録されました',
             tips5: 'ユーザー情報エラー',
             tips6: '招待コードエラー',
             tips7: 'メールボックスは登録されています',
+            nav_txt1: 'ホームページ',
+            nav_txt2: '登録',
+            welmsg_txt1: 'ようこそ',
+            welmsg_txt2: '登録インタフェース',
+            title: 'サイバーニューワールド',
+            step1_name: '手順1',
+            step2_name: '手順2',
+            download_txt: 'ダウンロード CYBERPOP'
         }
-
     }
 }
 

@@ -11,7 +11,8 @@
                     <div class="subtitle">{{t('message.common.metamask.logoText')}}</div>
                 </div>
                 <!-- <div class="text">{{ props.content == 'netWork' ? $t('message.common.metamask.switch') : props.content }} <a v-if="props.addNetwork" href="https://chainlist.org/" target="_blank">{{ $t('message.common.metamask.add1') }}</a> </div> -->
-                <div class="text" v-if="props.addNetwork">{{ $t('message.common.metamask.switch') }} <br/>
+                <div class="text" v-if="props.addNetwork">
+                    <div class="message">{{ $t('message.common.metamask.switch') }}</div>
                     <div class="buttons">
                         <span @click="changeChain(56)">{{ $t('message.common.metamask.switchBSC') }}</span>
                         <span @click="changeChain(43113)">{{ $t('message.common.metamask.switchFuji') }}</span> 
@@ -212,7 +213,7 @@ onMounted(() => {
             bottom: 0;
             width: 31.51vw;
             min-width: 380px;
-            min-height: 280px;
+            min-height: 340px;
             margin: auto;
             padding: 2.5vw;
             box-shadow: -1.51vw .83vw .2vw .05vw rgba(0, 0, 0, 0.4);
@@ -249,9 +250,12 @@ onMounted(() => {
                 width: 2.8vw;
             }
             .content{
+                display: flex;
+                flex-direction: column;
                 position: absolute;
                 left: 0;
                 right: 0;
+                height: calc(100% - 5vw);
                 padding: 0 2.5vw;
                 .title{
                     font-size: 1.45vw;
@@ -276,18 +280,25 @@ onMounted(() => {
                     }
                 }
                 .text{
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
                     font-size: 0.83vw;
                     font-family: AlibabaPuHuiTi_2_55_Regular;
                     font-weight: normal;
                     line-height: 1vw;
+                    .message{
+                        margin-bottom: 2vw;
+                    }
                     .buttons{
                         display: flex;
                         justify-content: flex-end;
+                        margin-bottom: 1vw;
                         span{
-                            float: right;
                             display: inline-block;
                             padding: .46vw 1.04vw;
-                            margin: 1.4vw 0 0 .72vw;
+                            margin-left: .72vw;
                             font-size: 1.04vw;
                             color: #FFFFFF;
                             line-height: 1.04vw;
