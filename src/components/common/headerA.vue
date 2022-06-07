@@ -36,7 +36,10 @@
                         </div>
                     </div>
                     <div class="register">
-                        <div class="register_button" @click="isRegister(true)">{{ $t('message.home.reg_submit') }}</div>
+                        <div class="register_button" @click="isRegister(true)">
+                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/register-email.svg" alt="">
+                            <span id="register">{{ $t('message.home.reg_submit') }}</span>
+                        </div>
                     </div>
                     <div class="login_in" v-if="!loggined" @click="login()" @mouseenter="mouseEnter()" @mouseleave="mouseLeave()">
                         <div class="txt">{{$t('message.common.wallet')}}</div>
@@ -628,17 +631,31 @@ onMounted(() => {
                         padding-bottom: .5vw;
                         align-items: center;
                         .register_button{
-                            padding: 0.26vw 0.41vw;
-                            font-size: 0.63vw;
-                            font-family: AlibabaPuHuiTi_2_65_Medium;
-                            color: #FFFFFF;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
-                            background-size: 100% 100%;
                             display: flex;
+                            flex-direction: column;
                             justify-content: center;
                             align-items: center;
-                            white-space: nowrap;
+                            min-width: 2.54vw;
+                            height: 2.3vw;
+                            font-family: AlibabaPuHuiTi_2_55_Regular;
+                            color: #FFFFFF;
+                            border: 1px solid #FFFFFF;
+                            box-sizing: border-box;
+                            text-align: center;
                             cursor: pointer;
+                            img{
+                                width: .98vw;
+                                height: .67vw;
+                                margin: 1px auto;
+                            }
+                            span{
+                                display: inline-block;
+                                min-width: 2.54vw;
+                                max-width: 2.54vw;
+                                font-size: .52vw;
+                                line-height: .6vw;
+                                transform: scale(.8);
+                            }
                         }
                     }
                     .login_in{

@@ -17,10 +17,11 @@
                     <div class="item">
                         <label for="Email">{{ $t('message.common.register.Email') }}</label>
                         <div class="content1" :class="{'error': emailErr}">
-                            <input type="text" id="Email" :placeholder="$t('message.common.register.REGISTER')" @input="emailInput" @blur="blur(1)" v-model="email">
+                            <input type="text" id="Email" :placeholder="$t('message.common.register.placeholder')" @input="emailInput" @blur="blur(1)" v-model="email">
                             <!-- <div class="send" :class="{'error': emailErr}" @click="send" v-if="Sended == 60">Send</div>
                             <div class="send timer" v-else>{{ Sended }}</div> -->
                         </div>
+                        <div class="automsg">{{ $t('message.common.register.tips0') }}</div>
                     </div>
                     <!-- <div class="item">
                         <label for="Email">Email Code</label>
@@ -301,7 +302,8 @@ onMounted(() => {
             right: 0;
             bottom: 0;
             width: 350px;
-            height: 390px;
+            // height: 390px;
+            height: 290px;
             margin: auto;
             padding: 2.5vw;
             box-shadow: -1.51vw .83vw .2vw .05vw rgba(0, 0, 0, 0.4);
@@ -378,7 +380,7 @@ onMounted(() => {
                     margin: 20px 0;
                     label{
                         display: inline-block;
-                        margin: 0.5vw 0;
+                        margin: 6px 0;
                         font-family: AlibabaPuHuiTi_2_115_Black;
                     }
                     .content1, .content2{
@@ -413,6 +415,13 @@ onMounted(() => {
                         .send:hover{
                             filter: drop-shadow(0 0 0.4vw #fff);
                         }
+                    }
+                    .automsg{
+                        margin-top: 10px;
+                        font-size: 12px;
+                        font-family: AlibabaPuHuiTi_2_55_Regular;
+                        color: #D8D8D8;
+                        line-height: 12px;
                     }
                     .error{
                         border: 1px solid #FF5CA1 !important;

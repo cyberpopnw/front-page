@@ -1530,7 +1530,7 @@ onMounted(() => {
                                 color: #000000;
                                 line-height: 3.02vw;
                                 font-family: AlibabaPuHuiTi_2_115_Black;
-                                font-weight: lighter;
+                                font-weight: bold;
                                 display: none;
                             }
                             .show{

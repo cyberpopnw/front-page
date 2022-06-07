@@ -5,6 +5,7 @@
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide') ">
             <div class="cover"></div>
             <div class="coverborder"></div>
+            <img class="close" src="@/assets/nwhome/close.svg" alt="" @click="close">
             <div class="content">
                 <div class="title">{{ $t('message.common.metamask.wrongNetwork') }}</div>
                 <div class="text">{{ $t('message.common.metamask.wrongContent') }}</div>
@@ -51,6 +52,7 @@ const changeChain = async (value?: any) => {
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
     }
 }
+
 
 onMounted(() => {
 
