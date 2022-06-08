@@ -333,10 +333,10 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             </div>
             <div class="time3 timeWidth-r maptime" id="time3">
                 <div class="date"><span class="span-l"></span>2022.04</div>
-                <div class="event-r">
+                <div class="event-r checkgreen">
                     {{ $t('message.home.roadmap_s1_d3_e1') }} <br/>
                     {{ $t('message.home.roadmap_s1_d3_e2') }} <br/>
-                    {{ $t('message.home.roadmap_s1_d3_e3') }} <br/>
+                    <span class="incomplete">{{ $t('message.home.roadmap_s1_d3_e3') }}</span> <br/>
                     {{ $t('message.home.roadmap_s1_d3_e4') }}
                 </div>
             </div>
@@ -2269,6 +2269,9 @@ onMounted(() => {
             }
             .checkgreen{
                 color: #04ffa2 !important;
+                .incomplete{
+                    color: yellow;
+                }
             }
             .time1 > .check{
                 position: absolute;

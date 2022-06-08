@@ -16,7 +16,7 @@
                     {{$t('message.assets.wel_desc')}}
                 </div>
             </div>
-            <div class="ecr" v-if="readyAssetsF != -1" ref="ecrchange">
+            <div class="ecr" v-if="readyAssetsF != -1">
                 <!-- <div class="ecr" v-if="false"> -->
                 <div class="search" ref="myNav">
                     <div class="whiteList">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="ecrchange">
-                    <div class="top">
+                    <div class="top"  ref="ecrchange">
                         <div class="typeALL" :class="!ecrType ? 'active' : ''" @click="changeType(0)">ALL</div>
                         <div class="type1" :class="ecrType == 1? 'active' : ''" @click="changeType(1)">ERC 721</div>
                         <div class="type2" :class="ecrType == 2 ? 'active' : ''" @click="changeType(2)">ERC 1155</div>
@@ -332,11 +332,16 @@ const startMove = (target : any) => {
 // const head: any = ref(null);
 // const windowScroll: any = () => {
 //     let navHeight: number = myNav.value.offsetHeight;  // NAV element height
+//     let navTop: number = myNav.value.offsetTop;
 //     let content = ecrchange.value.offsetTop;
 //     let cHeight: number = document.documentElement.clientHeight; // Window height
 //     let scrollHeight: number = document.documentElement.scrollTop; // How many PX slides down
-//     console.log(navHeight, navHeight, cHeight, scrollHeight, content);
-//     myNav.value.style.top =  scrollHeight + content - (navHeight / 3) + 'px';
+//     console.log(navHeight, cHeight, scrollHeight, content, navTop, scrollHeight + content - (navHeight / 2) + 'px');
+//     if(scrollHeight < content){
+        
+//     }else{
+//         myNav.value.style.top =  scrollHeight + content - (navHeight / 2) + 'px';
+//     }
 // }
 
 
@@ -958,8 +963,10 @@ onMounted(() => {
                 .search{
                     position: absolute;
                     width: 15.98vw;
+                    // z-index: 999999999;
+                    // border: 1px solid red;
                     // height: 40.66vw;
-                    // margin: 4.27vw 1.66vw 9.68vw 3.43vw;
+                    // margin: 0 1.66vw 9.68vw 3.43vw;
                     margin: 4.27vw 1.66vw 15vw 3.43vw;
                     padding: 2.08vw 1.04vw;
                     background: #1B1A22;
