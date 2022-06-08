@@ -63,7 +63,7 @@ import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
-const idTemp = computed(() => store?.state.wallet?.idTemp);
+const thisAcounts = ref(0);
 const router = useRouter()
 const isClick = ref(false as any);
 
@@ -76,7 +76,7 @@ const downloadGame = (type: number) => {
         return;
     }
     window.location.href = type == 0 ? 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop.apk' : 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.1_2022_05_13.rar';
-    proxy.$api.get(`/code/user/download?address=${idTemp.value}`).then((res: any) => {
+    proxy.$api.get(`/code/user/download?address=${thisAcounts.value}`).then((res: any) => {
         console.log(res);
     }).catch( (err: any) => {
         console.log(err)
@@ -113,27 +113,27 @@ const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: stri
 }
 
 // Verify mailbox
-const emailCodeVerification = () => {
-    return new Promise((resolve, reject) => {
-        if(emailInput() && emailCodeInput()){
-            proxy.$api.get(`/game/verify_email?email=${emailAddress.value}&verify_code=${emailCode.value}`).then((res: any) => {
-                if(res.error == 'ok'){
-                    const ethereum = (window as any).ethereum // Get metamask instance
-                    console.log(ethereum, 'ethereum');
-                    if(!ethereum){
-                        getPublicAddress(emailAddress.value, emailAddress.value, '')
-                        return;
-                    }
-                    messgSing(idTemp.value)
-                }else{
-                    store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: 'Code error' }})
-                }
-            })
-        }else{
-            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: 'Please enter complete' }})
-        }
-    })
-}
+// const emailCodeVerification = () => {
+//     return new Promise((resolve, reject) => {
+//         if(emailInput() && emailCodeInput()){
+//             proxy.$api.get(`/game/verify_email?email=${emailAddress.value}&verify_code=${emailCode.value}`).then((res: any) => {
+//                 if(res.error == 'ok'){
+//                     const ethereum = (window as any).ethereum // Get metamask instance
+//                     console.log(ethereum, 'ethereum');
+//                     if(!ethereum){
+//                         getPublicAddress(emailAddress.value, emailAddress.value, '')
+//                         return;
+//                     }
+//                     messgSing(idTemp.value)
+//                 }else{
+//                     store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: 'Code error' }})
+//                 }
+//             })
+//         }else{
+//             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: 'Please enter complete' }})
+//         }
+//     })
+// }
 
 
 // login
@@ -147,7 +147,8 @@ const messgSing = async (publicAddress: any) => {
             '' // MetaMask will ignore the password argument here
         );
         if(result) {
-            getPublicAddress(emailAddress.value, code.value, idTemp.value);
+            console.log('address', emailAddress.value, code.value, publicAddress);
+            getPublicAddress(emailAddress.value, code.value, publicAddress);
         }else{
             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.reject_transaction')}})
         }
@@ -163,6 +164,10 @@ const messgSing = async (publicAddress: any) => {
 //Verify that the mailbox has been registered
 const verification = () => {
     proxy.$api.get(`/code/user/bemail?email=${emailAddress.value}`).then(async (res: any) => {
+
+        let [ account ] = await Web3.getAccounts()
+        thisAcounts.value = account;
+        
         if(res.data === true) { // This mailbox has not been registered
             const ethereum = (window as any).ethereum // Get fox instance
             console.log(ethereum, 'ethereum');
@@ -170,8 +175,7 @@ const verification = () => {
                 getPublicAddress(emailAddress.value, code.value, '')
                 return;
             }
-            let [ account ] = await Web3.getAccounts()
-            messgSing(account)
+            messgSing(account);
         }else{
             isDonload.value = true;
             store.dispatch('wallet/messSing', code.value);
@@ -189,7 +193,7 @@ const register = async () => {
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.download.tips3') }})
         return;
     }
-    await verification();
+    verification();
     // await emailCodeVerification();
 }
 

@@ -55,8 +55,7 @@
     const { proxy } = getCurrentInstance() as any;
     const router = useRouter()
     const { t } = useI18n()
-
-    const idTemp = computed(() => store?.state.wallet?.idTemp);
+    const thisAcounts = ref(0);
     const isClick = ref(false as any);
 
     // download
@@ -71,7 +70,7 @@
             return;
         }
         window.location.href = type == 0 ? 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop.apk' : 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.1_2022_05_13.rar';
-        proxy.$api.get(`/code/user/download?address=${idTemp.value}`).then((res: any) => {
+        proxy.$api.get(`/code/user/download?address=${thisAcounts.value}`).then((res: any) => {
             console.log(res);
         }).catch( (err: any) => {
             console.log(err)
@@ -109,7 +108,6 @@
 
 
     // login
-    const resolveAcount = ref('' as any)
     const messgSing = async (publicAddress: any) => {
         try {
             const Web3 = (window as any).Web3;
@@ -120,8 +118,7 @@
                 '' // MetaMask will ignore the password argument here
             );
             if(result) {
-                getPublicAddress(email.value, code.value, idTemp.value);
-                resolveAcount.value = idTemp.value;
+                getPublicAddress(email.value, code.value, publicAddress);
             }else{
                 store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.reject_transaction')}})
             }
@@ -136,6 +133,10 @@
     //Verify that the mailbox has been registered
     const verification = () => {
         proxy.$api.get(`/code/user/bemail?email=${email.value}`).then(async (res: any) => {
+
+            let [ account ] = await Web3.getAccounts()
+            thisAcounts.value = account;
+
             if(res.data === true) { // This mailbox has not been registered
                 const ethereum = (window as any).ethereum // Get metamask instance
                 console.log(ethereum, 'ethereum');
