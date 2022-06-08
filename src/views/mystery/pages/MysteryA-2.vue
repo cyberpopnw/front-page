@@ -46,7 +46,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                         </div>
                         <div class="btn">
                             <div class="purchase" :class="{'not-allowed': Remaining[0] == 0 || isProduction}" @click="purchase(0, Remaining[0])">{{$t('message.details.box_btn_pur')}}</div>
-                            <div class="open" :class="{'not-allowed': data[0].number == 0}" @click="open(0, data[0].number)">{{$t('message.box.open')}}</div>
+                            <div class="open" :class="{'not-allowed': data[0].number == 0 && chainId != 56}" @click="open(0, data[0].number)">{{$t('message.box.open')}}</div>
                             <div class="details" @click="toDetails(9)">
                                 <span class="details-text">{{$t('message.box.btn_det')}}</span>
                             </div>
@@ -106,7 +106,7 @@ const getBalance = async (chainid: number) => {
     }else if(chainid == 43113){
         var result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
     }else{
-        var result: any = [0, 0, 0]
+        var result: any = store.state.myBox?.box
     }
     console.log(result, 'result');
     // getData(result)
@@ -127,9 +127,11 @@ const getBalance = async (chainid: number) => {
         result.description_zh = str_zh;
 
         let temp = [];
+        console.log(chainId.value, 'chainId');
+        
         temp.push({
             id: 9,
-            number: 0,
+            number: chainId.value != 56 ? 0 : 0, // not bsc
             info: result,
         })
         loadingState.value = false;

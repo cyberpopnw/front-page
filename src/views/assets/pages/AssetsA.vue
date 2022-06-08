@@ -18,7 +18,7 @@
             </div>
             <div class="ecr" v-if="readyAssetsF != -1">
                 <!-- <div class="ecr" v-if="false"> -->
-                <div class="search" ref="myNav">
+                <div class="search" ref="myNav" :style="{'top': initSearchTop + 'PX'}">
                     <div class="whiteList">
                         <p v-if="bobabrewery">{{ bobabrewery }}</p>
                         <p v-else>
@@ -306,43 +306,26 @@ const addressInfo = () => {
     })
 }
 
-
-// Left Icon scroll
 const myNav:any = ref(null);
+const ecrchange: any = ref(null);
+const content: any = ref(500);
+const initSearchTop: any = ref(544);
+const clientWidth = (document.documentElement.clientWidth * 0.269) + 70;
+initSearchTop.value = clientWidth;
+
+const head: any = ref(null);
 const windowScroll: any = () => {
-    if( data.value.length === 0 ) return
-    const navHeight: number = myNav.value.offsetHeight;  // Distance of the element from the top
-    const cHeight: number = document.documentElement.clientHeight; // Window height
-    const scrollHeight: number = document.documentElement.scrollTop; // How many PX slides down
-    startMove(Math.ceil((cHeight - navHeight - 160) + scrollHeight));
+    content.value = ecrchange.value.offsetTop + 70;
+    let navHeight: number = myNav.value.offsetHeight;  // NAV element height
+    let cHeight: number = document.documentElement.clientHeight; // Window height
+    let scrollHeight: number = document.documentElement.scrollTop; // How many PX slides down
+    // console.log(navHeight, cHeight, scrollHeight, content, scrollHeight + content.value - (navHeight / 2) + 'px');
+    myNav.value.style.top =  scrollHeight + content.value - (navHeight / 2) + 'px';
+    let navTop = myNav.value.style.top.substring(0, myNav.value.style.top.length - 2);
+    if(navTop < content.value){
+        myNav.value.style.top = content.value + 'px';
+    }
 }
-
-let timer: any = null;
-const startMove = (target : any) => {
-    let a = document.getElementsByClassName('ecr')[0] as HTMLElement || document.getElementsByClassName('nothing')[0] as HTMLElement;
-    let speed = target - myNav.value.offsetTop;
-    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-    myNav.value.style.top = myNav.value.offsetTop + speed + 'px';
-    if(parseInt(myNav.value.style.top) < (a.offsetTop || 500))  myNav.value.style.top = a.offsetTop + 'px';
-}
-
-
-// const myNav:any = ref(null);
-// const ecrchange: any = ref(null);
-// const head: any = ref(null);
-// const windowScroll: any = () => {
-//     let navHeight: number = myNav.value.offsetHeight;  // NAV element height
-//     let navTop: number = myNav.value.offsetTop;
-//     let content = ecrchange.value.offsetTop;
-//     let cHeight: number = document.documentElement.clientHeight; // Window height
-//     let scrollHeight: number = document.documentElement.scrollTop; // How many PX slides down
-//     console.log(navHeight, cHeight, scrollHeight, content, navTop, scrollHeight + content - (navHeight / 2) + 'px');
-//     if(scrollHeight < content){
-        
-//     }else{
-//         myNav.value.style.top =  scrollHeight + content - (navHeight / 2) + 'px';
-//     }
-// }
 
 
 //myAssets & whiteList 
@@ -963,11 +946,8 @@ onMounted(() => {
                 .search{
                     position: absolute;
                     width: 15.98vw;
-                    // z-index: 999999999;
-                    // border: 1px solid red;
-                    // height: 40.66vw;
-                    // margin: 0 1.66vw 9.68vw 3.43vw;
-                    margin: 4.27vw 1.66vw 15vw 3.43vw;
+                    margin: 0 1.66vw 9.68vw 3.43vw;
+                    // margin: 4.27vw 1.66vw 15vw 3.43vw;
                     padding: 2.08vw 1.04vw;
                     background: #1B1A22;
                     border-radius: 2px;
@@ -976,7 +956,7 @@ onMounted(() => {
                         // height: 12.6vw;
                         margin-bottom: 1.56vw;
                         color: #fff;
-                        font-family: AlibabaPuHuiTi_2_75_SemiBold;
+                        font-family: AlibabaPuHuiTi_2_75_SemiBold;  
 
                         .item{
                             margin-bottom: 1.302vw;
