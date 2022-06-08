@@ -92,15 +92,15 @@ const Sended = ref(60);
 const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: string) => {
     proxy.$api.post(`/code/business/invuser?address=${publicAddress || 0}&icode=${referralCode || 0}&email=${email}&nickname=${0}`).then((res: any) => {
         if(res.data.code == 514) {
-            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.register.tips1')}})
+            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.register.tips4')}})
             return;
         }
         if(res.data.code == 510) {
-            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.register.tips2') }})
+            addressInfo()
             return;
         }
         if(res.data.code == 506) {
-            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.register.tips3') }})
+            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.register.tips6') }})
             return;
         }
         
@@ -116,6 +116,16 @@ const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: stri
         console.log(err)
     })
 }
+
+// Get address binding information
+const addressInfo = () => {
+    proxy.$api.get(`/code/user/baddress?address=${idTemp.value}`).then((result: any) => {
+        store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: "You're bound: " + result.data }})
+    }).catch((err: any) => {
+        console.log(err); 
+    })
+}
+
 
 
 // login
@@ -160,7 +170,8 @@ const verification = () => {
                 resolve(0)
             }
         }).catch( (err: any) => {
-            console.log(err)
+            const ethereum = (window as any).ethereum // Get fox instance
+            if(!ethereum) getPublicAddress(email.value, props.code, '');
         })
     })
 }
@@ -241,13 +252,13 @@ const send = () => {
 }
 
 const emailInput = () => {
-    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
+    let reg = /@/; //正则
     emailErr.value = false;
-    if(!reg.test(email.value)) {
+    if(!reg.test(email.value.trim())) {
         emailErr.value = true;
-        return !reg.test(email.value)
+        return !reg.test(email.value.trim())
     }
-    return !reg.test(email.value)
+    return !reg.test(email.value.trim())
 }
 
 

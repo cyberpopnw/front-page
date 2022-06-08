@@ -68,6 +68,7 @@ const thisAcounts = ref(0);
 const router = useRouter()
 const isClick = ref(false as any);
 
+
 // download
 const isDonload: any = ref(false);
 const downloadGame = (type: number) => {
@@ -92,7 +93,7 @@ const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: stri
             return;
         }
         if(res.data.code == 510) {
-            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.download.tips5') }})
+            addressInfo()
             return;
         }
         if(res.data.code == 506) {
@@ -110,6 +111,15 @@ const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: stri
         // messgSing(publicAddress)
     }).catch( (err: any) => {
         console.log(err)
+    })
+}
+
+// Get address binding information
+const addressInfo = () => {
+    proxy.$api.get(`/code/user/baddress?address=${thisAcounts.value}`).then((result: any) => {
+        store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: "You're bound: " + result.data }})
+    }).catch((err: any) => {
+        console.log(err); 
     })
 }
 
@@ -168,6 +178,7 @@ const verification = () => {
 
         let [ account ] = await Web3.getAccounts()
         thisAcounts.value = account;
+        console.log(222);
         
         if(res.data === true) { // This mailbox has not been registered
             const ethereum = (window as any).ethereum // Get fox instance
@@ -183,7 +194,8 @@ const verification = () => {
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.download.tips4') }});
         }
     }).catch( (err: any) => {
-        console.log(err)
+        const ethereum = (window as any).ethereum // Get fox instance
+        if(!ethereum) getPublicAddress(emailAddress.value, code.value, '');
     })
 }
 
@@ -209,15 +221,15 @@ const emailCodeErr = ref(false);
 const ReferralCodeErr = ref(false);
 const Sended = ref(60);
 const emailInput = () => {
-    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //regular
+    let reg = /@/; //regular
     emailErr.value = false;
-    console.log(reg.test(emailAddress.value));
+    console.log(reg.test(emailAddress.value.trim()));
 
-    if(!reg.test(emailAddress.value)) {
+    if(!reg.test(emailAddress.value.trim())) {
         emailErr.value = true;
-        return !reg.test(emailAddress.value)
+        return !reg.test(emailAddress.value.trim())
     }
-    return !reg.test(emailAddress.value)
+    return !reg.test(emailAddress.value.trim())
 }
 
 
@@ -246,17 +258,17 @@ const send = () => {
 }
 
 
-const emailCodeInput = () => {
-    var regu = /^\d{6}$/; 
-    console.log(regu.test(emailCode.value));
-    if(emailCode.value.length > 6) emailCode.value = emailCode.value.slice(0, 6)
-    if(regu.test(emailCode.value)){
-        emailCodeErr.value = false;
-        return true;
-    }
-    emailCodeErr.value = true;
-    return false;
-}
+// const emailCodeInput = () => {
+//     var regu = /^\d{6}$/; 
+//     console.log(regu.test(emailCode.value));
+//     if(emailCode.value.length > 6) emailCode.value = emailCode.value.slice(0, 6)
+//     if(regu.test(emailCode.value)){
+//         emailCodeErr.value = false;
+//         return true;
+//     }
+//     emailCodeErr.value = true;
+//     return false;
+// }
 
 onMounted(() => {
     code.value = router.currentRoute.value.query.code;
