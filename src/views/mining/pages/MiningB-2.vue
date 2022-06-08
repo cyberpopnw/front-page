@@ -93,23 +93,37 @@
                     </div>
                 </li> -->
                 <li>
-                    <div class="img-wrap">
-                        <img class="pledge-img" :src="whiteImgSrc" alt="">
+                    <div class="not-stak" v-if="myStakCyt == 0">
+                        <div class="img-wrap" @click="stakingCyt">
+                            <img class="pledge-img" :src="whiteImgSrc" alt="">
+                        </div>
+                        <div class="top-txt">{{$t('message.mining.pledge_top_txt')}}</div>
+                        <div class="bot-txt whiteNft">
+                            <div>{{$t('message.mining.pledge_bot_txt2')}}</div>
+                            <img :src="whiteBorderSrc" alt="">
+                        </div>
                     </div>
-                    <div class="top-txt">{{$t('message.mining.pledge_top_txt')}}</div>
-                    <div class="bot-txt whiteNft">
-                        <div>{{$t('message.mining.pledge_bot_txt2')}}</div>
-                        <img :src="whiteBorderSrc" alt="">
+                    <div class="have-stak"  @click="stakingCyt" v-else>
+                        <p>Your Staking: {{ myStakCyt }} <br> Current day: {{ myTime > 0 ? myTime : 'Finish, click to receive' }}</p>
+                        <div class="bot-txt whiteNft" @click.stop="cancelStake">
+                            <div>cancel staking</div>
+                            <img :src="whiteBorderSrc" alt="">
+                        </div>
                     </div>
                 </li>
                 <li>
-                    <div class="img-wrap">
-                        <img class="pledge-img" :src="whiteImgSrc" alt="">
+                    <div class="not-stak" v-if="myStakeNFT == 0">
+                        <div class="img-wrap" @click="stakingNFT">
+                            <img class="pledge-img" :src="whiteImgSrc" alt="">
+                        </div>
+                        <div class="top-txt">{{$t('message.mining.pledge_top_txt')}}</div>
+                        <div class="bot-txt whiteNft">
+                            <div>{{$t('message.mining.pledge_bot_txt2')}}</div>
+                            <img :src="whiteBorderSrc" alt="">
+                        </div>
                     </div>
-                    <div class="top-txt">{{$t('message.mining.pledge_top_txt')}}</div>
-                    <div class="bot-txt whiteNft">
-                        <div>{{$t('message.mining.pledge_bot_txt2')}}</div>
-                        <img :src="whiteBorderSrc" alt="">
+                    <div class="have-stak"  @click="myStakeNFT" v-else>
+                        <p>Your Staking: {{ myStakCyt }} <br> Current day: {{ myTime > 0 ? myTime : 'Finish, click to receive' }}</p>
                     </div>
                 </li>
                 <li>
@@ -219,14 +233,92 @@
         </div>
     </div>
     <footer-b></footer-b>
+    <!-- 质押完成领取奖励 -->
+    <FinishedB ref="Finished" v-if="isShowFinished" :isShowTips="isShowFinished"  @closeFinshed="isShowFinished = false"></FinishedB>
+    <!-- 取消质押弹窗 -->
+    <CancelStake ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake"  @closeFinshed="isShowCancelStake = false"></CancelStake>
+    <!-- 选择NFT质押 -->
+    <SelectNFTA ref="SelectNFT" v-if="isShowSelectNFT" :isShowTips="isShowSelectNFT"  @closeFinshed="isShowSelectNFT = false"></SelectNFTA>
+    <!-- 切换网络弹窗 -->
+    <!-- <wrongNetWorkA :isShowTips="isShowTips" @changeSwitch="changeSwitch"></wrongNetWorkA> -->
 </template>
 <script setup lang="ts">
-import { onMounted, ref, reactive, computed, getCurrentInstance, onUnmounted } from 'vue'
+import { onMounted, ref, reactive, computed, getCurrentInstance, onUnmounted, watch } from 'vue'
 
 import store from '@/store'
 import {  useRouter } from 'vue-router'
 import Web3 from '@/tools/web3' 
+import { useI18n } from 'vue-i18n';
+import FinishedB from '@/components/staking/FinishedB.vue';
+import SelectNFTA from '@/components/staking/selectNFTA.vue';
+import CancelStake from '@/components/staking/cancelStakeA.vue';
+
+const { staking, cytV2 } = Web3.contracts;
+const { t, locale } = useI18n();
 const router = useRouter()
+const realId = computed(() => store?.state.wallet?.realId);  // Asterisk address
+const chainId: any = computed(() => store.state.user?.chainId);
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
+watch(readyAssetsF, (newVal, oldVal: any) => {
+    console.log(newVal, oldVal, 'readyAssetsF');
+    if(!oldVal || oldVal == -1) return;
+    init()
+    console.log('her3');
+}, {immediate:true,deep:true});
+
+watch(chainId, (newVal: any, oldVal: any) => {
+    console.log(newVal, oldVal, 'newVal');
+    console.log(!oldVal);
+    if(!oldVal || oldVal == -1) return;
+    if(newVal != 43113){
+        store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
+        return;
+    }
+    init()
+}, {immediate:true,deep:true});
+
+
+watch(realId, (newVal, oldVal: any) => {
+    console.log(newVal, oldVal, 'realId');
+    if(!oldVal || oldVal == -1) return;
+    init()
+    console.log('her3');
+}, {immediate:true,deep:true});
+
+
+
+// Sub component finished (pledge completed to receive reward)
+const Finished = ref(null);
+const isShowFinished = ref(false as boolean);
+console.log(Finished, 'Finished');
+
+
+//Subcomponents SelectNFT
+const SelectNFT = ref(null);
+const isShowSelectNFT = ref(false as boolean);
+
+
+// Sub assembly cancel pledge pop-up
+const isShowCancelStake = ref(false) as any;
+
+
+// progress
+const progress = ref(0) as any;
+
+
+// pool
+const getTotalSupply: any = ref(0)
+
+// card filp
+const flipMove = () => {
+    const pledgeImg = document.getElementById('pledgeImg') as HTMLElement;
+    pledgeImg.classList.add('pledgeAni')
+}
+const flipEnd = () => {
+    const pledgeImg = document.getElementById('pledgeImg') as HTMLElement;
+    pledgeImg.classList.remove('pledgeAni')
+}
+
 
 // pledge
 let greenImgSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/whiteImg.png')
@@ -246,12 +338,59 @@ const myTime: any = ref(0);
 const myStakeNFT: any = ref(0);
 const test = ref(0) as any
 
-// pool
-const getTotalSupply: any = ref(0)
-// progress
-const progress = ref(0) as any;
+// start staking
+const stakingCyt = async () => {
+    console.log(progress.value, 'progress.value');
+    console.log(myTime.value, 'myTime');
+    
+    if(myTime.value > 0 || progress.value < 100) { // You can continue to pledge before the time is up
+        store.dispatch('staking/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
+        store.dispatch('user/xplanChangeAni', true);
+        return;
+    }
+    store.dispatch('user/xplanChangeAni', true);
+    isShowFinished.value = true;
+    // await Web3.getReward(staking.abi, staking.address);
+}
+const stakingNFT = async () => {
+    store.dispatch('user/xplanChangeAni', true);
+    isShowSelectNFT.value = true;
+}
 
-onMounted(() => {
+
+// cancel stake
+const cancelStake = () => {
+    store.dispatch('user/xplanChangeAni', true);
+    isShowCancelStake.value = true;
+}
+
+
+
+
+// init data
+const init = async () => {
+    mycyt.value = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address);
+    console.log(mycyt, 'mycyt');
+    myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address)
+    console.log(myStakCyt.value, 'myStakCyt.value');
+    let DaysResult = await Web3.DaysRemaining(staking.abi, staking.address, 3) as number;
+    console.log(DaysResult, 'DaysResult');
+    myTime.value = DaysResult.toFixed(2);
+    console.log(myTime.value , 'myTime.value');
+    progress.value = await Web3.progress(staking.abi, staking.address);
+    console.log(progress.value, 'progress.value');
+    if(myTime.value <= 0) progress.value = 100;
+}
+
+onMounted(async () => {
+    setTimeout(() => {
+        if(chainId.value != 43113){
+            return;
+        }
+        init()
+    }, 1000);
+    getTotalSupply.value = await Web3.getTotalSupply(staking.abi, staking.address)
+
     window.scrollTo(0,0);
     store.dispatch('user/showDialog',{show: false, info: {}});// close message dialog
 })
@@ -637,6 +776,22 @@ onMounted(() => {
                     margin-bottom: 34px;
                     background: linear-gradient(61deg, rgba(105, 0, 255, .43) 0%, rgba(88, 0, 255, 0) 100%);
                     border: 2px solid rgba(62, 65, 68, .43);
+                    .not-stak{
+                    }
+                    .have-stak{
+                        height: 100%;
+                        display: flex;
+                        color: #DFF;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        .cancelStakin{
+                            color: #fff;
+                            position: absolute;
+                            bottom: 0;
+                        }
+                    }
                     .img-wrap{
                         display: flex;
                         justify-content: center;

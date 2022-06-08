@@ -15,7 +15,8 @@
                 <form action="#" onsubmit="">
                     <label for="Email">{{ $t('message.common.register.Email') }}</label>
                     <div class="button">
-                        <input type="text" v-model="emailAddress" :placeholder="$t('message.download.inputEmail')"/>
+                        <input type="text" v-model="emailAddress" @input="emailInput()" :placeholder="$t('message.download.inputEmail')"/>
+                        <div class="tip" v-if="emailErr">{{ $t('message.download.tips3') }}</div>
                     </div>
                     <!-- <div class="button" style="margin-top: 1.87vw;margin-bottom: 0.4vw;">
                         <input type="text" v-model="emailCode" placeholder="Email verification code"/>
@@ -112,7 +113,7 @@ const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: stri
     })
 }
 
-// Verify mailbox
+// is email
 const emailCodeVerification = () => {
     return new Promise((resolve, reject) => {
         if(emailInput() && emailCodeInput()){
@@ -134,6 +135,20 @@ const emailCodeVerification = () => {
         }
     })
 }
+// const inputNumber = (e:any) => {
+//     console.log(e.target.value);
+//     // console.log(e.target.value,regExp.test(e.target.value));
+//     let regExp = /^[0-9]+$/; // Verify that is a positive integer
+//     emailAddress.value = e.target.value
+//     if ( e.target.value && !(regExp.test(e.target.value))) {
+//         emailState.value = 'error' 
+//     } else if( !e.target.value ){
+//         emailState.value = 'error'
+//     }else{
+//         emailState.value = ''
+//     }
+// }
+
 
 
 // login
@@ -252,11 +267,6 @@ const emailCodeInput = () => {
     emailCodeErr.value = true;
     return false;
 }
-
-
-onUnmounted(() => {
-
-})
 
 onMounted(() => {
     code.value = router.currentRoute.value.query.code;
@@ -384,13 +394,13 @@ onMounted(() => {
                         background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/withborder-2.svg');
                         background-size: 100% 100%;
                         input{
-                            width: 100%;
-                            height: 100%;
+                            width: 24.68vw;
+                            height: 3.22vw;
                             padding: .78vw 1.2vw;
                             font-size: 1.14vw;
                             font-family: AlibabaPuHuiTi_2_85_Bold;
                             color: #FFFFFF;
-                            line-height: 1.56vw;
+                            line-height: 3.22vw;
                             background: none;
                             border: none;
                             outline: none;
@@ -405,9 +415,18 @@ onMounted(() => {
                             transform: translateY(-50%);
                             margin-right: 1.40vw;
                         }
+                        .tip{
+                            position: absolute;
+                            left: 0;
+                            bottom: -1.2vw;
+                            font-size: .83vw;
+                            font-family: AlibabaPuHuiTi_2_55_Regular;
+                            line-height: 1.14vw;
+                            color: #fb3487;
+                        }
                     }
                     .tips{
-                        margin: 1.14vw 0 1.56vw .4vw;
+                        margin: 1.4vw 0 1.56vw .4vw;
                         font-size: .83vw;
                         font-family: AlibabaPuHuiTi_2_55_Regular;
                         line-height: 1.14vw;

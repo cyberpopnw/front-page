@@ -161,7 +161,7 @@
                 <div class="left">
                     My CYT <span>{{ mycyt }}</span>
                 </div>
-                <div class="right button">
+                <div class="right button getcytbtn">
                     GET CYT
                 </div>
             </div>
@@ -233,13 +233,16 @@
                             <div class="title">Harvest (CYT) ≈ $0</div>
                             <div class="desc">0</div>
                         </div>
-                        <div class="Harvest">Harvest</div>
+                        <div class="Harvest harvestbtn">
+                            <div class="bg"></div>
+                            <div>Harvest</div>
+                        </div>
                         <div class="stake">
                             <div class="staked">
                                 <p class="title">Staked (CYT/BNB)</p>
                                 <div class="desc">0</div>
                             </div>
-                            <div class="button">
+                            <div class="button stakebtn">
                                 Stake
                             </div>
                         </div>
@@ -249,7 +252,6 @@
         </div>
     </div>
     <footer-a></footer-a>
-    <coming-a v-show="showComingFlag"></coming-a>
     <!-- 质押完成领取奖励 -->
     <FinishedA ref="Finished" v-if="isShowFinished" :isShowTips="isShowFinished"  @closeFinshed="isShowFinished = false"></FinishedA>
     <!-- 取消质押弹窗 -->
@@ -323,21 +325,6 @@ const isShowCancelStake = ref(false) as any;
 // progress
 const progress = ref(0) as any;
 
-// coming soon
-let showComingFlag:any = ref(false)
-const ctimer:any = ref(null)
-
-const showComing = () => {
-    clearTimeout(ctimer.value);
-    // default animation
-    store.dispatch('user/addComingOut', false)
-    // show coming view
-    showComingFlag.value = true;
-    ctimer.value = setTimeout(() => {
-        // change animation
-        store.dispatch('user/addComingOut', true)
-    },3000)
-}
 
 // pool
 const getTotalSupply: any = ref(0)
@@ -985,6 +972,10 @@ onMounted(async () => {
                     text-align: center;
                     font-size: 0.93vw;
                     margin-right: 2.29vw;
+                    cursor: pointer;
+                }
+                .getcytbtn:hover{
+                    filter: drop-shadow(0 0 .2vw #3f16a7);
                 }
                 .coin_logo{
                     width: 14.79vw;
@@ -1159,8 +1150,6 @@ onMounted(async () => {
                             left: 18vw;
                         }
                         .Harvest{
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
-                            background-size: 100%; 
                             width: 6.4vw;
                             line-height: 2.08vw;
                             text-align: center;
@@ -1169,8 +1158,20 @@ onMounted(async () => {
                             color: #A4F238;
                             position: absolute;
                             left: 28.5vw;
-                            bottom: 1.4vw;
+                            bottom: 1.3vw;
                             cursor: pointer;
+                            .bg{
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
+                                background-size: 100%; 
+                                &:hover{
+                                    filter: drop-shadow(0 0 .2vw #A4F238);
+                                }
+                            }
                         }
                         .stake{
                             background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin11.png');
@@ -1180,10 +1181,10 @@ onMounted(async () => {
                             position: absolute;
                             right: 0;
                             z-index: 0;
-                            bottom: 0.1vw;
+                            bottom: 0;
                             .staked{
                                 position: absolute;
-                                top: 2vw;
+                                top: 1.8vw;
                                 left: 3.5vw;
                                 .title{
                                     font-size: 0.98vw;
@@ -1209,8 +1210,11 @@ onMounted(async () => {
                                 color: #363A54;
                                 position: absolute;
                                 right: 2vw;
-                                bottom: 1vw;
+                                bottom: 1.3vw;
                                 cursor: pointer;
+                                &:hover{
+                                    filter: drop-shadow(0 0 .2vw #A4F238);
+                                }
                             }
                         }
                     }

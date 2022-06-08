@@ -10,7 +10,8 @@
             <form action="#" onsubmit="">
                 <label for="Email">{{ $t('message.common.register.Email') }}</label>
                 <div class="button">
-                    <input type="text" v-model="email" :placeholder="$t('message.download.inputEmail')"/>
+                    <input type="text" v-model="email" @input="emailInput()" :placeholder="$t('message.download.inputEmail')"/>
+                    <div class="tip" v-if="emailErr">{{ $t('message.download.tips3') }}</div>
                 </div>
                 <!-- <div class="button" style="margin-top: 28px;margin-bottom: 9px;">
                     <input type="text" v-model="emailCode" placeholder="Email verification code" @input="emailCodeInput"/>
@@ -339,6 +340,15 @@
                         top: 50%;
                         transform: translateY(-50%);
                         margin-right: 16px;
+                    }
+                    .tip{
+                        position: absolute;
+                        left: 0;
+                        bottom: -14px;
+                        font-size: 12px;
+                        font-family: AlibabaPuHuiTi_2_55_Regular;
+                        line-height: 17px;
+                        color: #fb3487;
                     }
                 }
                 .tips{
