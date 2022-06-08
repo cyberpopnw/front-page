@@ -62,7 +62,7 @@
     // download
     const isDonload: any = ref(false);
     const downloadGame = (type: number) => {
-        if(type == 1) {
+        if(type == 2) {
             store.dispatch('user/showDialog',{ show: true, info: { state: 0, txt: t('message.download.tips2') } });
             return;
         };
