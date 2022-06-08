@@ -7,7 +7,7 @@
             <div class="content">
                 <div class="title">STAKE</div>
                 <div class="nav">
-                    <div class="multiple" :class="switchFlag ? 'activePink': ''" @click="switchFlag = true">Add liquidity and stake</div>
+                    <div class="multiple" :class="switchFlag ? 'activePink': ''" @click="switchFlag = false">Add liquidity and stake</div>
                     <div class="alone" :class="!switchFlag ? 'activePink': ''" @click="switchFlag = false">Stake LP</div>
                 </div>
                 <div class="card-wrap">
@@ -53,23 +53,30 @@
                             </div>
                             <div class="tips">Insufficient YOOSHI Balance,<span>Get YOOSHI.</span></div>
                         </div>
-                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">{{ $t('message.mining.staking') }}</div>
+                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">ENTER TOKEN AMOUNT</div>
                     </div>
                     <div class="card2" v-else>
                         <div class="item">
-                            <div>
-                                <div class="tips" v-show="numState == ''">{{$t('message.assets.pop.tips')}}</div>
-                                <div class="tips" v-show="numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
+                            <div class="border">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
+                                    <div class="name">Input</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
+                                    <div class="err_tips" v-show="numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
                                 </div>
                                 <div class="btns">
-                                    <div :class="{'active': active == 0}" @click="active = 0">Mix</div>
-                                    <div :class="{'active': active == 1}" @click="active = 1">Max</div>
+                                    <div class="balance">Balance:{{haveCTY}}</div>
+                                    <div class="icon">
+                                        <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
+                                        <div class="max" @click="active = 1">MAX</div>
+                                        <div class="desc">
+                                            CYT
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">{{ $t('message.mining.staking') }}</div>
                             </div>
+                            <div class="tips">Insufficient LP Balance,<span>Get CYT.</span></div>
                         </div>
+                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">ENTER LP AMOUNT</div>
                     </div>
                 </div>
             </div>
@@ -264,9 +271,10 @@ onMounted(() => {
                     }
                 }
                 .card-wrap{
-                    .card1{
+                    .card1,.card2{
                         .item{
                             .border{
+                                position: relative;
                                 display: flex;
                                 justify-content: space-between;
                                 width: 100%;
@@ -326,9 +334,27 @@ onMounted(() => {
                                             }
                                         }
                                     }
+
+                                }
+                                .number.error{
+                                    input{
+                                        color: #FF5CA1 !important;
+                                    }
                                 }
                                 .btns{
                                     text-align: right;
+                                }
+                                .number{
+                                    .err_tips{
+                                        position: absolute;
+                                        left: 1.56vw;
+                                        bottom: 0;
+                                        font-size: .83vw;
+                                        font-family: AlibabaPuHuiTi_2_55_Regular;
+                                        color: #FF5CA1;
+                                        line-height: .83vw;
+                                        white-space: nowrap;
+                                    }
                                 }
                             }
                             .tips{
@@ -338,7 +364,9 @@ onMounted(() => {
                                 color: #FF2F2F;
                                 line-height: .83vw;
                                 span{
+                                    text-decoration: underline;
                                     color: #ffffff;
+                                    cursor: pointer;
                                 }
                             }
                         }
@@ -348,80 +376,28 @@ onMounted(() => {
                             height: 1.09vw;
                             margin: 0 auto 1.04vw;
                         }
+                        .staking{
+                            width: 17.29vw;
+                            height: 2.91vw;
+                            margin: .78vw auto 0;
+                            font-size: 1.04vw;
+                            font-family: AlibabaPuHuiTi_2_115_Black;
+                            line-height: 2.91vw;
+                            text-align: center;
+                            background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakingA_bthbg.svg);
+                            background-size: 100% 100%;
+                            background-repeat: no-repeat;
+                            cursor: pointer;
+                            transition: all .2s ease-in-out;
+                        }
+                        .not-allowed{
+                            cursor: not-allowed !important;
+                            opacity: .4;
+                        }
+                        .not-allowed:hover{
+                            opacity: .4;
+                        }
                     }
-                }
-                // .item{
-                //     .number.error{
-                //         border: 1px solid #FF5CA1 !important;
-                //         input{
-                //             color: #FF5CA1 !important;
-                //         }
-                //         .add{
-                //             border-bottom: .6vw solid #FF5CA1 !important;
-                //         }
-                //         .reduce{
-                //             border-top: .6vw solid #FF5CA1 !important;
-                //         }
-                //     }
-                //     .btns{
-                //         display: flex;
-                //         margin-bottom: 1vw;
-                //         div{
-                //             margin-right: 1vw;
-                //             padding: 0.7vw 1.5vw;
-                //             border: 1px solid rgba(83, 77, 126, 1);
-                //             border-radius: 5px;
-                //             font-family: AlibabaPuHuiTi_2_55_Regular;
-                //             cursor: pointer;
-                //         }
-                //         .active{
-                //             color: rgb(22, 19, 19);
-                //             background-color: rgb(145, 138, 202);
-
-                //         }
-                //     }
-                //     .staking{
-                //         background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwbox/details2.png);
-                //         width: 11.94vw;
-                //         height: 3.125vw;
-                //         background-size: 100% 100%;
-                //         background-repeat: no-repeat;
-                //         cursor: pointer;
-                //         font-size: 1.64vw;
-                //         display: flex;
-                //         justify-content: center;
-                //         cursor: pointer;
-                //         align-items: center;
-                //         font-family: AlibabaPuHuiTi_2_115_Black;
-                //         transition: all .2s ease-in-out;
-                //     }
-                //     .purchase:hover{
-                //         opacity: .7;
-                //     }
-                //     .not-allowed{
-                //         cursor: not-allowed !important;
-                //         opacity: .4;
-                //     }
-                //     .not-allowed:hover{
-                //         opacity: .4;
-                //     }
-                // }
-            }
-            .btn{
-                position: absolute;
-                bottom: 1vw;
-                right: 3vw;
-                .cancel{    
-                    width: 8.54vw;
-                    height: 2.91vw;
-                    font-size: 1.04vw;
-                    font-family: AlibabaPuHuiTi_2_115_Black;
-                    color: #FFFFFF;
-                    line-height: 2.91vw;
-                    text-align: center;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/meta-cancle.svg');
-                    background-size: 100% 100%;
-                    cursor: pointer;
                 }
             }
         }
