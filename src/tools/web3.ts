@@ -410,6 +410,22 @@ const loadingErc1155 = (abi: any[], address: string, tokenId: any, number: any) 
 }
 
 
+//withdraw cyt
+const withdraw = (abi: any[], address: string, amount: number) =>  {
+    console.log(amount);
+    
+    return new Promise(async (resolve, reject) => {
+        const web3 = new Web3((Web3 as any).givenProvider);
+        const contract = new web3.eth.Contract(abi, address)
+        contract.methods.withdraw(amount).send({ from: accounts.value }).then(function (receipt: any) {
+            resolve(receipt)
+        }).catch((err: any) => {
+            resolve(0)
+            console.log('error');
+        })
+    })
+}
+
 // Withdrawal and withdrawal
 const withdrawRole = (abi: any[], address: string, tokenId: any) => {
     return new Promise((resolve, reject) => {
@@ -452,7 +468,8 @@ const ERC20balanceOf = (abi: any[], address: string) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
         let result = await contract.methods.balanceOf(accounts.value).call();
-        resolve(result/1000000)
+        // resolve(result/1000000)
+        resolve(result)
     })
 } 
 
@@ -461,12 +478,30 @@ const stake = (abi: any[], address: string, number: number) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
-        contract.methods.stake(number).send({ from: accounts.value }).then(function (receipt: any) {
-            resolve(receipt)
-        }).catch((err: any) => {
-            resolve(0)
-            console.log('error');
-        })
+        contract.methods
+            .stake(number)
+            .send({ from: accounts.value })
+            .on('transactionHash', function (hash: any) {
+                console.log(`---------->:hash`, hash)
+            })
+            .on('receipt', function (receipt: any) {
+                console.log(`---------->:receipt`, receipt)
+                setTimeout(() => {
+                    resolve(receipt)
+                }, 1000);
+            })
+            .on('confirmation', function (confirmationNumber: any, receipt: any) {
+                console.log(`---------->:confirmationNumber, receipt`, confirmationNumber, receipt)
+            })
+            .on('error', (err: any) => {
+                console.log(`---------->:err`, err)
+            })
+        // contract.methods.stake(number).send({ from: accounts.value }).then(function (receipt: any) {
+        //     resolve(receipt)
+        // }).catch((err: any) => {
+        //     resolve(0)
+        //     console.log('error');
+        // })
     })
 }
 
@@ -485,6 +520,22 @@ const DaysRemaining = (abi: any[], address: string, tokenId: number) => {
         let getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
         console.log(getBalanceOf, 'getBalanceOf');
         let result = ((_price - earned) * 1000000000000000000)  / (rewardPerToken * getBalanceOf); //_balances
+        console.log(result, 'result');
+        resolve(result);
+    })
+}
+
+// DaysRemaining speed
+const DaysRemainingSpeed = (abi: any[], address: string, tokenId: number) => {
+    return new Promise(async (resolve, reject) => {
+        const web3 = new Web3((Web3 as any).givenProvider);
+        const contract = new web3.eth.Contract(abi, address)
+        let _price = await contract.methods._price([1]).call();
+        let rewardPerToken = await contract.methods.rewardPerToken().call();
+        console.log(rewardPerToken, 'rewardPerToken');
+        let getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
+        console.log(getBalanceOf, 'getBalanceOf');
+        let result = (rewardPerToken * getBalanceOf); //_balances
         console.log(result, 'result');
         resolve(result);
     })
@@ -567,20 +618,6 @@ const getNFT = (abi: any[], address: string) => {
 }
 
 
-// Refund
-const withdraw = (abi: any[], address: string, amount: number) =>  {
-    return new Promise(async (resolve, reject) => {
-        const web3 = new Web3((Web3 as any).givenProvider);
-        const contract = new web3.eth.Contract(abi, address)
-        contract.methods.withdraw(amount).send({ from: accounts.value }).then(function (receipt: any) {
-            resolve(receipt)
-        }).catch((err: any) => {
-            resolve(0)
-            console.log('error');
-        })
-    })
-}
-
 
 export default {
     safeTransferFrom,
@@ -611,6 +648,7 @@ export default {
     ERC20balanceOf,
     stake,
     DaysRemaining,
+    DaysRemainingSpeed,
     notifyrewardamount,
     getReward,
     getNFT,

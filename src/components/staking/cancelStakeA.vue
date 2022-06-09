@@ -7,19 +7,19 @@
             <div class="content">
                 <div class="title">UNSTAKE</div>
                 <div class="chunks">
-                    <div class="withdraw">
+                    <div class="withdraw" :class="{'select': selected == 0}" @click="selected = 0">
                         <div class="texts"> 
                             <p>You Will Withdraw</p>
-                            <p>0.00092210891</p>
+                            <p>{{ myStakCyt / 2}}</p>
                         </div>
                         <div class="bull">
                             <div></div>
                             <div></div>
                         </div>
                     </div>
-                    <div class="reward">
+                    <div class="reward" :class="{'select': selected == 1}" @click="selected = 1">
                         <p>With Unclaimed reward</p>
-                        <div>0.00092210891<div class="bull"></div> </div>
+                        <div>{{ myStakCyt }}<div class="bull"></div> </div>
                         <p>CYT</p>
                     </div>
                     <div class="tips">
@@ -46,6 +46,7 @@ import Web3 from '@/tools/web3'
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
 const { staking } = Web3.contracts;
+const myStakCyt: any = ref(0)
 const emit = defineEmits(['closeFinshed']);
 const props = defineProps({
     isShowTips: Boolean,
@@ -73,20 +74,24 @@ const closeDialog = () => {
     }, 300);
 }
 
+
 // Confirm selection
 const confirm = async () => {
-    if(selected.value == 0){
-        let result = await Web3.getReward(staking.abi, staking.address)
-        console.log(result);
-        
-    }else{
-        let result = await Web3.getNFT(staking.abi, staking.address);
-        console.log(result);
-    }
+    console.log(myStakCyt.value, 'myStakCyt.vlaue');
+    let result = await Web3.withdraw(staking.abi, staking.address, selected.value == 0 ? myStakCyt.value / 2 : myStakCyt.value);
+    console.log(result);
+    store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+}
+
+
+const init = async () => {
+    myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address)
+    console.log(myStakCyt.value, 'myStakCyt.value');
 }
 
 
 onMounted(() => {
+    init();
     console.log(props);
 })
 
@@ -174,7 +179,6 @@ onMounted(() => {
                     .withdraw{
                         // width: 27.3vw;
                         height: 6.4vw;
-                        background: rgba(182, 156, 199, 0.17);
                         border-radius: 0px 0px 0px 0px;
                         opacity: 1;
                         display: flex;
@@ -258,6 +262,9 @@ onMounted(() => {
                             border-radius: 50%;
                             margin-left: 1.04vw;
                         }
+                    }
+                    .select{
+                        background: rgba(182, 156, 199, 0.17);
                     }
                     .tips{
                         height: 4.79vw;
