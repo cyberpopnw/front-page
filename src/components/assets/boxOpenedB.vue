@@ -119,7 +119,7 @@ onMounted(() => {
             color: #fff;
             box-shadow: -20px 20px 20px 10px rgba(0, 0, 0, 0.4);
             background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
-            border: .15vw solid;
+            border: 3px solid;
             border-image: linear-gradient(219deg, rgba(83, 77, 126, 1), rgba(45, 39, 65, 1), rgba(45, 42, 66, 1), rgba(34, 103, 90, 1)) 3 3;
             clip-path: polygon(0 0, 100% 0, 100% 89%, 90% 100%, 0 100%);
             .cover{

@@ -10,6 +10,7 @@
             </div>
             <div class="menuMask" ref="cursor" :class="isPage && (showMenuAni ? 'menuAnimation' : 'stopMenuAnimation')">
                 <div class="close-menu">
+                    <div v-show="realId == -1"></div>
                     <div class="select_chain" v-show="realId !== -1" @click="showMsgPop()"><img :src="chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.name : chainList.notSupported.name }}</span></div>
                     <img @click="closeMenuIcon()" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/close-menu.svg" alt="">
                 </div>
@@ -58,7 +59,6 @@
         </header>
     </div>
     <metamask-b v-if="metaMaskActive"></metamask-b>
-    <coming-b v-show="showComingFlag"></coming-b>
     <!-- Dealer registration -->
     <register-b v-if="register" :register="register" :registerTrans="registerTrans" :code="code" :level="level" @closeRegister="closeRegister"></register-b>
 </template>
@@ -146,27 +146,6 @@ const showMsgPop = () => {
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
 }
-
-
-
-// coming soon
-let showComingFlag:any = ref(false)
-const ctimer:any = ref(null)
-
-const showComing = () => {
-    clearTimeout(ctimer.value);
-    // Stow menu
-    store.dispatch('wallet/walletMenuAni', false)
-    // default animation
-    store.dispatch('user/addComingOut', false)
-    // show coming view
-    showComingFlag.value = true;
-    ctimer.value = setTimeout(() => {
-        // change animation
-        store.dispatch('user/addComingOut', true)
-    },3000)
-}
-
 
 
 // menu
@@ -269,9 +248,9 @@ const connect: any = async () => {
     const ismessage: any = await NFT.hasMetaMask()
 
     if( ismessage == 'No install' ){
-        // store.dispatch('wallet/metaChange',true);
-        // store.dispatch('wallet/metaChangeAni',true);
-        // store.dispatch('wallet/checkInstall',false);
+        store.dispatch('wallet/metaChange',true);
+        store.dispatch('wallet/metaChangeAni',true);
+        store.dispatch('wallet/checkInstall',false);
     }else{
         store.dispatch('wallet/metaChange',true);
         store.dispatch('wallet/metaChangeAni',true);
@@ -530,6 +509,8 @@ onMounted(() => {
                     button{
                         padding: 0 20px;
                         height: 30px;
+                        font-size: 12px;
+                        font-family: AlibabaPuHuiTi_2_55_Regular;
                         background-color: #452CB6;
                         border-radius: 4px;
                         border: none;

@@ -164,7 +164,7 @@ onMounted(() => {
                 right: 0;
                 padding: 0 2.5vw;
                 .title{
-                    font-size: 1.95vw;
+                    font-size: 1.45vw;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     font-weight: normal;
                     line-height: 2.08vw;

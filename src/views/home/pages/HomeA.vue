@@ -872,8 +872,8 @@ const playVideo = (type: any) => {
 
 
 const submit = () => {
-    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //regular
-    
+    // let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //regular
+    let reg = /@/;
     if(email.value === ""){ //Input cannot be empty
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.home.mess_register_null')}})
 　　　　return false;

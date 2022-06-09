@@ -166,7 +166,7 @@ const closePopUp = () => {
                         background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/meta-cancle.svg');
                         background-size: 100% 100%; 
                         &:hover{
-                            filter: drop-shadow(0 0 .2vw #ffffff);
+                            filter: drop-shadow(0 0 .3vw #ffffff);
                         }
                     }
                 }
@@ -181,7 +181,7 @@ const closePopUp = () => {
                         text-decoration: none;
                     }
                     &:hover{
-                        filter: drop-shadow(0 0 .2vw #d530d0);
+                        filter: drop-shadow(0 0 .3vw #d530d0);
                     }
                 }
             }
