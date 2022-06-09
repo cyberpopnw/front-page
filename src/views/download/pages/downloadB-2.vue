@@ -86,7 +86,7 @@
                 return;
             }
             if(res.data.code == 510) {
-                store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.download.tips5') }})
+                addressInfo()
                 return;
             }
             if(res.data.code == 506) {
@@ -107,6 +107,14 @@
         })
     }
 
+    // Get address binding information
+    const addressInfo = () => {
+        proxy.$api.get(`/code/user/baddress?address=${thisAcounts.value}`).then((result: any) => {
+            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: "You're bound: " + result.data }})
+        }).catch((err: any) => {
+            console.log(err); 
+        })
+    }
 
     // login
     const messgSing = async (publicAddress: any) => {
@@ -153,7 +161,8 @@
                 store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}});
             }
         }).catch( (err: any) => {
-            console.log(err)
+            const ethereum = (window as any).ethereum // Get fox instance
+            if(!ethereum) getPublicAddress(email.value, code.value, '');
         })
     }
 
@@ -176,7 +185,7 @@
     const ReferralCodeErr = ref(false);
     const Sended = ref(60);
     const emailInput = () => {
-        let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
+        let reg = /@/; //正则
         emailErr.value = false;
         if(!reg.test(email.value)) {
             emailErr.value = true;

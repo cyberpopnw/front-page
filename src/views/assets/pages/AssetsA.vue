@@ -306,6 +306,8 @@ const addressInfo = () => {
     })
 }
 
+
+// search model
 const myNav:any = ref(null);
 const ecrchange: any = ref(null);
 const content: any = ref(500);
@@ -318,9 +320,9 @@ const windowScroll: any = () => {
     content.value = ecrchange.value.offsetTop + 70;
     let navHeight: number = myNav.value.offsetHeight;  // NAV element height
     let cHeight: number = document.documentElement.clientHeight; // Window height
-    let scrollHeight: number = document.documentElement.scrollTop; // How many PX slides down
-    // console.log(navHeight, cHeight, scrollHeight, content, scrollHeight + content.value - (navHeight / 2) + 'px');
-    myNav.value.style.top =  scrollHeight + content.value - (navHeight / 2) + 'px';
+    let scrollHeight: number = document.documentElement.scrollTop; // How many PX slides down 
+    // console.log(navHeight, cHeight, scrollHeight, content, scrollHeight + content.value - (navHeight / 1.5) + 'px');
+    myNav.value.style.top =  scrollHeight + content.value - (navHeight / 1.5) + 'px';
     let navTop = myNav.value.style.top.substring(0, myNav.value.style.top.length - 2);
     if(navTop < content.value){
         myNav.value.style.top = content.value + 'px';
@@ -820,12 +822,6 @@ const open = (item: any) => {
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: true, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'),   addNetwork: false, boxId: item.id, haveNFT: item.number }});
 }
-
-
-onUnmounted(() => {
-    window.removeEventListener('scroll', windowScroll, true);
-    // clearInterval(timer);
-})
 
 
 onMounted(() => {
