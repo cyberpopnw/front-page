@@ -1,8 +1,8 @@
 <template>
     <header-a path="/mining" :type="1"></header-a>
-    <div class="section">
+    <!-- <div class="section">
         <div class="title">{{$t('message.mining.coming')}}</div>
-    </div>
+    </div> -->
     <div class="mining">
         <div class="banner">
             <div class="titles">
@@ -278,10 +278,10 @@ const { t, locale } = useI18n();
 const router = useRouter()
 const realId = computed(() => store?.state.wallet?.realId);  // Asterisk address
 const chainId: any = computed(() => store.state.user?.chainId);
-const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
-watch(readyAssetsF, (newVal, oldVal: any) => {
-    console.log(newVal, oldVal, 'readyAssetsF');
-    if(!oldVal || oldVal == -1) return;
+const readyAssets: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
+watch(readyAssets, (newVal: number, oldVal: any) => {
+    console.log(newVal, oldVal, 'readyAssets');
+    if(newVal <= 0 || oldVal == -1) return;
     init()
     console.log('her3');
 }, {immediate:true,deep:true});
