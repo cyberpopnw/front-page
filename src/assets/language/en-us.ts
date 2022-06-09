@@ -212,6 +212,7 @@ const us = {
             // homwA-register
             reg_title: 'READY FOR YOUR JOURNEY?',
             reg_subtitle: 'GET THE LASTEST IN INBOX',
+            reg_submit: 'Register',
             reg_submit1: 'Register',
             reg_submit2: 'email',
             reg_link: 'Become an ambassador',

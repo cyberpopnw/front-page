@@ -385,9 +385,16 @@
             }
         }
         .down_button{
-            padding: 0 17px;
+            padding: 130px 17px 0;
             margin-bottom: 30px;
+            margin-top: -130px;
             color: #FFFFFF;
+            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/step2_bg-b.png');
+            background-repeat: no-repeat;
+            background-size: 112% auto;
+            transition: all .2s ease-in-out;
+            // display: inline-block;
+            z-index: 0;
             .arrow{
                 width: 32px;
                 height: 32px;
@@ -449,8 +456,8 @@
                     position: relative;
                     .media{
                         margin-right: 10px;
-                        width: 28px;
-                        height: 28px;
+                        width: 22px;
+                        height: 22px;
                     }
                 }
                 .not-error{

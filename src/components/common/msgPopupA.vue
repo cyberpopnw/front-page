@@ -213,7 +213,7 @@ onMounted(() => {
             bottom: 0;
             width: 31.51vw;
             min-width: 380px;
-            min-height: 340px;
+            min-height: 20vw;
             margin: auto;
             padding: 2.5vw;
             box-shadow: -1.51vw .83vw .2vw .05vw rgba(0, 0, 0, 0.4);

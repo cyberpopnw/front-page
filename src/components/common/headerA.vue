@@ -575,6 +575,9 @@ onMounted(() => {
                         .selected{
                             border: 1px solid transparent;
                             color: #fff;
+                            &:hover{
+                                opacity: .8;
+                            }
                         }
 
                         .select_chain:hover{
@@ -583,17 +586,17 @@ onMounted(() => {
                         .selected:hover{
                             box-shadow: none;
                         }
-                        .selected:hover .blur{
-                            display: block;
-                        }
-                        .blur{
-                            display: none;
-                            position: absolute;
-                            width: 6vw;
-                            height: 0.46vw;
-                            background: #6D4AFF;
-                            filter: blur(0.52vw);
-                        }
+                        // .selected:hover .blur{
+                        //     display: block;
+                        // }
+                        // .blur{
+                            // display: none;
+                            // position: absolute;
+                            // width: 6vw;
+                            // height: 0.46vw;
+                            // background: #6D4AFF;
+                            // filter: blur(0.52vw);
+                        // }
                         .hover_chunk{
                             z-index: 10;
                             position: absolute;
@@ -620,7 +623,7 @@ onMounted(() => {
                                     }        
                                 }
                                 .item:hover{
-                                    color: #6D4AFF;
+                                    color: #DE2DCF;
                                 }
                             }
                         }
@@ -655,6 +658,9 @@ onMounted(() => {
                                 font-size: .52vw;
                                 line-height: .5vw;
                                 transform: scale(.8);
+                            }
+                            &:hover{
+                                opacity: .8;
                             }
                         }
                     }
@@ -746,6 +752,10 @@ onMounted(() => {
                         img{
                             width: 1.56vw;
                             height: 1.56vw;
+                            cursor: pointer;
+                            &:hover{
+                                opacity: .8;
+                            }
                         }
                         .langUl{
                             position: absolute;

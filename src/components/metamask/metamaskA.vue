@@ -14,7 +14,10 @@
                 <div class="desc" v-if="!isInstall">{{$t('message.common.metamask.descBef')}}<strong>{{$t('message.common.metamask.logoText')}}</strong>{{$t('message.common.metamask.descNAft')}}</div>
                 <div class="desc" v-if="isInstall">{{$t('message.common.metamask.descIns')}}</div>
                 <div class="btn" v-if="!isInstall">
-                    <div class="cancel" @click="closePopUp()">{{$t('message.common.metamask.cancel')}}</div>
+                    <div class="cancel" @click="closePopUp()">
+                        <div>{{$t('message.common.metamask.cancel')}}</div>
+                        <div class="bg"></div>
+                    </div>
                     <div class="open"><a @click="closePopUp()" href="https://metamask.io/" target="view_window">{{$t('message.common.metamask.open')}}</a></div>
                 </div>
                 <div class="loading" v-else>
@@ -150,11 +153,22 @@ const closePopUp = () => {
                 line-height: 2.91vw;
                 text-align: center;
                 .cancel{
+                    position: relative;
                     width: 8.54vw;
                     height: 100%;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/meta-cancle.svg');
-                    background-size: 100% 100%;
                     cursor: pointer;
+                    .bg{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/meta-cancle.svg');
+                        background-size: 100% 100%; 
+                        &:hover{
+                            filter: drop-shadow(0 0 .2vw #ffffff);
+                        }
+                    }
                 }
                 .open{
                     width: 13.9vw;
@@ -165,6 +179,9 @@ const closePopUp = () => {
                     a{
                         color: #ffffff;
                         text-decoration: none;
+                    }
+                    &:hover{
+                        filter: drop-shadow(0 0 .2vw #d530d0);
                     }
                 }
             }

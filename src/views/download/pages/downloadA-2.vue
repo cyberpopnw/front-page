@@ -2,7 +2,7 @@
     <header-a path="download" :type="0" v-if="isClick"></header-a>
     <div class="warp">
         <div class="banner">
-            <div class="nav"><span class="green">{{ $t('message.download.nav_txt1') }}</span> > {{ $t('message.download.nav_txt2') }}</div>
+            <div class="nav"><span class="green" @click="router.push('/')">{{ $t('message.download.nav_txt1') }}</span> > {{ $t('message.download.nav_txt2') }}</div>
             <div class="banner_txt">
                 <div class="welmsg">{{ $t('message.download.welmsg_txt1') }} <span>{{ $t('message.download.welmsg_txt2') }}</span></div>
                 <div class="title">{{ $t('message.download.title') }}</div>
@@ -319,6 +319,9 @@ onMounted(() => {
                 font-size: 1.09vw;
                 font-family: AlibabaPuHuiTi_2_75_SemiBold;
                 line-height: 1.51vw;
+                span{
+                    cursor: pointer;
+                }
             }
             .banner_txt{
                 margin: 5.46vw 0 0 19.63vw;

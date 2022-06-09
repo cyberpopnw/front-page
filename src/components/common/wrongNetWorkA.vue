@@ -1,7 +1,6 @@
 <template>
     <div class="warp" v-show="isShowTips">
-        <div class="container" @click="close">
-        </div>
+        <div class="container" @click="close"></div>
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide') ">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -80,8 +79,9 @@ onMounted(() => {
         align-items: center;
         position: fixed;
         left: 0;
-        z-index: 187;
         top: 0;
+        z-index: 187;
+        background: transparent;
         .container{
             position: fixed;
             left: 0;
@@ -89,7 +89,7 @@ onMounted(() => {
             z-index: 187;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, .5);
+            background: rgba(0,0,0,.4);
             color: #fff;
         }
         .mask{
