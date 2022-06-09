@@ -210,6 +210,7 @@ const kr = {
             // homwA-register
             reg_title: '장도에 오를 준비가 돼 있습니까?',
             reg_subtitle: 'INBOX의 최신정보 가져오기 ',
+            reg_submit: '등록',
             reg_submit1: 'Register',
             reg_submit2: 'email',
             reg_link: '저희의 홍보대사로 되기',

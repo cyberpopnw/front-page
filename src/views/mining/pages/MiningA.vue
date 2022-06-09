@@ -260,6 +260,7 @@
     <SelectNFTA ref="SelectNFT" v-if="isShowSelectNFT" :isShowTips="isShowSelectNFT"  @closeFinshed="isShowSelectNFT = false"></SelectNFTA>
     <!-- 切换网络弹窗 -->
     <!-- <wrongNetWorkA :isShowTips="isShowTips" @changeSwitch="changeSwitch"></wrongNetWorkA> -->
+    <Waiting v-if="waitingState" :isShowWaiting="waitingState" :loadInfo="waitingInfo"></Waiting>
 </template>
 <script setup lang="ts">
 import { onMounted, ref, reactive, computed, getCurrentInstance, onUnmounted, watch } from 'vue'
@@ -272,6 +273,7 @@ import { useI18n } from 'vue-i18n';
 import FinishedA from '@/components/staking/FinishedA.vue';
 import SelectNFTA from '@/components/staking/selectNFTA.vue';
 import CancelStake from '@/components/staking/cancelStakeA.vue';
+import Waiting from '@/components/staking/waiting.vue';
 
 const { staking, cytV2 } = Web3.contracts;
 const { t, locale } = useI18n();
@@ -305,7 +307,14 @@ watch(realId, (newVal, oldVal: any) => {
     console.log('her3');
 }, {immediate:true,deep:true});
 
-
+// waiting dialog
+const waitingState = computed(() => store?.state.staking?.waitingState);
+// store.dispatch('staking/waitingChangeAni', true); 
+const waitingInfo = { // not require
+    title: 'WAITING FOR CONFIRMATION',
+    subtitle: '',
+    desc: 'Please confirm this transaction in your wallet'
+}
 
 // Sub component finished (pledge completed to receive reward)
 const Finished = ref(null);

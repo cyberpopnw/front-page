@@ -60,7 +60,7 @@
                             <div class="border">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
                                     <div class="name">Input</div>
-                                    <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
+                                    <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn" :placeholder="valueIn">
                                     <div class="err_tips" v-show="numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
                                 </div>
                                 <div class="btns">
@@ -173,14 +173,6 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-    @keyframes loadingAni {
-        0%{
-            transform: rotate(0);
-        }
-        100%{
-            transform: rotate(360deg);
-        }
-    }
     .container{
         position: fixed;
         display: flex;
@@ -292,10 +284,28 @@ onMounted(() => {
                                         font-size: 1.61vw;
                                         line-height: 1.61vw;
                                         font-family: AlibabaPuHuiTi_2_85_Bold;
-                                        color: rgba(255, 255, 255, 0.4);
+                                        color: #ffffff;
                                         border: none;
                                         outline: none;
                                         background: transparent;
+                                        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                                            color: rgba(255, 255, 255, 0.4);
+                                        }
+                                        &::-webkit-input-placeholder{
+                                            color: rgba(255, 255, 255, 0.4);
+                                        }
+                                        &::-moz-placeholder{   /* Mozilla Firefox 19+ */
+                                            color: rgba(255, 255, 255, 0.4);
+                                        }
+                                        &:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+                                            color: rgba(255, 255, 255, 0.4);
+                                        }
+                                        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                            color: rgba(255, 255, 255, 0.4);
+                                        }
+                                        &::-ms-input-placeholder { /* Microsoft Edge */
+                                            color: rgba(255, 255, 255, 0.4);
+                                        }
                                     }
                                     input::-webkit-outer-spin-button,
                                     input::-webkit-inner-spin-button {

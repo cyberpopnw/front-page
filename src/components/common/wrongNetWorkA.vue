@@ -80,8 +80,8 @@ onMounted(() => {
         align-items: center;
         position: fixed;
         left: 0;
-        z-index: 187;
         top: 0;
+        z-index: 187;
         .container{
             position: fixed;
             left: 0;
@@ -89,7 +89,7 @@ onMounted(() => {
             z-index: 187;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, .5);
+            background: rgba(0,0,0,.4);
             color: #fff;
         }
         .mask{

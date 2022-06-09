@@ -129,7 +129,6 @@ onMounted(() => {
         position: absolute;
         top: 0vw;
         left: 50%;
-        font-size: 1vw;
         transform: translateX(-50%);
         /* width: 52.34vw; */
         height: 2.3vw;
@@ -151,10 +150,11 @@ onMounted(() => {
     }
     .ip_error_Mobile{
         top: 10vw;
-        width: auto;
+        width: calc(100vw - 40px);
         height: auto;
         padding: 6px;
-        line-height: 2.6vw;
+        font-size: 14px;
+        line-height: 14px;
         white-space: normal;
     }
     .ip_error_Mobile > img{
