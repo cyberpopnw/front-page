@@ -6,7 +6,7 @@
             <img class="close" src="@/assets/nwhome/close.svg" alt=""  @click="closeDialog">
             <div class="content">
                 <div class="title">Finished</div>
-                <div class="text">Staking accomplished,you can choose CTY or NFT as a reward</div>
+                <div class="text">Staking accomplished,you can choose CYT or NFT as a reward</div>
                 <div class="reward_chunks">
                     <div class="item" :class="{'selected': selected == 0}" @click="selected = 0">
                         <div class="chunk">

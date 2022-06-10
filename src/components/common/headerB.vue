@@ -17,10 +17,6 @@
                 <div class="login_in" v-if="!loggined" @click="login()">
                     <div class="txt">{{$t('message.common.wallet')}}</div>
                 </div>
-                <div class="code"> 
-                    <button @click="isRegister(true)">{{ $t('message.home.reg_submit') }}</button> 
-                    <span v-if="code">{{ $t('message.home.inviter_Code') }}: {{ code }} &nbsp;&nbsp;&nbsp; {{ $t('message.home.level') }}: {{ level }}</span> 
-                </div>
                 <div class="logged_in" v-if="loggined">
                     <img class="portrait" src="@/assets/nwhome/portrait.svg" alt="">
                     <div class="idtxt">{{ realId }}</div>
@@ -29,6 +25,13 @@
                         <div class="logout" @click="signout">{{$t('message.common.login_logout')}}</div>
                     </div>
                     <div class="mask"></div>
+                </div>
+                <div class="code"> 
+                    <div class="email-wrap" @click="isRegister(true)">
+                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/register-email-b.svg" alt="">
+                        <span>Email Register</span>
+                    </div>
+                    <div v-if="code">{{ $t('message.home.inviter_Code') }}: {{ code }} &nbsp; {{ $t('message.home.level') }}: {{ level }}</div> 
                 </div>
                 <ul id="menuUl" class="menuul">
                     <li @click="changeMenu(0, '/')" :class="{'active': active == 0}">{{$t('message.common.menu1')}}</li>
@@ -505,20 +508,37 @@ onMounted(() => {
                 }
                 .code{
                     text-align: center;
+                    width: 287px;
+                    margin: 10px auto 0;
+                    color: #ffffff;
                     font-size: 1vw;
-                    button{
-                        padding: 0 20px;
-                        height: 30px;
-                        font-size: 12px;
-                        font-family: AlibabaPuHuiTi_2_55_Regular;
-                        background-color: #452CB6;
-                        border-radius: 4px;
-                        border: none;
-                        outline: none;
-                        color: #fff;
+                    .email-wrap{
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 45px;
+                        &::before{
+                            position: absolute;
+                            content: '';
+                            width: 100%;
+                            height: 100%;
+                            border: 1px solid #FFFFFF;
+                            box-shadow: 0px 0px 4px #ffffff;
+                        }
+                        img{
+                            width: 30px;
+                        }
+                        span{
+                            margin-left: 10px;
+                            font-size: 16px;
+                            font-family: AlibabaPuHuiTi_2_55_Regular;
+                        }
                     }
-                    span{
-                        margin-left: 10px;
+                    div:last-child{
+                        margin-top: 10px;
+                        opacity: .5;
                     }
                 }
                 .logged_in{

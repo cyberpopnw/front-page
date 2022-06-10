@@ -125,7 +125,7 @@ onMounted(() => {
             left: 0;
             right: 0;
             bottom: 0;
-            width: 35.38vw;
+            width: 31.51vw;
             height: 32.81vw;
             margin: auto;
             padding: 2.5vw;
@@ -168,7 +168,7 @@ onMounted(() => {
                 right: 0;
                 padding: 0 2.13vw;
                 .title{
-                    font-size: 1.95vw;
+                    font-size: 1.45vw;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     font-weight: normal;
                     line-height: 2.08vw;
@@ -179,8 +179,6 @@ onMounted(() => {
                     .withdraw{
                         // width: 27.3vw;
                         height: 6.4vw;
-                        border-radius: 0px 0px 0px 0px;
-                        opacity: 1;
                         display: flex;
                         align-items: center;
                         position: relative;

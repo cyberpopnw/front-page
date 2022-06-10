@@ -16,12 +16,17 @@
                         <div class="select_chain" @click="switchChain" :class="{'selected': chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85}"><img :src="chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.name : chainList.notSupported.name }}</span><div class="blur"></div></div>
                         <div class="hover_chunk" v-show="showChainList">
                             <div class="chunk_wrap">
-                                <div v-for="(value,key,index) in chainList" @click="changeChain(value)" :key="index" class="item" v-show="!value.active"><img :src="value.img" alt=""><span>{{ value.name }}</span></div>
+                                <div class="cover"></div>
+                                <div class="coverborder"></div>
+                                <div class="network">
+                                    <div v-for="(value,key,index) in chainList" @click="changeChain(value)" :key="index" class="item" v-show="!value.active"><img :src="value.img" alt=""><span>{{ value.name }}</span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="language" ref="clickCursor3">
-                        <img @click="showLanguage = !showLanguage" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-language.svg" alt="">
+                        <!-- <img @click="showLanguage = !showLanguage" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-language.svg" alt=""> -->
+                        <div class="icon" @click="showLanguage = !showLanguage"></div>
                         <div class="langUl" v-show="showLanguage" ref="cursor3">
                             <div class="wrap">
                                 <div class="cover"></div>
@@ -35,11 +40,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="download">
+                        <div @click="goDownload()"></div>
+                    </div>
                     <div class="register">
                         <div class="register_button" @click="isRegister(true)">
-                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/register-email.svg" alt="">
-                            <span>{{ $t('message.home.reg_submit1') }}</span>
-                            <span>{{ $t('message.home.reg_submit2') }}</span>
+                            <!-- <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/register-email.svg" alt=""> -->
+                            <!-- <span>{{ $t('message.home.reg_submit1') }}</span>
+                            <span>{{ $t('message.home.reg_submit2') }}</span> -->
                         </div>
                     </div>
                     <div class="login_in" v-if="!loggined" @click="login()" @mouseenter="mouseEnter()" @mouseleave="mouseLeave()">
@@ -142,27 +150,27 @@ const props = defineProps({
 const chainList = ref({
     BSC: {
         name: 'BSC',
-        img: 'https://testnet.bscscan.com/images/favicon.ico',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/BSC.ico',
         chainId: 56,
     },
     avax: {
         name: 'Fuji',
-        img: 'https://nftrade.com/img/chains/icons/avax.png',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/avax.png',
         chainId: 43113,
     },
     mumbai: {
         name: 'Mumbai',
-        img: 'https://mumbai.polygonscan.com/images/svg/brands/poly.png?v=1.3',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/poly.png',
         chainId: 80001,
     },
     Gate: {
         name: 'Gate',
-        img: 'https://www.gatechain.io/docs/assets/img/logo.svg',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/gate.svg',
         chainId: 85,
     },
     select: {
         name: 'BSC',
-        img: 'https://testnet.bscscan.com/images/favicon.ico',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/BSC.ico',
         chainId: 56,
         active: 1,
     },
@@ -173,6 +181,18 @@ const chainList = ref({
     }
 }) as any
 
+
+// go to download
+const goDownload = () => {
+    router.push({ path: '/download', query: { code: router.currentRoute.value.query.code, isClick: 1 } })
+    return;
+    // if( realId.value != -1 ){
+    //     showDown.value = true;
+    //     isOut.value = false;
+    // }else{
+    //     connect()
+    // }
+}
 
 
 const showChainList = ref(false);
@@ -600,30 +620,55 @@ onMounted(() => {
                         .hover_chunk{
                             z-index: 10;
                             position: absolute;
-                            top: 5.5vw;
+                            top: 3.8vw;
                             left: 0;
-                            padding-top: .3vw;
                             .chunk_wrap{
+                                position: relative;
                                 width: 9.27vw;
-                                padding: 0 .8vw;
-                                padding-bottom: 1vw;
+                                margin-top: 2vw;
                                 background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
                                 border: .15vw solid;
                                 border-image: linear-gradient(219deg, rgba(83, 77, 126, 1), rgba(45, 39, 65, 1), rgba(45, 42, 66, 1), rgba(34, 103, 90, 1)) 3 3;
+                                clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 100%);
                                 transition: all 430ms ease-out;
-                                overflow: hidden;
-                                .item{
-                                    display: flex;
-                                    margin-top: 1vw;
-                                    cursor: pointer;
-                                    align-items: center;
-                                    font-family: AlibabaPuHuiTi_2_75_SemiBold;
-                                    img{
-                                        width: 1.56vw;
-                                    }        
+                                .cover{
+                                    position: absolute;
+                                    top: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
+                                    clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 100%);
                                 }
-                                .item:hover{
-                                    color: #DE2DCF;
+                                .coverborder{
+                                    z-index: -1;
+                                    position: absolute;
+                                    bottom: 0;
+                                    right: 0;
+                                    content: '';
+                                    display: inline-block;
+                                    width: 3vw;
+                                    height: 3vw;
+                                    background-color: #2d2942;
+                                }
+                                .network{
+                                    position: relative;
+                                    padding: 0.3vw .8vw .4vw;
+                                    .item{
+                                        display: flex;
+                                        padding: .5vw 0;
+                                        cursor: pointer;
+                                        align-items: center;
+                                        font-family: AlibabaPuHuiTi_2_75_SemiBold;
+                                        img{
+                                            width: 1.56vw;
+                                        }        
+                                    }
+                                    .item + .item{
+                                        border-top: 2px solid #534968;
+                                    }
+                                    .item:hover{
+                                        color: #DE2DCF;
+                                    }
                                 }
                             }
                         }
@@ -631,38 +676,49 @@ onMounted(() => {
                     .register{
                         height: 100%;
                         display: flex;
-                        margin-right: .5vw;
+                        margin: auto .5vw;
                         padding-bottom: .5vw;
                         align-items: center;
                         .register_button{
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-                            min-width: 2.54vw;
-                            height: 2.3vw;
-                            font-family: AlibabaPuHuiTi_2_55_Regular;
-                            color: #FFFFFF;
-                            border: 1px solid #FFFFFF;
-                            box-sizing: border-box;
-                            text-align: center;
-                            cursor: pointer;
-                            img{
-                                width: .98vw;
-                                height: .67vw;
-                                margin: 1px auto .14vw;
-                            }
-                            span{
-                                display: inline-block;
-                                word-break: break-all;
-                                font-size: .52vw;
-                                line-height: .5vw;
-                                transform: scale(.8);
-                            }
+                            width: 1.66vw;
+                            height: 1.66vw;
+                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-email.svg');
+                            background-position: center;
+                            background-size: 100%;
                             &:hover{
-                                opacity: .8;
+                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-email-hover.svg');
+                                background-size: 100%;
                             }
                         }
+                        // .register_button{
+                        //     display: flex;
+                        //     flex-direction: column;
+                        //     justify-content: center;
+                        //     align-items: center;
+                        //     min-width: 2.54vw;
+                        //     height: 2.3vw;
+                        //     font-family: AlibabaPuHuiTi_2_55_Regular;
+                        //     color: #FFFFFF;
+                        //     border: 1px solid #FFFFFF;
+                        //     box-sizing: border-box;
+                        //     text-align: center;
+                        //     cursor: pointer;
+                        //     img{
+                        //         width: .98vw;
+                        //         height: .67vw;
+                        //         margin: 1px auto .14vw;
+                        //     }
+                        //     span{
+                        //         display: inline-block;
+                        //         word-break: break-all;
+                        //         font-size: .52vw;
+                        //         line-height: .5vw;
+                        //         transform: scale(.8);
+                        //     }
+                        //     &:hover{
+                        //         opacity: .8;
+                        //     }
+                        // }
                     }
                     .login_in{
                         position: relative;
@@ -745,16 +801,39 @@ onMounted(() => {
                     .code:hover{
                         box-shadow: inset 0px 0px 10px 0px #4625A2;
                     }
-                    .language{
+                    .download{
                         position: relative;
-                        margin: auto 1.4vw;
+                        margin: auto .5vw;
                         padding-bottom: .5vw;
-                        img{
-                            width: 1.56vw;
-                            height: 1.56vw;
+                        background: transparent;
+                        div{
+                            width: 1.66vw;
+                            height: 1.66vw;
+                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-down.svg');
+                            background-position: center;
+                            background-size: 100%;
                             cursor: pointer;
                             &:hover{
-                                opacity: .8;
+                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-down-hover.svg');
+                                background-size: 100%;
+                            }
+                        }
+                    }
+                    .language{
+                        position: relative;
+                        margin: auto .5vw;
+                        padding-bottom: .5vw;
+                        .icon{
+                            width: 1.66vw;
+                            height: 1.66vw;
+                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-language2.svg');
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: 100%;
+                            cursor: pointer;
+                            &:hover{
+                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-language-hover.svg');
+                                background-size: 94%;
                             }
                         }
                         .langUl{
@@ -1020,6 +1099,7 @@ onMounted(() => {
         top: 3.8vw;
         right: 1.8vw;
         .wrap{
+            position: relative;
             width: 9.27vw;
             height: 5.1vw;
             margin-top: 2vw;

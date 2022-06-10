@@ -24,7 +24,7 @@
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">MAX</div>
                                         <div class="desc">
-                                            <img src="" alt="">
+                                            <div></div>
                                             CYT
                                         </div>
                                     </div>
@@ -45,7 +45,7 @@
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">MAX</div>
                                         <div class="desc">
-                                            <img src="" alt="">
+                                            <div></div>
                                             YOOSHI
                                         </div>
                                     </div>
@@ -341,11 +341,12 @@ onMounted(() => {
                                             font-size: 1.25vw;
                                             font-family: AlibabaPuHuiTi_2_85_Bold;
                                             color: #ffffff;
-                                            img{
+                                            & > div{
                                                 width: 1.87vw;
                                                 height: 1.87vw;
                                                 margin-right: .52vw;
                                                 border-radius: 50%;
+                                                background: #C4C4C4;
                                             }
                                         }
                                     }
