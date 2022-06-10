@@ -203,7 +203,8 @@ const emailCodeErr = ref(false);
 const ReferralCodeErr = ref(false);
 const Sended = ref(60);
 const emailInput = () => {
-    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //regular
+    // let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //regular
+    let reg = /@/;
     emailErr.value = false;
     console.log(reg.test(emailAddress.value));
 

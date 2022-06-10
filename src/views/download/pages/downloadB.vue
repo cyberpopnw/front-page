@@ -167,7 +167,8 @@
     const ReferralCodeErr = ref(false);
     const Sended = ref(60);
     const emailInput = () => {
-        let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
+        // let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/; //正则
+        let reg = /@/;
         emailErr.value = false;
         if(!reg.test(email.value)) {
             emailErr.value = true;

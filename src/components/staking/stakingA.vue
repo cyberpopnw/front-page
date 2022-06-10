@@ -113,6 +113,7 @@ const closeDialog = () => {
 }
 
 const stakingCYT =  async () => {
+    if( numState.value == 'error' ) return;
     store.dispatch('staking/stakingState', { show: true, info: { state: 3, haveCTY: props.haveCTY }});
     let result = await Web3.approve(cytV2.abi, cytV2.address, staking.address, valueIn.value);
     if(result) {

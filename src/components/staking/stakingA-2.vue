@@ -24,7 +24,7 @@
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">MAX</div>
                                         <div class="desc">
-                                            <img src="" alt="">
+                                            <div></div>
                                             CYT
                                         </div>
                                     </div>
@@ -32,7 +32,7 @@
                             </div>
                             <div class="tips">Insufficient CYT Balance,<span>Get CYT.</span></div>
                         </div>
-                        <img class="addicon" src="" alt="">
+                        <img class="addicon" src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stake_addicon.svg" alt="">
                         <div class="item">
                             <div class="border">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
@@ -45,7 +45,7 @@
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">MAX</div>
                                         <div class="desc">
-                                            <img src="" alt="">
+                                            <div></div>
                                             YOOSHI
                                         </div>
                                     </div>
@@ -53,7 +53,9 @@
                             </div>
                             <div class="tips">Insufficient YOOSHI Balance,<span>Get YOOSHI.</span></div>
                         </div>
-                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">ENTER TOKEN AMOUNT</div>
+                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">
+                            <span>{{ numState == 'error' ? 'ENTER TOKEN AMOUNT' : 'STAKE' }}</span>
+                        </div>
                     </div>
                     <div class="card2" v-else>
                         <div class="item">
@@ -74,9 +76,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tips">Insufficient LP Balance,<span>Get CYT.</span></div>
+                            <div class="tips" v-if="!haveCTY">Insufficient LP Balance,<span>Get CYT.</span></div>
                         </div>
-                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">ENTER LP AMOUNT</div>
+                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">
+                            <span>{{ numState == 'error' ? 'ENTER LP AMOUNT' : 'STAKE' }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,6 +148,7 @@ const closeDialog = () => {
 }
 
 const stakingCYT =  async () => {
+    if( numState.value == 'error' ) return;
     store.dispatch('staking/stakingState', { show: true, info: { state: 3, haveCTY: props.haveCTY }});
     let result = await Web3.approve(cytV2.abi, cytV2.address, staking.address, valueIn.value);
     if(result) {
@@ -336,11 +341,12 @@ onMounted(() => {
                                             font-size: 1.25vw;
                                             font-family: AlibabaPuHuiTi_2_85_Bold;
                                             color: #ffffff;
-                                            img{
+                                            & > div{
                                                 width: 1.87vw;
                                                 height: 1.87vw;
                                                 margin-right: .52vw;
                                                 border-radius: 50%;
+                                                background: #C4C4C4;
                                             }
                                         }
                                     }
@@ -384,9 +390,10 @@ onMounted(() => {
                             display: block;
                             width: 1.09vw;
                             height: 1.09vw;
-                            margin: 0 auto 1.04vw;
+                            margin: .4vw auto 1.04vw;
                         }
                         .staking{
+                            position: relative;
                             width: 17.29vw;
                             height: 2.91vw;
                             margin: .78vw auto 0;
@@ -394,18 +401,34 @@ onMounted(() => {
                             font-family: AlibabaPuHuiTi_2_115_Black;
                             line-height: 2.91vw;
                             text-align: center;
-                            background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakingA_bthbg.svg);
-                            background-size: 100% 100%;
-                            background-repeat: no-repeat;
                             cursor: pointer;
                             transition: all .2s ease-in-out;
+                            span{
+                                position: absolute;
+                                left: 0;
+                                width: 100%;
+                                z-index: 2;
+                            }
+                            &::before {   
+                                content: "";
+                                background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakingA_bthbg.png);
+                                background-size: 100% 100%;
+                                position: absolute;  
+                                top: 0;
+                                left: 0;
+                                bottom: 0;
+                                right: 0;
+                                z-index: 1;
+                            }
                         }
                         .not-allowed{
+                            &::before{
+                                opacity: 0.6;
+                            }
                             cursor: not-allowed !important;
-                            opacity: .4;
                         }
                         .not-allowed:hover{
-                            opacity: .4;
+                            opacity: .6;
                         }
                     }
                 }

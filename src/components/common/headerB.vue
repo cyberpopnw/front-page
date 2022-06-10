@@ -10,15 +10,12 @@
             </div>
             <div class="menuMask" ref="cursor" :class="isPage && (showMenuAni ? 'menuAnimation' : 'stopMenuAnimation')">
                 <div class="close-menu">
+                    <div v-show="realId == -1"></div>
                     <div class="select_chain" v-show="realId !== -1" @click="showMsgPop()"><img :src="chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.name : chainList.notSupported.name }}</span></div>
                     <img @click="closeMenuIcon()" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/close-menu.svg" alt="">
                 </div>
                 <div class="login_in" v-if="!loggined" @click="login()">
                     <div class="txt">{{$t('message.common.wallet')}}</div>
-                </div>
-                <div class="code"> 
-                    <button @click="isRegister(true)">{{ $t('message.home.reg_submit') }}</button> 
-                    <span v-if="code">{{ $t('message.home.inviter_Code') }}: {{ code }} &nbsp;&nbsp;&nbsp; {{ $t('message.home.level') }}: {{ level }}</span> 
                 </div>
                 <div class="logged_in" v-if="loggined">
                     <img class="portrait" src="@/assets/nwhome/portrait.svg" alt="">
@@ -28,6 +25,13 @@
                         <div class="logout" @click="signout">{{$t('message.common.login_logout')}}</div>
                     </div>
                     <div class="mask"></div>
+                </div>
+                <div class="code"> 
+                    <div class="email-wrap" @click="isRegister(true)">
+                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/register-email-b.svg" alt="">
+                        <span>Email Register</span>
+                    </div>
+                    <div v-if="code">{{ $t('message.home.inviter_Code') }}: {{ code }} &nbsp; {{ $t('message.home.level') }}: {{ level }}</div> 
                 </div>
                 <ul id="menuUl" class="menuul">
                     <li @click="changeMenu(0, '/')" :class="{'active': active == 0}">{{$t('message.common.menu1')}}</li>
@@ -58,7 +62,6 @@
         </header>
     </div>
     <metamask-b v-if="metaMaskActive"></metamask-b>
-    <coming-b v-show="showComingFlag"></coming-b>
     <!-- Dealer registration -->
     <register-b v-if="register" :register="register" :registerTrans="registerTrans" :code="code" :level="level" @closeRegister="closeRegister"></register-b>
 </template>
@@ -146,27 +149,6 @@ const showMsgPop = () => {
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
 }
-
-
-
-// coming soon
-let showComingFlag:any = ref(false)
-const ctimer:any = ref(null)
-
-const showComing = () => {
-    clearTimeout(ctimer.value);
-    // Stow menu
-    store.dispatch('wallet/walletMenuAni', false)
-    // default animation
-    store.dispatch('user/addComingOut', false)
-    // show coming view
-    showComingFlag.value = true;
-    ctimer.value = setTimeout(() => {
-        // change animation
-        store.dispatch('user/addComingOut', true)
-    },3000)
-}
-
 
 
 // menu
@@ -269,9 +251,9 @@ const connect: any = async () => {
     const ismessage: any = await NFT.hasMetaMask()
 
     if( ismessage == 'No install' ){
-        // store.dispatch('wallet/metaChange',true);
-        // store.dispatch('wallet/metaChangeAni',true);
-        // store.dispatch('wallet/checkInstall',false);
+        store.dispatch('wallet/metaChange',true);
+        store.dispatch('wallet/metaChangeAni',true);
+        store.dispatch('wallet/checkInstall',false);
     }else{
         store.dispatch('wallet/metaChange',true);
         store.dispatch('wallet/metaChangeAni',true);
@@ -526,18 +508,37 @@ onMounted(() => {
                 }
                 .code{
                     text-align: center;
+                    width: 287px;
+                    margin: 10px auto 0;
+                    color: #ffffff;
                     font-size: 1vw;
-                    button{
-                        padding: 0 20px;
-                        height: 30px;
-                        background-color: #452CB6;
-                        border-radius: 4px;
-                        border: none;
-                        outline: none;
-                        color: #fff;
+                    .email-wrap{
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 45px;
+                        &::before{
+                            position: absolute;
+                            content: '';
+                            width: 100%;
+                            height: 100%;
+                            border: 1px solid #FFFFFF;
+                            box-shadow: 0px 0px 4px #ffffff;
+                        }
+                        img{
+                            width: 30px;
+                        }
+                        span{
+                            margin-left: 10px;
+                            font-size: 16px;
+                            font-family: AlibabaPuHuiTi_2_55_Regular;
+                        }
                     }
-                    span{
-                        margin-left: 10px;
+                    div:last-child{
+                        margin-top: 10px;
+                        opacity: .5;
                     }
                 }
                 .logged_in{

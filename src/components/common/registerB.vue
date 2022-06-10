@@ -253,7 +253,8 @@ const send = () => {
 }
 
 const emailInput = () => {
-    let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/;
+    // let reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/;
+    let reg = /@/;
     emailErr.value = false;
     if(!reg.test(email.value)) {
         emailErr.value = true;
@@ -316,10 +317,10 @@ onMounted(() => {
             // height: 390px;
             height: 290px;
             margin: auto;
-            padding: 2.5vw;
+            padding: 20px;
             box-shadow: -1.51vw .83vw .2vw .05vw rgba(0, 0, 0, 0.4);
             background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
-            border: .15vw solid;
+            border: 3px solid;
             border-image: linear-gradient(219deg, rgba(83, 77, 126, 1), rgba(45, 39, 65, 1), rgba(45, 42, 66, 1), rgba(34, 103, 90, 1)) 3 3;
             clip-path: polygon(0 0, 100% 0, 100% 89%, 90% 100%, 0 100%);
             .cover{
@@ -359,17 +360,17 @@ onMounted(() => {
                 position: absolute;
                 left: 0;
                 right: 0;
-                padding: 0 2.5vw;
+                padding: 0 20px;
                 .level{
                     margin: 15px 0;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                 }
                 .title{
-                    font-size: 20px;
                     margin-top: 20px;
+                    font-size: 18px;
                     font-family: AlibabaPuHuiTi_2_115_Black;
-                    font-weight: normal;
-                    line-height: 2.08vw;
+                    color: #FFFFFF;
+                    line-height: 20px;
                 }
                 .icon{
                     display: flex;
@@ -388,11 +389,12 @@ onMounted(() => {
                     }
                 }
                 .item{
-                    margin: 20px 0;
+                    margin: 10px 0 20px 0;
                     label{
                         display: inline-block;
                         margin: 6px 0;
                         font-family: AlibabaPuHuiTi_2_115_Black;
+                        font-size: 14px;
                     }
                     .content1, .content2{
                         border: 1px solid #fff;
@@ -409,6 +411,7 @@ onMounted(() => {
                             border: none;
                             background: transparent;
                             padding: 0 1vw;
+                            font-size: 10px;
                             color: #fff;
                         }
                         input::-webkit-input-placeholder{
@@ -556,8 +559,9 @@ onMounted(() => {
                 bottom: 50px;
                 width: 90%;
                 .cancel{    
-                    width: 100%;
+                    width: 140px;
                     height: 30px;
+                    margin: 0 auto;
                     font-size: 16px;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     color: #FFFFFF;

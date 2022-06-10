@@ -255,7 +255,7 @@
     <!-- 质押完成领取奖励 -->
     <FinishedA ref="Finished" v-if="isShowFinished" :isShowTips="isShowFinished"  @closeFinshed="isShowFinished = false"></FinishedA>
     <!-- 取消质押弹窗 -->
-    <CancelStake ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake"  @closeFinshed="isShowCancelStake = false"></CancelStake>
+    <CancelStakeA ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake"  @closeFinshed="isShowCancelStake = false"></CancelStakeA>
     <!-- 选择NFT质押 -->
     <SelectNFTA ref="SelectNFT" v-if="isShowSelectNFT" :isShowTips="isShowSelectNFT"  @closeFinshed="isShowSelectNFT = false"></SelectNFTA>
     <!-- 切换网络弹窗 -->
@@ -272,7 +272,7 @@ import Web3 from '@/tools/web3'
 import { useI18n } from 'vue-i18n';
 import FinishedA from '@/components/staking/FinishedA.vue';
 import SelectNFTA from '@/components/staking/selectNFTA.vue';
-import CancelStake from '@/components/staking/cancelStakeA.vue';
+import CancelStakeA from '@/components/staking/cancelStakeA.vue';
 import Waiting from '@/components/staking/waiting.vue';
 
 const { staking, cytV2 } = Web3.contracts;

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="popup" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide') ">
-            <div class="content">
+            <div class="content" ref="cursor">
                 <div class="title">STAKE</div>
                 <div class="nav">
                     <div class="multiple" :class="switchFlag ? 'activePink': ''" @click="switchFlag = false">Add liquidity and stake</div>
@@ -21,7 +21,7 @@
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">MAX</div>
                                         <div class="desc">
-                                            <img src="" alt="">
+                                            <div></div>
                                             CYT
                                         </div>
                                     </div>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="tips">Insufficient CYT Balance,<span>Get CYT.</span></div>
                         </div>
-                        <img class="addicon" src="" alt="">
+                        <img class="addicon" src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stake_addicon.svg" alt="">
                         <div class="item">
                             <div class="border">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
@@ -42,7 +42,7 @@
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">MAX</div>
                                         <div class="desc">
-                                            <img src="" alt="">
+                                            <div></div>
                                             YOOSHI
                                         </div>
                                     </div>
@@ -50,7 +50,9 @@
                             </div>
                             <div class="tips">Insufficient YOOSHI Balance,<span>Get YOOSHI.</span></div>
                         </div>
-                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">ENTER TOKEN AMOUNT</div>
+                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">
+                            <span>{{ numState == 'error' ? 'ENTER TOKEN AMOUNT' : 'STAKE' }}</span>
+                        </div>
                     </div>
                     <div class="card2" v-else>
                         <div class="item">
@@ -71,9 +73,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tips">Insufficient LP Balance,<span>Get CYT.</span></div>
+                            <div class="tips" v-if="!haveCTY">Insufficient LP Balance,<span>Get CYT.</span></div>
                         </div>
-                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">ENTER LP AMOUNT</div>
+                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">
+                            <span>{{ numState == 'error' ? 'ENTER LP AMOUNT' : 'STAKE' }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,7 +86,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed, getCurrentInstance, watch } from 'vue'
+import { ref, onMounted, computed, getCurrentInstance, watch, onUnmounted } from 'vue'
 import store from '@/store/index'
 import { useI18n } from 'vue-i18n';
 import Web3 from '@/tools/web3'
@@ -141,6 +145,7 @@ const closeDialog = () => {
 }
 
 const stakingCYT =  async () => {
+    if( numState.value == 'error' ) return;
     store.dispatch('staking/stakingState', { show: true, info: { state: 3, haveCTY: props.haveCTY }});
     let result = await Web3.approve(cytV2.abi, cytV2.address, staking.address, valueIn.value);
     if(result) {
@@ -162,8 +167,23 @@ const stakingCYT =  async () => {
 }
 
 
+const cursor:any = ref(null)
+const handleOtherClick = (e:any) => { 
+    if( cursor.value.contains(e.target) ){
+        return
+    }else{
+        closeDialog();
+    }
+}
+
+
+onUnmounted(() => {
+    window.removeEventListener('click', handleOtherClick, true);
+})
+
+
 onMounted(() => {
-    console.log(props);
+    window.addEventListener('click', handleOtherClick, true)
 })
 </script>
 
@@ -177,25 +197,30 @@ onMounted(() => {
         height: 100vh;
         background: rgba(35, 38, 47, 0.9);
         .content{
-            position: relative;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 24px 10px;
+            color: #FFFFFF;
+            background: linear-gradient(221deg, rgba(132, 120, 255, .8) 0%, rgba(12, 9, 17, .8) 100%),
+                        linear-gradient(81deg, rgba(45, 222, 211, .6) 0%, rgba(12, 9, 17, 1) 100%);
+            box-shadow: inset 0px 4px 0px 1px #5A5685;
             .title{
-                margin-bottom: 1.3vw;
-                font-size: 1.45vw;
+                margin-bottom: 24px;
+                font-size: 28px;
                 font-family: AlibabaPuHuiTi_2_115_Black;
-                font-weight: normal;
-                line-height: 2.08vw;
-                text-align: center;
+                line-height: 40px;
             }
             .nav{
                 display: flex;
                 align-items: center;
-                width: 23.75vw;
-                height: 2.5vw;
-                margin: 0 auto 1.56vw;
-                font-size: 1.04vw;
+                width: 100%;
+                height: 40px;
+                margin: 0 auto 15px;
+                font-size: 16px;
                 font-family: AlibabaPuHuiTi_2_85_Bold;
                 font-weight: normal;
-                line-height: 2.5vw;
+                line-height: 40px;
                 text-align: center;
                 background: rgba(182, 156, 199, 0.17);
                 cursor: pointer;
@@ -205,7 +230,7 @@ onMounted(() => {
                     transition: all 0.2s ease-in-out
                 }
                 .alone{
-                    width: 8.9vw;
+                    width: 140px;
                     height: 100%;
                     transition: all 0.2s ease-in-out;
                 }
@@ -221,19 +246,19 @@ onMounted(() => {
                             display: flex;
                             justify-content: space-between;
                             width: 100%;
-                            height: 6.14vw;
-                            padding: 1.09vw 1.56vw;
+                            height: 90px;
+                            padding: 15px 14px;
                             border: 2px solid rgba(255, 0, 255, 0.3);
-                            font-size: 1.04vw;
+                            font-size: 16px;
                             font-family: AlibabaPuHuiTi_2_55_Regular;
                             color: #B3B3B3;
-                            line-height: 1.61vw;
+                            line-height: 28px;
                             .number,.btns{
                                 flex: 1;
                                 input{
                                     width: 80%;
-                                    font-size: 1.61vw;
-                                    line-height: 1.61vw;
+                                    line-height: 24px;
+                                    font-size: 24px;
                                     font-family: AlibabaPuHuiTi_2_85_Bold;
                                     color: #ffffff;
                                     border: none;
@@ -264,18 +289,19 @@ onMounted(() => {
                                     margin: 0;
                                 }
                                 .balance{
-                                    margin-bottom: .4vw;
+                                    // margin-bottom: .4vw;
                                 }
                                 .icon{
                                     display: flex;
                                     align-items: center;
                                     justify-content: flex-end;
                                     .max{
-                                        width: 4.47vw;
-                                        height: 1.87vw;
-                                        margin-right: 1.04vw;
+                                        width: 57px;
+                                        height: 22px;
+                                        margin-right: 10px;
                                         text-align: center;
-                                        font-size: .93vw;
+                                        font-size: 12px;
+                                        line-height: 22px;
                                         color: #FF00FF;
                                         font-family: AlibabaPuHuiTi_2_65_Medium;
                                         border: 1px solid;
@@ -284,14 +310,15 @@ onMounted(() => {
                                     .desc{
                                         display: flex;
                                         align-items: center;
-                                        font-size: 1.25vw;
+                                        font-size: 16px;
                                         font-family: AlibabaPuHuiTi_2_85_Bold;
                                         color: #ffffff;
-                                        img{
-                                            width: 1.87vw;
-                                            height: 1.87vw;
-                                            margin-right: .52vw;
+                                        & > div{
+                                            width: 24px;
+                                            height: 24px;
+                                            margin-right: 10px;
                                             border-radius: 50%;
+                                            background: #C4C4C4;
                                         }
                                     }
                                 }
@@ -308,22 +335,22 @@ onMounted(() => {
                             .number{
                                 .err_tips{
                                     position: absolute;
-                                    left: 1.56vw;
+                                    left: 14px;
                                     bottom: 0;
-                                    font-size: .83vw;
+                                    font-size: 10px;
                                     font-family: AlibabaPuHuiTi_2_55_Regular;
                                     color: #FF5CA1;
-                                    line-height: .83vw;
+                                    line-height: 10px;
                                     white-space: nowrap;
                                 }
                             }
                         }
                         .tips{
-                            margin-top: .4vw;
-                            font-size: .73vw;
+                            margin-top: 6px;
+                            font-size: 12px;
                             font-family: AlibabaPuHuiTi_2_55_Regular;
                             color: #FF2F2F;
-                            line-height: .83vw;
+                            line-height: 14px;
                             span{
                                 text-decoration: underline;
                                 color: #ffffff;
@@ -333,30 +360,47 @@ onMounted(() => {
                     }
                     .addicon{
                         display: block;
-                        width: 1.09vw;
-                        height: 1.09vw;
-                        margin: 0 auto 1.04vw;
+                        width: 14px;
+                        height: 14px;
+                        margin: 10px auto;
                     }
                     .staking{
-                        width: 17.29vw;
-                        height: 2.91vw;
-                        margin: .78vw auto 0;
-                        font-size: 1.04vw;
+                        position: relative;
+                        width: calc(100% - 24px);
+                        height: 48px;
+                        margin: 14px auto 0;
+                        font-size: 16px;
                         font-family: AlibabaPuHuiTi_2_115_Black;
-                        line-height: 2.91vw;
+                        line-height: 48px;
                         text-align: center;
-                        background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakingA_bthbg.svg);
-                        background-size: 100% 100%;
-                        background-repeat: no-repeat;
                         cursor: pointer;
                         transition: all .2s ease-in-out;
+                        span{
+                            position: absolute;
+                            left: 0;
+                            width: 100%;
+                            z-index: 2;
+                        }
+                        &::before {   
+                            content: "";
+                            background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakingA_bthbg.png);
+                            background-size: 100% 100%;
+                            position: absolute;  
+                            top: 0;
+                            left: 0;
+                            bottom: 0;
+                            right: 0;
+                            z-index: 1;
+                        }
                     }
                     .not-allowed{
+                        &::before{
+                            opacity: 0.6;
+                        }
                         cursor: not-allowed !important;
-                        opacity: .4;
                     }
                     .not-allowed:hover{
-                        opacity: .4;
+                        opacity: .6;
                     }
                 }
             }

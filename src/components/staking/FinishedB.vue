@@ -6,7 +6,7 @@
             <img class="close" src="@/assets/nwhome/close.svg" alt=""  @click="closeDialog">
             <div class="content">
                 <div class="title">Finished</div>
-                <div class="text">Staking accomplished,you can choose CTY or NFT as a reward</div>
+                <div class="text">Staking accomplished,you can choose CYT or NFT as a reward</div>
                 <div class="reward_chunks">
                     <div class="item" :class="{'selected': selected == 0}" @click="selected = 0">
                         <div class="chunk">
@@ -87,14 +87,6 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
-    @keyframes loadingAni {
-        0%{
-            transform: rotate(0);
-        }
-        100%{
-            transform: rotate(360deg);
-        }
-    }
     .container{
         position: fixed;
         display: flex;
@@ -107,19 +99,15 @@ onMounted(() => {
         height: 100%;
         background: rgba(0, 0, 0, .5);
         color: #fff;
+        display: grid; 
+        justify-content: center;
         .mask{
-            position: absolute;
-            top: 3.8vw;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 31.51vw;
-            height: 23.43vw;
-            margin: auto;
-            padding: 2.5vw;
+            position: relative;
+            width: 314px;
+            padding: 20px;
             box-shadow: -1.51vw .83vw .2vw .05vw rgba(0, 0, 0, 0.4);
             background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
-            border: .15vw solid;
+            border: 3px solid;
             border-image: linear-gradient(219deg, rgba(83, 77, 126, 1), rgba(45, 39, 65, 1), rgba(45, 42, 66, 1), rgba(34, 103, 90, 1)) 3 3;
             clip-path: polygon(0 0, 100% 0, 100% 89%, 90% 100%, 0 100%);
             .cover{
@@ -147,43 +135,39 @@ onMounted(() => {
                 position: absolute;
                 right: 1vw;
                 top: 1vw;
+                width: 22px;
+                height: 22px;
                 z-index: 11;
-                width: 2.8vw;
             }
             .content{
-                position: absolute;
-                left: 0;
-                right: 0;
-                padding: 0 2.5vw;
+                position: relative;
+                padding: 6px 0;
                 .title{
-                    font-size: 1.95vw;
+                    margin-bottom: 14px;
+                    font-size: 18px;
                     font-family: AlibabaPuHuiTi_2_115_Black;
-                    font-weight: normal;
-                    line-height: 2.08vw;
+                    line-height: 20px;
                     text-align: center;
-                    margin-bottom: 0.72vw;
                 }
                 .text{
-                    font-size: 0.83vw;
+                    margin-bottom: 36px;
+                    height: 30px;
+                    font-size: 12px;
                     font-family: AlibabaPuHuiTi_2_55_Regular;
-                    font-weight: normal;
-                    line-height: 1vw;
-                    margin-bottom: 1.87vw;
+                    line-height: 16px;
                     text-align: center;
                 }
                 .reward_chunks{
                     display: flex;
                     justify-content: center;
-                    margin-bottom: 1.97vw;
+                    margin-bottom: 28px;
                     .item{
                         .chunk{
-                            width: 4.58vw;
-                            height: 4.58vw;
-                            border-radius: 0px 0px 0px 0px;
+                            width: 66px;
+                            height: 66px;
                             border: 0.104vw solid #464360;
-                            padding: 0.83vw;
+                            padding: 10px;
                             background: linear-gradient(45deg, rgba(4, 255, 162, 0.1) 0%, rgba(27, 54, 44, .1) 50%, rgba(27, 54, 44, 0) 100%);
-                            opacity: 1;
                             img{
                                 width: 100%;
                             }
@@ -193,36 +177,35 @@ onMounted(() => {
                             border: 0.104vw solid #8478fc;
                         }
                         p{
-                            font-size: 0.83vw;
+                            margin-top: 4px;
+                            font-size: 12px;
                             font-family: AlibabaPuHuiTi_2_85_Bold;
-                            font-weight: normal;
                             color: #464360;
-                            line-height: 2.08vw;
-                            -webkit-background-clip: text;
+                            line-height: 20px;
                             text-align: center;
                         }
                     }
                     .selected{
                         .chunk{
                             box-shadow: 0 0 15px #8478fc;
-                            border: 0.104vw solid #8478fc;
+                            border: 2px solid #8478fc;
                         }
                         p{
                             color: #8478FF;
                         }
                     }
                     .item:first-child{
-                        margin-right: 7.29vw;
+                        margin-right: 48px;
                     }
                 }
                 .btn{
                     .CONFIRM{    
-                        width: 13.9vw;
-                        height: 2.91vw;
-                        font-size: 1.04vw;
+                        width: 140px;
+                        height: 38px;
+                        font-size: 12px;
                         font-family: AlibabaPuHuiTi_2_115_Black;
                         color: #FFFFFF;
-                        line-height: 2.91vw;
+                        line-height: 38px;
                         text-align: center;
                         background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/confirm_button.png');
                         background-size: 100% 100%;

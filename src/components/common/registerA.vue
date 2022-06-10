@@ -367,10 +367,10 @@ onMounted(() => {
                     font-family: AlibabaPuHuiTi_2_115_Black;
                 }
                 .title{
-                    font-size: 1.95vw;
+                    font-size: 1.45vw;
                     font-family: AlibabaPuHuiTi_2_115_Black;
-                    font-weight: normal;
                     line-height: 2.08vw;
+                    letter-spacing: .05vw;
                 }
                 .icon{
                     display: flex;
@@ -392,8 +392,9 @@ onMounted(() => {
                     margin: .6vw 0;
                     label{
                         display: inline-block;
-                        margin: 1vw 0 .5vw;
+                        margin: .4vw 0 .5vw;
                         font-family: AlibabaPuHuiTi_2_115_Black;
+                        font-size: 1.04vw;
                     }
                     .content1, .content2{
                         border: 1px solid #fff;
@@ -411,6 +412,7 @@ onMounted(() => {
                             background: transparent;
                             padding: 0 1vw;
                             color: #fff;
+                            font-size: .83vw;
                         }
                         input::-webkit-input-placeholder{
                             color: #fff;
@@ -559,7 +561,7 @@ onMounted(() => {
                 .cancel{    
                     width: 10.54vw;
                     height: 2.91vw;
-                    font-size: 1.54vw;
+                    font-size: 1.04vw;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     color: #FFFFFF;
                     line-height: 2.91vw;
@@ -570,7 +572,7 @@ onMounted(() => {
                     transition: all .2s ease-in-out;
                 }
                 .cancel:hover{
-                    opacity: .7;
+                    opacity: .8;
                 }
                 .not-allowed{
                     cursor: not-allowed !important;
