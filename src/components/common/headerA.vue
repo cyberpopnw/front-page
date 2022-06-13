@@ -677,6 +677,7 @@ onMounted(() => {
                         height: 100%;
                         display: flex;
                         margin: auto .5vw;
+                        margin-right: 1vw;
                         padding-bottom: .5vw;
                         align-items: center;
                         .register_button{

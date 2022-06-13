@@ -238,7 +238,7 @@
     <!-- 取消质押弹窗 -->
     <CancelStakeB ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake" :haveCTY="mycyt" @closeFinshed="isShowCancelStake = false"></CancelStakeB>
     <!-- 选择NFT质押 -->
-    <SelectNFTA ref="SelectNFT" v-if="isShowSelectNFT" :isShowTips="isShowSelectNFT"  @closeFinshed="isShowSelectNFT = false"></SelectNFTA>
+    <SelectNFTB ref="SelectNFT" v-if="isShowSelectNFT" :isShowTips="isShowSelectNFT"  @closeFinshed="isShowSelectNFT = false"></SelectNFTB>
     <!-- 切换网络弹窗 -->
     <!-- <wrongNetWorkA :isShowTips="isShowTips" @changeSwitch="changeSwitch"></wrongNetWorkA> -->
     <Waiting v-if="waitingState" :isShowWaiting="waitingState" :loadInfo="waitingInfo"></Waiting>
@@ -251,7 +251,7 @@ import {  useRouter } from 'vue-router'
 import Web3 from '@/tools/web3' 
 import { useI18n } from 'vue-i18n';
 import FinishedB from '@/components/staking/FinishedB.vue';
-import SelectNFTA from '@/components/staking/selectNFTA.vue';
+import SelectNFTB from '@/components/staking/selectNFTB.vue';
 import CancelStakeB from '@/components/staking/cancelStakeB.vue';
 import Waiting from '@/components/staking/waiting.vue';
 

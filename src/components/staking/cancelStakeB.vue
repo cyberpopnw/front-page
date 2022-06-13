@@ -22,12 +22,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tips">Insufficient CYT Balance</div>
+                        <div class="errmsg">Insufficient CYT Balance</div>
                     </div>
                     <div class="reward" :class="{'select': selected == 1}" @click="selected = 1">
                         <div class="left">
                             <p>With Unclaimed reward</p>
-                            <div>{{ myStakCyt }}</div>
+                            <div class="txt">{{ myStakCyt }}</div>
                         </div>
                         <div class="right">
                             <div class="bull"></div> 
@@ -165,7 +165,7 @@ onMounted(() => {
             }
             .chunks{
                 .withdraw_wrap{
-                    .tips{
+                    .errmsg{
                         font-size: 14px;
                         font-family: AlibabaPuHuiTi_2_55_Regular;
                         color: #FF2F2F;
@@ -176,10 +176,11 @@ onMounted(() => {
                     height: 84px;
                     padding: 0 14px;
                     display: flex;
+                    justify-content: space-between;
                     align-items: center;
                     position: relative;
-                    .left{
-                        p{
+                    .left,.right{
+                        p,.balance{
                             margin-bottom: 10px;
                             font-size: 16px;
                             font-family: AlibabaPuHuiTi_2_55_Regular;
@@ -196,22 +197,58 @@ onMounted(() => {
                             color: #FFFFFF;
                             line-height: 20px;
                         }
+                        .txt{
+                            font-size: 24px;
+                            font-family: AlibabaPuHuiTi_2_85_Bold;
+                            color: #FFFFFF;
+                            line-height: 20px;
+                        }
+                        .icon{
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                            .max{
+                                width: 57px;
+                                height: 22px;
+                                margin-right: 10px;
+                                text-align: center;
+                                font-size: 12px;
+                                line-height: 22px;
+                                color: #FF00FF;
+                                font-family: AlibabaPuHuiTi_2_65_Medium;
+                                border: 1px solid;
+                                border-image: linear-gradient(45deg, rgba(255, 0, 255, 1), rgba(176, 65, 216, 1)) 1 1;
+                            }
+                            .bull{
+                                display: flex;
+                                align-items: center;
+                                div{
+                                    width: 24px;
+                                    height: 24px;
+                                    background: #C4C4C4;
+                                    border: 1px solid #464360;
+                                    border-radius: 50%;
+                                }
+                                div:last-child{
+                                    margin-left: -6px;
+                                }
+                            }
+                        }
                     }
+                    .right{
+                        text-align: right;
+                    }
+                }
+                .reward > .right{
+                    text-align: center;
+                    margin-top: 50px;
                     .bull{
-                        display: flex;
-                        align-items: center;
-                        margin-top: 30px;
-                        margin-left: 10px;
-                        div{
-                            width: 24px;
-                            height: 24px;
-                            background: #C4C4C4;
-                            border: 1px solid #464360;
-                            border-radius: 50%;
-                        }
-                        div:last-child{
-                            margin-left: -6px;
-                        }
+                        margin-left: 6px;
+                        width: 24px;
+                        height: 24px;
+                        background: #C4C4C4;
+                        border: 1px solid #464360;
+                        border-radius: 50%;
                     }
                 }
                 .select{
@@ -220,10 +257,9 @@ onMounted(() => {
                 .tips{
                     display: flex;
                     align-items: center;
-                    width: 355px;
-                    height: 74px;
+                    // width: 355px;
                     margin: 10px 0 14px;
-                    padding: 0 14px;
+                    padding: 8px 14px;
                     border: 1px solid #FFE154;
                     img{
                         width: 29px;
