@@ -83,7 +83,8 @@ const kr = {
                 tips0: '계정이 자동으로 등록됩니다',
             },
             //common
-            ip: '우리의 서비스는 일부 규정 준수 국가 및 지역에만 적용됩니다.불법 방문은 보호되지 않을 것이다.'
+            ip: '우리의 서비스는 일부 규정 준수 국가 및 지역에만 적용됩니다.불법 방문은 보호되지 않을 것이다.',
+            tips: '방문 중인지 확인하십시오.https://cyberpop.online - 자세히 확인하세요. 이것은 cyberpop의 유일한 공식 URL입니다.',
         },
 
         // homeA
@@ -527,7 +528,7 @@ const kr = {
             ios: '사과',
             Android: '안 드 로이드',
             windows: '윈도',
-            version: '최신 버전 1.0.2',
+            version: '최신 버전 1.0.3',
             inputEmail: '이메일 주소',
             tips2: 'ios 앱 없음',
             tips3: 'e-메일 오류',

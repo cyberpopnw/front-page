@@ -85,7 +85,8 @@ const us = {
                 
             },
             // common
-            ip: 'Our service is only available for part of the legal compliance countries and regions.  Illegal access will not be protected. '
+            ip: 'Our service is only available for part of the legal compliance countries and regions.  Illegal access will not be protected. ',
+            tips: "Please make sure you are visiting https://cyberpop.online - Please check carefully, this is the only official URL of cyberpop."
         },
 
         // homeA
@@ -534,7 +535,7 @@ const us = {
             ios: 'iOS',
             Android: 'Android',
             windows: 'Windows',
-            version: 'Latest Version 1.0.2',
+            version: 'Latest Version 1.0.3',
             inputEmail: 'Email address',
             tips2: 'Not Ios App',
             tips3: 'Email error',

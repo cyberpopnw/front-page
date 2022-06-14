@@ -70,7 +70,7 @@
             store.dispatch('user/showDialog',{ show: true, info: { state: 0, txt: t('message.download.tips3') } });
             return;
         }
-        window.location.href = type == 0 ? 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop.apk' : 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.1_2022_05_13.rar';
+        window.location.href = type == 0 ? 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.3_2022_06_10_19_23_03_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk' : 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.3_2022_06_10_19_28_19_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe';
         proxy.$api.get(`/code/user/download?address=${thisAcounts.value}`).then((res: any) => {
             console.log(res);
         }).catch( (err: any) => {

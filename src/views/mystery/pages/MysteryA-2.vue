@@ -46,7 +46,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                         </div>
                         <div class="btn">
                             <div class="purchase" :class="{'not-allowed': Remaining[0] == 0 || isProduction}" @click="purchase(0, Remaining[0])">{{$t('message.details.box_btn_pur')}}</div>
-                            <div class="open" :class="{'not-allowed': data[0].number == 0 && chainId != 56}" @click="open(0, data[0].number)">{{$t('message.box.open')}}</div>
+                            <div class="open" :class="{'not-allowed': data[0].number == 0 || chainId == 56}" @click="open(0, data[0].number)">{{$t('message.box.open')}}</div>
                             <div class="details" @click="toDetails(9)">
                                 <span class="details-text">{{$t('message.box.btn_det')}}</span>
                             </div>
@@ -141,7 +141,7 @@ const getBalance = async (chainid: number) => {
 
 // open box
 const open = (boxId: any, number: any) => {
-    if(number == 0) return;
+    if(number == 0 || chainId.value == 56) return;
     // getLast(); // Query the last asset opened immediately in the asset contract
     store.dispatch('user/xplanChangeAni', true);
     store.dispatch('user/TipsState', {show: true, info: { hasLoading: true, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'), addNetwork: false, boxId: boxId, haveNFT: number }});

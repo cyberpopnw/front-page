@@ -2,6 +2,7 @@
     <div class="home">
         <header>
             <div class="bgdiv"></div>
+            <div class="tips">{{ $t('message.common.tips')}}</div>
             <div class="content" id="header">
                 <div class="logo">
                     <a :href="path"><img v-show="!logoHFlag" :src="logoHSrcP" @mouseenter="logoHFlag = true" alt=""></a>
@@ -536,7 +537,7 @@ onMounted(() => {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 5.5vw;
+            // height: 5.5vw;
             color: #fff;
             .bgdiv{
                 position: absolute;
@@ -545,6 +546,13 @@ onMounted(() => {
                 background: linear-gradient(90deg , rgba(0,0,0,1) 0%, rgba(0, 0, 0, 1) 20% ,rgba(0, 0, 0, .9) 26%,
                         rgba(23, 10, 71, .96) 50%,rgba(10, 8, 15, .9) 65%, rgba(40, 33, 65,.9) 78%,rgba(0,0,0,1) 100%);
                 // opacity: .84;
+            }
+            .tips{
+                text-align: center;
+                font-size: 0.83vw;
+                padding-top: 0.2vw;
+                z-index: 999999;
+                position: relative;
             }
             .content{
                 height: 100%;
@@ -1026,7 +1034,7 @@ onMounted(() => {
     .doc_menu{
         z-index: 9;
         position: fixed;
-        top: 5.2vw;
+        top: 6vw;
         left: 46vw;
         .wrap{
             position: relative;

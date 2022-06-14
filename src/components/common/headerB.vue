@@ -1,6 +1,7 @@
 <template>
     <div class="home">
         <header>
+            <div class="tips">{{ $t('message.common.tips')}}</div>
             <div class="content" id="header">
                 <div class="logo">
                     <a :href="path"><img v-show="!logoHFlag" :src="logoHSrcP" @mouseenter="logoHFlag = true" alt=""></a>
@@ -412,13 +413,18 @@ onMounted(() => {
     .home{
         position: relative;
         width: 100%;
+        .tips{
+            text-align: center;
+            font-size: 10px;
+            padding-top: 0.2vw;
+        }
         header{
             z-index: 99;
             position: fixed;
             top: 0;
             right: 0;
             width: 100%;
-            height: 55px;
+            // height: 55px;
             color: #fff;
             background-color: #000000;
             .content{

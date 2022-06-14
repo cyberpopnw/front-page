@@ -35,7 +35,7 @@
                 x5-video-player-orientation="landscape"
                 x5-video-player-fullscreen="true"
                 v-else-if="videotype == 5">
-            <source src="https://d3bhixjyozyk2o.cloudfront.net/banner.mp4" type="video/mp4">
+            <source src="https://d3bhixjyozyk2o.cloudfront.net/cyberpop.mp4" type="video/mp4">
         </video>
 
         <!-- <div class="play" @click.stop="playVideo()" v-if="mobel && isPlay">
