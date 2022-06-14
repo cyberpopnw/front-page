@@ -2,24 +2,24 @@
     <div>
         <div class="popup" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide') ">
             <div class="content" ref="cursor">
-                <div class="title">STAKE</div>
+                <div class="title">{{$t('message.mining.STAKE')}}</div>
                 <div class="nav">
-                    <div class="multiple" :class="switchFlag ? 'activePink': ''" @click="switchFlag = false">Add liquidity and stake</div>
-                    <div class="alone" :class="!switchFlag ? 'activePink': ''" @click="switchFlag = false">Stake LP</div>
+                    <div class="multiple" :class="switchFlag ? 'activePink': ''" @click="switchFlag = false">{{$t('message.mining.stakingA.add')}}</div>
+                    <div class="alone" :class="!switchFlag ? 'activePink': ''" @click="switchFlag = false">{{$t('message.mining.stakingA.solo')}}</div>
                 </div>
                 <div class="card-wrap">
                     <div class="card1" v-if="switchFlag">
                         <div class="item">
                             <div class="border">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
-                                    <div class="name">Input</div>
+                                    <div class="name">">{{$t('message.mining.stakingA.input')}}</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
                                 </div>
                                 <div class="btns">
-                                    <div class="balance">Balance:0</div>
+                                    <div class="balance">{{$t('message.mining.cancel.balance')}}:0</div>
                                     <div class="icon">
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
-                                        <div class="max" @click="active = 1">MAX</div>
+                                        <div class="max" @click="active = 1">{{$t('message.mining.cancel.max')}}</div>
                                         <div class="desc">
                                             <div></div>
                                             CYT
@@ -27,20 +27,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tips">Insufficient CYT Balance,<span>Get CYT.</span></div>
+                            <div class="tips">{{$t('message.mining.stakingA.insuff_cyt')}},<span>Get CYT.</span></div>
                         </div>
                         <img class="addicon" src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stake_addicon.svg" alt="">
                         <div class="item">
                             <div class="border">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
-                                    <div class="name">Input</div>
+                                    <div class="name">{{$t('message.mining.stakingA.input')}}</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
                                 </div>
                                 <div class="btns">
-                                    <div class="balance">Balance:0</div>
+                                    <div class="balance">{{$t('message.mining.cancel.balance')}}:0</div>
                                     <div class="icon">
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
-                                        <div class="max" @click="active = 1">MAX</div>
+                                        <div class="max" @click="active = 1">{{$t('message.mining.cancel.max')}}</div>
                                         <div class="desc">
                                             <div></div>
                                             YOOSHI
@@ -48,35 +48,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tips">Insufficient YOOSHI Balance,<span>Get YOOSHI.</span></div>
+                            <div class="tips">{{$t('message.mining.stakingA.insuff_yooshi')}},<span>Get YOOSHI.</span></div>
                         </div>
                         <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">
-                            <span>{{ numState == 'error' ? 'ENTER TOKEN AMOUNT' : 'STAKE' }}</span>
+                            <span>{{ numState == 'error' ? $t('message.mining.stakingA.enter_token') : $t('message.mining.STAKE') }}</span>
                         </div>
                     </div>
                     <div class="card2" v-else>
                         <div class="item">
                             <div class="border">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
-                                    <div class="name">Input</div>
+                                    <div class="name">{{$t('message.mining.stakingA.input')}}</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn" :placeholder="valueIn">
                                     <div class="err_tips" v-show="numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
                                 </div>
                                 <div class="btns">
-                                    <div class="balance">Balance:{{haveCTY}}</div>
+                                    <div class="balance">{{$t('message.mining.cancel.balance')}}:{{haveCTY}}</div>
                                     <div class="icon">
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
-                                        <div class="max" @click="active = 1">MAX</div>
+                                        <!-- <div class="max" @click="active = 1">MAX</div> -->
+                                        <div class="max" @click="maxActive">{{$t('message.mining.cancel.max')}}</div>
                                         <div class="desc">
                                             CYT
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tips" v-if="!haveCTY">Insufficient LP Balance,<span>Get CYT.</span></div>
+                            <div class="tips" v-if="!Number(haveCTY)">{{$t('message.mining.stakingA.insuff_lp')}},<span>Get CYT.</span></div>
                         </div>
                         <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">
-                            <span>{{ numState == 'error' ? 'ENTER LP AMOUNT' : 'STAKE' }}</span>
+                            <span>{{ numState == 'error' ? $t('message.mining.stakingA.enter_lp') : $t('message.mining.STAKE') }}</span>
                         </div>
                     </div>
                 </div>
@@ -114,14 +115,19 @@ const switchFlag: any = ref(false);
 let valueIn:any = ref(1)
 const numState: any = ref('')
 const active: any = ref(0)
-watch(active, (newVal: any, oldVal) => {
-    if(newVal == 0){
-        valueIn.value = 1;
-    }else{
-        valueIn.value = parseInt(props.haveCTY) || 1;
-    }
+// watch(active, (newVal: any, oldVal) => {
+//     if(newVal == 0){
+//         valueIn.value = 1;
+//     }else{
+//         valueIn.value = parseInt(props.haveCTY) || 1;
+//     }
+//     numState.value = ''
+// }, {immediate:true,deep:true});
+
+const maxActive = () => {
+    valueIn.value = parseInt(props.haveCTY) || 0;
     numState.value = ''
-}, {immediate:true,deep:true});
+}
 
 
 const inputNumber = (e:any) => {
@@ -145,25 +151,40 @@ const closeDialog = () => {
 }
 
 const stakingCYT =  async () => {
-    if( numState.value == 'error' ) return;
+    if( numState.value == 'error' || !Number(valueIn.value) ) return;
     store.dispatch('staking/stakingState', { show: true, info: { state: 3, haveCTY: props.haveCTY }});
+
+    store.dispatch('staking/waitingShow', true);
+    store.dispatch('staking/waitingChangeAni', {ani: true,info: {desc:t('message.mining.stakingA.auth_prog')}});
     let result = await Web3.approve(cytV2.abi, cytV2.address, staking.address, valueIn.value);
     if(result) {
         store.dispatch('staking/stakingState', { show: true, info: { state: 6, haveCTY: props.haveCTY }});
+        store.dispatch('staking/waitingChangeAni', {ani: true,info: {desc:t('message.mining.stakingA.staking')}});
         let stake_result = await Web3.stake(staking.abi, staking.address, valueIn.value);
         console.log(stake_result);
         if(stake_result) {
+            closeWaitDialog();
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
             store.dispatch('staking/stakingState', { show: true, info: { state: 7, haveCTY: props.haveCTY }});
             store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+            closeDialog();
             return;
         }
+        closeWaitDialog();
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
         store.dispatch('staking/stakingState', { show: true, info: { state: 8, haveCTY: props.haveCTY }});
     }else{
+        closeWaitDialog();
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
         store.dispatch('staking/stakingState', { show: true, info: { state: 5, haveCTY: props.haveCTY }});
     }
+}
+
+const closeWaitDialog = () => {
+    store.dispatch('staking/waitingChangeAni', {ani: false ,info:{}});
+    setTimeout(() => {
+        store.dispatch('staking/waitingShow', false);
+    }, 300);
 }
 
 
@@ -371,6 +392,7 @@ onMounted(() => {
                         margin: 14px auto 0;
                         font-size: 16px;
                         font-family: AlibabaPuHuiTi_2_115_Black;
+                        font-weight: bold;
                         line-height: 48px;
                         text-align: center;
                         cursor: pointer;

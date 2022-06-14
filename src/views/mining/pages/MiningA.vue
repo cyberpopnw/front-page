@@ -6,7 +6,7 @@
     <div class="mining">
         <div class="banner">
             <div class="titles">
-                <div class="title">NFT MINING</div>
+                <div class="title">{{$t('message.mining.title')}}</div>
                 <div class="subtitle">{{$t('message.mining.subtitle')}}</div>     
             </div>
             <div class="total">
@@ -16,9 +16,9 @@
                 </div>
                 <div class="right">
                     <div class="right_content">
-                        <div class="total-title">Mining PooL Amount (CYT) </div>
+                        <div class="total-title">{{$t('message.mining.pool_amount')}}</div>
                         <div class="price">$3,441,130</div>
-                        <div class="total-subtitle">Mining PooL:1,092,37</div>
+                        <div class="total-subtitle">{{$t('message.mining.pool')}}:1,092,37</div>
                     </div>
                 </div>
             </div>
@@ -26,21 +26,21 @@
         <ul class="data">   
             <li>
                 <div>
-                    <div class="txt">Total Mining Power <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin5.png" alt=""> </div>
+                    <div class="txt">{{$t('message.mining.total_power')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin5.png" alt=""> </div>
                     <div class="percent">{{ getTotalSupply }}</div>
                 </div>
             </li>
             <div class="line"></div>
             <li>
                 <div>
-                    <div class="txt">Total Staked Amount</div>
+                    <div class="txt">{{$t('message.mining.total_staked')}}</div>
                     <div class="percent">10,199</div>
                 </div>
             </li>
             <div class="line"></div>
             <li>
                 <div>
-                    <div class="txt">Total Staked Tokens(CYT) ≈ $5,278,606</div>
+                    <div class="txt">{{$t('message.mining.total_Tokens')}} ≈ $5,278,606</div>
                     <div class="percent">$19,432,500,000,000</div>
                 </div>
             </li>
@@ -52,19 +52,19 @@
             <ul>
                 <li>
                     <div>
-                        <p class="title">My Mining Power</p>
+                        <p class="title">{{$t('message.mining.my_power')}}</p>
                         <p class="number_list"> <span class="number">0</span> <span class="dollar">≈ $0.278</span></p>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <p class="title">My Staked Amount</p>
+                        <p class="title">{{$t('message.mining.my_staked')}}</p>
                         <p> <span class="number">0</span></p>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <p class="title">My Staked Tokens(CYT)≈ $0</p>
+                        <p class="title">{{$t('message.mining.my_tokens')}}≈ $0</p>
                         <p> <span class="number">0</span></p>
                     </div>
                 </li>
@@ -74,18 +74,18 @@
                     <div class="exchange">(CYT) ≈ $0.34566</div>
                     <div class="price">114,514</div>
                 </div>
-                <div class="button">Harvest</div>
+                <div class="button">{{$t('message.mining.Harvest_btn')}}</div>
             </div>
         </div>
         <div class="more">
             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin2.png" alt="">
         </div>
         <div class="days">
-            <div class="title">Days</div>
+            <div class="title">{{$t('message.mining.Days')}}</div>
             <div class="content">
                 <div :style="{'width': progress + '%'}"></div>
             </div>
-            <div class="total_day">Cycle days: 30day</div>
+            <div class="total_day">{{$t('message.mining.cycle_days')}}: 30{{$t('message.mining.day')}}</div>
         </div>
         <div class="pledge">
             <div class="title">{{$t('message.mining.pledge_title')}}<span>2/4</span></div>
@@ -101,7 +101,7 @@
                     </div>
                 </li> -->
                 <li>
-                    <div class="not-stak" v-if="myStakCyt == 0">
+                    <div class="not-stak" v-if="(myStakCyt == 0) && (progress != 100)">
                         <div class="img-wrap" @click="stakingCyt">
                             <img class="pledge-img" :src="whiteImgSrc" alt="">
                         </div>
@@ -112,9 +112,9 @@
                         </div>
                     </div>
                     <div class="have-stak"  @click="stakingCyt" v-else>
-                        <p>Your Staking: {{ myStakCyt }} <br> Current day: {{ myTime > 0 ? myTime : 'Finish, click to receive' }}</p>
+                        <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br> {{$t('message.mining.current_day')}}: {{ myTime > 0 ? myTime : $t('message.mining.finish_receive')}}</p>
                         <div class="bot-txt whiteNft" @click.stop="cancelStake">
-                            <div>cancel staking</div>
+                            <div>{{$t('message.mining.cancel_staking')}}</div>
                             <img :src="whiteBorderSrc" alt="">
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div class="have-stak"  @click="myStakeNFT" v-else>
-                        <p>Your Staking: {{ myStakCyt }} <br> Current day: {{ myTime > 0 ? myTime : 'Finish, click to receive' }}</p>
+                        <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br> {{$t('message.mining.current_day')}}: {{ myTime > 0 ? myTime : $t('message.mining.finish_receive')}}</p>
                     </div>
                 </li>
                 <li>
@@ -159,16 +159,16 @@
         <div class="myAssets">
             <div class="item1">
                 <div class="left">
-                    My CYT <span>{{ mycyt }}</span>
+                    {{$t('message.mining.mycyt')}} <span>{{ mycyt }}</span>
                 </div>
                 <div class="right button getcytbtn">
-                    GET CYT
+                    {{$t('message.mining.getcyt')}}
                 </div>
             </div>
             <div class="line"></div>
             <div class="item2">
                 <div class="left">
-                    My COIN <span>{{ mycoin }}</span>
+                    {{$t('message.mining.mycoin')}} <span>{{ mycoin }}</span>
                 </div>
                 <div class="right coin_logo">
                     <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin9.png" alt="">
@@ -181,15 +181,15 @@
                     <div class="left">
                         <div class="img_title"></div>
                         <div class="texts">
-                            <p class="title">Total LP Locked</p>
+                            <p class="title">{{$t('message.mining.total_lp')}}</p>
                             <p class="price">$10,009,923</p>
                         </div>
                     </div>
                     <div class="right">
                         <div>
                             <div>
-                                <p>FARMS</p>
-                                <p>STAKE LP TOKEN TO EARN</p>
+                                <p>{{$t('message.mining.farms')}}</p>
+                                <p>{{$t('message.mining.farms_subtitle')}}</p>
                             </div>
                         </div>
                     </div>
@@ -201,49 +201,49 @@
                         <div class="top_element1"></div>
                         <div class="top_element2"></div>
                         <div class="table">
-                            <div class="title">Stake LP</div>
+                            <div class="title">{{$t('message.mining.Stake_LP')}}</div>
                             <div class="desc">CYT-YOOSHI</div>
                         </div>
                         <div class="table">
-                            <div class="title">TVL</div>
+                            <div class="title">{{$t('message.mining.TVL')}}</div>
                             <div class="desc">$29,393,229</div>
                         </div>
                         <div class="table">
-                            <div class="title">APR</div>
+                            <div class="title">{{$t('message.mining.APR')}}</div>
                             <div class="desc">489.09%</div>
                         </div>
                         <div class="table">
-                            <div class="title">Your staked</div>
+                            <div class="title">{{$t('message.mining.your_staked')}}</div>
                             <div class="desc">12,323 <span class="tag">LP</span> </div>
                         </div>
                         <div class="table top_element5">
-                            <div class="title">Rewards in</div>
+                            <div class="title">{{$t('message.mining.rewards_in')}}</div>
                             <div class="desc">
-                                <p>318 CYT <span>/DAY</span> </p>
-                                <p>318 BNB <span>/DAY</span> </p>
+                                <p>318 CYT <span>/{{$t('message.mining.DAY')}}</span> </p>
+                                <p>318 BNB <span>/{{$t('message.mining.DAY')}}</span> </p>
                             </div>
                         </div>
                     </div>
                     <div class="bottom">
                         <div class="table">
-                            <div class="title">Earned (CYT)</div>
+                            <div class="title">{{$t('message.mining.Earned')}}</div>
                             <div class="desc">≈ $123,222.00</div>
                         </div>
                         <div class="table bottom_element2">
-                            <div class="title">Harvest (CYT) ≈ $0</div>
+                            <div class="title">{{$t('message.mining.Harvest_cyt')}} ≈ $0</div>
                             <div class="desc">0</div>
                         </div>
                         <div class="Harvest harvestbtn">
                             <div class="bg"></div>
-                            <div>Harvest</div>
+                            <div>{{$t('message.mining.Harvest_btn')}}</div>
                         </div>
                         <div class="stake">
                             <div class="staked">
-                                <p class="title">Staked (CYT/BNB)</p>
+                                <p class="title">{{$t('message.mining.Staked_cyt')}}</p>
                                 <div class="desc">0</div>
                             </div>
                             <div class="button stakebtn">
-                                Stake
+                                {{$t('message.mining.Stake_btn')}}
                             </div>
                         </div>
                     </div>
@@ -253,14 +253,13 @@
     </div>
     <footer-a></footer-a>
     <!-- 质押完成领取奖励 -->
-    <FinishedA ref="Finished" v-if="isShowFinished" :isShowTips="isShowFinished"  @closeFinshed="isShowFinished = false"></FinishedA>
+    <FinishedA ref="Finished" v-if="isShowFinished" :isShowTips="isShowFinished" :amount="finishGetNFT" @closeFinshed="isShowFinished = false"></FinishedA>
     <!-- 取消质押弹窗 -->
-    <CancelStakeA ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake" :haveCTY="mycyt" @closeFinshed="isShowCancelStake = false"></CancelStakeA>
+    <CancelStakeA ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake" :haveCTY="Number(mycyt)" @closeFinshed="isShowCancelStake = false"></CancelStakeA>
     <!-- 选择NFT质押 -->
     <SelectNFTA ref="SelectNFT" v-if="isShowSelectNFT" :isShowTips="isShowSelectNFT"  @closeFinshed="isShowSelectNFT = false"></SelectNFTA>
-    <!-- 切换网络弹窗 -->
+    <!-- Switch network Popup -->
     <!-- <wrongNetWorkA :isShowTips="isShowTips" @changeSwitch="changeSwitch"></wrongNetWorkA> -->
-    <Waiting v-if="waitingState" :isShowWaiting="waitingState" :loadInfo="waitingInfo"></Waiting>
 </template>
 <script setup lang="ts">
 import { onMounted, ref, reactive, computed, getCurrentInstance, onUnmounted, watch } from 'vue'
@@ -273,7 +272,6 @@ import { useI18n } from 'vue-i18n';
 import FinishedA from '@/components/staking/FinishedA.vue';
 import SelectNFTA from '@/components/staking/selectNFTA.vue';
 import CancelStakeA from '@/components/staking/cancelStakeA.vue';
-import Waiting from '@/components/staking/waiting.vue';
 
 const { staking, cytV2 } = Web3.contracts;
 const { t, locale } = useI18n();
@@ -291,11 +289,11 @@ watch(readyAssets, (newVal: number, oldVal: any) => {
 watch(chainId, (newVal: any, oldVal: any) => {
     console.log(newVal, oldVal, 'newVal');
     console.log(!oldVal);
-    if(!oldVal || oldVal == -1) return;
     if(newVal != 43113){
-        store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
+        store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.mining.chainId_msg')}})
         return;
     }
+    if(!oldVal || oldVal == -1) return;
     init()
 }, {immediate:true,deep:true});
 
@@ -306,15 +304,6 @@ watch(realId, (newVal, oldVal: any) => {
     init()
     console.log('her3');
 }, {immediate:true,deep:true});
-
-// waiting dialog
-const waitingState = computed(() => store?.state.staking?.waitingState);
-// store.dispatch('staking/waitingChangeAni', true); 
-const waitingInfo = { // not require
-    title: 'WAITING FOR CONFIRMATION',
-    subtitle: '',
-    desc: 'Please confirm this transaction in your wallet'
-}
 
 // Sub component finished (pledge completed to receive reward)
 const Finished = ref(null);
@@ -333,6 +322,7 @@ const isShowCancelStake = ref(false) as any;
 
 // progress
 const progress = ref(0) as any;
+const finishGetNFT = ref(0) as any;
 
 
 // pool
@@ -405,8 +395,10 @@ const init = async () => {
     console.log(DaysResult, 'DaysResult');
     myTime.value = DaysResult.toFixed(2);
     console.log(myTime.value , 'myTime.value');
-    progress.value = await Web3.progress(staking.abi, staking.address);
-    console.log(progress.value, 'progress.value');
+    let oResult: any = await Web3.progress(staking.abi, staking.address);
+    progress.value = oResult.progressVal;
+    finishGetNFT.value = oResult.finishGetNFT;
+    console.log(progress.value, finishGetNFT.value, 'progress.value,finishGetNFT.value');
     if(myTime.value <= 0) progress.value = 100;
 }
 
@@ -769,6 +761,10 @@ onMounted(async () => {
                     font-family: AlibabaPuHuiTi_2_85_Bold;
                     color: #FFFFFF;
                     margin-top: 2vw;
+                    cursor: pointer;
+                    &:hover{
+                        filter: drop-shadow(0 0 .2vw #7E52FF);
+                    }
                 }
             }
         }
@@ -860,6 +856,7 @@ onMounted(async () => {
                         justify-content: center;
                         align-items: center;
                         text-align: center;
+                        cursor: pointer;
                         .cancelStakin{
                             color: #fff;
                             position: absolute;

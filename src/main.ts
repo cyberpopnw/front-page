@@ -27,7 +27,7 @@ import msgPopupB from './components/common/msgPopupB.vue'
 import loading from './components/loading/loading.vue'
 import purchaseA from './components/box/purchase.vue'
 import purchaseB from './components/box/purchaseB.vue'
-import stakingA from './components/staking/stakingA.vue'
+import stakingA from './components/staking/stakingA-2.vue'
 import stakingB from './components/staking/stakingB.vue'
 import wrongNetWorkA from './components/common/wrongNetWorkA.vue';
 import loadGameA from './components/assets/loadGameA.vue';
@@ -35,6 +35,8 @@ import boxOpenedA from './components/assets/boxOpenedA.vue';
 import boxOpenedB from './components/assets/boxOpenedB.vue';
 import registerA from './components/common/registerA.vue';
 import registerB from './components/common/registerB.vue';
+import Waiting from './components/staking/waiting.vue';
+
 
 import vue3videoPlay from 'vue3-video-play' 
 import 'vue3-video-play/dist/style.css' 
@@ -80,6 +82,7 @@ app.component('boxOpenedA', boxOpenedA)
 app.component('boxOpenedB', boxOpenedB)
 app.component('registerA', registerA)
 app.component('registerB', registerB)
+app.component('Waiting', Waiting)
 
 app.use(vue3videoPlay)
 app.mount('#app')

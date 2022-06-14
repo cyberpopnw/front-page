@@ -495,6 +495,7 @@ const stake = (abi: any[], address: string, number: number) => {
             })
             .on('error', (err: any) => {
                 console.log(`---------->:err`, err)
+                resolve(0)
             })
         // contract.methods.stake(number).send({ from: accounts.value }).then(function (receipt: any) {
         //     resolve(receipt)
@@ -566,10 +567,12 @@ const progress = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
-        let earned = await contract.methods.earned(accounts.value).call();
+        let earned = await contract.methods.earned(accounts.value).call()
         let _price = await contract.methods._price(1).call()
-        console.log(earned, _price, '_earned/_price');
-        resolve((earned/_price) * 100 > 100 ? 100 : (earned/_price) * 100)
+        let finishGetNFT = Math.floor(earned/_price)
+        let progressVal = (earned/_price) * 100 > 100 ? 100 : (earned/_price) * 100
+        console.log(earned, _price, finishGetNFT, '_earned/_price')
+        resolve({finishGetNFT,progressVal})
     })
 }
 
@@ -604,11 +607,12 @@ const getReward = (abi: any[], address: string) => {
 }
 
 // After the pledge is completed, receive NFT rewards
-const getNFT = (abi: any[], address: string) => {
+const getNFT = (abi: any[], address: string, amount: Number) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
-        contract.methods.getNFT(1, 1).send({ from: accounts.value }).then(function (receipt: any) {
+        console.log(amount);
+        contract.methods.getNFT(amount, 1).send({ from: accounts.value }).then(function (receipt: any) {
             resolve(receipt)
         }).catch((err: any) => {
             resolve(0)

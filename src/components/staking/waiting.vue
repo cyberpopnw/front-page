@@ -1,13 +1,13 @@
 <template>
-    <div class="container">
-        <div class="mask" :class="isShowWaiting && (waitingAni ? 'bounceShow' : 'bounceHide')">
+    <div class="container" :class="isShowWaiting && (waitingAni ? 'bounceShow' : 'bounceHide')">
+        <div class="mask">
             <div class="cover"></div>
             <div class="coverborder"></div>
             <img class="close" src="@/assets/nwhome/close.svg" alt=""  @click="closeDialog">
             <div class="content">
-                <div class="title">{{loadInfo.title }}</div>
+                <div class="title">{{loadInfo.title ? loadInfo.title : $t('message.mining.waiting.title') }}</div>
                 <div class="subtitle">{{loadInfo.subtitle}}</div>
-                <div class="desc">{{loadInfo.desc}}</div>
+                <div class="desc">{{loadInfo.desc ? loadInfo.desc : $t('message.mining.waiting.desc')}}</div>
                 <div class="icon">
                     <img class="load-icon" src="@/assets/nwhomePhone/loading-phone.svg" alt="">
                 </div>
@@ -35,7 +35,7 @@ const props: any = defineProps({
 const waitingAni = computed(() => store?.state.staking?.waitingAni);
 
 const closeDialog = () => {
-    store.dispatch('staking/waitingChangeAni', false);
+    store.dispatch('staking/waitingChangeAni', {ani: false ,info:{}});
     setTimeout(() => {
         store.dispatch('staking/waitingShow', false);
     }, 300);
@@ -114,6 +114,7 @@ onMounted(()=>{
             .title{
                 font-size: 1.45vw;
                 font-family: AlibabaPuHuiTi_2_115_Black;
+                font-weight: bold;
             }
             .subtitle{
                 margin-bottom: 1vw;

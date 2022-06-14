@@ -5,19 +5,19 @@
             <div class="coverborder"></div>
             <img class="close" src="@/assets/nwhome/close.svg" alt=""  @click="closeDialog">
             <div class="content">
-                <div class="title">UNSTAKE</div>
+                <div class="title">{{$t('message.mining.cancel.unstake')}}</div>
                 <div class="chunks">
                     <div class="withdraw_wrap">
                         <div class="withdraw" :class="{'select': selected == 0}" @click="selected = 0">
-                            <div class="left"> 
-                                <p>You Will Withdraw</p>
+                            <div class="left" :class="numState == 'error' ? 'error':''"> 
+                                <p>{{$t('message.mining.cancel.will_withdraw')}}</p>
                                 <!-- <p>{{ myStakCyt / 2}}</p> -->
                                 <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
                             </div>
                             <div class="right">
-                                <div class="balance">Balance:0</div>
+                                <div class="balance">{{$t('message.mining.cancel.balance')}}:{{myStakCyt}}</div>
                                 <div class="icon">
-                                    <div class="max">MAX</div>
+                                    <div class="max" @click="maxActive">{{$t('message.mining.cancel.max')}}</div>
                                     <div class="bull">
                                         <div></div>
                                         <div></div>
@@ -25,26 +25,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="errmsg">Insufficient CYT Balance</div>
+                        <div class="errmsg" v-if="!Number(myStakCyt)">{{$t('message.mining.cancel.tips')}}</div>
+                        <div class="errmsg" v-show="Number(myStakCyt) && numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
                     </div>
-                    <div class="reward" :class="{'select': selected == 1}" @click="selected = 1">
+                    <!-- <div class="reward" :class="{'select': selected == 1}" @click="selected = 1">
                         <div class="left">
-                            <p>With Unclaimed reward</p>
-                            <div class="txt">{{ myStakCyt }}</div>
+                            <p>{{$t('message.mining.cancel.Unclaimed')}}</p>
+                            <div class="txt">0</div>
                         </div>
                         <div class="right">
                             <div class="bull"></div> 
                             <p>NETT</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="tips">
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin13.png" alt="">
-                        <div class="text">When you withdraw, your NETT is claimed and your METIS- m.USDT is returned to you. You will no longer earn NETT rewards on this pool</div>
+                        <div class="text">{{$t('message.mining.cancel.warn_tips')}}</div>
                     </div>
                 </div>
                 <div class="btn">
                     <div class="btn-wrap">
-                        <div class="CONFIRM" @click="confirm">Withdraw & Claim</div>
+                        <div class="CONFIRM" @click="confirm">{{$t('message.mining.cancel.btn')}}</div>
                     </div>
                 </div>
             </div>
@@ -63,7 +64,7 @@ const { proxy } = getCurrentInstance() as any;
 const { staking } = Web3.contracts;
 const myStakCyt: any = ref(0)
 const emit = defineEmits(['closeFinshed']);
-const props = defineProps({
+const props: any = defineProps({
     isShowTips: Boolean,
     haveCTY: Number,
 })
@@ -94,14 +95,23 @@ const closeDialog = () => {
 let valueIn:any = ref(1)
 const numState: any = ref('')
 const inputNumber = (e:any) => {
-    console.log(e.target.value, props.haveCTY);
-    let regExp = /^[0-9]+$/; // Verify that is a positive integer
+    console.log(e.target.value, myStakCyt.value);
+    // let regExp = /^[0-9]+$/; // Verify that is a positive integer
+    let regExp = /^[1-9]\d*(\.\d{1,11})?$|^0(\.\d{1,11})?$/; // Verify that is a Positive integer and 11 decimal places
     valueIn.value = e.target.value
-    if (!e.target.value || !(regExp.test(valueIn.value)) || Number(valueIn.value) > Number(props.haveCTY)) {
+    if (!e.target.value || !(regExp.test(valueIn.value)) || Number(valueIn.value) > Number(myStakCyt.value)) {
         numState.value = 'error' 
     }else{
         numState.value = ''
     }
+}
+const maxActive = () => {
+    if( !Number(myStakCyt.value) ){
+        valueIn.value = 0;
+    }else{
+        valueIn.value = (Math.floor(myStakCyt.value * 100000000000) / 100000000000).toFixed(11);
+    }
+    numState.value = ''
 }
 
 
@@ -109,9 +119,12 @@ const inputNumber = (e:any) => {
 // Confirm selection
 const confirm = async () => {
     console.log(myStakCyt.value, 'myStakCyt.vlaue');
-    let result = await Web3.withdraw(staking.abi, staking.address, selected.value == 0 ? myStakCyt.value / 2 : myStakCyt.value);
+    if( numState.value == 'error' || !Number(myStakCyt.value) ) return;
+    // let result = await Web3.withdraw(staking.abi, staking.address, selected.value == 0 ? valueIn.value : myStakCyt.value);
+    let result = await Web3.withdraw(staking.abi, staking.address, valueIn.value );
     console.log(result);
     store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+    closeDialog();
 }
 
 
@@ -157,7 +170,8 @@ onMounted(() => {
             right: 0;
             bottom: 0;
             width: 31.51vw;
-            height: 32.81vw;
+            // height: 32.81vw;
+            height: 26.81vw;
             margin: auto;
             padding: 2.5vw;
             box-shadow: -1.51vw .83vw .2vw .05vw rgba(0, 0, 0, 0.4);
@@ -234,7 +248,7 @@ onMounted(() => {
                                 line-height: 1.04vw;
                             }
                             input{
-                                width: 50%;
+                                width: 100%;
                                 border: none;
                                 outline: none;
                                 background: transparent;
@@ -264,6 +278,7 @@ onMounted(() => {
                                     font-family: AlibabaPuHuiTi_2_65_Medium;
                                     border: 1px solid;
                                     border-image: linear-gradient(45deg, rgba(255, 0, 255, 1), rgba(176, 65, 216, 1)) 1 1;
+                                    cursor: pointer;
                                 }
                                 .bull{
                                     display: flex;
@@ -280,6 +295,11 @@ onMounted(() => {
                                         margin-left: -0.5vw;
                                     }
                                 }
+                            }
+                        }
+                        .left.error{
+                            input{
+                                color: #FF5CA1 !important;
                             }
                         }
                         .right{
@@ -341,6 +361,7 @@ onMounted(() => {
                         height: 2.91vw;
                         font-size: 1.04vw;
                         font-family: AlibabaPuHuiTi_2_115_Black;
+                        font-weight: bold;
                         color: #FFFFFF;
                         line-height: 2.91vw;
                         text-align: center;

@@ -5,8 +5,8 @@
             <div class="coverborder"></div>
             <img class="close" src="@/assets/nwhome/close.svg" alt=""  @click="closeDialog">
             <div class="content">
-                <div class="title">Finished</div>
-                <div class="text">Staking accomplished,you can choose CYT or NFT as a reward</div>
+                <div class="title">{{$t('message.mining.finish.finished')}}</div>
+                <div class="text">{{$t('message.mining.finish.text')}}</div>
                 <div class="reward_chunks">
                     <div class="item" :class="{'selected': selected == 0}" @click="selected = 0">
                         <div class="chunk">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="btn">
                     <div class="btn-wrap">
-                        <div class="CONFIRM" @click="confirm">CONFIRM</div>
+                        <div class="CONFIRM" @click="confirm">{{$t('message.mining.finish.btn')}}</div>
                     </div>
                 </div>
             </div>
@@ -41,8 +41,9 @@ const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
 const { staking } = Web3.contracts;
 const emit = defineEmits(['closeFinshed']);
-const props = defineProps({
+const props: any = defineProps({
     isShowTips: Boolean,
+    amount: Number
 })
 
 
@@ -71,10 +72,21 @@ const confirm = async () => {
     if(selected.value == 0){
         let result = await Web3.getReward(staking.abi, staking.address)
         console.log(result);
-        
+        if( result == 0 ){
+            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
+            return;
+        }
+        store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
+        closeDialog();
     }else{
-        let result = await Web3.getNFT(staking.abi, staking.address);
+        let result = await Web3.getNFT(staking.abi, staking.address, props.amount);
         console.log(result);
+        if( result == 0 ){
+            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
+            return;
+        }
+        store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
+        closeDialog();
     }
 }
 
@@ -146,6 +158,7 @@ onMounted(() => {
                     margin-bottom: 14px;
                     font-size: 18px;
                     font-family: AlibabaPuHuiTi_2_115_Black;
+                    font-weight: bold;
                     line-height: 20px;
                     text-align: center;
                 }
@@ -204,6 +217,7 @@ onMounted(() => {
                         height: 38px;
                         font-size: 12px;
                         font-family: AlibabaPuHuiTi_2_115_Black;
+                        font-weight: bold;
                         color: #FFFFFF;
                         line-height: 38px;
                         text-align: center;

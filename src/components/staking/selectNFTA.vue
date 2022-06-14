@@ -5,14 +5,14 @@
             <div class="coverborder"></div>
             <img class="close" src="@/assets/nwhome/close.svg" alt=""  @click="closeDialog">
             <div class="content">
-                <div class="title">SELECT NFT</div>
+                <div class="title">{{$t('message.mining.selectNFT.title')}}</div>
                 <table>
                     <thead>
                         <div class="thead">
-                            <div class="name">Name</div>
-                            <div class="id">ID</div>
-                            <div class="HashRate">HashRate</div>
-                            <div class="Operate">Operate</div>
+                            <div class="name">{{$t('message.mining.selectNFT.name')}}</div>
+                            <div class="id">{{$t('message.mining.selectNFT.id')}}</div>
+                            <div class="HashRate">{{$t('message.mining.selectNFT.hashRate')}}</div>
+                            <div class="Operate">{{$t('message.mining.selectNFT.operate')}}</div>
                         </div>
                     </thead>
                     <div class="tbody" v-if="1">
@@ -24,14 +24,14 @@
                             <div class="id">{{ item }}</div>
                             <div class="HashRate">HashRate</div>
                             <div class="Operate">
-                                <div class="stak">STAKE</div>
+                                <div class="stak">{{$t('message.mining.STAKE')}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="nothing" v-else>
                     <!-- <div class="nothing" v-if="true"> -->
                         <img src="@/assets/nwAssets/nothing.svg" alt="">
-                        <div>No data yet-</div>
+                        <div>{{$t('message.mining.selectNFT.nodata')}}-</div>
                     </div>
                 </table>
             </div>
@@ -250,6 +250,9 @@ onMounted(() => {
                     .Operate{
                         display: flex;
                         align-items: center;
+                        font-size: 1.04vw;
+                        font-family: AlibabaPuHuiTi_2_115_Black;
+                        font-weight: bold;
                         .stak{
                             background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/confirm_button.png');
                             background-size: 100% 100%;
@@ -265,6 +268,7 @@ onMounted(() => {
                         height: 2.91vw;
                         font-size: 1.04vw;
                         font-family: AlibabaPuHuiTi_2_115_Black;
+                        font-weight: bold;
                         color: #FFFFFF;
                         line-height: 2.91vw;
                         text-align: center;

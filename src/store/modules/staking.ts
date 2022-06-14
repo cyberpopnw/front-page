@@ -10,6 +10,11 @@ const states = {
     //waiting dialog
     waitingState: false, // show / hidden
     waitingAni: false,  // add animation 
+    waitingInfo: {
+        title: '',
+        subtitle: '',
+        desc: ''
+    },
 }
 export type typeof_staking = typeof states
 export default {
@@ -28,6 +33,9 @@ export default {
         },
         waitingChangeAni(state, payload: any) {
             state.waitingAni = payload;
+        },
+        waitingInfo(state, payload: any) {
+            state.waitingInfo = payload;
         }
     },
     actions: {
@@ -40,7 +48,8 @@ export default {
             commit('waitingShow', paylaod)
         },
         waitingChangeAni({ commit }, paylaod: any) {
-            commit('waitingChangeAni', paylaod)
+            commit('waitingChangeAni', paylaod.ani)
+            commit('waitingInfo', paylaod.info)
         },
     },
 } as Module<typeof_staking, State>

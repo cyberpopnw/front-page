@@ -14,6 +14,7 @@
         <staking-b v-if="innerWidth <= 1025 && stakingState" :isShowTips="stakingState" :haveCTY="stakingInfo.haveCTY" :state="stakingInfo.state"/>
         <boxOpenedA v-if="innerWidth > 1025 && boxOpened" :isShowTips="boxOpened" :boxId="boxId"></boxOpenedA>
         <boxOpenedB v-if="innerWidth <= 1025 && boxOpened" :isShowTips="boxOpened" :boxId="boxId"></boxOpenedB>
+        <Waiting v-if="waitingState" :isShowWaiting="waitingState" :loadInfo="waitingInfo"></Waiting>
         <div class="ip_error" v-if="iperror && innerWidth > 1025">
             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">
             {{$t('message.common.ip')}}
@@ -52,6 +53,9 @@ const purchaseState = computed(() => store.state.myBox?.purchaseState );
 const purchaseInfo = computed(() => store.state.myBox?.purchaseInfo);
 const stakingState = computed(() => store.state.staking?.stakingState );
 const stakingInfo = computed(() => store.state.staking?.stakingInfo);
+const waitingState = computed(() => store?.state.staking?.waitingState);
+const waitingInfo = computed(() => store?.state.staking?.waitingInfo);
+
 
 const isChinese = (val: any) => {
     var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
