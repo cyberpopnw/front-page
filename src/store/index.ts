@@ -7,6 +7,7 @@ import myAssets, { typeof_myAssets } from './modules/myAssets'
 import myBox, { typeof_myBox } from './modules/myBox'
 import staking, { typeof_staking } from './modules/staking'
 import wallet, { typeof_wallet } from './modules/wallet'
+import common, { typeof_common } from './modules/common'
 // create InjectionKey
 export const key: InjectionKey<Store<State>> = Symbol()
 
@@ -20,6 +21,7 @@ export type State = {
     myBox?: typeof_myBox
     staking?: typeof_staking
     wallet?: typeof_wallet
+    common?: typeof_common
 }
 
 const store = createStore({
@@ -58,7 +60,8 @@ const store = createStore({
         myAssets,
         myBox,
         staking,
-        wallet
+        wallet,
+        common
     },
 })
 export default store

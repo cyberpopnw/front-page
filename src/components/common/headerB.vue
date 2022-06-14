@@ -1,7 +1,10 @@
 <template>
     <div class="home">
         <header>
-            <div class="tips">{{ $t('message.common.tips')}}</div>
+            <div class="tips" v-if="warning">
+                <div>{{ $t('message.common.tips1')}}<span> https://cyberpop.online </span>{{ $t('message.common.tips2')}}</div>
+                <img class="close" src="@/assets/nwhome/close.svg" @click="closeWarn" alt="">
+            </div>
             <div class="content" id="header">
                 <div class="logo">
                     <a :href="path"><img v-show="!logoHFlag" :src="logoHSrcP" @mouseenter="logoHFlag = true" alt=""></a>
@@ -75,15 +78,16 @@ import {  useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter()
-const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 const register = ref(false);
 const registerTrans = ref(false);
+const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 
 const props = defineProps({
     path: String, 
     type: Number
 })
-
+const warning: any = computed(() => store.state.common?.warning );
+const closeWarn = () => {store.dispatch('common/warningShow',false)}
 let showLang:any = ref(false)
 let langArrow:any = ref(false)
 const openLang = () => {
@@ -330,9 +334,9 @@ const logined = (accounts: string) => {
         "parameter2":"",
         "parameter3":""
     }).then((res: any) => {
-        // console.log(res);
+        console.log(res);
     }).catch( (err: any) => {
-        // console.log(err) 
+        console.log(err) 
     })
 }
 
@@ -414,9 +418,28 @@ onMounted(() => {
         position: relative;
         width: 100%;
         .tips{
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 6px 10px 0;
+            font-size: 12px;
+            font-family: AlibabaPuHuiTi_2_55_Regular;
+            z-index: 999999;
             text-align: center;
-            font-size: 10px;
-            padding-top: 0.2vw;
+            div:first-child{
+                display: inline-block;
+                padding: 4px 10px;
+                background: #373B49;
+                box-shadow: inset 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+            }
+            span{
+                color: #EDFF00;
+            }
+            .close{
+                width: 22px;
+                height: 22px;
+                margin-left: 4px;
+            }
         }
         header{
             z-index: 99;
@@ -429,7 +452,7 @@ onMounted(() => {
             background-color: #000000;
             .content{
                 width: 100%;
-                height: 100%;
+                height: 55px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;

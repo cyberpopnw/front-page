@@ -68,6 +68,7 @@ const closeDialog = () => {
     }, 300);
 }
 
+
 const confirm = async () => {
     if(selected.value == 0){
         let result = await Web3.getReward(staking.abi, staking.address)
@@ -77,6 +78,7 @@ const confirm = async () => {
             return;
         }
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
+        store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
         closeDialog();
     }else{
         let result = await Web3.getNFT(staking.abi, staking.address, props.amount);
@@ -86,6 +88,7 @@ const confirm = async () => {
             return;
         }
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
+        store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
         closeDialog();
     }
 }

@@ -2,7 +2,10 @@
     <div class="home">
         <header>
             <div class="bgdiv"></div>
-            <div class="tips">{{ $t('message.common.tips')}}</div>
+            <div class="tips" v-if="warning">
+                <div>{{ $t('message.common.tips1')}}<span> https://cyberpop.online </span>{{ $t('message.common.tips2')}}</div>
+                <img class="close" src="@/assets/nwhome/close.svg" @click="closeWarn" alt="">
+            </div>
             <div class="content" id="header">
                 <div class="logo">
                     <a :href="path"><img v-show="!logoHFlag" :src="logoHSrcP" @mouseenter="logoHFlag = true" alt=""></a>
@@ -59,6 +62,14 @@
                         <img class="wallet" src="@/assets/nwhome/wallet.svg" alt="">
                         <div class="idtxt">{{realId}}</div>
                         <img class="portrait" src="@/assets/nwhome/portrait.svg" ref="clickCursor2" alt="" @click="showloggedFlag = !showloggedFlag,hoverLogged = false" @mouseenter="hoverLogged = true" @mouseleave="hoverLogged = false">
+                        <div class="logged_menu" v-show="showloggedFlag || hoverLogged" ref="cursor2" @mouseenter="hoverLogged = true" @mouseleave="hoverLogged = false">
+                            <div class="wrap">
+                                <div class="cover"></div>
+                                <div class="coverborder"></div>
+                                <div @click="toAssets()">{{t('message.common.login_myAssets')}}</div>
+                                <div @click="signout">{{t('message.common.login_logout')}}</div>
+                            </div>
+                        </div>
                     </div>
                      <div class="code" v-if="code">inviter Code: {{ code }} &nbsp;&nbsp;&nbsp; level: {{ level }} </div>
                 </div>
@@ -75,6 +86,16 @@
                         </li>
                         <li @mouseover="menuHover(4)" @mouseleave="hoverDoc = false" @mouseenter="hoverDoc = true" ref="clickCursor" @click="showDoc = !showDoc,hoverDoc = false" :class="{'active': active == 4}">
                             <span >{{$t('message.common.menu4')}}</span>
+                            <div class="doc_menu" v-show="showDoc || hoverDoc" ref="cursor" @mouseenter="hoverDoc = true">
+                                <div class="wrap">
+                                    <div class="cover"></div>
+                                    <div class="coverborder"></div>
+                                    <!-- <a href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopWhitePaper18thFeb2022.pdf" @click="showDoc = false" target="view_window">{{t('message.common.doc_whitePaper')}}</a> -->
+                                    <a href="https://pdf.cyberpop.online/" @click="showDoc = false" target="view_window">{{t('message.common.doc_whitePaper')}}</a>
+                                    <!-- <a href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopTechnologyArchitecture2.pdf" @click="showDoc = false" target="view_window">{{$t('message.common.doc_greenPaper')}}</a> -->
+                                    <a href="https://d3bhixjyozyk2o.cloudfront.net/(new)CyberPOPNewworlddeck(en).pdf" @click="showDoc = false" target="view_window">{{t('message.common.doc_deck')}}</a>
+                                </div>
+                            </div>
                         </li>
                         <li @mouseover="menuHover(5)" @click="changeMenu(5,'/space')" :class="{'active': active == 5}">
                             <span>{{$t('message.common.menu5')}}</span>
@@ -102,24 +123,6 @@
         </header>
     </div>
 
-    <div class="doc_menu" v-show="showDoc || hoverDoc" ref="cursor" @mouseenter="hoverDoc = true" @mouseleave="hoverDoc = false">
-        <div class="wrap">
-            <div class="cover"></div>
-            <div class="coverborder"></div>
-            <!-- <a href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopWhitePaper18thFeb2022.pdf" @click="showDoc = false" target="view_window">{{t('message.common.doc_whitePaper')}}</a> -->
-            <a href="https://pdf.cyberpop.online/" @click="showDoc = false" target="view_window">{{t('message.common.doc_whitePaper')}}</a>
-            <!-- <a href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopTechnologyArchitecture2.pdf" @click="showDoc = false" target="view_window">{{$t('message.common.doc_greenPaper')}}</a> -->
-            <a href="https://d3bhixjyozyk2o.cloudfront.net/(new)CyberPOPNewworlddeck(en).pdf" @click="showDoc = false" target="view_window">{{t('message.common.doc_deck')}}</a>
-        </div>
-    </div>
-    <div class="logged_menu" v-show="showloggedFlag || hoverLogged" ref="cursor2" @mouseenter="hoverLogged = true" @mouseleave="hoverLogged = false">
-        <div class="wrap">
-            <div class="cover"></div>
-            <div class="coverborder"></div>
-            <div @click="toAssets()">{{t('message.common.login_myAssets')}}</div>
-            <div @click="signout">{{t('message.common.login_logout')}}</div>
-        </div>
-    </div>
     <!-- Add network Popup -->
     <metamask-a v-if="metaMaskActive"></metamask-a>
     <!-- Switch network Popup -->
@@ -146,8 +149,8 @@ const props = defineProps({
     path: String, 
     type: Number
 })
-
-
+const warning: any = computed(() => store.state.common?.warning );
+const closeWarn = () => {store.dispatch('common/warningShow',false)}
 const chainList = ref({
     BSC: {
         name: 'BSC',
@@ -187,12 +190,6 @@ const chainList = ref({
 const goDownload = () => {
     router.push({ path: '/download', query: { code: router.currentRoute.value.query.code, isClick: 1 } })
     return;
-    // if( realId.value != -1 ){
-    //     showDown.value = true;
-    //     isOut.value = false;
-    // }else{
-    //     connect()
-    // }
 }
 
 
@@ -545,18 +542,35 @@ onMounted(() => {
                 height: 100%;
                 background: linear-gradient(90deg , rgba(0,0,0,1) 0%, rgba(0, 0, 0, 1) 20% ,rgba(0, 0, 0, .9) 26%,
                         rgba(23, 10, 71, .96) 50%,rgba(10, 8, 15, .9) 65%, rgba(40, 33, 65,.9) 78%,rgba(0,0,0,1) 100%);
-                // opacity: .84;
             }
             .tips{
-                text-align: center;
-                font-size: 0.83vw;
-                padding-top: 0.2vw;
-                z-index: 999999;
                 position: relative;
+                margin: .52vw auto 0;
+                font-size: 1.04vw;
+                font-family: AlibabaPuHuiTi_2_55_Regular;
+                z-index: 999999;
+                text-align: center;
+                div:first-child{
+                    display: inline-block;
+                    padding: .4vw 2.44vw;
+                    background: #373B49;
+                    box-shadow: inset 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+                }
+                span{
+                    color: #EDFF00;
+                }
+                .close{
+                    position: absolute;
+                    right: 3.33vw;
+                    top: .4vw;
+                    width: 1.4vw;
+                    height: 1.4vw;
+                    cursor: pointer;
+                }
             }
             .content{
-                height: 100%;
-                margin: 0 2.91vw 0 0vw;
+                height: 5.5vw;
+                margin: 0 2.91vw 0 0;
                 display: flex;
                 justify-content: space-between;
                 position: relative;
@@ -628,7 +642,7 @@ onMounted(() => {
                         .hover_chunk{
                             z-index: 10;
                             position: absolute;
-                            top: 3.8vw;
+                            top: 3.74vw;
                             left: 0;
                             .chunk_wrap{
                                 position: relative;
@@ -797,6 +811,70 @@ onMounted(() => {
                             width: 2.6vw;
                             height: 2.6vw;
                         }
+                        .logged_menu{
+                            position: absolute;
+                            top: 2.16vw;
+                            right: -1.2vw;
+                            .wrap{
+                                position: relative;
+                                width: 9.27vw;
+                                height: 5.1vw;
+                                margin-top: 2vw;
+                                background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
+                                border: .15vw solid;
+                                border-image: linear-gradient(219deg, rgba(83, 77, 126, 1), rgba(45, 39, 65, 1), rgba(45, 42, 66, 1), rgba(34, 103, 90, 1)) 3 3;
+                                clip-path: polygon(0 0, 100% 0, 100% 75%, 93% 100%, 0 100%);
+
+                                .cover{
+                                    position: absolute;
+                                    top: 0vw;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
+                                    clip-path: polygon(0 0, 100% 0, 100% 75%, 93% 100%, 0 100%);
+                                }
+                                .coverborder{
+                                    z-index: -1;
+                                    position: absolute;
+                                    bottom: 0;
+                                    right: 0;
+                                    content: '';
+                                    display: inline-block;
+                                    width: 8vw;
+                                    height: 8vw;
+                                    background-color: #2d2942;
+                                }
+                                div:nth-child(3){
+                                    position: absolute;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    width: 7.43vw;
+                                    height: 1.3vw;
+                                    padding-right: .8vw;
+                                    margin: 1vw auto .4vw;
+                                    font-size: .93vw;
+                                    font-family: AlibabaPuHuiTi_2_75_SemiBold;
+                                    color: #FFFFFF;
+                                    line-height: .4vw;
+                                    text-align: right;
+                                    border-bottom: .15vw solid #534968;
+                                    cursor: pointer;
+                                }
+                                div:nth-child(4){
+                                    position: absolute;
+                                    right: 1.7vw;
+                                    bottom: .9vw;
+                                    width: 7.43vw;
+                                    height: 1.3vw;
+                                    font-size: .93vw;
+                                    font-family: AlibabaPuHuiTi_2_75_SemiBold;
+                                    color: rgb(255, 24, 255);
+                                    line-height: 1.3vw;
+                                    text-align: right;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
                     }
                     .code{
                         position: absolute;
@@ -842,7 +920,7 @@ onMounted(() => {
                             cursor: pointer;
                             &:hover{
                                 background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-language-hover.svg');
-                                background-size: 94%;
+                                background-size: 100%;
                             }
                         }
                         .langUl{
@@ -931,9 +1009,81 @@ onMounted(() => {
                         line-height: 1.45vw;
                         cursor: pointer;
                         transform: skew(-18deg);
+                        &.active{
+                            background: linear-gradient(180deg, rgba(0,0,0,0),rgba(255, 24, 255, 0) 65%, rgba(255, 24, 255, 0.62) 100%);
+                        }  
                         span{
                             display: inline-block;
                             transform: skew(18deg);
+                        }
+                        .doc_menu{
+                            position: absolute;
+                            top: 5.14vw;
+                            right: -1.4vw;
+                            transform: skew(18deg);
+                            .wrap{
+                                position: relative;
+                                width: 8.3vw;
+                                // height: 7.96vw;
+                                height: 5.6vw;
+                                margin-top: .6vw;
+                                background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
+                                border: .15vw solid;
+                                border-image: linear-gradient(219deg, rgba(83, 77, 126, 1), rgba(45, 39, 65, 1), rgba(45, 42, 66, 1), rgba(34, 103, 90, 1)) 3 3;
+                                clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 100%);
+                                .cover{
+                                    position: absolute;
+                                    top: 0vw;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
+                                    clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 100%);
+                                }
+                                .coverborder{
+                                    z-index: -1;
+                                    position: absolute;
+                                    bottom: 0;
+                                    right: 0;
+                                    content: '';
+                                    display: inline-block;
+                                    width: 8vw;
+                                    height: 8vw;
+                                    background-color: #2d2942;
+                                }
+                                a{
+                                    display: inline-block;
+                                    text-decoration: none;
+                                    position: absolute;
+                                    right: 0;
+                                    width: 7vw;
+                                    height: 1.3vw;
+                                    padding-right: .8vw;
+                                    margin-right: .49vw;
+                                    font-size: .93vw;
+                                    font-family: AlibabaPuHuiTi_2_75_SemiBold;
+                                    text-align: right;
+                                    color: #fff;
+                                    white-space: nowrap;
+                                    cursor: pointer;
+                                }
+                                a:nth-child(3){
+                                    top: .8vw;
+                                }
+                                a:nth-child(4){
+                                    top: 2.4vw;
+                                    padding-top: .5vw;
+                                }
+                                a:nth-child(5){
+                                    top: 4.6vw;
+                                    padding-top: .5vw;
+                                }
+                                a + a{
+                                    border-top: 2px solid #534968;
+                                }
+                                a:hover{
+                                    color: rgb(255, 24, 255);
+                                }
+                            }
                         }
                     }
                     li:nth-child(3){
@@ -944,9 +1094,6 @@ onMounted(() => {
                         width: 100%;
                         height: 100%;
                     }
-                    .active{
-                        background: linear-gradient(180deg, rgba(0,0,0,0),rgba(255, 24, 255, 0) 65%, rgba(255, 24, 255, 0.62) 100%);
-                    }  
                 }
             }
             .white-list{
@@ -1029,142 +1176,6 @@ onMounted(() => {
             background-image: url('../../../assets/nwmining/coming-bg.png');
             background-position: center;
             background-size: auto 100%;
-        }
-    }
-    .doc_menu{
-        z-index: 9;
-        position: fixed;
-        top: 6vw;
-        left: 46vw;
-        .wrap{
-            position: relative;
-            width: 8.3vw;
-            // height: 7.96vw;
-            height: 5.1vw;
-            margin-top: .6vw;
-            background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
-            border: .15vw solid;
-            border-image: linear-gradient(219deg, rgba(83, 77, 126, 1), rgba(45, 39, 65, 1), rgba(45, 42, 66, 1), rgba(34, 103, 90, 1)) 3 3;
-            clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 100%);
-            .cover{
-                position: absolute;
-                top: 0vw;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
-                clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 0 100%);
-            }
-            .coverborder{
-                z-index: -1;
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                content: '';
-                display: inline-block;
-                width: 8vw;
-                height: 8vw;
-                background-color: #2d2942;
-            }
-            a{
-                display: inline-block;
-                text-decoration: none;
-                position: absolute;
-                right: 0;
-                width: 7vw;
-                height: 1.3vw;
-                padding-right: .8vw;
-                margin-right: .49vw;
-                font-size: .93vw;
-                font-family: AlibabaPuHuiTi_2_75_SemiBold;
-                text-align: right;
-                color: #fff;
-                white-space: nowrap;
-            }
-            a:nth-child(3){
-                top: .8vw;
-                cursor: pointer;
-            }
-            a:nth-child(4){
-                top: 2.4vw;
-                padding-top: .5vw;
-                cursor: pointer;
-            }
-            a:nth-child(5){
-                top: 4.6vw;
-                padding-top: .5vw;
-                cursor: pointer;
-            }
-            a + a{
-                border-top: 2px solid #534968;
-            }
-            a:hover{
-                color: rgb(255, 24, 255);
-            }
-        }
-    }
-    .logged_menu{
-        z-index: 99;
-        position: fixed;
-        top: 3.8vw;
-        right: 1.8vw;
-        .wrap{
-            position: relative;
-            width: 9.27vw;
-            height: 5.1vw;
-            margin-top: 2vw;
-            background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
-            border: .15vw solid;
-            border-image: linear-gradient(219deg, rgba(83, 77, 126, 1), rgba(45, 39, 65, 1), rgba(45, 42, 66, 1), rgba(34, 103, 90, 1)) 3 3;
-            clip-path: polygon(0 0, 100% 0, 100% 75%, 93% 100%, 0 100%);
-
-            .cover{
-                position: absolute;
-                top: 0vw;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
-                clip-path: polygon(0 0, 100% 0, 100% 75%, 93% 100%, 0 100%);
-            }
-            .coverborder{
-                z-index: -1;
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                content: '';
-                display: inline-block;
-                width: 8vw;
-                height: 8vw;
-                background-color: #2d2942;
-            }
-            div:nth-child(3){
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 7.43vw;
-                height: 1.3vw;
-                padding-right: .8vw;
-                margin: 1vw auto .4vw;
-                font-size: .93vw;
-                font-family: AlibabaPuHuiTi_2_75_SemiBold;
-                color: #FFFFFF;
-                line-height: .4vw;
-                text-align: right;
-                border-bottom: .15vw solid #534968;
-                cursor: pointer;
-            }
-            div:nth-child(4){
-                position: absolute;
-                right: 1.7vw;
-                bottom: .9vw;
-                width: 7.43vw;
-                height: 1.3vw;
-                font-size: .93vw;
-                font-family: AlibabaPuHuiTi_2_75_SemiBold;
-                color: rgb(255, 24, 255);
-                line-height: 1.3vw;
-                text-align: right;
-                cursor: pointer;
-            }
         }
     }
     @media screen {

@@ -495,7 +495,7 @@ onMounted(async () => {
             height: 25.78vw;
             background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwmining/banner-home.png');
             background-repeat: no-repeat;
-            background-position: left bottom;
+            background-position: left top;
             background-size: 100% 100%; 
             padding-top: 12.01vw;
             // position: absolute;

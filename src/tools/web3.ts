@@ -611,7 +611,6 @@ const getNFT = (abi: any[], address: string, amount: Number) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
-        console.log(amount);
         contract.methods.getNFT(amount, 1).send({ from: accounts.value }).then(function (receipt: any) {
             resolve(receipt)
         }).catch((err: any) => {

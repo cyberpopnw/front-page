@@ -84,7 +84,9 @@ const cn = {
             },
             //common
             ip: '我們的服務僅適用於部分合規國家和地區。 非法訪問將不受保護。',
-            tips: "请确保您正在访问https://cyberpop.online -请仔细检查，这是cyberpop唯一的官方URL。",
+            // tips: "请确保您正在访问https://cyberpop.online -请仔细检查，这是cyberpop唯一的官方URL。",
+            tips1: "请确保您正在访问",
+            tips2: "-请仔细检查，这是cyberpop唯一的官方URL。",
         },
 
         // homeA

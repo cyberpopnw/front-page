@@ -261,11 +261,12 @@ const chainId: any = computed(() => store.state.user?.chainId);
 const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 watch(readyAssetsF, (newVal, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssetsF');
-    if(!oldVal || oldVal == -1) return;
+    if(newVal <= 0 || oldVal == -1) return;
     init()
-    console.log('her3');
+    console.log('her1');
 }, {immediate:true,deep:true});
 
+const mountedInit: any = ref(false);
 watch(chainId, (newVal: any, oldVal: any) => {
     console.log(newVal, oldVal, 'newVal');
     console.log(!oldVal);
@@ -273,8 +274,10 @@ watch(chainId, (newVal: any, oldVal: any) => {
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.mining.chainId_msg')}})
         return;
     }
-    if(!oldVal || oldVal == -1) return;
+    if( !mountedInit.value ) return
+    // if(!oldVal || oldVal == -1) return;
     init()
+    console.log('her2');
 }, {immediate:true,deep:true});
 
 
@@ -284,16 +287,6 @@ watch(realId, (newVal, oldVal: any) => {
     init()
     console.log('her3');
 }, {immediate:true,deep:true});
-
-// waiting dialog
-// const waitingState = computed(() => store?.state.staking?.waitingState);
-// store.dispatch('user/xplanChangeAni', true);
-// const waitingInfo = {
-//     title: 'WAITING FOR CONFIRMATION',
-//     subtitle: '111111111',
-//     desc: 'Please confirm this transaction in your wallet'
-// }
-
 
 
 // Sub component finished (pledge completed to receive reward)
@@ -395,7 +388,7 @@ const init = async () => {
 onMounted(async () => {
     setTimeout(() => {
         if(chainId.value != 43113){
-            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: 'Please switch to Fuji network'}})
+            mountedInit.value = true
             return;
         }
         init()

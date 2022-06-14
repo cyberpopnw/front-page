@@ -84,7 +84,9 @@ const kr = {
             },
             //common
             ip: '우리의 서비스는 일부 규정 준수 국가 및 지역에만 적용됩니다.불법 방문은 보호되지 않을 것이다.',
-            tips: '방문 중인지 확인하십시오.https://cyberpop.online - 자세히 확인하세요. 이것은 cyberpop의 유일한 공식 URL입니다.',
+            // tips: '방문 중인지 확인하십시오.https://cyberpop.online - 자세히 확인하세요. 이것은 cyberpop의 유일한 공식 URL입니다.',
+            tips1: '방문 중인지 확인하십시오.',
+            tips2: '- 자세히 확인하세요. 이것은 cyberpop의 유일한 공식 URL입니다.',
         },
 
         // homeA
