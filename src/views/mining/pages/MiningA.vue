@@ -255,7 +255,7 @@
     <!-- 质押完成领取奖励 -->
     <FinishedA ref="Finished" v-if="isShowFinished" :isShowTips="isShowFinished"  @closeFinshed="isShowFinished = false"></FinishedA>
     <!-- 取消质押弹窗 -->
-    <CancelStakeA ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake"  @closeFinshed="isShowCancelStake = false"></CancelStakeA>
+    <CancelStakeA ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake" :haveCTY="mycyt" @closeFinshed="isShowCancelStake = false"></CancelStakeA>
     <!-- 选择NFT质押 -->
     <SelectNFTA ref="SelectNFT" v-if="isShowSelectNFT" :isShowTips="isShowSelectNFT"  @closeFinshed="isShowSelectNFT = false"></SelectNFTA>
     <!-- 切换网络弹窗 -->

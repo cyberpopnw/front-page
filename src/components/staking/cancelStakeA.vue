@@ -7,20 +7,35 @@
             <div class="content">
                 <div class="title">UNSTAKE</div>
                 <div class="chunks">
-                    <div class="withdraw" :class="{'select': selected == 0}" @click="selected = 0">
-                        <div class="texts"> 
-                            <p>You Will Withdraw</p>
-                            <p>{{ myStakCyt / 2}}</p>
+                    <div class="withdraw_wrap">
+                        <div class="withdraw" :class="{'select': selected == 0}" @click="selected = 0">
+                            <div class="left"> 
+                                <p>You Will Withdraw</p>
+                                <!-- <p>{{ myStakCyt / 2}}</p> -->
+                                <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
+                            </div>
+                            <div class="right">
+                                <div class="balance">Balance:0</div>
+                                <div class="icon">
+                                    <div class="max">MAX</div>
+                                    <div class="bull">
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bull">
-                            <div></div>
-                            <div></div>
-                        </div>
+                        <div class="errmsg">Insufficient CYT Balance</div>
                     </div>
                     <div class="reward" :class="{'select': selected == 1}" @click="selected = 1">
-                        <p>With Unclaimed reward</p>
-                        <div>{{ myStakCyt }}<div class="bull"></div> </div>
-                        <p>CYT</p>
+                        <div class="left">
+                            <p>With Unclaimed reward</p>
+                            <div class="txt">{{ myStakCyt }}</div>
+                        </div>
+                        <div class="right">
+                            <div class="bull"></div> 
+                            <p>NETT</p>
+                        </div>
                     </div>
                     <div class="tips">
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin13.png" alt="">
@@ -50,6 +65,7 @@ const myStakCyt: any = ref(0)
 const emit = defineEmits(['closeFinshed']);
 const props = defineProps({
     isShowTips: Boolean,
+    haveCTY: Number,
 })
 
 
@@ -73,6 +89,21 @@ const closeDialog = () => {
         emit('closeFinshed')
     }, 300);
 }
+
+// input
+let valueIn:any = ref(1)
+const numState: any = ref('')
+const inputNumber = (e:any) => {
+    console.log(e.target.value, props.haveCTY);
+    let regExp = /^[0-9]+$/; // Verify that is a positive integer
+    valueIn.value = e.target.value
+    if (!e.target.value || !(regExp.test(valueIn.value)) || Number(valueIn.value) > Number(props.haveCTY)) {
+        numState.value = 'error' 
+    }else{
+        numState.value = ''
+    }
+}
+
 
 
 // Confirm selection
@@ -176,89 +207,95 @@ onMounted(() => {
                     margin-bottom: 1.3vw;
                 }
                 .chunks{
-                    .withdraw{
-                        // width: 27.3vw;
-                        height: 6.4vw;
-                        display: flex;
-                        align-items: center;
-                        position: relative;
-                        .texts{
+                    .withdraw_wrap{
+                        .errmsg{
                             padding-left: 1.04vw;
-                            p:first-child{
-                                font-size: 1.04vw;
-                                margin-bottom: 1.25vw;
-                                font-family: AlibabaPuHuiTi_2_55_Regular;
-                                font-weight: normal;
-                                color: #FFFFFF;
-                                line-height: 1.04vw;
-                                -webkit-background-clip: text;
-                            }
-                            p:last-child{
-                                font-size: 1.61vw;
-                                font-family: AlibabaPuHuiTi_2_85_Bold;
-                                font-weight: normal;
-                                color: #FFFFFF;
-                                line-height: 1.04vw;
-                                -webkit-background-clip: text;
-                            }
-                        }
-                        .bull{
-                            display: flex;
-                            align-items: center;
-                            position: absolute;
-                            right: 13.5vw;
-                            bottom: 1vw;
-                            div{
-                                width: 1.97vw;
-                                height: 1.97vw;
-                                background: #C4C4C4;
-                                opacity: 1;
-                                border: 2px solid #464360;
-                                border-radius: 50%;
-                            }
-                            div:last-child{
-                                margin-left: -0.5vw;
-                            }
+                            font-size: .73vw;
+                            font-family: AlibabaPuHuiTi_2_55_Regular;
+                            color: #FF2F2F;
+                            line-height: .83vw;
                         }
                     }
-                    .reward{
-                        padding: 1.56vw 0;
-                        padding-left: 1.04vw;
-                        p:first-child{
-                            font-size: 1.04vw;
-                            font-family: AlibabaPuHuiTi_2_55_Regular;
-                            font-weight: normal;
+                    .withdraw, .reward{
+                        // width: 27.3vw;
+                        height: 6.4vw;
+                        padding: 0 1.04vw;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        position: relative;
+                        .left,.right{
                             color: #FFFFFF;
-                            line-height: 1.04vw;
-                            margin-bottom: 1.19vw;
-                            -webkit-background-clip: text;
+                            p,.balance{
+                                font-size: 1.04vw;
+                                margin-bottom: .6vw;
+                                font-family: AlibabaPuHuiTi_2_55_Regular;
+                                font-weight: normal;
+                                line-height: 1.04vw;
+                            }
+                            input{
+                                width: 50%;
+                                border: none;
+                                outline: none;
+                                background: transparent;
+                                font-size: 1.61vw;
+                                font-family: AlibabaPuHuiTi_2_85_Bold;
+                                line-height: 1.04vw;
+                                color: #FFFFFF;
+                            }
+                             .txt{
+                                padding-top: .6vw;
+                                font-size: 1.61vw;
+                                font-family: AlibabaPuHuiTi_2_85_Bold;
+                                line-height: 1.04vw;
+                            }
+                            .icon{
+                                display: flex;
+                                align-items: center;
+                                justify-content: flex-end;
+                                .max{
+                                    width: 4.47vw;
+                                    height: 1.87vw;
+                                    margin-right: 1.04vw;
+                                    text-align: center;
+                                    font-size: .93vw;
+                                    line-height: 1.87vw;
+                                    color: #FF00FF;
+                                    font-family: AlibabaPuHuiTi_2_65_Medium;
+                                    border: 1px solid;
+                                    border-image: linear-gradient(45deg, rgba(255, 0, 255, 1), rgba(176, 65, 216, 1)) 1 1;
+                                }
+                                .bull{
+                                    display: flex;
+                                    align-items: center;
+                                    div{
+                                        width: 1.97vw;
+                                        height: 1.97vw;
+                                        background: #C4C4C4;
+                                        opacity: 1;
+                                        border: 2px solid #464360;
+                                        border-radius: 50%;
+                                    }
+                                    div:last-child{
+                                        margin-left: -0.5vw;
+                                    }
+                                }
+                            }
                         }
-                        div:nth-child(2){
-                            font-size: 1.61vw;
-                            font-family: AlibabaPuHuiTi_2_85_Bold;
-                            font-weight: normal;
-                            color: #FFFFFF;
-                            line-height: 1.04vw;
-                            margin-bottom: 0.93vw;
-                            -webkit-background-clip: text;
-                            display: flex;
-                            align-items: center;
+                        .right{
+                            text-align: right;
                         }
-                        p:last-child{
-                            font-size: 1.04vw;
-                            font-family: AlibabaPuHuiTi_2_55_Regular;
-                            font-weight: normal;
-                            color: #FFFFFF;
-                            line-height: 1.04vw;
-                            -webkit-background-clip: text;
-                        }
+                    }
+                    .reward > .right{
+                        text-align: center;
+                        margin-top: 3.5vw;
                         .bull{
-                            width: 1.87vw;
-                            height: 1.87vw;
+                            width: 1.97vw;
+                            height: 1.97vw;
+                            margin: 0 0 .2vw .2vw;
                             background: #C4C4C4;
-                            opacity: 1;
+                            border: 1px solid #464360;
                             border-radius: 50%;
-                            margin-left: 1.04vw;
                         }
                     }
                     .select{
@@ -266,10 +303,8 @@ onMounted(() => {
                     }
                     .tips{
                         height: 4.79vw;
-                        border-radius: 0px 0px 0px 0px;
-                        opacity: 1;
                         border: 1px solid #FFE154;
-                        margin-bottom: 1.97vw;
+                        margin: 1vw 0 1.97vw;
                         display: flex;
                         align-items: center;
                         padding-left: 1.04vw;
@@ -285,7 +320,6 @@ onMounted(() => {
                             font-weight: normal;
                             color: #FFE154;
                             line-height: 1.25vw !important;
-                            -webkit-background-clip: text;
                             margin-bottom: 0;
                             text-align: left;
                         }

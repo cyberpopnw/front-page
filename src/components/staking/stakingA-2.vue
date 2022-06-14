@@ -330,6 +330,7 @@ onMounted(() => {
                                             margin-right: 1.04vw;
                                             text-align: center;
                                             font-size: .93vw;
+                                            line-height: 1.87vw;
                                             color: #FF00FF;
                                             font-family: AlibabaPuHuiTi_2_65_Medium;
                                             border: 1px solid;
