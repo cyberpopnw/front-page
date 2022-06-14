@@ -83,7 +83,8 @@ const cn = {
                 tips0: '帳戶將自動註冊'
             },
             //common
-            ip: '我們的服務僅適用於部分合規國家和地區。 非法訪問將不受保護。'
+            ip: '我們的服務僅適用於部分合規國家和地區。 非法訪問將不受保護。',
+            tips: "请确保您正在访问https://cyberpop.online -请仔细检查，这是cyberpop唯一的官方URL。",
         },
 
         // homeA
@@ -454,7 +455,7 @@ const cn = {
             ios: '蘋果',
             Android: '安卓',
             windows: '視窗',
-            version: '最新版本1.0.2',
+            version: '最新版本1.0.3',
             inputEmail: '電子郵箱地址',
             tips2: '沒有ios app',
             tips3: '電子郵件錯誤',

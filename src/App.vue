@@ -17,10 +17,12 @@
         <div class="ip_error" v-if="iperror && innerWidth > 1025">
             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">
             {{$t('message.common.ip')}}
+            <img class="close" src="@/assets/nwhome/close.svg" @click="iperror = false" alt="">
         </div>
         <div class="ip_error_Mobile" v-if="iperror && innerWidth <= 1025">
             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">
             {{$t('message.common.ip')}}
+            <img class="close" src="@/assets/nwhome/close.svg" @click="iperror = false" alt="">
         </div>
         <!-- <div style="background: #333;color: #fff" v-if="cname">{{ cname }}</div> -->
     </router-view>
@@ -120,7 +122,7 @@ onMounted(() => {
     }//
 })
 </script>
-<style>
+<style lang="less">
     .ip_error, .ip_error_Mobile{
         z-index: 6;
         display: flex;
@@ -143,6 +145,10 @@ onMounted(() => {
         border: 1px solid #F3FF29;
         white-space: nowrap;
         /* animation-fill-mode: forwards; */
+        .close{
+            margin-left: 1vw;
+            cursor: pointer;
+        }
     }
     .ip_error > img{
         width: 1.6vw;

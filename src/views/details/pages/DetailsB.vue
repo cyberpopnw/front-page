@@ -31,7 +31,7 @@
             <div class="btn">
                 <div class="purchase" :class="{'not-allowed': data.Remaining == 0 || isProduction }" @click="purchase">{{$t('message.details.box_btn_pur')}}</div>
                 <div class="unpack" :class="{'not-allowed': ownerNumber == 0 || chainId == 56 }" @click="open">{{$t('message.details.box_btn_open')}}</div>
-                <div class="view" @click="opensea">{{$t('message.details.box_btn_view')}}</div>
+                <div class="view" :class="{'not-allowed': chainId == 56 }" @click="opensea">{{$t('message.details.box_btn_view')}}</div>
             </div>
         </div>
         <div class="changeMenu">
@@ -294,6 +294,7 @@ const videoUrl = () => {
 const opensea = () => {
     // window.open('https://opensea.io/');
     // if(chainid)
+    return
     window.open(`https://testnets.nftrade.com/assets/fuji/${chainId.value == 43113 ? '0x55eFD6D4cF31F925E36d268C12353848c9e782fD' : ''}`)
 }
 
