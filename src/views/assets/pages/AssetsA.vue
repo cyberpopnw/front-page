@@ -396,7 +396,6 @@ watch(() => hobby2.value, (now, old) => {
         } else {
             loadingState.value = 2; // Loading complete
             console.log(loadingState.value, 'loadingState filter Loading complete');
-            
         }
     })(0)
 })
