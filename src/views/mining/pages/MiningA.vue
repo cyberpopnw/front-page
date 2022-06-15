@@ -504,6 +504,7 @@ onMounted(async () => {
                 right: 0;
                 right: 18.65vw;
                 top: 23vw;
+                text-align: right;
                 .title{
                     font-size: 3.33vw;
                     font-family: AlibabaPuHuiTi_2_105_Heavy;
@@ -517,7 +518,6 @@ onMounted(async () => {
                     font-family: AlibabaPuHuiTi_2_75_SemiBold;
                     color: #FFFFFF;
                     line-height: 1.66vw;
-                    text-align: right;
                     margin-right: 0.5vw;
                 }
             }

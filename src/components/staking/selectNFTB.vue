@@ -70,16 +70,16 @@ const closeDialog = () => {
     }, 300);
 }
 
-const confirm = async () => {
-    if(selected.value == 0){
-        let result = await Web3.getReward(staking.abi, staking.address)
-        console.log(result);
+// const confirm = async () => {
+//     if(selected.value == 0){
+//         let result = await Web3.getReward(staking.abi, staking.address)
+//         console.log(result);
         
-    }else{
-        let result = await Web3.getNFT(staking.abi, staking.address);
-        console.log(result);
-    }
-}
+//     }else{
+//         let result = await Web3.getNFT(staking.abi, staking.address);
+//         console.log(result);
+//     }
+// }
 
 const cursor:any = ref(null)
 const handleOtherClick = (e:any) => { 

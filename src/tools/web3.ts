@@ -607,7 +607,7 @@ const getReward = (abi: any[], address: string) => {
 }
 
 // After the pledge is completed, receive NFT rewards
-const getNFT = (abi: any[], address: string, amount: Number) => {
+const getNFT = (abi: any[], address: string, amount: number) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)

@@ -259,7 +259,7 @@ const router = useRouter()
 const realId = computed(() => store?.state.wallet?.realId);  // Asterisk address
 const chainId: any = computed(() => store.state.user?.chainId);
 const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
-watch(readyAssetsF, (newVal, oldVal: any) => {
+watch(readyAssetsF, (newVal: number, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssetsF');
     if(newVal <= 0 || oldVal == -1) return;
     init()

@@ -43,7 +43,7 @@ const us = {
                 add2: 'add Fuji',
                 switch: 'Please switch the current network.',
                 network: 'Network Error',
-                wrongNetwork: 'WRONG NERWOEK',
+                wrongNetwork: 'NETWORK WARNING',
                 wrongContent: 'You are connecting to the wrong network. Please switch the current network.',
                 switchMumbai: 'Mumbai',
                 switchFuji: 'FUJI',
@@ -205,7 +205,7 @@ const us = {
             team_mem_water: 'Worked as a cloud computing engineer at Intel\'s Asia-Pacific R&D Ltd; Former cloud technology director of Huawei, responsible for cloud design, experienced in cloud computing and blockchain industry; set up a team to delve into the development of metaverse games and successfully designed an independent MMORPG game.',
             team_mem_ice: 'Worked as chief cloud back-end developer in Huawei. Familiar with various technical frameworks such as Java and Go-Lang. Code contributor in Cosmos community. Familiar with blockchain structure. Core source code contributor. He realized cross-chain transfer of Erc-1155 and EVM.',
             // homeA-partners
-            part_title: 'PARTNERS',
+            part_title: 'BACKERS', //PARTNERS
             // homeA-will
             will_title: 'We suppport multi-end interoperability',
             will_logo1_txt: 'Windows',
