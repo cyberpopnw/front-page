@@ -8,6 +8,7 @@ const kr = {
             menu4: '도큐멘트',
             menu5: '엑스포 신세계',
             menu6: '화이트 리스트',
+            menu7: '장터',
             language1: '영어',
             language2: '중국어',
             language3: '일본어',  

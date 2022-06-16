@@ -97,8 +97,11 @@
                                 </div>
                             </div>
                         </li>
-                        <li @mouseover="menuHover(5)" @click="changeMenu(5,'/space')" :class="{'active': active == 5}">
+                        <li @mouseover="menuHover(5)" @click="changeMenu(5, '/space')" :class="{'active': active == 5}">
                             <span>{{$t('message.common.menu5')}}</span>
+                        </li>
+                        <li @mouseover="menuHover(6)" @click="toMarket" :class="{'active': active == 6}">
+                            <span>{{$t('message.common.menu7')}}</span>
                         </li>
                         <!-- <li @mouseover="menuHover(6)" @click="changeMenu(6, '/')" :class="{'active': active == 6}">
                             <span>{{$t('message.common.menu6')}}</span>
@@ -179,17 +182,20 @@ const chainList = ref({
         active: 1,
     },
     notSupported: {
-        name: 'Wrong Network',
+        name: '',
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/wrong.png',
         active: 1,
     }
 }) as any
 
 
-// go to download
+// router
 const goDownload = () => {
     router.push({ path: '/download', query: { code: router.currentRoute.value.query.code, isClick: 1 } })
     return;
+}
+const toMarket = () => {
+    window.open('https://testmarket.cyberpop.online/#/', '_blank');
 }
 
 
@@ -318,6 +324,7 @@ const handleOtherClick = (e:any) => {
     }else{
         showDoc.value = false;
     }
+
     if( cursor3.value.contains(e.target) || clickCursor3.value.contains(e.target)){
         showDoc.value = false;
         showloggedFlag.value = false;
@@ -325,6 +332,7 @@ const handleOtherClick = (e:any) => {
     }else{
         showLanguage.value = false;
     }
+
     if( loggined.value ){
         if( cursor2.value.contains(e.target) || clickCursor2.value.contains(e.target) ){
             showDoc.value = false;
@@ -523,6 +531,25 @@ onMounted(() => {
             left: -13vw;
         }
     }
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+    a:link {
+        text-decoration: none;
+    }
+    a:visited {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    a:active {
+        text-decoration: none;
+    }
+    a:focus {
+        text-decoration: none;
+    }
     .router-link-active {
     text-decoration: none;
     }
@@ -602,7 +629,7 @@ onMounted(() => {
                             width: 1.56vw;
                         }
                         .select_chain{
-                            border: 1px solid #DD2ECE;
+                            // border: 1px solid #DD2ECE;
                             padding: 0.5vw 1vw;
                             font-size: 1.02vw;
                             color: #DD2ECE;
@@ -622,9 +649,9 @@ onMounted(() => {
                             }
                         }
 
-                        .select_chain:hover{
-                            box-shadow: inset 0px 1px 20px 0px rgba(221, 46, 206, 0.72);
-                        }
+                        // .select_chain:hover{
+                        //     box-shadow: inset 0px 1px 20px 0px rgba(221, 46, 206, 0.72);
+                        // }
                         .selected:hover{
                             box-shadow: none;
                         }
@@ -990,7 +1017,7 @@ onMounted(() => {
                     position: absolute;
                     top: 0;
                     left: 19.5vw;
-                    width: 43.6vw;
+                    // width: 43.6vw;
                     height: 100%;
                     ul{
                         width: 100%;
@@ -998,7 +1025,7 @@ onMounted(() => {
                     }
                     ul > li{
                         float: left;
-                        width: 8.3vw;
+                        width: 7.81vw;
                         height: 100%;
                         padding-top: 1.6vw;
                         padding-right: .8vw;

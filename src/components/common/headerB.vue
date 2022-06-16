@@ -50,7 +50,10 @@
                             <a @click="closeMenu()" href="https://d3bhixjyozyk2o.cloudfront.net/(new)CyberPOPNewworlddeck(en).pdf" target="view_window">{{$t('message.common.doc_deck')}}</a>
                         </div>
                     </li>
-                    <li @click="changeMenu(5,'/space')" :class="{'active': active == 5}">{{$t('message.common.menu5')}}</li>
+                    <li @click="changeMenu(5, '/space')" :class="{'active': active == 5}">{{$t('message.common.menu5')}}</li>
+                    <li @click="toMarket" :class="{'active': active == 6}">
+                        <span>{{$t('message.common.menu7')}}</span>
+                    </li>
                     <!-- <li @click="changeMenu(5, '/')" :class="{'active': active == 5}">{{$t('message.common.menu6')}}</li> -->
                 </ul>
                 <div class="language">
@@ -132,7 +135,7 @@ const chainList = ref({
         active: 1,
     },
     notSupported: {
-        name: 'Wrong Network',
+        name: '',
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/wrong.png',
         active: 1,
     }
@@ -351,9 +354,14 @@ const signout = () => {
     }
 }
 
+
+// router
 const toAssets = () => {
     router.push('/knapsack');
     store.dispatch('wallet/walletMenuAni', false);
+}
+const toMarket = () => {
+    window.open('https://testmarket.cyberpop.online/#/', '_blank');
 }
 
 

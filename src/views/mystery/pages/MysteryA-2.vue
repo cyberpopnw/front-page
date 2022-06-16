@@ -36,7 +36,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                     </div>
                     <div class="weapon">
                         <div class="name"><span class="name-content">{{ data[0].info.name }}</span></div>
-                        <div class="left_over">Left: <span class="number">{{ Remaining[0] + '/2000'}}</span></div>
+                        <!-- <div class="left_over">Left: <span class="number">{{ Remaining[0] + '/2000'}}</span></div> -->
                         <div class="introduce" v-html="locale == 'cn' ? data[0].info.description_zh : data[0].info.description"></div>
                         <div class="price">
                             <!-- <img src="@/assets/nwbox/nfts-icon.svg" alt="">
@@ -73,7 +73,7 @@ import router from '@/router';
 import { useI18n } from 'vue-i18n';
 const { t, locale } = useI18n();
 
-const { GiftBox, LootBox, Cyborg, MarketV2, cyt } = Web3.contracts;
+const { GiftBox, LootBox, Cyborg, MarketV2, cyt, lootBox_Bsc } = Web3.contracts;
 
 const { proxy } = getCurrentInstance() as any;
 
@@ -109,6 +109,9 @@ const getBalance = async (chainid: number) => {
         var result: any = store.state.myBox?.box
     }
     console.log(result, 'result');
+    // let res = await Web3.leftNumber(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box)
+    // console.log(res, 'res');
+    
     // getData(result)
     proxy.$api.get(`https://api.cyberpop.online/box/${9}`).then((result: any) => {
         let str: any = JSON.stringify(result.description);
