@@ -10,11 +10,11 @@
             <div class="content">
                 <div class="title">{{ $t('message.common.metamask.opened') }}</div>
                 <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/opened.png" class="opened" alt="">
-                <div class="text">{{ $t('message.common.metamask.openedText1')}} <span>{{ nftID }}</span> {{ $t('message.common.metamask.openedText2') }}</div>
+                <div class="text"> <span v-if="nftID > 0"> {{ $t('message.common.metamask.openedText1')}}</span><span v-if="nftID > 0">{{ nftID }}</span> {{ $t('message.common.metamask.openedText2') }}</div>
             </div>
             <div class="btns">
                 <div class="btn" @click="toMyassets">{{ $t('message.common.metamask.viewAsset') }}</div>
-                <div class="btn" @click="viewTrade">{{ $t('message.common.metamask.viewTrade') }}</div>
+                <div class="btn" @click="viewTrade" :class="{'not-allowed': true}">{{ $t('message.common.metamask.viewTrade') }}</div>
             </div>
         </div>
     </div>
@@ -61,6 +61,7 @@ const nftID = ref(0)
 const lastNFT = async () => {
     let boxId = props.boxId;
     console.log(boxId ,'boxId');
+    if(boxId > 2 || boxId == 1) return;   // undefind box
     if(chainId.value == 80001){
         let result: any = boxId == 0 ? await Web3.tokensOfOwner(cyberClub.abi, cyberClub.address) : boxId == 1 ? await Web3.tokensOfOwner(arms.abi, arms.address) : await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
         nftID.value = result[result.length-1]
@@ -76,6 +77,7 @@ const toMyassets = () => {
     close();
 }
 const viewTrade = () => {
+    return;
     window.open(`https://testnets.nftrade.com/assets/fuji/${chainId.value == 43113 ? '0x55eFD6D4cF31F925E36d268C12353848c9e782fD' : '0xC5FE394692a469BD5789D8247F281403e064E576'}/`)
     close();
 }
@@ -191,6 +193,10 @@ onMounted(() => {
                 right: 2.44vw;
                 display: flex;
                 justify-content: flex-end;
+                .not-allowed{
+                    cursor: not-allowed !important;
+                    opacity: .4;
+                }
                 .btn{
                     padding: 0.83vw 1.25vw;
                     transition: all 0.2s ease;
