@@ -12041,7 +12041,7 @@ const cytV2 = {
 
 // coin
 const coin = {
-    address: '0xAE54412e3fD8e28B43a3D029b41aEcdc054DbcF0',
+    address: '0x297A03887539581AC84E49807D028Cbdf4350696',
     abi: [
         {
             "inputs": [],
