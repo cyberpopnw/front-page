@@ -306,9 +306,11 @@ const cn = {
              total_power: '總挖礦力',
              total_staked: '總質押數量',
              total_Tokens: '已質押代幣總數(CYT)',
+             percyt_earn: '質押1個CYT產生的利息',
              my_power: '我的挖礦力',
              my_staked: '我的質押數量',
              my_tokens: '我的質押代幣(CYT)',
+             my_Prop: '我的CYT在質押池中的占比',
              Harvest_btn: '收穫',
              Days: '天',
              cycle_days: '週期天數',
@@ -375,7 +377,7 @@ const cn = {
              waiting: {
                  title: '正在等待確認',
                  desc: '請在您的錢包中確認此交易'
-             }
+             },
         },
 
         // boxA

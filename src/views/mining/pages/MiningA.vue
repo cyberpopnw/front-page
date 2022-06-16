@@ -24,13 +24,13 @@
             </div>
         </div>
         <ul class="data">   
-            <li>
+            <!-- <li>
                 <div>
                     <div class="txt">{{$t('message.mining.total_power')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin5.png" alt=""> </div>
                     <div class="percent">--</div>
                 </div>
             </li>
-            <div class="line"></div>
+            <div class="line"></div> -->
             <li>
                 <div>
                     <div class="txt">{{$t('message.mining.total_staked')}}</div>
@@ -40,38 +40,52 @@
             <div class="line"></div>
             <li>
                 <div>
+                    <div class="txt">{{$t('message.mining.percyt_earn')}}/CYT</div>
+                    <div class="percent">≈ {{ rewardPerToken.toFixed(6) }}/s</div>
+                </div>
+            </li>
+            <!-- <div class="line"></div>
+            <li>
+                <div>
                     <div class="txt">{{$t('message.mining.total_Tokens')}} ≈ $5,278,606</div>
                     <div class="percent">$--</div>
                 </div>
-            </li>
+            </li> -->
             <div class="element1"></div>
             <div class="element2"></div>
             <div class="element3"></div>
         </ul>
         <div class="mystaked">
             <ul>
-                <li>
+                <!-- <li>
                     <div>
                         <p class="title">{{$t('message.mining.my_power')}}</p>
                         <p class="number_list"> <span class="number">--</span> <span class="dollar">≈ $0.278</span></p>
                     </div>
-                </li>
+                </li> -->
                 <li>
                     <div>
                         <p class="title">{{$t('message.mining.my_staked')}}</p>
                         <p> <span class="number">{{ myStakCyt }}</span></p>
                     </div>
                 </li>
+                <div class="line"></div>
                 <li>
+                    <div>
+                        <p class="title">{{$t('message.mining.my_Prop')}}</p>
+                        <p> <span class="number">{{ (myStakCyt / getTotalSupply * 100).toFixed(6) }}%</span></p>
+                    </div>
+                </li>
+                <!-- <li>
                     <div>
                         <p class="title">{{$t('message.mining.my_tokens')}}≈ $0</p>
                         <p> <span class="number">--</span></p>
                     </div>
-                </li>
+                </li> -->
             </ul>
             <div class="Harvest">
                 <div class="texts">
-                    <div class="exchange">(CYT) ≈ $0.34566</div>
+                    <div class="exchange">(CYT)</div>
                     <div class="price">{{ earned }}</div>
                 </div>
                 <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
@@ -415,7 +429,7 @@ const init = async () => {
     let DaysResult: any = await Web3.DaysRemaining(staking.abi, staking.address, 3) as number;
     console.log(DaysResult, 'DaysResult');
     earned.value = DaysResult.earned;
-    rewardPerToken.value = DaysResult.rewardPerToken;
+    rewardPerToken.value =  Number( DaysResult.rewardPerToken) / 1000000000000000000;
     myTime.value = DaysResult.result.toFixed(2);
     console.log(myTime.value , 'myTime.value');
     let oResult: any = await Web3.progress(staking.abi, staking.address);
@@ -664,8 +678,10 @@ onMounted(async () => {
             }
             li{
                 margin-top: 1.05vw;
+                padding: 0 3.6vw;
                 display: flex;
                 justify-content: center;
+                white-space: nowrap;
                 .txt{
                     font-size: .98vw;
                     font-family: AlibabaPuHuiTi_2_55_Regular;
@@ -686,13 +702,13 @@ onMounted(async () => {
                 }
             }
             li:first-child{
-                width: 16.87vw;
+                // width: 16.87vw;
             }
             li:nth-child(3){
-                width: 17.13vw;
+                // width: 17.13vw;
             }
             li:nth-child(5){
-                width: 26.56vw;
+                // width: 26.56vw;
             }
         }
         .mystaked{
@@ -704,6 +720,7 @@ onMounted(async () => {
             border: 1px solid #3F4043;
             position: relative;
             ul{
+                display: flex;
                 width: 100%;
                 height: 100%;
                 li{
@@ -713,6 +730,7 @@ onMounted(async () => {
                     overflow: hidden;
                     float: left;
                     height: 100%;
+                    padding: 0 1.6vw;
                     color: #B3B3B3;
                     .title{
                         font-size: 0.98vw;
@@ -739,13 +757,19 @@ onMounted(async () => {
                     }
                 }
                 li:nth-child(1){
-                    width: 11.97vw;
+                    // width: 11.97vw;
                 }
                 li:nth-child(2){
-                    width: 11.91vw;
+                    // width: 11.91vw;
                 }
                 li:nth-child(3){
-                    width: 17.29vw;
+                    // width: 17.29vw;
+                }
+                .line{
+                    width: 0.104vw;
+                    height: 2.08vw;
+                    margin-top: 2vw;
+                    background: #59647E;
                 }
             }
             .Harvest{
@@ -767,6 +791,7 @@ onMounted(async () => {
                         font-family: AlibabaPuHuiTi_2_85_Bold;
                         color: #2C1469;
                         line-height: 1.35vw;
+                        white-space: nowrap;
                     }
                     .price{
                         font-size: 1.61vw;
