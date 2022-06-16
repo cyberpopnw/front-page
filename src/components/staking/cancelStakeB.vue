@@ -62,8 +62,7 @@ const { staking } = Web3.contracts;
 const myStakCyt: any = ref(0)
 const emit = defineEmits(['closeFinshed']);
 const props = defineProps({
-    isShowTips: Boolean,
-    haveCTY: Number,
+    isShowTips: Boolean
 })
 
 
@@ -93,7 +92,7 @@ let valueIn:any = ref(1)
 const numState: any = ref('')
 const inputNumber = (e:any) => {
     console.log(e.target.value, myStakCyt.value);
-    let regExp = /^[1-9]\d*(\.\d{1,11})?$|^0(\.\d{1,11})?$/
+    let regExp = /^[0-9]+$/; // Verify that is a positive integer
     valueIn.value = e.target.value
     if (!e.target.value || !(regExp.test(valueIn.value)) || Number(valueIn.value) > Number(myStakCyt.value)) {
         numState.value = 'error' 
@@ -105,7 +104,8 @@ const maxActive = () => {
     if( !Number(myStakCyt.value) ){
         valueIn.value = 0;
     }else{
-        valueIn.value = (Math.floor(myStakCyt.value * 100000000000) / 100000000000).toFixed(11);
+        // valueIn.value = (Math.floor(myStakCyt.value * 100000000000) / 100000000000).toFixed(11);
+        valueIn.value = myStakCyt.value;
     }
     numState.value = ''
 }

@@ -18,8 +18,8 @@
             <div class="right">
                 <div class="right_content">
                     <div class="total-title">{{$t('message.mining.pool_amount')}} </div>
-                    <div class="price">$3,441,130</div>
-                    <div class="total-subtitle">{{$t('message.mining.pool')}}:1,092,37</div>
+                    <div class="price">{{ Number(poolAmount) + Number(getTotalSupply) }}</div>
+                    <div class="total-subtitle">{{$t('message.mining.pool')}}:{{ getTotalSupply }}</div>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <li>
                     <div>
                         <div class="txt">{{$t('message.mining.total_staked')}}</div>
-                        <div class="percent">10,199</div>
+                        <div class="percent">{{ getTotalSupply }}</div>
                     </div>
                 </li>
                 <li>
@@ -62,7 +62,7 @@
                 <div class="Harvest">
                     <div class="texts">
                         <div class="exchange">(CYT) ≈ $0.34566</div>
-                        <div class="price">114,514</div>
+                        <div class="price">{{ earned }}</div>
                     </div>
                     <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
                 </div>
@@ -77,7 +77,7 @@
             <div class="content">
                 <div :style="{'width': progress + '%'}"></div>
             </div>
-            <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">15 {{$t('message.mining.days1')}} 2 {{$t('message.mining.hours')}}</span></div>
+            <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">{{progress}}%</span></div>
         </div>
         <div class="pledge">
             <div class="title">{{$t('message.mining.pledge_title')}}<span>2/4</span></div>
@@ -94,6 +94,7 @@
                 </li> -->
                 <li>
                     <div class="not-stak" v-if="(myStakCyt == 0) && (progress != 100)">
+                    <!-- <div class="not-stak" v-if="myStakCyt == 0"> -->
                         <div class="img-wrap" @click="stakingCyt">
                             <img class="pledge-img" :src="whiteImgSrc" alt="">
                         </div>
@@ -104,7 +105,8 @@
                         </div>
                     </div>
                     <div class="have-stak"  @click="stakingCyt" v-else>
-                        <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br> {{$t('message.mining.current_day')}}: {{ myTime > 0 ? myTime : $t('message.mining.finish_receive') }}</p>
+                        <!-- <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br> {{$t('message.mining.current_day')}}: {{ myTime > 0 ? myTime : $t('message.mining.finish_receive') }}</p> -->
+                        <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br/> {{$t('message.mining.current_pro')}}：{{progress}}%</p>
                         <div class="bot-txt whiteNft" @click.stop="cancelStake">
                             <div>{{$t('message.mining.cancel_staking')}}</div>
                             <img :src="whiteBorderSrc" alt="">
@@ -236,7 +238,7 @@
     <!-- 质押完成领取奖励 -->
     <FinishedB ref="Finished" v-if="isShowFinished" :isShowTips="isShowFinished" :amount="finishGetNFT"  @closeFinshed="isShowFinished = false"></FinishedB>
     <!-- 取消质押弹窗 -->
-    <CancelStakeB ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake" :haveCTY="mycyt" @closeFinshed="isShowCancelStake = false"></CancelStakeB>
+    <CancelStakeB ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake" @closeFinshed="isShowCancelStake = false"></CancelStakeB>
     <!-- 选择NFT质押 -->
     <SelectNFTB ref="SelectNFT" v-if="isShowSelectNFT" :isShowTips="isShowSelectNFT"  @closeFinshed="isShowSelectNFT = false"></SelectNFTB>
     <!-- 切换网络弹窗 -->
@@ -333,6 +335,9 @@ let lockedBorderSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPho
 
 
 //  my balance
+const poolAmount: any = ref(0);
+const earned: any = ref(0);
+const rewardPerToken: any = ref(0);
 const mycyt: any = ref(0);
 const mycoin: any = ref(0)
 const myStakCyt: any = ref(0);
@@ -380,19 +385,23 @@ const cancelStake = () => {
 
 // init data
 const init = async () => {
+    // poolAmount.value = await Web3.notifyrewardamount(staking.abi, staking.address)
+    // console.log(poolAmount.value, 'poolAmount')
     mycyt.value = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address);
     console.log(mycyt, 'mycyt');
     myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address)
     console.log(myStakCyt.value, 'myStakCyt.value');
-    let DaysResult = await Web3.DaysRemaining(staking.abi, staking.address, 3) as number;
+    let DaysResult: any = await Web3.DaysRemaining(staking.abi, staking.address, 3) as number;
     console.log(DaysResult, 'DaysResult');
-    myTime.value = DaysResult.toFixed(2);
+    earned.value = DaysResult.earned;
+    rewardPerToken.value = DaysResult.rewardPerToken;
+    myTime.value = DaysResult.result.toFixed(2);
     console.log(myTime.value , 'myTime.value');
     let oResult: any = await Web3.progress(staking.abi, staking.address);
     progress.value = oResult.progressVal;
     finishGetNFT.value = oResult.finishGetNFT;
     console.log(progress.value, finishGetNFT.value, 'progress.value,finishGetNFT.value');
-    if(myTime.value <= 0) progress.value = 100;
+    // if(myTime.value <= 0) progress.value = 100;
 }
 
 onMounted(async () => {

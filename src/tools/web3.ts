@@ -442,7 +442,7 @@ const withdrawRole = (abi: any[], address: string, tokenId: any) => {
 
 
 // Query pledge contract and pledge amount
-const getBalanceOf = (abi: any[], address: string) => {
+const getBalanceOf = (abi: any[], address: string) => { // 每个用户质押的CYT数量
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -522,7 +522,7 @@ const DaysRemaining = (abi: any[], address: string, tokenId: number) => {
         console.log(getBalanceOf, 'getBalanceOf');
         let result = ((_price - earned) * 1000000000000000000)  / (rewardPerToken * getBalanceOf); //_balances
         console.log(result, 'result');
-        resolve(result);
+        resolve({result,earned,rewardPerToken });
     })
 }
 
@@ -572,7 +572,7 @@ const progress = (abi: any[], address: string) => {
         let finishGetNFT = Math.floor(earned/_price)
         let progressVal = (earned/_price) * 100 > 100 ? 100 : (earned/_price) * 100
         console.log(earned, _price, finishGetNFT, '_earned/_price')
-        resolve({finishGetNFT,progressVal})
+        resolve({finishGetNFT, progressVal})
     })
 }
 
@@ -582,11 +582,15 @@ const notifyrewardamount = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
+        console.log(accounts.value);
+        
         contract.methods.notifyRewardAmount(6000000).send({ from: accounts.value }).then(function (receipt: any) {
+            console.log(receipt, 'web3.noti');
+            
             resolve(receipt)
         }).catch((err: any) => {
             resolve(0)
-            console.log('error');
+            console.log('error',err);
         })
     })
 }

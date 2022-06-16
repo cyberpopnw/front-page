@@ -65,8 +65,7 @@ const { staking } = Web3.contracts;
 const myStakCyt: any = ref(0)
 const emit = defineEmits(['closeFinshed']);
 const props: any = defineProps({
-    isShowTips: Boolean,
-    haveCTY: Number,
+    isShowTips: Boolean
 })
 
 
@@ -96,8 +95,8 @@ let valueIn:any = ref(1)
 const numState: any = ref('')
 const inputNumber = (e:any) => {
     console.log(e.target.value, myStakCyt.value);
-    // let regExp = /^[0-9]+$/; // Verify that is a positive integer
-    let regExp = /^[1-9]\d*(\.\d{1,11})?$|^0(\.\d{1,11})?$/; // Verify that is a Positive integer and 11 decimal places
+    let regExp = /^[0-9]+$/; // Verify that is a positive integer
+    // let regExp = /^[1-9]\d*(\.\d{1,11})?$|^0(\.\d{1,11})?$/; // Verify that is a Positive integer and 11 decimal places
     valueIn.value = e.target.value
     if (!e.target.value || !(regExp.test(valueIn.value)) || Number(valueIn.value) > Number(myStakCyt.value)) {
         numState.value = 'error' 
@@ -109,7 +108,8 @@ const maxActive = () => {
     if( !Number(myStakCyt.value) ){
         valueIn.value = 0;
     }else{
-        valueIn.value = (Math.floor(myStakCyt.value * 100000000000) / 100000000000).toFixed(11);
+        // valueIn.value = (Math.floor(myStakCyt.value * 100000000000) / 100000000000).toFixed(11);
+        valueIn.value = myStakCyt.value;
     }
     numState.value = ''
 }
@@ -129,7 +129,7 @@ const confirm = async () => {
 
 
 const init = async () => {
-    myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address)
+    myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address) // you have stake
     console.log(myStakCyt.value, 'myStakCyt.value');
 }
 

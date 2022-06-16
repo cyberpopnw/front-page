@@ -466,9 +466,9 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             <!-- <a href="https://ethereum.org/en/" target="view_window">
                 <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_eth.png" alt="">
             </a> -->
-            <a href="https://www.binance.com/" target="view_window">
+            <!-- <a href="https://www.binance.com/" target="view_window">
                 <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_binan.png" alt="">
-            </a>
+            </a> -->
             <a href="https://pancakeswap.finance/" target="view_window">
                 <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_pancake.png" alt="">
             </a>
