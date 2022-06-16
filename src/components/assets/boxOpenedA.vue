@@ -25,9 +25,10 @@ import { ref, onMounted, computed, getCurrentInstance } from 'vue'
 import store from '@/store/index'
 import { useI18n } from 'vue-i18n';
 import Web3 from '@/tools/web3' 
+import {  useRouter } from 'vue-router'
+
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
-import {  useRouter } from 'vue-router'
 
 const { arms, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji } = Web3.contracts
 const router = useRouter()

@@ -52,7 +52,7 @@
                     </li>
                     <li>
                         <p class="title">{{$t('message.mining.my_staked')}}</p>
-                        <p> <span class="number">0</span></p>
+                        <p> <span class="number">{{ myStakCyt }}</span></p>
                     </li>
                     <li>
                         <p class="title">{{$t('message.mining.my_tokens')}}<br/>≈ $0</p>
@@ -64,7 +64,7 @@
                         <div class="exchange">(CYT) ≈ $0.34566</div>
                         <div class="price">114,514</div>
                     </div>
-                    <div class="button">{{$t('message.mining.Harvest_btn')}}</div>
+                    <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
                 </div>
             </div>
         </div>
@@ -339,6 +339,16 @@ const myStakCyt: any = ref(0);
 const myTime: any = ref(0);
 const myStakeNFT: any = ref(0);
 const test = ref(0) as any
+
+
+// harvest btn
+const harvest = () => {
+    if(myTime.value > 0 || progress.value < 100) { // You can continue to pledge before the time is up
+        return;
+    }
+    store.dispatch('user/xplanChangeAni', true);
+    isShowFinished.value = true;
+}
 
 // start staking
 const stakingCyt = async () => {

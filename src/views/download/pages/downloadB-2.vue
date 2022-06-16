@@ -82,7 +82,8 @@
     const getPublicAddress = (email: any,  referralCode?: any,  publicAddress?: string) => {
         proxy.$api.post(`/code/business/invuser?address=${publicAddress || 0}&icode=${referralCode || 0}&email=${email}&nickname=${0}`).then((res: any) => {
             if(res.data.code == 514) {
-                store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.download.tips4')}})
+                isDonload.value = true;
+                store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.download.tips4')}})
                 return;
             }
             if(res.data.code == 510) {
@@ -242,7 +243,7 @@
     })
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     @keyframes arrow{
         0% {
             transform: translateY(0);
@@ -259,6 +260,9 @@
         100% {
             transform: translateY(0px);
         }
+    }
+    .green{
+        color: #A6F779;
     }
     .download{
         z-index: 6;
@@ -338,6 +342,7 @@
                         background: none;
                         padding: 0 16px;
                         color: #fff;
+                        font-size: 13px;
                         font-family: AlibabaPuHuiTi_2_85_Bold;
                     }
                     span{

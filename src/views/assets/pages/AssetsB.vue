@@ -53,14 +53,14 @@
                                 </li>
                             </ul>
                             <ul class="type">
-                                <li @click="showSelect(2)"><div>{{$t('message.assets.type1_b')}}</div></li>
+                                <li @click="showSelect(2)"><div>{{$t('message.assets.type1')}}</div></li>
                                 <li v-show="showItem2" class="item" @click="selectItem($event)">
-                                    <div class="selected">{{$t('message.assets.type1_item_b')}}</div>
-                                    <div>{{$t('message.assets.type1_item1')}}</div>
-                                    <div>{{$t('message.assets.type1_item2')}}</div>
-                                    <div>{{$t('message.assets.type1_item3')}}</div>
-                                    <div>{{$t('message.assets.type1_item4')}}</div>
-                                    <div>{{$t('message.assets.type1_item5')}}</div>
+                                    <div data-name="All types" class="selected">{{$t('message.assets.type1_item_b')}}</div>
+                                    <div data-name="Game">{{$t('message.assets.type1_item6')}}</div>
+                                    <div data-name="Badge">{{$t('message.assets.type1_item7')}}</div>
+                                    <div data-name="role">{{$t('message.assets.type1_item8')}}</div>
+                                    <div data-name="head">{{$t('message.assets.type1_item9')}}</div>
+                                    <div data-name="LootBox">{{$t('message.assets.type1_item10')}}</div>
                                     <div class="btn">
                                         <div class="cancel">{{$t('message.assets.btn_cancel_b')}}</div>
                                         <div class="ok">{{$t('message.assets.btn_ok_b')}}</div>
@@ -68,7 +68,7 @@
                                 </li>
                             </ul>
                             <ul class="quality">
-                                <li @click="showSelect(3)"><div>{{$t('message.assets.type2_b')}}</div></li>
+                                <li @click="showSelect(3)"><div>{{$t('message.assets.type2')}}</div></li>
                                 <li v-show="showItem3" class="item" @click="selectItem($event)">
                                     <div class="selected">{{$t('message.assets.type2_item_b')}}</div>
                                     <div>{{$t('message.assets.type2_item1')}}</div>
@@ -310,19 +310,32 @@ const inputOtherClick = (e:any) => {
 }
 
 
-const changeText = (parentLi:any) => {
+const typeArr: any = ref([]); // type checkbox array 
+const changeText = (parentLi:any, cancel?: boolean) => {
+    typeArr.value = [];
     let longString:string = ''
     let firstLi:string = ''
     const selectedArr = parentLi.querySelectorAll('.selected')
-    const selectArrLen = selectedArr.length
+    let selectArrLen = selectedArr.length
+    if( cancel ){
+        for( let i = 0;i < selectArrLen; i++ ){
+            selectedArr[i].classList.remove('selected');
+        }
+        selectArrLen = 0;
+    }
     if( selectArrLen == 0 ){
         // When not selected, the first item is checked by default
         firstLi = parentLi.parentElement.querySelectorAll('li')[1].querySelector('div').innerText;
         (parentLi.parentElement.querySelector('li').querySelector('div') as HTMLElement).innerText = firstLi;
         parentLi.parentElement.querySelectorAll('li')[1].querySelector('div').classList.add('selected');
     }else{
-        for( let i = 0;i < selectArrLen; i++ ){
-        
+        let index = 0;
+        if( selectedArr[0].getAttribute('data-name') == 'All types' && selectArrLen > 1 ){
+            selectedArr[0].classList.remove('selected');
+            index = 1;
+        }
+        for( let i = index;i < selectArrLen; i++ ){
+            typeArr.value.push(selectedArr[i].getAttribute('data-name'));
             if( i == selectArrLen-1 ){
                 longString += selectedArr[i].innerText
             }else{
@@ -363,13 +376,13 @@ const selectItem = (e:any) => {
         showItem1.value = false;
         showItem2.value = false;
         showItem3.value = false;
-
     }else if( e.target.className == 'cancel' ){
+        changeText(parentLi, true);
         showItem1.value = false;
         showItem2.value = false;
         showItem3.value = false;
     }else{
-        (e.target as HTMLElement).classList.add('selected')
+        (e.target as HTMLElement).classList.toggle('selected')
         if( e.target.innerText == 'ALL' || e.target.innerText == 'ERC 721' || e.target.innerText == 'ERC 1155' ){
             // changeText(parentLi);
             (parentLi.parentElement.querySelector('li').querySelector('div') as HTMLElement).innerText = e.target.innerText;

@@ -59,7 +59,7 @@
                 <li>
                     <div>
                         <p class="title">{{$t('message.mining.my_staked')}}</p>
-                        <p> <span class="number">0</span></p>
+                        <p> <span class="number">{{ myStakCyt }}</span></p>
                     </div>
                 </li>
                 <li>
@@ -74,7 +74,7 @@
                     <div class="exchange">(CYT) ≈ $0.34566</div>
                     <div class="price">114,514</div>
                 </div>
-                <div class="button">{{$t('message.mining.Harvest_btn')}}</div>
+                <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
             </div>
         </div>
         <div class="more">
@@ -286,6 +286,7 @@ watch(readyAssets, (newVal: number, oldVal: any) => {
     console.log('her3');
 }, {immediate:true,deep:true});
 
+const mountedInit: any = ref(false);
 watch(chainId, (newVal: any, oldVal: any) => {
     console.log(newVal, oldVal, 'newVal');
     console.log(!oldVal);
@@ -293,7 +294,8 @@ watch(chainId, (newVal: any, oldVal: any) => {
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.mining.chainId_msg')}})
         return;
     }
-    if(!oldVal || oldVal == -1) return;
+    if( !mountedInit.value ) return
+    // if(!oldVal || oldVal == -1) return;
     init()
 }, {immediate:true,deep:true});
 
@@ -356,6 +358,15 @@ const myTime: any = ref(0);
 const myStakeNFT: any = ref(0);
 const test = ref(0) as any
 
+// harvest btn
+const harvest = () => {
+    if(myTime.value > 0 || progress.value < 100) { // You can continue to pledge before the time is up
+        return;
+    }
+    store.dispatch('user/xplanChangeAni', true);
+    isShowFinished.value = true;
+}
+
 // start staking
 const stakingCyt = async () => {
     console.log(progress.value, 'progress.value');
@@ -412,6 +423,7 @@ onMounted(async () => {
     
     setTimeout(() => {
         if(chainId.value != 43113){
+            mountedInit.value = true
             return;
         }
         init()

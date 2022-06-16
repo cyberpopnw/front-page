@@ -265,7 +265,7 @@ onMounted(() => {
 
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     .warp{
         background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_background_pc3.png');
         background-size: auto 100%;

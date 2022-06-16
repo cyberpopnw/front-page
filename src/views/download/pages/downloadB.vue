@@ -225,7 +225,7 @@
     })
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     .download{
         z-index: 6;
         position: fixed;
