@@ -25,12 +25,12 @@
         </div>
         <div class="data-wrap">
             <ul class="data">
-                <li>
+                <!-- <li>
                     <div>
                         <div class="txt">{{$t('message.mining.total_power')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin5.png" alt=""> </div>
                         <div class="percent">{{ getTotalSupply }}</div>
                     </div>
-                </li>
+                </li> -->
                 <li>
                     <div>
                         <div class="txt">{{$t('message.mining.total_staked')}}</div>
@@ -39,29 +39,40 @@
                 </li>
                 <li>
                     <div>
+                        <div class="txt">{{$t('message.mining.percyt_earn')}}/CYT</div>
+                        <div class="percent">≈ {{ rewardPerToken.toFixed(6) }}/s</div>
+                    </div>
+                </li>
+                <!-- <div id="Chart" style="width: 200px; height: 200px;"></div> -->
+                <!-- <li>
+                    <div>
                         <div class="txt lastTxt">{{$t('message.mining.total_Tokens')}} ≈ $5,278,606</div>
                         <div class="percent lastPer">$19,432,500,000,000</div>
                     </div>
-                </li>
+                </li> -->
             </ul>
             <div class="mystaked">
                 <ul>
-                    <li>
+                    <!-- <li>
                         <p class="title">{{$t('message.mining.my_power')}}</p>
                         <p class="number_list"> <span class="number">0</span> <span class="dollar">≈ $0.278</span></p>
-                    </li>
+                    </li> -->
                     <li>
                         <p class="title">{{$t('message.mining.my_staked')}}</p>
                         <p> <span class="number">{{ myStakCyt }}</span></p>
                     </li>
                     <li>
+                        <p class="title">{{$t('message.mining.my_Prop')}}</p>
+                        <p> <span class="number">{{ (myStakCyt / getTotalSupply * 100).toFixed(6) }}%</span></p>
+                    </li>
+                    <!-- <li>
                         <p class="title">{{$t('message.mining.my_tokens')}}<br/>≈ $0</p>
                         <p> <span class="number">0</span></p>
-                    </li>
+                    </li> -->
                 </ul>
                 <div class="Harvest">
                     <div class="texts">
-                        <div class="exchange">(CYT) ≈ $0.34566</div>
+                        <div class="exchange">(CYT)</div>
                         <div class="price">{{ earned }}</div>
                     </div>
                     <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
@@ -254,7 +265,44 @@ import { useI18n } from 'vue-i18n';
 import FinishedB from '@/components/staking/FinishedB.vue';
 import SelectNFTB from '@/components/staking/selectNFTB.vue';
 import CancelStakeB from '@/components/staking/cancelStakeB.vue';
+// import * as echarts from 'echarts';
 
+// let myChart = echarts.init(document.getElementById("Chart") as HTMLElement);
+// myChart.setOption({
+//   title: {
+//     text: 'Referer of a Website',
+//     subtext: 'Fake Data',
+//     left: 'center'
+//   },
+//   tooltip: {
+//     trigger: 'item'
+//   },
+//   legend: {
+//     orient: 'vertical',
+//     left: 'left'
+//   },
+//   series: [
+//     {
+//       name: 'Access From',
+//       type: 'pie',
+//       radius: '50%',
+//       data: [
+//         { value: 1048, name: 'Search Engine' },
+//         { value: 735, name: 'Direct' },
+//         { value: 580, name: 'Email' },
+//         { value: 484, name: 'Union Ads' },
+//         { value: 300, name: 'Video Ads' }
+//       ],
+//       emphasis: {
+//         itemStyle: {
+//           shadowBlur: 10,
+//           shadowOffsetX: 0,
+//           shadowColor: 'rgba(0, 0, 0, 0.5)'
+//         }
+//       }
+//     }
+//   ]
+// });
 const { staking, cytV2 } = Web3.contracts;
 const { t, locale } = useI18n();
 const router = useRouter()
@@ -394,7 +442,7 @@ const init = async () => {
     let DaysResult: any = await Web3.DaysRemaining(staking.abi, staking.address, 3) as number;
     console.log(DaysResult, 'DaysResult');
     earned.value = DaysResult.earned;
-    rewardPerToken.value = DaysResult.rewardPerToken;
+    rewardPerToken.value =  Number( DaysResult.rewardPerToken) / 1000000000000000000;
     myTime.value = DaysResult.result.toFixed(2);
     console.log(myTime.value , 'myTime.value');
     let oResult: any = await Web3.progress(staking.abi, staking.address);
