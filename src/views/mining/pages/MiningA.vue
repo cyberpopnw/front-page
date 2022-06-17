@@ -41,11 +41,11 @@
             <li>
                 <div>
                     <div class="txt">{{$t('message.mining.percyt_earn')}}/CYT</div>
-                    <div class="percent">≈ {{ rewardPerToken.toFixed(6) }}/s</div>
+                    <div class="percent">{{ rewardPerToken.toFixed(6) }}/s</div>
                 </div>
             </li>
-            <!-- <div class="line"></div>
-            <li>
+            <!-- <div class="line"></div> -->
+            <!-- <li>
                 <div>
                     <div class="txt">{{$t('message.mining.total_Tokens')}} ≈ $5,278,606</div>
                     <div class="percent">$--</div>
@@ -73,9 +73,12 @@
                 <li>
                     <div>
                         <p class="title">{{$t('message.mining.my_Prop')}}</p>
-                        <p> <span class="number">{{ (myStakCyt / getTotalSupply * 100).toFixed(6) }}%</span></p>
+                        <p> <span class="number">≈ {{ floorTofixed((myStakCyt / getTotalSupply * 100),2) }}%</span></p>
                     </div>
                 </li>
+                <!-- <li>
+                    <div id="Chart" style="width:100%; height: 100%;"></div>
+                </li> -->
                 <!-- <li>
                     <div>
                         <p class="title">{{$t('message.mining.my_tokens')}}≈ $0</p>
@@ -85,7 +88,7 @@
             </ul>
             <div class="Harvest">
                 <div class="texts">
-                    <div class="exchange">(CYT)</div>
+                    <div class="exchange">{{ $t('message.mining.you_earn') }} (CYT)</div>
                     <div class="price">{{ earned }}</div>
                 </div>
                 <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
@@ -95,13 +98,18 @@
             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin2.png" alt="">
         </div>
         <div class="days">
-            <div class="title">{{$t('message.mining.Days')}}</div>
-            <div class="content">
-                <div :style="{'width': progress + '%'}"></div>
-            </div>
-            <div class="date">
-                <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">{{progress}}%</span></div>
-                <div class="total_day">{{$t('message.mining.cycle_days')}}: <span>30{{$t('message.mining.day')}}</span></div>
+            <!-- <div class="title">{{$t('message.mining.Days')}}</div> -->
+            <div class="progress">
+                <div class="cwrap">
+                    <div class="content">
+                        <div :style="{'width': progress + '%'}"></div>
+                    </div>
+                    <div class="date">
+                        <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">{{floorTofixed(progress,2)}}%</span></div>
+                        <div class="total_day">{{$t('message.mining.cycle_days')}}: <span>30{{$t('message.mining.day')}}</span></div>
+                    </div>
+                </div>
+                <div id="Chart"></div>
             </div>
         </div>
         <div class="pledge">
@@ -131,7 +139,7 @@
                     </div>
                     <div class="have-stak"  @click="stakingCyt" v-else>
                         <!-- <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br> {{$t('message.mining.current_day')}}: {{ myTime > 0 ? myTime : $t('message.mining.finish_receive')}}</p> -->
-                        <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br/> {{$t('message.mining.current_pro')}}：{{progress}}%</p>
+                        <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br/> {{$t('message.mining.current_pro')}}：{{floorTofixed(progress,2)}}%</p>
                         <div class="bot-txt whiteNft" @click.stop="cancelStake">
                             <div>{{$t('message.mining.cancel_staking')}}</div>
                             <img :src="whiteBorderSrc" alt="">
@@ -291,6 +299,7 @@ import { useI18n } from 'vue-i18n';
 import FinishedA from '@/components/staking/FinishedA.vue';
 import SelectNFTA from '@/components/staking/selectNFTA.vue';
 import CancelStakeA from '@/components/staking/cancelStakeA.vue';
+import * as echarts from 'echarts';
 
 const { staking, cytV2 } = Web3.contracts;
 const { t, locale } = useI18n();
@@ -437,9 +446,74 @@ const init = async () => {
     finishGetNFT.value = oResult.finishGetNFT;
     console.log(progress.value, finishGetNFT.value, 'progress.value,finishGetNFT.value');
     // if(myTime.value <= 0) progress.value = 100;
+    const myRatio: any = floorTofixed((myStakCyt.value / getTotalSupply.value * 100),2);
+    const option: any = {
+        //   title: {
+        //     text: t('message.mining.my_Prop'),
+        //     left: 'center',
+        //     textStyle: {
+        //         color: '#B3B3B3',
+        //         fontSize: 16,
+        //         fontFamily: 'AlibabaPuHuiTi_2_55_Regular',
+        //     }
+        //   },
+        color: ['#5470c7', '#a4f238'],
+        series: [
+            {
+                name: 'Pledge proportion',
+                type: 'pie',
+                radius: '50%',
+                center: ['50%', '50%'],
+                data: [
+                    { value: getTotalSupply.value, name: t('message.mining.pie_ratio') },
+                    { value: myStakCyt.value, name: t('message.mining.pie_me_ratio')},
+                ],
+                label:{  
+                    show: true, 
+                    formatter: '{b}',
+                    fontSize: '14',
+                    color:'#ffffff',
+                }, 
+                labelLine :{
+                    show: true
+                } 
+            },
+            {
+                name: 'Pledge proportion1',
+                type: 'pie',
+                avoidLabelOverlap: true,
+                radius: '50%',
+                center: ['50%', '50%'],
+                data: [
+                    { value: getTotalSupply.value, name: 100 - myRatio + '%' },
+                    { value: myStakCyt.value, name: myRatio + '%' },
+                ],
+                label:{  
+                    show: true, 
+                    position: 'inside',
+                    formatter: '{b}',
+                    fontSize: '14',
+                    color:'#ffffff',
+                }, 
+                labelLine :{
+                    show: true
+                } 
+            }
+        ]
+    };
+    myChart.setOption(option);
+}
+
+
+let myChart: any = ref(null);
+
+// tofixed math.floor
+const floorTofixed = (number: any, pow: any) => {
+    return (Math.floor(number * Math.pow(10, pow)) / 100).toFixed(pow);
 }
 
 onMounted(async () => {
+    myChart = echarts.init(document.getElementById("Chart") as HTMLElement)
     // let a = await Web3.notifyrewardamount(staking.abi, staking.address)
     // console.log(a);
     // let result = await Web3.DaysNeededPrediction(staking.abi, staking.address)
@@ -762,8 +836,13 @@ onMounted(async () => {
                 li:nth-child(2){
                     // width: 11.91vw;
                 }
-                li:nth-child(3){
-                    // width: 17.29vw;
+                li:nth-child(4){
+                    width: 17.29vw;
+                    #Chart{
+                        width: 100%;
+                        height: 100%;
+                        margin-left: -10vw;
+                    }
                 }
                 .line{
                     width: 0.104vw;
@@ -780,8 +859,7 @@ onMounted(async () => {
                 position: absolute;
                 right: 0;
                 top: 0;
-                padding-left: 1.56vw;
-                padding-right: 1.30vw;
+                padding: 0 1.30vw .6vw 1.56vw;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -829,6 +907,7 @@ onMounted(async () => {
         .days{
             width: 60.78vw;
             height: 5.1vw;
+            height: 12vw;
             margin: 0 auto;
             color: #fff;
             font-family: AlibabaPuHuiTi_2_85_Bold;;
@@ -837,28 +916,55 @@ onMounted(async () => {
                 font-size: 1.3vw;
                 text-align: right;
             }
-            .content{
-                width: 100%;
-                height: 0.625vw;
+            .progress{
+                position: relative;
                 display: flex;
-                font-size: 1vw;
-                background: #212737;
-                & > div{
-                    width: 713px;
-                    height: 100%;
-                    background: #A4F238;
-                    transition: all 0.5s ease-in-out;
-                    position: relative;
+                align-items: center;
+                height: 10vw;
+                .cwrap{
+                    width: 80%;
+                    margin-top: 3vw;
                 }
-                & > div::after{
-                    content: " ";
+                .content{
+                    width: 80%;
+                    width: 100%;
+                    height: 0.625vw;
+                    display: flex;
+                    font-size: 1vw;
+                    background: #212737;
+                    & > div{
+                        width: 713px;
+                        height: 100%;
+                        background: #A4F238;
+                        transition: all 0.5s ease-in-out;
+                        position: relative;
+                    }
+                    & > div::after{
+                        content: " ";
+                        position: absolute;
+                        background: #A4F238;
+                        height: 200%;
+                        width: 0.31vw;
+                        right: 0;
+                        top: -0.3vw;
+    
+                    }
+                }
+                .date{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 1.4vw;
+                    color: #B3B3B3;
+                    font-size: 1.04vw;
+                    span{
+                        color: #fff;
+                    }
+                }
+                #Chart{
                     position: absolute;
-                    background: #A4F238;
-                    height: 200%;
-                    width: 0.31vw;
-                    right: 0;
-                    top: -0.3vw;
-
+                    right: -20vw;
+                    width: 80%;
+                    height: 17vw;
                 }
             }
             .date{
@@ -914,6 +1020,11 @@ onMounted(async () => {
                         align-items: center;
                         text-align: center;
                         cursor: pointer;
+                        p{
+                            font-size: 1.04vw;
+                            line-height: 1.3vw;
+                            font-family: AlibabaPuHuiTi_2_55_Regular;
+                        }
                         .cancelStakin{
                             color: #fff;
                             position: absolute;
