@@ -537,7 +537,7 @@ const us = {
             ios: 'iOS',
             Android: 'Android',
             windows: 'Windows',
-            version: 'Latest Version 1.0.3',
+            version: 'Latest Version 1.0.4',
             inputEmail: 'Email address',
             tips2: 'Not Ios App',
             tips3: 'Email error',

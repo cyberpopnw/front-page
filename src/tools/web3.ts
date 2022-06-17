@@ -624,7 +624,14 @@ const getNFT = (abi: any[], address: string, amount: number) => {
     })
 }
 
-
+const leftNumber = (abi: any[], address: string, ids: any) => {
+    return new Promise(async (resolve, reject) => {
+        const web3 = new Web3((Web3 as any).givenProvider);
+        const contract = new web3.eth.Contract(abi, address)
+        let box = await contract.methods.balanceOfBatch('0x7291030263771b40731D6Bc6b352358D23F5737F', ids).call();
+        resolve(box)
+    })
+}
 
 export default {
     safeTransferFrom,
@@ -663,5 +670,6 @@ export default {
     withdraw,
     DaysNeededPrediction,
     DaysNeededPredictionx,
+    leftNumber,
     contracts,
 }

@@ -23,7 +23,7 @@
                     </div>
                     <div class="line"></div>
                     <div class="right">
-                        <div class="text1">{{$t('message.details.box_remain')}} <span v-if="data.Remaining">{{ data.Remaining + '/2000'}}</span><span v-else>0/2000</span></div>
+                        <!-- <div class="text1">{{$t('message.details.box_remain')}} <span v-if="data.Remaining">{{ data.Remaining + '/2000'}}</span><span v-else>0/2000</span></div> -->
                         <div class="text1">{{$t('message.details.box_have')}} <span>{{ ownerNumber }}</span></div>
                        
                         <!-- <div class="text2">{{$t('message.details.box_sale')}} <div>21<span>H</span>:33<span>M</span>:48<span>S</span></div></div> -->

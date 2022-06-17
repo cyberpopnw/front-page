@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="btn">
-                <div class="purchase" :class="{'not-allowed': data.Remaining == 0 || isProduction }" @click="purchase">{{$t('message.details.box_btn_pur')}}</div>
+                <!-- <div class="purchase" :class="{'not-allowed': data.Remaining == 0 || isProduction }" @click="purchase">{{$t('message.details.box_btn_pur')}}</div> -->
                 <div class="unpack" :class="{'not-allowed': ownerNumber == 0 || chainId == 56 }" @click="open">{{$t('message.details.box_btn_open')}}</div>
                 <div class="view" :class="{'not-allowed': chainId == 56 }" @click="opensea">{{$t('message.details.box_btn_view')}}</div>
             </div>
