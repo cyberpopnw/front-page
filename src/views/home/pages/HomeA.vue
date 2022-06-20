@@ -1083,7 +1083,7 @@ onMounted(() => {
                     justify-content: center;
                     align-items: center;
                     .title1{
-                        width: 64.84vw;
+                        // width: 64.84vw;
                         height: 10.41vw;
                         margin-top: 9vw;
                         font-size: 4.32vw;

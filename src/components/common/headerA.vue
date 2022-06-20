@@ -28,6 +28,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="language" @click="changeMenu(5, '/space')">
+                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/cyberSpace.png" alt="">
+                    </div>
                     <div class="language" ref="clickCursor3">
                         <!-- <img @click="showLanguage = !showLanguage" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-language.svg" alt=""> -->
                         <div class="icon" @click="showLanguage = !showLanguage"></div>
@@ -97,10 +100,10 @@
                                 </div>
                             </div>
                         </li>
-                        <li @mouseover="menuHover(5)" @click="changeMenu(5, '/space')" :class="{'active': active == 5}">
+                        <!-- <li @mouseover="menuHover(5)" @click="changeMenu(5, '/space')" :class="{'active': active == 5}">
                             <span>{{$t('message.common.menu5')}}</span>
-                        </li>
-                        <li @mouseover="menuHover(6)" @click="toMarket" :class="{'active': active == 6}">
+                        </li> -->
+                        <li @mouseover="menuHover(5)" @click="toMarket" :class="{'active': active == 5}">
                             <span>{{$t('message.common.menu7')}}</span>
                         </li>
                         <!-- <li @mouseover="menuHover(6)" @click="changeMenu(6, '/')" :class="{'active': active == 6}">
@@ -182,7 +185,7 @@ const chainList = ref({
         active: 1,
     },
     notSupported: {
-        name: '',
+        name: 'Wrong Network',
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/wrong.png',
         active: 1,
     }
@@ -629,7 +632,7 @@ onMounted(() => {
                             width: 1.56vw;
                         }
                         .select_chain{
-                            // border: 1px solid #DD2ECE;
+                            border: 1px solid #DD2ECE;
                             padding: 0.5vw 1vw;
                             font-size: 1.02vw;
                             color: #DD2ECE;
@@ -649,9 +652,9 @@ onMounted(() => {
                             }
                         }
 
-                        // .select_chain:hover{
-                        //     box-shadow: inset 0px 1px 20px 0px rgba(221, 46, 206, 0.72);
-                        // }
+                        .select_chain:hover{
+                            box-shadow: inset 0px 1px 20px 0px rgba(221, 46, 206, 0.72);
+                        }
                         .selected:hover{
                             box-shadow: none;
                         }
@@ -937,6 +940,12 @@ onMounted(() => {
                         position: relative;
                         margin: auto .5vw;
                         padding-bottom: .5vw;
+                        img{
+                            width: 2.06vw;
+                            height: 2.26vw;
+                            margin-top: .25vw;
+                            cursor: pointer;
+                        }
                         .icon{
                             width: 1.66vw;
                             height: 1.66vw;

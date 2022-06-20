@@ -135,7 +135,7 @@ const chainList = ref({
         active: 1,
     },
     notSupported: {
-        name: '',
+        name: 'Wrong Network',
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/wrong.png',
         active: 1,
     }

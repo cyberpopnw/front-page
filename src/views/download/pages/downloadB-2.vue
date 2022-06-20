@@ -66,6 +66,12 @@
             store.dispatch('user/showDialog',{ show: true, info: { state: 0, txt: t('message.download.tips2') } });
             return;
         };
+
+        isDonload.value = true;
+        if(email.value == ''){
+            email.value = 'hello@cyberpop.online'
+        }
+
         if(!isDonload.value){
             store.dispatch('user/showDialog',{ show: true, info: { state: 0, txt: t('message.download.tips3') } });
             return;
@@ -169,6 +175,12 @@
 
 
     const submit = () => {
+           
+        const ethereum = (window as any).ethereum // Get fox instanc
+        if(!ethereum && emailInput()){
+            email.value = 'hello@cyberpop.online'
+            isDonload.value = true;
+        }
         if(emailInput() ){
             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.download.tips3') }})
             return;
