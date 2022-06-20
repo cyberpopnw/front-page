@@ -287,7 +287,8 @@ onMounted(() => {
                         height: 4.58vw;
                         margin-top: .625vw;
                         div:nth-child(1){
-                            width: 6.77vw;
+                            min-width: 6.77vw;
+                            padding: 0 .8vw 0 .4vw;
                             height: 1.92vw;
                             margin-right: 1.77vw;
                             font-size: .98vw;

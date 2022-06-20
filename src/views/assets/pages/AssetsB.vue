@@ -353,7 +353,7 @@ const changeText = (parentLi:any, cancel?: boolean) => {
 
 watch(() => typeArr.value, (now, old) => {
     console.log(now, 'now'); //Proxy {0: 'Game'}
-    if(now.length == 0) {
+    if(now.length == 0 || !now[0]) {
         getData(ecrType.value);
         return; 
     };

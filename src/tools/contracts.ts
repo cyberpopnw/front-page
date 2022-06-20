@@ -16918,4 +16918,4 @@ const cyt_ice = {
     ]
 }
 
-export default { nft, arms, erc721, weapons, gamePool, GiftBox, LootBox, lootBox_Bsc, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, MarketV2, cyt, nft_fuji, staking, cytV2, CyberArms, coin, EasyStaking, cyt_ice };
+export default { nft, arms, erc721, weapons, gamePool, GiftBox, LootBox, lootBox_Bsc, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, MarketV2, cyt, nft_fuji, staking, cytV2, CyberArms, coin, EasyStaking, cyt_ice, CyberStakingRewards, CYTStakingRewards };

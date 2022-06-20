@@ -520,7 +520,7 @@ onMounted(async () => {
     // console.log(result, 'DaysNeededPrediction');
     // let DaysNeededPredictionx = await Web3.DaysNeededPredictionx(staking.abi, staking.address)
     // console.log(DaysNeededPredictionx, 'DaysNeededPredictionx');
-    
+
     setTimeout(() => {
         if(chainId.value != 43113){
             mountedInit.value = true
