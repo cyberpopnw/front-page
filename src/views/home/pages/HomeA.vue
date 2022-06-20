@@ -580,7 +580,7 @@ const teamInfo: any = ref([
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_nick.png',
         name: 'Nick',
-        desc: 'Backend',
+        desc: 'Back-end Developer',
         info: 'message.home.team_mem_nick',
     },
     {
@@ -592,7 +592,7 @@ const teamInfo: any = ref([
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_fy.png',
         name: 'Fy',
-        desc: 'Backend',
+        desc: 'Back-end Developer',
         info: 'message.home.team_mem_fy',
     },
     {
@@ -622,7 +622,7 @@ const teamInfo: any = ref([
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_ice.png',
         name: 'ICE',
-        desc: 'Backend',
+        desc: 'Back-end Developer',
         info: 'message.home.team_mem_ice',
     }
 ])
@@ -2422,7 +2422,7 @@ onMounted(() => {
                 li:nth-child(4){
                     top: 11.6vw;
                     left: 40.8vw;
-                    width: 11.66vw;
+                    width: 13.66vw;
                     height: 3.95vw;
                 }
                 li:nth-child(5){
@@ -2434,7 +2434,7 @@ onMounted(() => {
                 li:nth-child(6){
                     top: 20.5vw;
                     left: 27.7vw;
-                    width: 11.14vw;
+                    width: 13.14vw;
                     height: 3.95vw;
                 }
                 li:nth-child(7){
@@ -2463,11 +2463,11 @@ onMounted(() => {
                 li:nth-child(11){
                     top: 30.2vw;
                     left: 66.5vw;
-                    width: 11.66vw;
+                    width: 13.66vw;
                     height: 3.95vw;
                 }
                 li:hover{
-                    transform: translate(0,-10px);
+                    transform: translate(0, -10px);
                 }
             }
         }

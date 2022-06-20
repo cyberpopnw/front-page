@@ -407,6 +407,7 @@ const cn = {
             opening: '開啟中...',
             open_text: '正在為您開啟盲盒… 請等待',
             testnet: '测试网',
+            Genesis_Hero: '如果您在创世英雄的名单里，便可以获得一下权益：',
         },
 
         // detailsA

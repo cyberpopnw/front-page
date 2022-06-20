@@ -578,12 +578,12 @@ const teamInfo: any = ref([
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_fy.png',
         name: 'Fy',
-        desc: 'Backend',
+        desc: 'Back-end Developer',
     },
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_ice.png',
         name: 'ICE',
-        desc: 'Backend',
+        desc: 'Back-end Developer',
     },
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_john.png',
@@ -608,7 +608,7 @@ const teamInfo: any = ref([
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_nick.png',
         name: 'Nick',
-        desc: 'Backend',
+        desc: 'Back-end Developer',
     },
 ])
 
@@ -1033,8 +1033,8 @@ onMounted(() => {
                     justify-content: center;
                     align-items: center;
                     .title1{
-                        width: 273px;
-                        height: 47px;
+                        // width: 273px;
+                        // height: 47px;
                         font-size: 26px;
                         font-family: AlibabaPuHuiTi_2_105_Heavy;
                         color: #FFFFFF;
@@ -2490,13 +2490,14 @@ onMounted(() => {
         height: 222px;
         background: #04FF55;
         .title{
-            height: 28px;
+            // height: 28px;
             margin-top: 30px;
             margin-bottom: 3px;
             font-size: 22px;
             font-family: AlibabaPuHuiTi_2_115_Black;
             color: #000000;
             line-height: 28px;
+            text-align: center;
         }
         .subtitle{
             height: 14px;

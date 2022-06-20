@@ -37,6 +37,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                     <div class="weapon">
                         <div class="name"><span class="name-content">{{ data[0].info.name }}</span></div>
                         <!-- <div class="left_over">Left: <span class="number">{{ Remaining[0] + '/2000'}}</span></div> -->
+                        <div>{{ $t('message.box.Genesis_Hero') }}</div>
                         <div class="introduce" v-html="locale == 'cn' ? data[0].info.description_zh : data[0].info.description"></div>
                         <div class="price">
                             <!-- <img src="@/assets/nwbox/nfts-icon.svg" alt="">

@@ -2,7 +2,7 @@ const us = {
     message:{
         common: {
             // headerA
-            menu1: 'Home',
+            menu1: 'Homepage',
             menu2: 'Mint',
             menu3: 'Mystery Box',
             menu4: 'File',
@@ -99,7 +99,7 @@ const us = {
             banner_title1Aft: 'IN THE NEW WORLD OF CYBERPOP',
             banner_title2: 'This new metaverse game combines exploration, combat, x-to-earn, and UGC into one',
             banner_btn1: 'PLAY TO EARN',
-            banner_btn2: 'PEWVIEW',
+            banner_btn2: 'PREVIEW',
             banner_botmBef: 'CYBERPOP NEW WORLD',
             banner_botmAft: 'COMING SOON',
             // homeA-download
@@ -128,8 +128,8 @@ const us = {
             nobody_r_video_subtxt: 'A glimpse into distant time and space',
             nobody_r_getBft: 'GET NFT',
             // homeA-make
-            make_titleBef: 'BELONG TO YOUR OWN CYBER WORLD',
-            make_titleAft: '',
+            make_titleBef: 'BELONG TO YOUR OWN',
+            make_titleAft: 'CYBER WORLD',
             make_title_b: 'BELONG TO YOUR OWN CYBER WORLD',
             make_subtitle: 'CREATE YOUR OWN NFTs',
             make_desc: 'Equipped with an advanced collapse algorithm and UGC,  Cyberpop New World supports the generation of NFTs. The security of the chain-end protocol effectively guarantees the development of multiplayer competition and cyber cities. Cyber cities can currently generate player assets, and new assets are being produced continuously.',
@@ -409,6 +409,7 @@ const us = {
             opening: 'opening...',
             open_text: 'Mystery box is being opened... please wait.',
             testnet: 'Testnet',
+            Genesis_Hero: 'If you are in this Genesis Hero NFT List, you have the following rights: ',
         },
 
         // detailsA
