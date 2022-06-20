@@ -227,7 +227,7 @@ onMounted(() => {
             margin-left: 31px;
             .title{
                 margin-top: 61px;
-                height: 95px;
+                min-height: 95px;
                 font-size: 40px;
                 font-family: AlibabaPuHuiTi_2_105_Heavy;
                 line-height: 47px;
@@ -249,7 +249,8 @@ onMounted(() => {
                     -webkit-text-fill-color: transparent;
                 }
                 div:nth-child(2){
-                    width: 94px;
+                    min-width: 94px;
+                    padding: 0 12px 0 8px;
                     height: 28px;
                     font-size: 14px;
                     font-family: AlibabaPuHuiTi_2_75_SemiBold;

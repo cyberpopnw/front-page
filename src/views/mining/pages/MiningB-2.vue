@@ -40,10 +40,9 @@
                 <li>
                     <div>
                         <div class="txt">{{$t('message.mining.percyt_earn')}}/CYT</div>
-                        <div class="percent">≈ {{ rewardPerToken.toFixed(6) }}/s</div>
+                        <div class="percent">{{ rewardPerToken.toFixed(6) }}/s</div>
                     </div>
                 </li>
-                <!-- <div id="Chart" style="width: 200px; height: 200px;"></div> -->
                 <!-- <li>
                     <div>
                         <div class="txt lastTxt">{{$t('message.mining.total_Tokens')}} ≈ $5,278,606</div>
@@ -63,7 +62,10 @@
                     </li>
                     <li>
                         <p class="title">{{$t('message.mining.my_Prop')}}</p>
-                        <p> <span class="number">{{ (myStakCyt / getTotalSupply * 100).toFixed(6) }}%</span></p>
+                        <p> <span class="number">≈ {{ floorTofixed((myStakCyt / getTotalSupply * 100),2) }}%</span></p>
+                    </li>
+                    <li>
+                        <div id="Chart"></div>
                     </li>
                     <!-- <li>
                         <p class="title">{{$t('message.mining.my_tokens')}}<br/>≈ $0</p>
@@ -72,7 +74,7 @@
                 </ul>
                 <div class="Harvest">
                     <div class="texts">
-                        <div class="exchange">(CYT)</div>
+                        <div class="exchange">{{ $t('message.mining.you_earn') }} (CYT)</div>
                         <div class="price">{{ earned }}</div>
                     </div>
                     <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
@@ -88,7 +90,7 @@
             <div class="content">
                 <div :style="{'width': progress + '%'}"></div>
             </div>
-            <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">{{progress}}%</span></div>
+            <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">{{floorTofixed(progress,2)}}%</span></div>
         </div>
         <div class="pledge">
             <div class="title">{{$t('message.mining.pledge_title')}}<span>2/4</span></div>
@@ -117,7 +119,7 @@
                     </div>
                     <div class="have-stak"  @click="stakingCyt" v-else>
                         <!-- <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br> {{$t('message.mining.current_day')}}: {{ myTime > 0 ? myTime : $t('message.mining.finish_receive') }}</p> -->
-                        <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br/> {{$t('message.mining.current_pro')}}：{{progress}}%</p>
+                        <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br/> {{$t('message.mining.current_pro')}}：{{floorTofixed(progress,2)}}%</p>
                         <div class="bot-txt whiteNft" @click.stop="cancelStake">
                             <div>{{$t('message.mining.cancel_staking')}}</div>
                             <img :src="whiteBorderSrc" alt="">
@@ -265,50 +267,15 @@ import { useI18n } from 'vue-i18n';
 import FinishedB from '@/components/staking/FinishedB.vue';
 import SelectNFTB from '@/components/staking/selectNFTB.vue';
 import CancelStakeB from '@/components/staking/cancelStakeB.vue';
-// import * as echarts from 'echarts';
+import * as echarts from 'echarts';
 
-// let myChart = echarts.init(document.getElementById("Chart") as HTMLElement);
-// myChart.setOption({
-//   title: {
-//     text: 'Referer of a Website',
-//     subtext: 'Fake Data',
-//     left: 'center'
-//   },
-//   tooltip: {
-//     trigger: 'item'
-//   },
-//   legend: {
-//     orient: 'vertical',
-//     left: 'left'
-//   },
-//   series: [
-//     {
-//       name: 'Access From',
-//       type: 'pie',
-//       radius: '50%',
-//       data: [
-//         { value: 1048, name: 'Search Engine' },
-//         { value: 735, name: 'Direct' },
-//         { value: 580, name: 'Email' },
-//         { value: 484, name: 'Union Ads' },
-//         { value: 300, name: 'Video Ads' }
-//       ],
-//       emphasis: {
-//         itemStyle: {
-//           shadowBlur: 10,
-//           shadowOffsetX: 0,
-//           shadowColor: 'rgba(0, 0, 0, 0.5)'
-//         }
-//       }
-//     }
-//   ]
-// });
 const { staking, cytV2 } = Web3.contracts;
 const { t, locale } = useI18n();
 const router = useRouter()
 const realId = computed(() => store?.state.wallet?.realId);  // Asterisk address
 const chainId: any = computed(() => store.state.user?.chainId);
 const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
+
 watch(readyAssetsF, (newVal: number, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssetsF');
     if(newVal <= 0 || oldVal == -1) return;
@@ -450,9 +417,104 @@ const init = async () => {
     finishGetNFT.value = oResult.finishGetNFT;
     console.log(progress.value, finishGetNFT.value, 'progress.value,finishGetNFT.value');
     // if(myTime.value <= 0) progress.value = 100;
+    const myRatio: any = floorTofixed((myStakCyt.value / getTotalSupply.value * 100),2);
+    const option: any = {
+        //   title: {
+        //     text: t('message.mining.my_Prop'),
+        //     left: 'center',
+        //     textStyle: {
+        //         color: '#B3B3B3',
+        //         fontSize: 16,
+        //         fontFamily: 'AlibabaPuHuiTi_2_55_Regular',
+        //     }
+        //   },
+        color: ['#5470c7', '#a4f238'],
+        series: [
+            {
+                name: 'Pledge proportion',
+                type: 'pie',
+                radius: '50%',
+                center: ['50%', '50%'],
+                //   stillShowZeroSum: false,
+                //   label: {
+                //     show: false
+                //   },
+                data: [
+                    { value: getTotalSupply.value, name: t('message.mining.pie_ratio') },
+                    { value: myStakCyt.value, name: t('message.mining.pie_me_ratio')},
+                ],
+                // roseType: 'area',
+                // emphasis: {
+                //     itemStyle: {
+                //         shadowBlur: 10,
+                //         shadowOffsetX: 0,
+                //         shadowColor: 'rgba(0, 0, 0, 0.5)'
+                //     }
+                // }
+                label:{  
+                    show: true, 
+                    // 显示数据名称以及具体的数据
+                    // formatter: '{b} : {c} ({d}%)' ,
+                    // 只显示数据名称
+                    formatter: '{b}',
+                    fontSize: '16',
+                    color:'#ffffff',
+                }, 
+                labelLine :{
+                    show: true
+                } 
+            },
+            {
+                name: 'Pledge proportion1',
+                type: 'pie',
+                avoidLabelOverlap: true,
+                radius: '50%',
+                center: ['50%', '50%'],
+                //   stillShowZeroSum: false,
+                //   label: {
+                //     show: false
+                //   },
+                data: [
+                    { value: getTotalSupply.value, name: 100 - myRatio + '%' },
+                    // { value: myStakCyt.value, name: (myStakCyt.value / getTotalSupply.value * 100).toFixed(2) },
+                    { value: myStakCyt.value, name: myRatio + '%' },
+                ],
+                // roseType: 'area',
+                // emphasis: {
+                //     itemStyle: {
+                //         shadowBlur: 10,
+                //         shadowOffsetX: 0,
+                //         shadowColor: 'rgba(0, 0, 0, 0.5)'
+                //     }
+                // }
+                label:{  
+                    show: true, 
+                    position: 'inside',
+                    // 显示数据名称以及具体的数据
+                    // formatter: '{b} : {c} ({d}%)' ,
+                    // 只显示数据名称
+                    formatter: '{b}',
+                    fontSize: '16',
+                    color:'#ffffff',
+                }, 
+                labelLine :{
+                    show: true
+                } 
+            }
+        ]
+    };
+    myChart.setOption(option);
+}
+
+let myChart: any = ref(null);
+// tofixed math.floor
+const floorTofixed = (number: any, pow: any) => {
+    return (Math.floor(number * Math.pow(10, pow)) / 100).toFixed(pow);
 }
 
 onMounted(async () => {
+    myChart = echarts.init(document.getElementById("Chart") as HTMLElement)
+    // myChart.setOption(option);
     setTimeout(() => {
         if(chainId.value != 43113){
             mountedInit.value = true
@@ -633,6 +695,7 @@ onMounted(async () => {
                 top: 0;
                 width: 338px;
                 height: 370px;
+                // height: 400px;
                 margin: 0 auto;
                 margin-top: -12px;
                 background: #171C28;
@@ -721,6 +784,11 @@ onMounted(async () => {
                     }
                     li + li {
                         margin-top: 20px;
+                    }
+                    li > #Chart{
+                        width: 100%; 
+                        height: 150px;
+                        margin-top: -20px;
                     }
                 }
                 .Harvest{
@@ -857,6 +925,11 @@ onMounted(async () => {
                         justify-content: center;
                         align-items: center;
                         text-align: center;
+                        p{
+                            font-size: 16px;
+                            line-height: 18px;
+                            font-family: AlibabaPuHuiTi_2_55_Regular;
+                        }
                         .cancelStakin{
                             color: #fff;
                             position: absolute;

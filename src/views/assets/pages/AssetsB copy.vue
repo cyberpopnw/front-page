@@ -264,7 +264,7 @@ const transferSuccess = computed(() => store.state.myAssets?.transferSuccess);
 watch(chainId, (newVal, oldVal: any) => {
     if(!oldVal || oldVal == -1) return;
     console.log('her2');
-    // initMyAssetes()
+    initMyAssetes()
 	getData(ecrType.value)
 }, {immediate:true,deep:true});
 
@@ -334,11 +334,6 @@ const changeText = (parentLi:any, cancel?: boolean) => {
             selectedArr[0].classList.remove('selected');
             index = 1;
         }
-        if( selectedArr[0].getAttribute('data-name') == 'All types' && selectArrLen === 1 ){
-            typeArr.value = []
-            selectArrLen = 0
-            longString = selectedArr[0].innerText
-        }
         for( let i = index;i < selectArrLen; i++ ){
             typeArr.value.push(selectedArr[i].getAttribute('data-name'));
             if( i == selectArrLen-1 ){
@@ -353,7 +348,7 @@ const changeText = (parentLi:any, cancel?: boolean) => {
 
 watch(() => typeArr.value, (now, old) => {
     console.log(now, 'now'); //Proxy {0: 'Game'}
-    if(now.length == 0 || !now[0]) {
+    if(now.length == 0) {
         getData(ecrType.value);
         return; 
     };
@@ -525,176 +520,164 @@ const getData: any = async (type: Number, filter?: any) => {
         }
     }
 
-    console.log(weapons, role, badge, '====>gamepool');
-    return new Promise(async (resolve, reject) => {
-            if(chainId.value == 80001){  //mumbai
-                if(!type){
-                    if(filter){ // Left column filter
-                        console.log(filter, 'filter');
-                        
-                        if(filter == 'Game'){
-                            let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.myBox?.game);
-                            await getNFTData(game_resulte, 'game', 'game_mumbai', store.state.myBox?.game);
-                        }else if(filter == 'Badge'){
-                            // let nft = await Web3.batchBalanceOf(nft.abi , nft.address, store.state.myBox?.badge);
-                            // await getNFTData(nft, 'server', 'server_mumbai', store.state.myBox?.badge);
-                        }else if(filter == 'role'){
-                            let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
-                            await getHead(role_result, 'role', 'role_mumbai');
-                        }else if(filter == 'head'){
-                            let game_resulte = await Web3.tokensOfOwner(cyberClub.abi , cyberClub.address);
-                            await getHead(game_resulte, 'head', 'head_mumbai');
-                        }else{
-                            let box_result = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
-                            await getNFTData(box_result, 'box', 'box_mumbai', store.state.myBox?.box);
-                        }
-                        resolve(1)
-                        return;
-                    }
-                    // await getHead(role, 'role', 'role_mumbai', 'isLoading');
-                    // // await getNFTData(weapons, 'weapons', 'weapons_mumbai', false, true);
-                    // await getNFTData(badge, 'badge', 'badge_mumbai', store.state.myBox?.badge);
+    console.log(weapons, role, badge, '====>gamepool');    
+    if(chainId.value == 80001){  //mumbai
+        if(!type){
+            if(filter){ // Left column filter
+                if(filter == 'Game'){
                     let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.myBox?.game);
-                    await getNFTData(game_resulte, 'game', 'game_mumbai', store.state.myBox?.game);
+                    await getNFTData(game_resulte, 'game', 'game_mumbai');
+                }else if(filter == 'Badge'){
+                    // let nft = await Web3.batchBalanceOf(nft.abi , nft.address, store.state.myBox?.badge);
+                    // await getNFTData(nft, 'server', 'server_mumbai', store.state.myBox?.badge);
+                }else if(filter == 'role'){
                     let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
                     await getHead(role_result, 'role', 'role_mumbai');
-                    let cyberClub_result = await Web3.tokensOfOwner(cyberClub.abi, cyberClub.address);
-                    await getHead(cyberClub_result, 'head', 'head_mumbai');
+                }else if(filter == 'head'){
+                    let game_resulte = await Web3.tokensOfOwner(cyberClub.abi , cyberClub.address);
+                    await getHead(game_resulte, 'head', 'head_mumbai');
+                }else{
                     let box_result = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
                     await getNFTData(box_result, 'box', 'box_mumbai', store.state.myBox?.box);
-                }else if(type == 1){
-                    if(filter){ // Left column filter
-                        if(filter == 'role'){
-                            let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
-                            await getHead(role_result, 'role', 'role_mumbai');
-                        }else if(filter == 'head'){
-                            let cyberClub_result = await Web3.tokensOfOwner(cyberClub.abi , cyberClub.address);
-                            await getHead(cyberClub_result, 'head', 'head_mumbai');
-                        }
-                        resolve(1)
-                        return;
-                    }
+                }
+                return;
+            }
+            await getHead(role, 'role', 'role_mumbai', 'isLoading');
+            // await getNFTData(weapons, 'weapons', 'weapons_mumbai', false, true);
+            await getNFTData(badge, 'badge', 'badge_mumbai', store.state.myBox?.badge);
+            let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.myBox?.game);
+            await getNFTData(game_resulte, 'game', 'game_mumbai', store.state.myBox?.game);
+            let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
+            await getHead(role_result, 'role', 'role_mumbai');
+            let cyberClub_result = await Web3.tokensOfOwner(cyberClub.abi, cyberClub.address);
+            await getHead(cyberClub_result, 'head', 'head_mumbai');
+            let box_result = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
+            await getNFTData(box_result, 'box', 'box_mumbai', store.state.myBox?.box);
+        }else if(type == 1){
+            if(filter){ // Left column filter
+                if(filter == 'role'){
                     let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
                     await getHead(role_result, 'role', 'role_mumbai');
+                }else if(filter == 'head'){
                     let cyberClub_result = await Web3.tokensOfOwner(cyberClub.abi , cyberClub.address);
                     await getHead(cyberClub_result, 'head', 'head_mumbai');
-                }else{
-                    // let result = await Web3.batchBalanceOf(nft.abi, nft.address);
-                    // await getNFTData(result, 'server', 'server_mumbai');
-                    if(filter){ // Left column filter
-                        if(filter == 'Game'){
-                            let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.myBox?.game);
-                            await getNFTData(game_resulte, 'game', 'game_mumbai', store.state.myBox?.game);
-                        }else if(filter == 'Badge'){
-                            // let badge = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.myBox?.game);
-                            // await getNFTData(badge, 'server', 'server_mumbai');
-                        }else{
-                            let box_result = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
-                            await getNFTData(box_result, 'box', 'box_mumbai', store.state.myBox?.box);
-                        }
-                        resolve(1)
-                        return;
-                    }
-                    // await getNFTData(weapons, 'weapons', 'weapons_mumbai');
+                }
+                return;
+            }
+            let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
+            await getHead(role_result, 'role', 'role_mumbai');
+            let cyberClub_result = await Web3.tokensOfOwner(cyberClub.abi , cyberClub.address);
+            await getHead(cyberClub_result, 'head', 'head_mumbai');
+        }else{
+            // let result = await Web3.batchBalanceOf(nft.abi, nft.address);
+            // await getNFTData(result, 'server', 'server_mumbai');
+            if(filter){ // Left column filter
+                if(filter == 'Game'){
                     let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.myBox?.game);
                     await getNFTData(game_resulte, 'game', 'game_mumbai', store.state.myBox?.game);
+                }else if(filter == 'Badge'){
+                    // let badge = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.myBox?.game);
+                    // await getNFTData(badge, 'server', 'server_mumbai');
+                }else{
                     let box_result = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
                     await getNFTData(box_result, 'box', 'box_mumbai', store.state.myBox?.box);
                 }
+                loadingState.value = 2;
+                return;
             }
-            if(chainId.value == 43113){ // fuji
-                if(!type){
-                    if(filter){ // Loading complete
-                        if(filter == 'Game'){
-                            let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.myBox?.game);
-                            await getNFTData(game_result, 'game', 'game_fuji', store.state.myBox?.game)
-                        }else if(filter == 'Badge'){
-                            let result = await Web3.balanceOfBatch(nft_fuji.abi, nft_fuji.address, store.state.myBox?.badge);
-                            await getNFTData(result, 'badge', 'badge_fuji', store.state.myBox?.badge);
-                        }else if(filter == 'role'){
-                            let Cyborg_result = await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
-                            await getHead(Cyborg_result, 'role', 'role_fuji');
-                        }else if(filter == 'head'){
-                            let cyberClub_result = await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address);
-                            await getHead(cyberClub_result, 'head', 'head_fuji');
-                        }else{
-                            let box_result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
-                            await getNFTData(box_result, 'box', 'box_fuji', store.state.myBox?.box);
-                        }
-                        resolve(1)
-                        return;
-                    }
-                    let result = await Web3.balanceOfBatch(nft_fuji.abi, nft_fuji.address, store.state.myBox?.badge);
-                    await getNFTData(result, 'badge', 'badge_fuji', store.state.myBox?.badge);
+            // await getNFTData(weapons, 'weapons', 'weapons_mumbai');
+            let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.myBox?.game);
+            await getNFTData(game_resulte, 'game', 'game_mumbai', store.state.myBox?.game);
+            let box_result = await Web3.balanceOfBatch(LootBox.abi, LootBox.address, store.state.myBox?.box);
+            await getNFTData(box_result, 'box', 'box_mumbai', store.state.myBox?.box);
+        }
+    }
+    if(chainId.value == 43113){ // fuji
+        if(!type){
+            if(filter){ // Left column filter
+                if(filter == 'Game'){
                     let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.myBox?.game);
                     await getNFTData(game_result, 'game', 'game_fuji', store.state.myBox?.game)
+                }else if(filter == 'Badge'){
+                    let result = await Web3.balanceOfBatch(nft_fuji.abi, nft_fuji.address, store.state.myBox?.badge);
+                    await getNFTData(result, 'badge', 'badge_fuji', store.state.myBox?.badge);
+                }else if(filter == 'role'){
                     let Cyborg_result = await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
                     await getHead(Cyborg_result, 'role', 'role_fuji');
-                    let cyberClub_result = await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address);
-                    await getHead(cyberClub_result, 'head', 'head_fuji');
-                    let box_result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
-                    await getNFTData(box_result, 'box', 'box_fuji', store.state.myBox?.box);
-                    
-                }else if(type == 1){
-                    if(filter){ // Left column filter
-                        if(filter == 'role'){
-                            let Cyborg_result = await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
-                            await getHead(Cyborg_result, 'role', 'role_fuji');
-                        }else if(filter == 'head'){
-                            let cyberClub_result = await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address);
-                            await getHead(cyberClub_result, 'head', 'head_fuji');
-                        }
-                        resolve(1)
-                        return;
-                    }
-                    let Cyborg_result = await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
-                    await getHead(Cyborg_result, 'role', 'role_fuji');
+                }else if(filter == 'head'){
                     let cyberClub_result = await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address);
                     await getHead(cyberClub_result, 'head', 'head_fuji');
                 }else{
-                    if(filter){ // Left column filter
-                        if(filter == 'Game'){
-                            let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.myBox?.game);
-                            await getNFTData(game_result, 'game', 'game_fuji', store.state.myBox?.game)
-                        }else if(filter == 'Badge'){
-                            let result = await Web3.balanceOfBatch(nft_fuji.abi, nft_fuji.address, store.state.myBox?.badge);
-                            await getNFTData(result, 'badge', 'badge_fuji', store.state.myBox?.badge);
-                        }else{
-                            let box_result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
-                            await getNFTData(box_result, 'box', 'box_fuji', store.state.myBox?.box);
-                        }
-                        resolve(1)
-                        return;
-                    }
-                    let result = await Web3.balanceOfBatch(nft_fuji.abi, nft_fuji.address, store.state.myBox?.badge);
-                    await getNFTData(result, 'badge', 'badge_fuji', store.state.myBox?.badge);
-                    let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.myBox?.game);
-                    await getNFTData(game_result, 'game', 'game_fuji', store.state.myBox?.game)
                     let box_result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
                     await getNFTData(box_result, 'box', 'box_fuji', store.state.myBox?.box);
                 }
+                return;
             }
-            if(chainId.value == 56){
-                if(!type){
-                    let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
-                    if(box_result[9] > 0) boxId9.value = true;
-                    await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
-                }else if(type == 1){
-
-                }else{
-                    let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
-                    if(box_result[9] > 0) boxId9.value = true;
-                    await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+            let result = await Web3.balanceOfBatch(nft_fuji.abi, nft_fuji.address, store.state.myBox?.badge);
+            await getNFTData(result, 'badge', 'badge_fuji', store.state.myBox?.badge);
+            let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.myBox?.game);
+            await getNFTData(game_result, 'game', 'game_fuji', store.state.myBox?.game)
+            let Cyborg_result = await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
+            await getHead(Cyborg_result, 'role', 'role_fuji');
+            let cyberClub_result = await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address);
+            await getHead(cyberClub_result, 'head', 'head_fuji');
+            let box_result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
+            await getNFTData(box_result, 'box', 'box_fuji', store.state.myBox?.box);
+            
+        }else if(type == 1){
+            if(filter){ // Left column filter
+                if(filter == 'role'){
+                    let Cyborg_result = await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
+                    await getHead(Cyborg_result, 'role', 'role_fuji');
+                }else if(filter == 'head'){
+                    let cyberClub_result = await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address);
+                    await getHead(cyberClub_result, 'head', 'head_fuji');
                 }
+                return;
             }
+            let Cyborg_result = await Web3.tokensOfOwner(Cyborg_Fuji.abi, Cyborg_Fuji.address);
+            await getHead(Cyborg_result, 'role', 'role_fuji');
+            let cyberClub_result = await Web3.tokensOfOwner(cyberClub_Fuji.abi, cyberClub_Fuji.address);
+            await getHead(cyberClub_result, 'head', 'head_fuji');
+        }else{
+            if(filter){ // Left column filter
+                if(filter == 'Game'){
+                    let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.myBox?.game);
+                    await getNFTData(game_result, 'game', 'game_fuji', store.state.myBox?.game)
+                }else if(filter == 'Badge'){
+                    let result = await Web3.balanceOfBatch(nft_fuji.abi, nft_fuji.address, store.state.myBox?.badge);
+                    await getNFTData(result, 'badge', 'badge_fuji', store.state.myBox?.badge);
+                }else{
+                    let box_result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
+                    await getNFTData(box_result, 'box', 'box_fuji', store.state.myBox?.box);
+                }
+                return;
+            }
+            let result = await Web3.balanceOfBatch(nft_fuji.abi, nft_fuji.address, store.state.myBox?.badge);
+            await getNFTData(result, 'badge', 'badge_fuji', store.state.myBox?.badge);
+            let game_result: any = await Web3.balanceOfBatch(game_Fuji.abi, game_Fuji.address, store.state.myBox?.game);
+            await getNFTData(game_result, 'game', 'game_fuji', store.state.myBox?.game)
+            let box_result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
+            await getNFTData(box_result, 'box', 'box_fuji', store.state.myBox?.box);
+        }
+    }
+    if(chainId.value == 56){
+        if(!type){
+            let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
+            if(box_result[9] > 0) boxId9.value = true;
+            await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+        }else if(type == 1){
 
-            loadingState.value = 2; // Left column filter
-            resolve(1);
-    })
-
+        }else{
+            let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
+            if(box_result[9] > 0) boxId9.value = true;
+            await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+        }
+    }
+    
+    if(!filter) loadingState.value = 2; // Loading complete
 }
 
-// array [0, 1] Indicates that there are two NFT assets with IDS 0 and 1 respectively
 const getHead: any = async (res: any, path: any, type: any, isLoading?: any) => {
     return new Promise((resolve, reject) => {
         if(res.length == 0) {
@@ -722,7 +705,7 @@ const getHead: any = async (res: any, path: any, type: any, isLoading?: any) => 
     })
 }
 
-// The array [0,1] indicates that the NFT with ID 0 has no assets, and the NTF asset with ID 1 is 1
+
 const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoading?: any) => {
     return new Promise((resolve, reject) => {
          (function loop(index){
