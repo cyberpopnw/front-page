@@ -47,7 +47,7 @@
                             <!-- <a @click="closeMenu()" href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopWhitePaper18thFeb2022.pdf" target="view_window">{{$t('message.common.doc_whitePaper')}}</a> -->
                             <a @click="closeMenu()" href="https://pdf.cyberpop.online/" target="view_window">{{$t('message.common.doc_whitePaper')}}</a>
                             <!-- <a @click="closeMenu()" href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopTechnologyArchitecture2.pdf" target="view_window">Green paper</a> -->
-                            <a @click="closeMenu()" href="https://d3bhixjyozyk2o.cloudfront.net/(new)CyberPOPNewworlddeck(en).pdf" target="view_window">{{$t('message.common.doc_deck')}}</a>
+                            <a @click="closeMenu()" href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopMetaverseDeck.pdf" target="view_window">{{$t('message.common.doc_deck')}}</a>
                         </div>
                     </li>
                     <li @click="changeMenu(5, '/space')" :class="{'active': active == 5}">{{$t('message.common.menu5')}}</li>
