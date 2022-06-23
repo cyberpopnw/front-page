@@ -1095,7 +1095,6 @@ onMounted(() => {
                         font-weight: 900;
                         filter: drop-shadow( .155vw 0 0 #D236A5 )
                                 drop-shadow( -.15vw 0 0.05rem #72F0D9 );
-                        cursor: pointer;
                     }
                     .title2{
                         margin-bottom: 5vw;
@@ -1405,7 +1404,6 @@ onMounted(() => {
                 font-size: 2.6vw;
                 font-weight: bold;
                 font-family: AlibabaPuHuiTi_2_115_Black;
-                cursor: pointer;
                 .white{
                     color: #fff;
                 }
@@ -1453,15 +1451,6 @@ onMounted(() => {
                             height: 4.47vw;
                             margin-bottom: .35vw;
                         }
-                        // p{
-                        //     width: .15vw;
-                        //     // height: 3.6vw;
-                        //     height: 4.42vw;
-                        //     margin-bottom: .4vw;
-                        //     background-color: #484747;
-                        //     transform: skewY(-25deg);
-                        //     cursor: pointer;
-                        // }
 
                         .active{
                             width: .3vw;
@@ -1652,7 +1641,6 @@ onMounted(() => {
                     font-weight: bold;
                     color: #FFFFFF;
                     font-family: AlibabaPuHuiTi_2_115_Black;
-                    cursor: pointer;
                 }
                 .subtitle{
                     font-size: 1.45vw;
@@ -1805,7 +1793,6 @@ onMounted(() => {
                 color: #FFFFFF;
                 line-height: 3.69vw;
                 font-weight: bold;
-                cursor: pointer;
             }
             .subtitle{
                 font-size: 1.66vw;
@@ -1993,7 +1980,6 @@ onMounted(() => {
                 color: #FFFFFF;
                 line-height: 3.69vw;
                 margin-bottom: 1.4vw;
-                cursor: pointer;
             }
             .content{
                 position: relative;
@@ -2193,7 +2179,6 @@ onMounted(() => {
                 font-weight: bold;
                 font-family: AlibabaPuHuiTi_2_115_Black;
                 text-align: center;
-                cursor: pointer;
             }
             .timeWidth-l{
                 width: 50%;
@@ -2310,7 +2295,6 @@ onMounted(() => {
             color: #FFFFFF;
             line-height: 3.69vw;
             text-align: center;
-            cursor: pointer;
         }
         .wrap{
             width: 100%;
@@ -2486,11 +2470,11 @@ onMounted(() => {
             font-family: AlibabaPuHuiTi_2_115_Black;
             color: #FFFFFF;
             line-height: 3.69vw;
-            cursor: pointer;
             .xplan{
                 width: 4.06vw;
                 height: 2.6vw;
                 margin-left: 1.5vw;
+                cursor: pointer;
             }
             .xplan:hover{
                 filter: drop-shadow(0 0 .1vw #776fe5);
@@ -2579,7 +2563,6 @@ onMounted(() => {
             color: #FFFFFF;
             line-height: 3.69vw;
             text-align: center;
-            cursor: pointer;
         }
         .logo{
             display: flex;

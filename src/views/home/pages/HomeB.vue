@@ -1043,7 +1043,6 @@ onMounted(() => {
                         font-weight: 900;
                         filter: drop-shadow( .4vw 0 0 #D236A5 )
                                 drop-shadow( -.4vw 0 0 #72F0D9 );
-                        cursor: pointer;
                     }
                     .title2{
                         width: 227px;
@@ -1382,15 +1381,6 @@ onMounted(() => {
                             height: 24px;
                             margin-bottom: .35vw;
                         }
-                        // p{
-                        //     width: .15vw;
-                        //     // height: 3.6vw;
-                        //     height: 4.42vw;
-                        //     margin-bottom: .4vw;
-                        //     background-color: #484747;
-                        //     transform: skewY(-25deg);
-                        //     cursor: pointer;
-                        // }
 
                         .active{
                             width: 3px;
