@@ -282,7 +282,10 @@ const connect: any = async () => {
         let web3obj = new Web3((Web3 as any).givenProvider)
         await web3obj.eth.net.getId().then((chainId: any) => {
             store.dispatch('user/chageChainId', Number(chainId))
-            if(chainId != 56 && chainId != 43113 && chainId != 85 && chainId != 80001) store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
+            if(chainId != 56 && chainId != 43113 && chainId != 85 && chainId != 80001) {
+                store.dispatch('user/xplanChangeAni', true);
+                store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
+            }
         })
         if(code.value && messSing.value == '') isRegister();
     }
