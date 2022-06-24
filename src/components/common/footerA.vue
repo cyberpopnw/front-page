@@ -26,8 +26,13 @@
         </div>
     </div>
     <div class="bottom">
-        <div class="desc">{{$t('message.common.footer_desc')}}</div>
-        <div class="email_botton"><a href="mailto:business@cyberpop.online">Become a partner</a> <img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt=""></div>
+            <div class="desc">{{$t('message.common.footer_desc')}}</div>
+            <div class="email_botton">
+                <div class="border"></div>
+                <div class="content">
+                    <a href="mailto:business@cyberpop.online">Become a partner</a> <img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt="">
+                </div>
+            </div>
     </div>
 </template>
 
@@ -82,6 +87,7 @@ onMounted(() => {
             // margin-left: 22vw;
             margin-right: 3.64vw;
             white-space: nowrap;
+            transition: all .2s ease-in-out;
         }
         .policy > a:hover{
             color: #04FF55;
@@ -95,7 +101,7 @@ onMounted(() => {
         }
         .icon{
             // margin-left: 8vw;
-            margin-right: 6.25vw;
+            margin-right: 4.25vw;
             white-space: nowrap;
 
             img{
@@ -103,6 +109,7 @@ onMounted(() => {
                 height: 2.13vw;
                 margin-left: 1.14vw;
                 margin-top: .5vw;
+                transition: all .2s ease-in-out;
             }
             img:hover{
                 transform: scale(1.2);
@@ -113,9 +120,10 @@ onMounted(() => {
             height: 4.27vw;
             background: #FFFFFF;
             opacity: 0.5;
-            margin-right: 7.81vw;
+            margin-right: 5.81vw;
         }
         .email_box{
+            padding-bottom: 0.312vw;
             .title{
                 font-size: 1.09vw;
                 font-weight: 400;
@@ -140,12 +148,16 @@ onMounted(() => {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                transition: all .2s ease-in-out;
+                cursor: pointer;
                 img{
                     width: 1.25vw;
                     height: 0.93vw;
                     margin-left: 0.5vw;
-                    cursor: pointer;
                 }
+            }
+            .email_botton:hover{
+                opacity: .7;
             }
         }
     }
@@ -153,7 +165,7 @@ onMounted(() => {
         height: 3.59vw;
         border-top: 1px solid #544E96;
         background: #121122;
-        box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0px 1px 3px 0px rgba(49, 41, 41, 0.5);
         display: flex;
         // justify-content: space-between;
         align-items: center;
@@ -169,20 +181,38 @@ onMounted(() => {
             margin-left: 14.32vw;
             width: 14.42vw;
             height: 2.55vw;
-            display: flex;
-            color: #fff;
-            justify-content: center;
-            align-items: center;
-            border: 0.104vw solid #CB1FFF;
-            font-size: 1.09vw;
-            // filter: blur(1px);
-            img{
-                width: 1.25vw;
-                height: 0.93vw;
-                margin-left: 0.5vw;
-                cursor: pointer;
-
+            position: absolute;
+            right: 6.72vw;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            .border{
+                border: 0.104vw solid #CB1FFF;
+                filter: blur(2px);
+                width: 100%;
+                height: 100%;
+            }
+            .content{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.09vw;
+                color: #fff;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                img{
+                    width: 1.25vw;
+                    height: 0.93vw;
+                    margin-left: 0.5vw;
+                    cursor: pointer;
+                }
             }
         }
-    }
+        .email_botton:hover{
+            opacity: .7;
+        }
+}
 </style>
