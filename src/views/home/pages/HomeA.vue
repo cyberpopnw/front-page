@@ -1,6 +1,7 @@
 <template>
     <header-a path="/" :type="0"></header-a>
     <my-video v-if="isPlay" @touchmove.prevent :videotype="type2" @click="playVideo"></my-video>
+
     <div class="banner">
         <section>
             <video-bg 
@@ -552,6 +553,7 @@ import Web3 from '@/tools/web3'
 import { useI18n } from 'vue-i18n';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { EffectFade, EffectCreative, Mousewheel, Autoplay, Navigation} from "swiper";
+
 SwiperCore.use([EffectFade, EffectCreative, Mousewheel, Autoplay, Navigation]);
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
@@ -656,6 +658,7 @@ const showxplan = () => {
                 }
             })
         }else{
+            store.dispatch('user/xplanChangeAni', true);
             store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.mess_xplan_err')}})
         }

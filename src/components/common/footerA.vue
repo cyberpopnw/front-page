@@ -42,14 +42,10 @@ import store from '@/store'
 import Web3 from '@/tools/web3' 
 import {  useRouter } from 'vue-router'
 
-let logoHSrcP:any = ref(''); 
-const logoHImport = async() => {
-    const logoHSrcPng:any = await import('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/logo.png');
-    logoHSrcP.value = logoHSrcPng.default;
-}
+
 
 onMounted(() => {
-    logoHImport()
+
 })
 </script>
 
