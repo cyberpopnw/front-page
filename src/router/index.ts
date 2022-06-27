@@ -91,6 +91,16 @@ const routes = [
         },
     },
     {
+        name: 'vote',
+        path: '/vote',
+        component: () => import('../views/vote/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
         name: 'space',
         path: '/space',
         component: () => import('../views/space/index.vue'),

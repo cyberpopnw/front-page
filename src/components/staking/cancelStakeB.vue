@@ -58,11 +58,15 @@ import Web3 from '@/tools/web3'
 
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
-const { staking } = Web3.contracts;
+const { staking,CYTStakingRewards } = Web3.contracts;
 const myStakCyt: any = ref(0)
 const emit = defineEmits(['closeFinshed']);
 const props = defineProps({
-    isShowTips: Boolean
+    isShowTips: Boolean,
+    isCoin: {
+        type: Boolean,
+        default: false
+    }
 })
 
 
@@ -73,6 +77,7 @@ defineExpose({
 
 
 const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); 
+const readyAssetsCoin: any = computed(() => store.state.staking?.readyAssetsCoin );
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 
 //state
@@ -114,15 +119,26 @@ const maxActive = () => {
 const confirm = async () => {
     console.log(myStakCyt.value, 'myStakCyt.vlaue');
     if( numState.value == 'error' || !Number(myStakCyt.value) ) return;
+    if( props.isCoin ){
+        let result = await Web3.withdraw(CYTStakingRewards.abi, CYTStakingRewards.address, valueIn.value );
+        store.dispatch('staking/readyAssetsCoin',  readyAssetsCoin.value + 1);
+        console.log(result);
+    }else{
+        let result = await Web3.withdraw(staking.abi, staking.address, valueIn.value );
+        store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+        console.log(result);
+    }
     // let result = await Web3.withdraw(staking.abi, staking.address, selected.value == 0 ? valueIn.value : myStakCyt.value);
-    let result = await Web3.withdraw(staking.abi, staking.address, valueIn.value);
-    console.log(result);
-    store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
     closeDialog();
 }
 
 
 const init = async () => {
+    if( props.isCoin ){
+        myStakCyt.value = await Web3.getBalanceOf(CYTStakingRewards.abi, CYTStakingRewards.address) // you have stake
+        console.log(myStakCyt.value, 'myStakCyt.value');
+        return
+    }
     myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address)
     console.log(myStakCyt.value, 'myStakCyt.value');
 }

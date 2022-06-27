@@ -25,12 +25,12 @@
                                         <div class="max" @click="active = 1">{{$t('message.mining.cancel.max')}}</div>
                                         <div class="desc">
                                             <div></div>
-                                            CYT
+                                            COIN
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tips">{{$t('message.mining.stakingA.insuff_cyt')}},<span>Get CYT.</span></div>
+                            <div class="tips">{{$t('message.mining.stakingA.insuff_cyt')}},<span>Get COIN.</span></div>
                         </div>
                         <img class="addicon" src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stake_addicon.svg" alt="">
                         <div class="item">
@@ -72,12 +72,12 @@
                                         <!-- <div class="max" @click="active = 1">MAX</div> -->
                                         <div class="max" @click="maxActive">{{$t('message.mining.cancel.max')}}</div>
                                         <div class="desc">
-                                            CYT
+                                            COIN
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tips" v-if="!Number(haveCTY)">{{$t('message.mining.stakingA.insuff_lp')}},<span>Get CYT.</span></div>
+                            <div class="tips" v-if="!Number(haveCTY)">{{$t('message.mining.stakingA.insuff_lp')}},<span>Get COIN.</span></div>
                         </div>
                         <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">
                             <span>{{ numState == 'error' ? $t('message.mining.stakingA.enter_lp') : $t('message.mining.STAKE') }}</span>
@@ -96,7 +96,7 @@ import { useI18n } from 'vue-i18n';
 import Web3 from '@/tools/web3'
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
-const { MarketV2, cytV2, staking } = Web3.contracts;
+const { MarketV2, cytV2, staking, CYTStakingRewards } = Web3.contracts;
 
 const props: any = defineProps({
     isShowTips: Boolean,
@@ -108,6 +108,7 @@ const props: any = defineProps({
 });
 
 const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
+const readyAssetsCoin: any = computed(() => store.state.staking?.readyAssetsCoin ); 
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 // switch type
 const switchFlag: any = ref(false);
@@ -154,33 +155,33 @@ const closeDialog = () => {
     }, 300);
 }
 
+let resultAbi:any = ref([]);
+let resultAddr:any = ref('');
 const stakingCYT =  async () => {
-    if( numState.value == 'error' || !Number(valueIn.value) ) return;
-    store.dispatch('staking/stakingState', { show: true, info: { state: 3, haveCTY: props.haveCTY }});
-    
+    if( numState.value == 'error' || !Number(valueIn.value) || !Number(props.haveCTY) ) return;
     store.dispatch('staking/waitingShow', true);
     store.dispatch('staking/waitingChangeAni', {ani: true,info: {desc: t('message.mining.stakingA.auth_prog')}});
-    let result = await Web3.approve(cytV2.abi, cytV2.address, staking.address, valueIn.value);
+    let result = await Web3.approve(cytV2.abi, cytV2.address, resultAddr.value, valueIn.value);
     if(result) {
-        store.dispatch('staking/stakingState', { show: true, info: { state: 6, haveCTY: props.haveCTY }});
         store.dispatch('staking/waitingChangeAni', {ani: true,info: {desc:t('message.mining.stakingA.staking')}});
-        let stake_result = await Web3.stake(staking.abi, staking.address, valueIn.value);
+        let stake_result = await Web3.stake(resultAbi.value, resultAddr.value, valueIn.value);
         console.log(stake_result);
         if(stake_result) {
             closeWaitDialog();
             store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
-            store.dispatch('staking/stakingState', { show: true, info: { state: 7, haveCTY: props.haveCTY }});
-            store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+            if( props.state == 2 ){
+                store.dispatch('staking/readyAssetsCoin',  readyAssetsCoin.value + 1);
+            }else{
+                store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+            }
             closeDialog();
             return;
         }
         closeWaitDialog();
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
-        store.dispatch('staking/stakingState', { show: true, info: { state: 8, haveCTY: props.haveCTY }});
     }else{
         closeWaitDialog();
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
-        store.dispatch('staking/stakingState', { show: true, info: { state: 5, haveCTY: props.haveCTY }});
     }
 }
 
@@ -193,6 +194,15 @@ const closeWaitDialog = () => {
 
 onMounted(() => {
     console.log(props);
+    if( !Number(props.haveCTY) ) valueIn.value= 0;
+
+    if( props.state == 2 ){
+        resultAbi.value = CYTStakingRewards.abi;
+        resultAddr.value = CYTStakingRewards.address;
+    }else{
+        resultAbi.value = staking.abi;
+        resultAddr.value = staking.address;
+    }
 })
 
 

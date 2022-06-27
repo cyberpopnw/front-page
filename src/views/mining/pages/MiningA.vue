@@ -1,8 +1,8 @@
 <template>
     <header-a path="/mining" :type="1"></header-a>
-    <div class="section">
+    <!-- <div class="section">
         <div class="title">{{$t('message.mining.coming')}}</div>
-    </div>
+    </div> -->
     <div class="mining">
         <div class="banner">
             <div class="titles">
@@ -18,7 +18,7 @@
                     <div class="right_content">
                         <div class="total-title">{{$t('message.mining.pool_amount')}}</div>
                         <div class="price">{{ Number(poolAmount) + Number(getTotalSupply) }}</div>
-                        <div class="total-subtitle">{{$t('message.mining.pool')}}:{{ getTotalSupply }}</div>
+                        <!-- <div class="total-subtitle">{{$t('message.mining.pool')}}:{{ getTotalSupply }}</div> -->
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
             <div class="line"></div>
             <li>
                 <div>
-                    <div class="txt">{{$t('message.mining.percyt_earn')}}/CYT</div>
+                    <div class="txt">{{$t('message.mining.percyt_earn')}}/COIN</div>
                     <div class="percent">{{ rewardPerToken.toFixed(6) }}/s</div>
                 </div>
             </li>
@@ -88,7 +88,7 @@
             </ul>
             <div class="Harvest">
                 <div class="texts">
-                    <div class="exchange">{{ $t('message.mining.you_earn') }} (CYT)</div>
+                    <div class="exchange">{{ $t('message.mining.you_earn') }} (COIN)</div>
                     <div class="price">{{ earned }}</div>
                 </div>
                 <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
@@ -140,7 +140,7 @@
                     <div class="have-stak"  @click="stakingCyt" v-else>
                         <!-- <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br> {{$t('message.mining.current_day')}}: {{ myTime > 0 ? myTime : $t('message.mining.finish_receive')}}</p> -->
                         <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br/> {{$t('message.mining.current_pro')}}：{{floorTofixed(progress,2)}}%</p>
-                        <div class="bot-txt whiteNft" @click.stop="cancelStake">
+                        <div class="bot-txt whiteNft" @click.stop="cancelStake(1)">
                             <div>{{$t('message.mining.cancel_staking')}}</div>
                             <img :src="whiteBorderSrc" alt="">
                         </div>
@@ -209,7 +209,7 @@
                         <div class="img_title"></div>
                         <div class="texts">
                             <p class="title">{{$t('message.mining.total_lp')}}</p>
-                            <p class="price">$10,009,923</p>
+                            <p class="price">{{ getTotalSupplyCoin }}</p>
                         </div>
                     </div>
                     <div class="right">
@@ -223,53 +223,58 @@
                 </div>
             </div>
             <div class="content">
-                <div class="item" v-for="item in 2" :key="item">
+                <div class="item" v-for="item in 1" :key="item">
                     <div class="top">
                         <div class="top_element1"></div>
                         <div class="top_element2"></div>
-                        <div class="table">
+                        <!-- <div class="table">
                             <div class="title">{{$t('message.mining.Stake_LP')}}</div>
                             <div class="desc">CYT-YOOSHI</div>
                         </div>
                         <div class="table">
                             <div class="title">{{$t('message.mining.TVL')}}</div>
-                            <div class="desc">$29,393,229</div>
-                        </div>
+                            <div class="desc">$--</div>
+                        </div> -->
                         <div class="table">
                             <div class="title">{{$t('message.mining.APR')}}</div>
-                            <div class="desc">489.09%</div>
+                            <div class="desc">{{ floorTofixed((myStakCytCoin / getTotalSupplyCoin * 100),2) }}%</div>
                         </div>
                         <div class="table">
                             <div class="title">{{$t('message.mining.your_staked')}}</div>
-                            <div class="desc">12,323 <span class="tag">LP</span> </div>
+                            <div class="desc">{{ myStakCytCoin }} <span class="tag">COIN</span> </div>
                         </div>
-                        <div class="table top_element5">
+                        <div class="table">
                             <div class="title">{{$t('message.mining.rewards_in')}}</div>
                             <div class="desc">
-                                <p>318 CYT <span>/{{$t('message.mining.DAY')}}</span> </p>
-                                <p>318 BNB <span>/{{$t('message.mining.DAY')}}</span> </p>
+                                <p>{{ rewardPerTokenCoin.toFixed(6) }} COIN <span>/s</span> </p>
+                                <!-- <p>318 CYT<span>/{{$t('message.mining.DAY')}}</span> </p>
+                                <p>318 BNB<span>/{{$t('message.mining.DAY')}}</span> </p> -->
                             </div>
+                        </div>
+                        <div class="table cancelStake" @click="cancelStake(2)">
+                            <div class="bg"></div>
+                            <div>{{$t('message.mining.Cancel')}}</div>
                         </div>
                     </div>
                     <div class="bottom">
                         <div class="table">
                             <div class="title">{{$t('message.mining.Earned')}}</div>
-                            <div class="desc">≈ $123,222.00</div>
+                            <div class="desc">≈ {{ earnedCoin }}</div>
                         </div>
                         <div class="table bottom_element2">
                             <div class="title">{{$t('message.mining.Harvest_cyt')}} ≈ $0</div>
-                            <div class="desc">0</div>
+                            <div class="desc">{{ earnedCoin }}</div>
                         </div>
-                        <div class="Harvest harvestbtn">
+                        <div class="Harvest harvestbtn" @click="stakingCoin(2)">
                             <div class="bg"></div>
                             <div>{{$t('message.mining.Harvest_btn')}}</div>
                         </div>
                         <div class="stake">
                             <div class="staked">
                                 <p class="title">{{$t('message.mining.Staked_cyt')}}</p>
-                                <div class="desc">0</div>
+                                <div class="desc">{{ myStakCytCoin }}</div>
                             </div>
-                            <div class="button stakebtn">
+                            <div class="button stakebtn" @click="stakingCoin(1)">
                                 {{$t('message.mining.Stake_btn')}}
                             </div>
                         </div>
@@ -280,9 +285,9 @@
     </div>
     <footer-a></footer-a>
     <!-- 质押完成领取奖励 -->
-    <FinishedA ref="Finished" v-if="isShowFinished" :isShowTips="isShowFinished" :amount="finishGetNFT" @closeFinshed="isShowFinished = false"></FinishedA>
+    <FinishedA ref="Finished" v-if="isShowFinished" :isShowTips="isShowFinished" :isCoin="stakingCoinType" :amount="finishGetNFT" @closeFinshed="isShowFinished = false"></FinishedA>
     <!-- 取消质押弹窗 -->
-    <CancelStakeA ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake" @closeFinshed="isShowCancelStake = false"></CancelStakeA>
+    <CancelStakeA ref="SelectNFT" v-if="isShowCancelStake" :isShowTips="isShowCancelStake" :isCoin="stakingCoinType" @closeFinshed="isShowCancelStake = false"></CancelStakeA>
     <!-- 选择NFT质押 -->
     <SelectNFTA ref="SelectNFT" v-if="isShowSelectNFT" :isShowTips="isShowSelectNFT"  @closeFinshed="isShowSelectNFT = false"></SelectNFTA>
     <!-- Switch network Popup -->
@@ -301,12 +306,13 @@ import SelectNFTA from '@/components/staking/selectNFTA.vue';
 import CancelStakeA from '@/components/staking/cancelStakeA.vue';
 import * as echarts from 'echarts';
 
-const { staking, cytV2 } = Web3.contracts;
+const { staking, cytV2, CYTStakingRewards } = Web3.contracts;
 const { t, locale } = useI18n();
 const router = useRouter()
 const realId = computed(() => store?.state.wallet?.realId);  // Asterisk address
 const chainId: any = computed(() => store.state.user?.chainId);
 const readyAssets: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
+const readyAssetsCoin: any = computed(() => store.state.staking?.readyAssetsCoin ); // Status value of the connection
 watch(readyAssets, (newVal: number, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssets');
     if(newVal <= 0 || oldVal == -1) return;
@@ -315,8 +321,17 @@ watch(readyAssets, (newVal: number, oldVal: any) => {
 }, {immediate:true,deep:true});
 
 const mountedInit: any = ref(false);
+watch(readyAssetsCoin, (newVal: number, oldVal: any) => {
+    console.log(newVal, oldVal, 'readyAssetsCoin');
+    if(newVal <= 0 || oldVal == -1) return;
+    // if( !mountedInit.value ) return
+    initCoin()
+    console.log('her3');
+}, {immediate:true,deep:true});
+
+
 watch(chainId, (newVal: any, oldVal: any) => {
-    console.log(newVal, oldVal, 'newVal');
+    console.log(newVal, oldVal, 'chainId');
     console.log(!oldVal);
     if(newVal != 43113){
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.mining.chainId_msg')}})
@@ -325,6 +340,7 @@ watch(chainId, (newVal: any, oldVal: any) => {
     if( !mountedInit.value ) return
     // if(!oldVal || oldVal == -1) return;
     init()
+    initCoin()
 }, {immediate:true,deep:true});
 
 
@@ -332,6 +348,7 @@ watch(realId, (newVal, oldVal: any) => {
     console.log(newVal, oldVal, 'realId');
     if(!oldVal || oldVal == -1) return;
     init()
+    initCoin()
     console.log('her3');
 }, {immediate:true,deep:true});
 
@@ -356,7 +373,8 @@ const finishGetNFT = ref(0) as any;
 
 
 // pool
-const getTotalSupply: any = ref(0)
+const getTotalSupply: any = ref(0) // staking coin get NFT
+const getTotalSupplyCoin: any = ref(0) // staking coin get COIN
 
 // card filp
 const flipMove = () => {
@@ -381,16 +399,20 @@ let lockedBorderSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwmining/pl
 //  my balance
 const poolAmount: any = ref(0);
 const earned: any = ref(0);
+const earnedCoin: any = ref(0);
 const rewardPerToken: any = ref(0);
+const rewardPerTokenCoin: any = ref(0);
 const mycyt: any = ref(0);
 const mycoin: any = ref(0)
 const myStakCyt: any = ref(0);
+const myStakCytCoin: any = ref(0);
 const myTime: any = ref(0);
 const myStakeNFT: any = ref(0);
 const test = ref(0) as any
 
 // harvest btn
 const harvest = () => {
+    stakingCoinType.value = false; 
     if(myTime.value > 0 || progress.value < 100) { // You can continue to pledge before the time is up
         return;
     }
@@ -402,9 +424,9 @@ const harvest = () => {
 const stakingCyt = async () => {
     console.log(progress.value, 'progress.value');
     console.log(myTime.value, 'myTime');
-    
+    stakingCoinType.value = false; 
     if(myTime.value > 0 || progress.value < 100) { // You can continue to pledge before the time is up
-        store.dispatch('staking/stakingState', { show: true, info: { state: 0, haveCTY: mycyt.value }});
+        store.dispatch('staking/stakingState', { show: true, info: { state: 1, haveCTY: mycoin.value }});
         store.dispatch('user/xplanChangeAni', true);
         return;
     }
@@ -412,6 +434,18 @@ const stakingCyt = async () => {
     isShowFinished.value = true;
     // await Web3.getReward(staking.abi, staking.address);
 }
+
+const stakingCoin = async (type: any) => { // type 1:stake 2:havest
+    stakingCoinType.value = true; 
+    if( type == 1 ) { // You can continue to pledge before the time is up
+        store.dispatch('staking/stakingState', { show: true, info: { state: 2, haveCTY: mycoin.value }});
+        store.dispatch('user/xplanChangeAni', true);
+        return;
+    }
+    store.dispatch('user/xplanChangeAni', true);
+    isShowFinished.value = true;
+}
+
 const stakingNFT = async () => {
     store.dispatch('user/xplanChangeAni', true);
     isShowSelectNFT.value = true;
@@ -419,7 +453,13 @@ const stakingNFT = async () => {
 
 
 // cancel stake
-const cancelStake = () => {
+const stakingCoinType = ref(false) as any; // cancel staking coin (staking coin get coin)
+const cancelStake = (type: any) => { // type 1:(get NFT) 2:(get coin)
+    if( type === 2 ){
+        stakingCoinType.value = true
+    }else{
+        stakingCoinType.value = false
+    }
     store.dispatch('user/xplanChangeAni', true);
     isShowCancelStake.value = true;
 }
@@ -428,11 +468,13 @@ const cancelStake = () => {
 // earn havrest
 
 // init data
+// staking coin get NFT
 const init = async () => {
+    getTotalSupply.value = await Web3.getTotalSupply(staking.abi, staking.address)
     // poolAmount.value = await Web3.notifyrewardamount(staking.abi, staking.address)
     // console.log(poolAmount.value, 'poolAmount')
-    mycyt.value = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address); // you have
-    console.log(mycyt, 'mycyt');
+    mycoin.value = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address); // you have
+    console.log(mycoin, 'mycoin');
     myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address) // you have stake
     console.log(myStakCyt.value, 'myStakCyt.value');
     let DaysResult: any = await Web3.DaysRemaining(staking.abi, staking.address, 3) as number;
@@ -445,7 +487,6 @@ const init = async () => {
     progress.value = oResult.progressVal;
     finishGetNFT.value = oResult.finishGetNFT;
     console.log(progress.value, finishGetNFT.value, 'progress.value,finishGetNFT.value');
-    // if(myTime.value <= 0) progress.value = 100;
     const myRatio: any = floorTofixed((myStakCyt.value / getTotalSupply.value * 100),2);
     const option: any = {
         //   title: {
@@ -465,7 +506,7 @@ const init = async () => {
                 radius: '50%',
                 center: ['50%', '50%'],
                 data: [
-                    { value: getTotalSupply.value, name: t('message.mining.pie_ratio') },
+                    { value: getTotalSupply.value - myStakCyt.value, name: t('message.mining.pie_ratio') },
                     { value: myStakCyt.value, name: t('message.mining.pie_me_ratio')},
                 ],
                 label:{  
@@ -485,7 +526,7 @@ const init = async () => {
                 radius: '50%',
                 center: ['50%', '50%'],
                 data: [
-                    { value: getTotalSupply.value, name: 100 - myRatio + '%' },
+                    { value: getTotalSupply.value - myStakCyt.value, name:floorTofixed((100 - myRatio),2) + '%' },
                     { value: myStakCyt.value, name: myRatio + '%' },
                 ],
                 label:{  
@@ -505,17 +546,31 @@ const init = async () => {
 }
 
 
+// staking coin get coin
+const initCoin = async () => {
+    getTotalSupplyCoin.value = await Web3.getTotalSupply(CYTStakingRewards.abi, CYTStakingRewards.address)
+    myStakCytCoin.value = await Web3.getBalanceOf(CYTStakingRewards.abi, CYTStakingRewards.address) // you have stake
+    console.log(myStakCytCoin.value, 'myStakCytCoin.value');
+    let DaysResult: any = await Web3.DaysRemainingCoin(CYTStakingRewards.abi, CYTStakingRewards.address) as number;
+    earnedCoin.value = DaysResult.earned;
+    rewardPerTokenCoin.value =  Number( DaysResult.rewardPerToken) / 1000000000000000000;
+    console.log(DaysResult , 'DaysRemainingCoin');
+}
+
 let myChart: any = ref(null);
 
 // tofixed math.floor
 const floorTofixed = (number: any, pow: any) => {
+    if( !number || !pow ) return 0
     return (Math.floor(number * Math.pow(10, pow)) / 100).toFixed(pow);
 }
 
 onMounted(async () => {
     myChart = echarts.init(document.getElementById("Chart") as HTMLElement)
-    // let a = await Web3.notifyrewardamount(staking.abi, staking.address)
-    // console.log(a);
+    // let a = await Web3.notifyrewardamount(CYTStakingRewards.abi, CYTStakingRewards.address)
+    // let a = await Web3.rewards(staking.abi, staking.address)
+    // let b = await Web3.rewards(CYTStakingRewards.abi, CYTStakingRewards.address)
+    // console.log(a,b,'------------------')
     // let result = await Web3.DaysNeededPrediction(staking.abi, staking.address)
     // console.log(result, 'DaysNeededPrediction');
     // let DaysNeededPredictionx = await Web3.DaysNeededPredictionx(staking.abi, staking.address)
@@ -527,8 +582,9 @@ onMounted(async () => {
             return;
         }
         init()
+        initCoin()
     }, 1000);
-    getTotalSupply.value = await Web3.getTotalSupply(staking.abi, staking.address)
+    
     window.scrollTo(0,0);
 })
 
@@ -1284,6 +1340,30 @@ onMounted(async () => {
                                 font-family: AlibabaPuHuiTi_2_85_Bold;
                                 color: #FFFFFF;
                                 line-height: 1.92vw;
+                            }
+                        }
+                        .cancelStake{
+                            width: 6.4vw;
+                            line-height: 2.08vw;
+                            text-align: center;
+                            font-size: 0.93vw;
+                            font-family: AlibabaPuHuiTi_2_85_Bold;
+                            color: #A4F238;
+                            position: absolute;
+                            right: 2vw;
+                            bottom: 1.3vw;
+                            cursor: pointer;
+                            .bg{
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+                                height: 2.08vw;
+                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
+                                background-size: 100%; 
+                                &:hover{
+                                    filter: drop-shadow(0 0 .2vw #A4F238);
+                                }
                             }
                         }
                         .top_element5{
