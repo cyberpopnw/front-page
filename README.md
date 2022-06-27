@@ -18,4 +18,6 @@ step1:
 step2:
 node_modules
 
-remove vue-videobg/node_modules 
+remove vue-videobg/node_modules
+
+cd node_modules/vue-videobg    add preload="auto"

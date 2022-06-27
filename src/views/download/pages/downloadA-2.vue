@@ -41,7 +41,7 @@
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
                     <b>{{ $t('message.download.Android') }}</b>
                 </div>
-                <div class="down_cyberpop not-error" @click="downloadGame(2)">
+                <div class="down_cyberpop" @click="downloadGame(2)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
                     <b>{{ $t('message.download.ios') }}</b>
                 </div>
@@ -72,12 +72,6 @@ const isClick = ref(false as any);
 // download
 const isDonload: any = ref(false);
 const downloadGame = (type: number) => {
-    if(type == 2) {
-        store.dispatch('user/showDialog',{ show: true, info: { state: 0, txt: t('message.download.tips2') } });
-        return
-    };
-
-
     isDonload.value = true;
     if(emailAddress.value == ''){
         emailAddress.value = 'hello@cyberpop.online'
@@ -87,7 +81,17 @@ const downloadGame = (type: number) => {
         store.dispatch('user/showDialog',{ show: true, info: { state: 0, txt: t('message.download.tips3')} });
         return;
     }
-    window.location.href = type == 0 ? 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.4_2022_06_14_18_48_53_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk' : 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.4_2022_06_14_19_19_02_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe';
+    switch(type){
+        case 2:
+            window.location.href = 'https://apps.apple.com/us/app/cyberpop/id1613478998?l=zh'
+            break;
+        case 0:
+            window.location.href = 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.4_2022_06_14_18_48_53_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk'
+            break;
+        case 1:
+            window.location.href = 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.4_2022_06_14_19_19_02_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe'
+            break;
+    }
     proxy.$api.get(`/code/user/download?address=${thisAcounts.value}`).then((res: any) => {
         console.log(res);
     }).catch( (err: any) => {

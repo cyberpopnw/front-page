@@ -3,9 +3,9 @@ const us = {
         common: {
             // headerA
             menu1: 'Homepage',
-            menu2: 'Mint',
+            menu2: 'Mining',
             menu3: 'Mystery Box',
-            menu4: 'File',
+            menu4: 'Files',
             menu5: 'Cyberpop ​​New World',
             menu6: 'Whitelist',
             menu7: 'Market',
@@ -98,9 +98,9 @@ const us = {
             // homeA-banner
             banner_title1Bef: 'FIND YOUR TRUE SELF',
             banner_title1Aft: 'IN THE NEW WORLD OF CYBERPOP',
-            banner_title2: 'This new metaverse game combines exploration, combat, x-to-earn, and UGC into one',
+            banner_title2: 'This new metaverse game combines exploration, combat, x-to-earn, and UGC into one.',
             banner_btn1: 'PLAY TO EARN',
-            banner_btn2: 'PREVIEW',
+            banner_btn2: 'DEMO',
             banner_botmBef: 'CYBERPOP NEW WORLD',
             banner_botmAft: 'COMING SOON',
             // homeA-download
@@ -151,13 +151,13 @@ const us = {
             news_rtitle1: 'Cyberpop ​​New World has released three open world maps',
             news_rtitle2: 'Cyberpop ​​New World—New Blockchain Game',
             // homeA-roadmap
-            roadmap_title: 'OUR JOURNEY',
+            roadmap_title: 'Roadmap',
             roadmap_s1: 'Stage Ⅰ',
-            roadmap_s1_d1_e1: 'Project',
+            roadmap_s1_d1_e1: 'Project established',
             roadmap_s1_d1_e2: 'Basic gameplay and art design',
             roadmap_s1_d1_e3: 'Game scene development',
             // roadmap_s1_d1_e4: 'Metaverse Art Modeling', // d
-            roadmap_s1_d2_e1: 'UGC tool project',
+            roadmap_s1_d2_e1: 'UGC project management tool established',
             roadmap_s1_d2_e2: 'Cyberpop ​​New World website released',
             roadmap_s1_d2_e3: 'Preview video released',
             roadmap_s1_d2_e4: 'Game character modeling',
@@ -207,7 +207,7 @@ const us = {
             team_mem_water: 'Worked as a cloud computing engineer at Intel Asia Pacific R&D Co., Ltd., and then served as the former cloud technical director of Huawei. He was responsible for cloud design and has rich experience in cloud computing and blockchain industries. He established a team to develop Metaverse games and successfully designed an indie MMORPG game.',
             team_mem_ice: 'Worked as a chief cloud back-end developer in Google. Familiar with various technical frameworks such as Java and Go- Lang. He is a code contributor in the Cosmos community, familiar with blockchain structure, and is a core source code contributor. He achieved the cross-chain transfer of Erc-1155 and EVM.',
             // homeA-partners
-            part_title: 'BACKERS', //PARTNERS
+            part_title: 'PARTNERS', //PARTNERS
             // homeA-will
             will_title: 'We support multi-system operability',
             will_logo1_txt: 'Windows',
@@ -394,7 +394,7 @@ const us = {
             round_1: 'Number of Rounds',
             round_2: 'NFT',
             subtitle: 'Mystery boxes contain great treasures',
-            desc: 'Cyberpop DAO \'s NFT Mystery box promotion marks the beginning of our journey',
+            desc: "Cyberpop DAO \'s NFT Mystery box promotion marks the beginning of our journey.",
             type_title_1: 'MYSTERY',
             type_title_2: 'BOX',
             weapon_name1: 'WEAPON MYSTERY BOX',

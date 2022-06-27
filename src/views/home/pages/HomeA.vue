@@ -1,6 +1,7 @@
 <template>
     <header-a path="/" :type="0"></header-a>
     <my-video v-if="isPlay" @touchmove.prevent :videotype="type2" @click="playVideo"></my-video>
+
     <div class="banner">
         <section>
             <video-bg 
@@ -552,6 +553,7 @@ import Web3 from '@/tools/web3'
 import { useI18n } from 'vue-i18n';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { EffectFade, EffectCreative, Mousewheel, Autoplay, Navigation} from "swiper";
+
 SwiperCore.use([EffectFade, EffectCreative, Mousewheel, Autoplay, Navigation]);
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
@@ -598,7 +600,7 @@ const teamInfo: any = ref([
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_han.png',
         name: 'Han',
-        desc: 'Chief Back-end',
+        desc: 'Chief Back-end developer',
         info: 'message.home.team_mem_han',
     },
     {
@@ -656,6 +658,7 @@ const showxplan = () => {
                 }
             })
         }else{
+            store.dispatch('user/xplanChangeAni', true);
             store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.mess_xplan_err')}})
         }
@@ -1840,7 +1843,7 @@ onMounted(() => {
             }
             .make-img{
                 position: relative;
-                width: 39.42vw;
+                width: 42.42vw;
                 height: 14.58vw;
                 background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/make-imgBg.png');
                 background-size: 100% 100%;
@@ -1855,12 +1858,13 @@ onMounted(() => {
                     li:nth-child(1){
                         width: 7.91vw;
                         height: 10.3vw;
-                        margin: 2.7vw 2.7vw 0 1.9vw;
+                        margin: 2.7vw 4vw 0 1.9vw;
                     }
                     li:nth-child(2){
                         width: 5.05vw;
                         height: 12.1vw;
                         margin-top: 1vw;
+                        margin-right: 1vw;
                     }
                     li:nth-child(3){
                         width: 12.5vw;
@@ -1906,7 +1910,7 @@ onMounted(() => {
             .opensea{
                 // z-index: 1;
                 position: relative;
-                width: 39.1vw;
+                width: 42.1vw;
                 height: 7.76vw;
                 margin-top: .41vw;
                 // background: #EDFF00;
@@ -2034,7 +2038,7 @@ onMounted(() => {
                             line-height: 2.34vw;
                         }
                         .arrival{
-                            width: 7.18vw;
+                            width: 12.18vw;
                             height: 1.09vw;
                             line-height: 1.09vw;
                             text-align: center;
@@ -2406,7 +2410,7 @@ onMounted(() => {
                 li:nth-child(4){
                     top: 11.6vw;
                     left: 40.8vw;
-                    width: 13.66vw;
+                    width: 14.66vw;
                     height: 3.95vw;
                 }
                 li:nth-child(5){
@@ -2418,12 +2422,13 @@ onMounted(() => {
                 li:nth-child(6){
                     top: 20.5vw;
                     left: 27.7vw;
-                    width: 13.14vw;
+                    width: 14.14vw;
                     height: 3.95vw;
                 }
                 li:nth-child(7){
                     top: 19.2vw;
                     left: 58.1vw;
+                    width: 18vw;
                 }
                 li:nth-child(8){
                     top: 26.6vw;
@@ -2447,7 +2452,7 @@ onMounted(() => {
                 li:nth-child(11){
                     top: 30.2vw;
                     left: 66.5vw;
-                    width: 13.66vw;
+                    width: 14.66vw;
                     height: 3.95vw;
                 }
                 li:hover{

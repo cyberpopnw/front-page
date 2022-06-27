@@ -1,8 +1,12 @@
 <template>
     <div class="footer">
         <div class="footer-wrap">
-            <!-- <img class="logo" v-show="!logoFlag" :src="logoHSrcP" @mouseenter="logoFlag = true" alt="">
-            <img class="logo" v-show="logoFlag" :src="logoHSrcG" @mouseleave="logoFlag = false" alt=""> -->
+            <img class="logo" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/logo.png'" alt="">
+            <div class="email_box">
+                <div class="title">Become a partner</div>
+                <div class="des">Simple, rewarding, collaborative.</div>
+                <div class="email_botton"><a href="mailto:business@cyberpop.online">Become a partner</a><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt=""></div>
+            </div>
             <div class="clause">
                 <div class="policy"><router-link to="/privacy">{{$t('message.common.footer_policy')}}</router-link></div>
                 <div class="terms"><router-link to="/terms">{{$t('message.common.footer_terms')}}</router-link></div>
@@ -31,25 +35,9 @@ import { onMounted, onUnmounted, computed, readonly, ref } from 'vue'
 import store from '@/store'
 import Web3 from '@/tools/web3' 
 import {  useRouter } from 'vue-router'
-
-let logoHSrcP:any = ref(''); 
-let logoHSrcG:any = ref(''); 
-const logoHImport = async() => {
-    const logoHSrcPng:any = await import('@/assets/nwhome/logo_101.png');
-    const logoHSrcGif:any = await import('@/assets/nwhome/logo.gif');
-    logoHSrcP.value = logoHSrcPng.default;
-    logoHSrcG.value = logoHSrcGif.default;
-}
-
-// header
-let logoHFlag: any = ref(false) ;
-
-// footer
-let logoFlag: any = ref(false) ;
-
+ 
 
 onMounted(() => {
-    logoHImport();
 })
 </script>
 
@@ -59,7 +47,7 @@ onMounted(() => {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 206px;
+        height: 400px;
         background-color: #121122;
         // background-color: #000000;
         align-items: center;
@@ -78,18 +66,57 @@ onMounted(() => {
                 width: 181px;
                 height: 49px;
                 margin-top: 10px;
-                margin-bottom: 5px;
+                margin-bottom: 15px;
+            }
+            .email_box{
+                margin-bottom: 26px;
+                .title{
+                    font-size: 14px;
+                    font-family: AlibabaPuHuiTi_2_55_Regular;
+                    font-weight: 400;
+                    color: #FFFFFF;
+                    line-height: 21px;
+                    margin-bottom: 4px;
+                }
+                .des{
+                    color: #918d8d;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 18px;
+                    margin-bottom: 22px;
+                }
+                .email_botton{
+                    width: 220px;
+                    height: 42px;
+                    border: 1px solid #04FF55;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 14px;
+                    font-family: AlibabaPuHuiTi_2_55_Regular;
+                    font-weight: 400;
+                    color: #FFFFFF;
+                    line-height: 21px;
+                    img{
+                        width: 20px;
+                        height: 15px;
+                        margin-left: 11px;
+                    }
+                }
+                .email_botton:hover{
+                    opacity: .7;
+                }
             }
             .clause{
                 display: flex;
                 justify-content: center;
-                margin-bottom: 25px;
-                height: 23px;
+                margin-bottom: 27px;
                 font-size: 14px;
                 font-family: AlibabaPuHuiTi_2_55_Regular;
                 font-weight: 400;
                 color: #FFFFFF;
-                line-height: 23px;
+                line-height: 21px;
                 .policy{
                     width: 101px;
                     margin-right: 14px;
