@@ -202,6 +202,12 @@ const handleOtherClick = (e:any) => {
 
 onUnmounted(() => {
     window.removeEventListener('click', handleOtherClick, true);
+})
+
+
+onMounted(() => {
+    window.addEventListener('click', handleOtherClick, true)
+    if( !Number(props.haveCTY) ) valueIn.value= 0;
 
     if( props.state == 2 ){
         resultAbi.value = CYTStakingRewards.abi;
@@ -210,13 +216,6 @@ onUnmounted(() => {
         resultAbi.value = staking.abi;
         resultAddr.value = staking.address;
     }
-})
-
-
-onMounted(() => {
-    window.addEventListener('click', handleOtherClick, true)
-
-    if( !Number(props.haveCTY) ) valueIn.value= 0;
 })
 </script>
 

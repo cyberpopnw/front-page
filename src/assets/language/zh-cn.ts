@@ -25,6 +25,8 @@ const cn = {
             footer_policy: '隱私條款',
             footer_terms: '服務協議',
             footer_desc: ' Cyberpop Labs. Ltd.版權所有.',
+            footer_email_title: '成為合作夥伴',
+            footer_email_desc: '簡單、有益、合作.',
             // metamask
             metamask: {
                 title: '選擇錢包',
@@ -296,13 +298,14 @@ const cn = {
             pledge_title: '當前抵押',
             pledge_top_txt: '置入雜湊率:1',
             pledge_bot_txt1: '同意',
+            pledge_bot_txt2_1: '選擇COIN以作為質押',
             pledge_bot_txt2: '選擇NFT以作為質押',
             pledge_bot_txt3: '即將上線',
             staking: '質押',
             STAKE: '質押',
             Cancel: '取消',
              // update 
-             pool_amount: '挖礦池金額 (COIN)',
+             pool_amount: '挖礦池數量 (COIN)',
              pool: '挖礦池',
              total_power: '總挖礦力',
              total_staked: '總質押數量',
@@ -368,15 +371,15 @@ const cn = {
              },
              stakingA: {
                  add: 'Add liquidity and stake',
-                 solo: '質押 LP',
+                 solo: '質押 COIN',
                  input: '輸入',
                  insuff_cyt: 'COIN餘額不足',
                  insuff_yooshi: 'YOOSHI餘額不足',
-                 insuff_lp: 'LP餘額不足',
+                 insuff_lp: 'COIN餘額不足',
                  auth_prog: '正在進行授權...',
                  staking: '質押中...',
                  enter_token: '輸入代幣數量',
-                 enter_lp: '輸入LP數量',
+                 enter_lp: '輸入COIN數量',
              },
              waiting: {
                  title: '正在等待確認',

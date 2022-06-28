@@ -1,8 +1,8 @@
 <template>
     <header-b path="/mining" :type="1"></header-b>
-    <!-- <div class="section">
+    <div class="section">
         <div class="title">{{$t('message.mining.coming')}}</div>
-    </div> -->
+    </div>
     <div class="mining">
         <div class="banner">
             <div class="titles">
@@ -39,7 +39,7 @@
                 </li>
                 <li>
                     <div>
-                        <div class="txt">{{$t('message.mining.percyt_earn')}}/COIN</div>
+                        <div class="txt">{{$t('message.mining.percyt_earn')}}</div>
                         <div class="percent">{{ rewardPerToken.toFixed(6) }}/s</div>
                     </div>
                 </li>
@@ -113,7 +113,7 @@
                         </div>
                         <div class="top-txt">{{$t('message.mining.pledge_top_txt')}}</div>
                         <div class="bot-txt whiteNft">
-                            <div>{{$t('message.mining.pledge_bot_txt2')}}</div>
+                            <div>{{$t('message.mining.pledge_bot_txt2_1')}}</div>
                             <img :src="whiteBorderSrc" alt="">
                         </div>
                     </div>
@@ -414,8 +414,8 @@ const stakingCoin = async (type: any) => { // type 1:stake 2:havest
 }
 
 const stakingNFT = async () => {
-    store.dispatch('user/xplanChangeAni', true);
-    isShowSelectNFT.value = true;
+    // store.dispatch('user/xplanChangeAni', true);
+    // isShowSelectNFT.value = true;
 }
 
 

@@ -25,6 +25,8 @@ const kr = {
             footer_policy: '개인정보 처리방침',
             footer_terms: '이용약관',
             footer_desc: ' Cyberpop Labs. Ltd.판권 소유.',
+            footer_email_title: '협력 파트너가 되다',
+            footer_email_desc: '간단하고 유익하며 협동하다.',
             // metamask
             metamask: {
                 title: '지갑 선택',
@@ -296,9 +298,10 @@ const kr = {
             pledge_title: '현재저당',
             pledge_top_txt: '해시레이트 도입:1',
             pledge_bot_txt1: '동의',
+            pledge_bot_txt2_1: 'COIN을 선택하여 걸기',
             pledge_bot_txt2: 'NFT을 선택하여 걸기',
             pledge_bot_txt3: '커밍순',
-            staking: '저당 잡히다',
+            staking: 'Staking',
             STAKE: 'STAKE',
             Cancel: 'Cancel',
             // update 
@@ -332,7 +335,7 @@ const kr = {
             total_lp: 'Total LP Locked',
             farms: 'FARMS',
             farms_subtitle: 'STAKE LP TOKEN TO EARN',
-            Stake_LP: 'Stake LP',
+            Stake_LP: 'Stake COIN',
             TVL: 'TVL',
             APR: 'APR',
             your_staked: 'Your staked',
@@ -368,15 +371,15 @@ const kr = {
             },
             stakingA: {
                 add: 'Add liquidity and stake',
-                solo: 'Stake LP',
+                solo: 'Stake COIN',
                 input: 'Input',
                 insuff_cyt: 'Insufficient COIN Balance',
                 insuff_yooshi: 'Insufficient YOOSHI Balance',
-                insuff_lp: 'Insufficient LP Balance',
+                insuff_lp: 'Insufficient COIN Balance',
                 auth_prog: 'Authorization in progress....',
                 staking: 'staking....',
                 enter_token: 'ENTER TOKEN AMOUNT',
-                enter_lp: 'ENTER LP AMOUNT',
+                enter_lp: 'ENTER COIN AMOUNT',
             },
             waiting: {
                 title: 'WAITING FOR CONFIRMATION',

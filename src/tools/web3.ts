@@ -412,8 +412,6 @@ const loadingErc1155 = (abi: any[], address: string, tokenId: any, number: any) 
 
 //withdraw cyt
 const withdraw = (abi: any[], address: string, amount: number) =>  {  // two staking CYTStakingRewards
-    console.log(abi, address, amount);
-
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -476,8 +474,6 @@ const ERC20balanceOf = (abi: any[], address: string) => {
 
 // Pledge cyt quantity
 const stake = (abi: any[], address: string, number: number) => { // two staking CYTStakingRewards
-    console.log(abi,address);
-    
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -516,15 +512,10 @@ const DaysRemaining = (abi: any[], address: string, tokenId: number) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
         let _price = await contract.methods._price([1]).call();
-        console.log(_price, '_price');
         let earned = await contract.methods.earned(accounts.value).call();
-        console.log(earned, 'earned');
         let rewardPerToken = await contract.methods.rewardPerToken().call();
-        console.log(rewardPerToken, 'rewardPerToken');
         let getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
-        console.log(getBalanceOf, 'getBalanceOf');
         let result = ((_price - earned) * 1000000000000000000)  / (rewardPerToken * getBalanceOf); //_balances
-        console.log(result, 'result');
         resolve({result,earned,rewardPerToken });
     })
 }
@@ -535,9 +526,7 @@ const DaysRemainingCoin = (abi: any[], address: string) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
         let earned = await contract.methods.earned(accounts.value).call();
-        console.log(earned, 'earned');
         let rewardPerToken = await contract.methods.rewardPerToken().call();
-        console.log(rewardPerToken, 'rewardPerToken');
         resolve({earned,rewardPerToken });
     })
 }
@@ -550,9 +539,7 @@ const DaysRemainingSpeed = (abi: any[], address: string, tokenId: number) => {
         const contract = new web3.eth.Contract(abi, address)
         let _price = await contract.methods._price([1]).call();
         let rewardPerToken = await contract.methods.rewardPerToken().call(); // two staking CYTStakingRewards
-        console.log(rewardPerToken, 'rewardPerToken');
         let getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call(); // two staking CYTStakingRewards
-        console.log(getBalanceOf, 'getBalanceOf');
         let result = (rewardPerToken * getBalanceOf); //_balances
         console.log(result, 'result');
         resolve(result);
@@ -589,7 +576,6 @@ const progress = (abi: any[], address: string) => {
         let _price = await contract.methods._price(1).call() // staking
         let finishGetNFT = Math.floor(earned/_price)
         let progressVal = (earned/_price) * 100 > 100 ? 100 : (earned/_price) * 100
-        console.log(earned, _price, finishGetNFT, '_earned/_price')
         resolve({finishGetNFT, progressVal})
     })
 }
@@ -600,11 +586,8 @@ const notifyrewardamount = (abi: any[], address: string) => { // two staking CYT
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
-        console.log(accounts.value);
-
         contract.methods.notifyRewardAmount(6000000).send({ from: accounts.value }).then(function (receipt: any) {
             console.log(receipt, 'web3.noti');
-            
             resolve(receipt)
         }).catch((err: any) => {
             resolve(0)
@@ -623,7 +606,7 @@ const getReward = (abi: any[], address: string) => { // CYTStakingRewards
             resolve(receipt)
         }).catch((err: any) => {
             resolve(0)
-            console.log('error');
+            console.log('error',err);
         })
     })
 }
@@ -652,7 +635,7 @@ const getNFT = (abi: any[], address: string, amount: number) => { // staking
             resolve(receipt)
         }).catch((err: any) => {
             resolve(0)
-            console.log('error');
+            console.log('error',err);
         })
     })
 }

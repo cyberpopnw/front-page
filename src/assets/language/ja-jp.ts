@@ -25,6 +25,8 @@ const kr = {
             footer_policy: 'プライバシーポリシー',
             footer_terms: 'サービス規約',
             footer_desc: ' Cyberpop Labs. Ltd.版権所有.',
+            footer_email_title: 'パートナーになる',
+            footer_email_desc: 'シンプルで、やりがいのある、共同.',
             // metamask
             metamask: {
                 title: 'ウォレットを選択',
@@ -296,13 +298,14 @@ const kr = {
             pledge_title: '現在抵当',
             pledge_top_txt: 'ハッシュレート導入:1',
             pledge_bot_txt1: '同意',
+            pledge_bot_txt2_1: 'COINを賭けにします',
             pledge_bot_txt2: 'NFTを賭けにします',
             pledge_bot_txt3: 'まもなく登場',
             staking: '抵当に入れる',
             STAKE: '抵当に入れる',
             Cancel: 'キャンセル',
             // update 
-            pool_amount: '掘削プールの金額 (COIN)',
+            pool_amount: '掘削池の数 (COIN)',
             pool: '採掘池',
             total_power: '総掘削力',
             total_staked: '総抵当数量',
@@ -368,15 +371,15 @@ const kr = {
             },
             stakingA: {
                 add: 'Add liquidity and stake',
-                solo: 'LP質押',
+                solo: 'COIN質押',
                 input: 'インプット',
                 insuff_cyt: 'COIN残高不足',
                 insuff_yooshi: 'YOOSHI残高不足',
-                insuff_lp: 'LP残高不足',
+                insuff_lp: 'COIN残高不足',
                 auth_prog: '授権を行っています...',
                 staking: '質押中...',
                 enter_token: 'トークンの入力数',
-                enter_lp: 'LP入力数',
+                enter_lp: 'COIN入力数',
             },
             waiting: {
                 title: '確認待ち',

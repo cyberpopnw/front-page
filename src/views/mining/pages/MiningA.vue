@@ -1,8 +1,8 @@
 <template>
     <header-a path="/mining" :type="1"></header-a>
-    <!-- <div class="section">
+    <div class="section">
         <div class="title">{{$t('message.mining.coming')}}</div>
-    </div> -->
+    </div>
     <div class="mining">
         <div class="banner">
             <div class="titles">
@@ -40,7 +40,7 @@
             <div class="line"></div>
             <li>
                 <div>
-                    <div class="txt">{{$t('message.mining.percyt_earn')}}/COIN</div>
+                    <div class="txt">{{$t('message.mining.percyt_earn')}}</div>
                     <div class="percent">{{ rewardPerToken.toFixed(6) }}/s</div>
                 </div>
             </li>
@@ -133,11 +133,11 @@
                         </div>
                         <div class="top-txt">{{$t('message.mining.pledge_top_txt')}}</div>
                         <div class="bot-txt whiteNft">
-                            <div>{{$t('message.mining.pledge_bot_txt2')}}</div>
+                            <div>{{$t('message.mining.pledge_bot_txt2_1')}}</div>
                             <img :src="whiteBorderSrc" alt="">
                         </div>
                     </div>
-                    <div class="have-stak"  @click="stakingCyt" v-else>
+                    <div class="have-stak" @click="stakingCyt" v-else>
                         <!-- <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br> {{$t('message.mining.current_day')}}: {{ myTime > 0 ? myTime : $t('message.mining.finish_receive')}}</p> -->
                         <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br/> {{$t('message.mining.current_pro')}}：{{floorTofixed(progress,2)}}%</p>
                         <div class="bot-txt whiteNft" @click.stop="cancelStake(1)">
@@ -305,6 +305,7 @@ import FinishedA from '@/components/staking/FinishedA.vue';
 import SelectNFTA from '@/components/staking/selectNFTA.vue';
 import CancelStakeA from '@/components/staking/cancelStakeA.vue';
 import * as echarts from 'echarts';
+import { value } from 'dom7';
 
 const { staking, cytV2, CYTStakingRewards } = Web3.contracts;
 const { t, locale } = useI18n();
@@ -332,7 +333,6 @@ watch(readyAssetsCoin, (newVal: number, oldVal: any) => {
 
 watch(chainId, (newVal: any, oldVal: any) => {
     console.log(newVal, oldVal, 'chainId');
-    console.log(!oldVal);
     if(newVal != 43113){
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.mining.chainId_msg')}})
         return;
@@ -355,7 +355,7 @@ watch(realId, (newVal, oldVal: any) => {
 // Sub component finished (pledge completed to receive reward)
 const Finished = ref(null);
 const isShowFinished = ref(false as boolean);
-console.log(Finished, 'Finished');
+console.log(Finished.value, 'Finished');
 
 
 //Subcomponents SelectNFT
@@ -447,8 +447,8 @@ const stakingCoin = async (type: any) => { // type 1:stake 2:havest
 }
 
 const stakingNFT = async () => {
-    store.dispatch('user/xplanChangeAni', true);
-    isShowSelectNFT.value = true;
+    // store.dispatch('user/xplanChangeAni', true);
+    // isShowSelectNFT.value = true;
 }
 
 
@@ -474,14 +474,14 @@ const init = async () => {
     // poolAmount.value = await Web3.notifyrewardamount(staking.abi, staking.address)
     // console.log(poolAmount.value, 'poolAmount')
     mycoin.value = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address); // you have
-    console.log(mycoin, 'mycoin');
+    console.log(mycoin.value, 'mycoin');
     myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address) // you have stake
     console.log(myStakCyt.value, 'myStakCyt.value');
     let DaysResult: any = await Web3.DaysRemaining(staking.abi, staking.address, 3) as number;
-    console.log(DaysResult, 'DaysResult');
     earned.value = DaysResult.earned;
     rewardPerToken.value =  Number( DaysResult.rewardPerToken) / 1000000000000000000;
     myTime.value = DaysResult.result.toFixed(2);
+    console.log(DaysResult, 'DaysResult');
     console.log(myTime.value , 'myTime.value');
     let oResult: any = await Web3.progress(staking.abi, staking.address);
     progress.value = oResult.progressVal;
@@ -554,7 +554,7 @@ const initCoin = async () => {
     let DaysResult: any = await Web3.DaysRemainingCoin(CYTStakingRewards.abi, CYTStakingRewards.address) as number;
     earnedCoin.value = DaysResult.earned;
     rewardPerTokenCoin.value =  Number( DaysResult.rewardPerToken) / 1000000000000000000;
-    console.log(DaysResult , 'DaysRemainingCoin');
+    console.log(DaysResult , 'DaysResultCoin');
 }
 
 let myChart: any = ref(null);
