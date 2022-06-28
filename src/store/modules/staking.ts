@@ -15,6 +15,7 @@ const states = {
         subtitle: '',
         desc: ''
     },
+    readyAssetsCoin: 0 ,// Judge whether the query is completed
 }
 export type typeof_staking = typeof states
 export default {
@@ -36,7 +37,10 @@ export default {
         },
         waitingInfo(state, payload: any) {
             state.waitingInfo = payload;
-        }
+        },
+        readyAssets(state, payload: any) {
+            state.readyAssetsCoin = payload;
+        },
     },
     actions: {
         //staking
@@ -50,6 +54,9 @@ export default {
         waitingChangeAni({ commit }, paylaod: any) {
             commit('waitingChangeAni', paylaod.ani)
             commit('waitingInfo', paylaod.info)
+        },
+        readyAssetsCoin({ commit }, paylaod: any) {
+            commit('readyAssets', paylaod)
         },
     },
 } as Module<typeof_staking, State>

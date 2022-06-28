@@ -8,13 +8,13 @@
                 <div class="title">{{$t('message.mining.finish.finished')}}</div>
                 <div class="text">{{$t('message.mining.finish.text')}}</div>
                 <div class="reward_chunks">
-                    <div class="item" :class="{'selected': selected == 0}" @click="selected = 0">
+                    <div class="item selected" v-if="isCoin">
                         <div class="chunk">
                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/CYTIcon.png" alt="">
                         </div>
-                        <p>CYT</p>
+                        <p>COIN</p>
                     </div>
-                    <div class="item" :class="{'selected': selected == 1}" @click="selected = 1">
+                    <div class="item selected" v-else>
                         <div class="chunk">
                             <img src="https://cyberpop.mypinata.cloud/ipfs/QmRVeBntXA1wgakGCSD6BpyGyXjTsShqUyb6dNooHXwDEr" alt="">
                         </div>
@@ -39,11 +39,15 @@ import Web3 from '@/tools/web3'
 
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
-const { staking } = Web3.contracts;
+const { staking, CYTStakingRewards } = Web3.contracts;
 const emit = defineEmits(['closeFinshed']);
 const props: any = defineProps({
     isShowTips: Boolean,
-    amount: Number
+    amount: Number,
+    isCoin: {
+        type: Boolean,
+        default: false
+    }
 })
 
 
@@ -55,6 +59,7 @@ defineExpose({
 
 
 const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
+const readyAssetsCoin: any = computed(() => store.state.staking?.readyAssetsCoin );
 const xplanAni = computed(() => store?.state.user?.xplanAni);
 
 //state
@@ -71,14 +76,14 @@ const closeDialog = () => {
 
 const confirm = async () => {
     if(selected.value == 0){
-        let result = await Web3.getReward(staking.abi, staking.address)
+        let result = await Web3.getReward(CYTStakingRewards.abi, CYTStakingRewards.address)
         console.log(result);
         if( result == 0 ){
             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})
             return;
         }
         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}})
-        store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); // After the operation is successful, the page listens and refreshes the data
+        store.dispatch('staking/readyAssetsCoin',  readyAssetsCoin.value + 1);
         closeDialog();
     }else{
         let result = await Web3.getNFT(staking.abi, staking.address, props.amount);
@@ -211,7 +216,7 @@ onMounted(() => {
                         }
                     }
                     .item:first-child{
-                        margin-right: 48px;
+                        // margin-right: 48px;
                     }
                 }
                 .btn{

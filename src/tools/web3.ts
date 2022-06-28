@@ -411,17 +411,16 @@ const loadingErc1155 = (abi: any[], address: string, tokenId: any, number: any) 
 
 
 //withdraw cyt
-const withdraw = (abi: any[], address: string, amount: number) =>  {
-    console.log(amount);
-    
+const withdraw = (abi: any[], address: string, amount: number) =>  {  // two staking CYTStakingRewards
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
         contract.methods.withdraw(amount).send({ from: accounts.value }).then(function (receipt: any) {
+            console.log(receipt);
             resolve(receipt)
         }).catch((err: any) => {
             resolve(0)
-            console.log('error');
+            console.log('error',err);
         })
     })
 }
@@ -442,7 +441,7 @@ const withdrawRole = (abi: any[], address: string, tokenId: any) => {
 
 
 // Query pledge contract and pledge amount
-const getBalanceOf = (abi: any[], address: string) => { // 每个用户质押的CYT数量
+const getBalanceOf = (abi: any[], address: string) => { // you have stake amount
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -453,7 +452,7 @@ const getBalanceOf = (abi: any[], address: string) => { // 每个用户质押的
 
 
 // Total pledge pools
-const getTotalSupply = (abi: any[], address: string) => {
+const getTotalSupply = (abi: any[], address: string) => { // two staking CYTStakingRewards
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -463,7 +462,7 @@ const getTotalSupply = (abi: any[], address: string) => {
 }
 
 
-const ERC20balanceOf = (abi: any[], address: string) => {
+const ERC20balanceOf = (abi: any[], address: string) => { 
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -474,7 +473,7 @@ const ERC20balanceOf = (abi: any[], address: string) => {
 } 
 
 // Pledge cyt quantity
-const stake = (abi: any[], address: string, number: number) => {
+const stake = (abi: any[], address: string, number: number) => { // two staking CYTStakingRewards
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -513,18 +512,37 @@ const DaysRemaining = (abi: any[], address: string, tokenId: number) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
         let _price = await contract.methods._price([1]).call();
-        console.log(_price, '_price');
         let earned = await contract.methods.earned(accounts.value).call();
-        console.log(earned, 'earned');
-        let rewardPerToken = await contract.methods.rewardPerToken().call();
-        console.log(rewardPerToken, 'rewardPerToken');
+        let rewardAllToken = await contract.methods.rewardPerToken().call(); // all person get coin from notifyRewardAmount
         let getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
-        console.log(getBalanceOf, 'getBalanceOf');
-        let result = ((_price - earned) * 1000000000000000000)  / (rewardPerToken * getBalanceOf); //_balances
-        console.log(result, 'result');
-        resolve({result,earned,rewardPerToken });
+        let result = ((_price - earned) * 1000000000000000000)  / (rewardAllToken * getBalanceOf); //_balances
+
+        const rewardRate = await contract.methods.rewardRate().call()
+        const totalSupply = await contract.methods.getTotalSupply().call();
+        const rewardPerToken = rewardRate*getBalanceOf / totalSupply  // one person stake one coin get coin /s 
+        console.log(rewardRate ,getBalanceOf,totalSupply , rewardPerToken);
+        resolve({result,earned,rewardPerToken,rewardAllToken  });
     })
 }
+
+// Remaining days of pledge coin
+const DaysRemainingCoin = (abi: any[], address: string) => {
+    return new Promise(async (resolve, reject) => {
+        const web3 = new Web3((Web3 as any).givenProvider);
+        const contract = new web3.eth.Contract(abi, address)
+        const earned = await contract.methods.earned(accounts.value).call();
+        // const rewardAllToken = await contract.methods.rewardPerToken().call(); // all person get coin from notifyRewardAmount
+
+        const rewardRate = await contract.methods.rewardRate().call()
+        const getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
+        const totalSupply = await contract.methods.getTotalSupply().call();
+        const rewardPerToken = rewardRate*getBalanceOf / totalSupply // one person stake one coin get coin /s 
+        console.log(rewardRate,getBalanceOf,totalSupply , rewardPerToken);
+        
+        resolve({earned,rewardPerToken });
+    })
+}
+
 
 // DaysRemaining speed
 const DaysRemainingSpeed = (abi: any[], address: string, tokenId: number) => {
@@ -532,17 +550,16 @@ const DaysRemainingSpeed = (abi: any[], address: string, tokenId: number) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
         let _price = await contract.methods._price([1]).call();
-        let rewardPerToken = await contract.methods.rewardPerToken().call();
-        console.log(rewardPerToken, 'rewardPerToken');
-        let getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
-        console.log(getBalanceOf, 'getBalanceOf');
+        let rewardPerToken = await contract.methods.rewardPerToken().call(); // two staking CYTStakingRewards
+        let getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call(); // two staking CYTStakingRewards
         let result = (rewardPerToken * getBalanceOf); //_balances
         console.log(result, 'result');
         resolve(result);
     })
 }
 
-const DaysNeededPrediction = (abi: any[], address: string) => {
+
+const DaysNeededPrediction = (abi: any[], address: string) => { // staking
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -552,7 +569,7 @@ const DaysNeededPrediction = (abi: any[], address: string) => {
 }
 
 
-const DaysNeededPredictionx = (abi: any[], address: string) => {
+const DaysNeededPredictionx = (abi: any[], address: string) => { // staking
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -567,26 +584,22 @@ const progress = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
-        let earned = await contract.methods.earned(accounts.value).call()
-        let _price = await contract.methods._price(1).call()
+        let earned = await contract.methods.earned(accounts.value).call() // two staking CYTStakingRewards
+        let _price = await contract.methods._price(1).call() // staking
         let finishGetNFT = Math.floor(earned/_price)
         let progressVal = (earned/_price) * 100 > 100 ? 100 : (earned/_price) * 100
-        console.log(earned, _price, finishGetNFT, '_earned/_price')
         resolve({finishGetNFT, progressVal})
     })
 }
 
 
 // Call once before pledge
-const notifyrewardamount = (abi: any[], address: string) => {
+const notifyrewardamount = (abi: any[], address: string) => { // two staking CYTStakingRewards
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
-        console.log(accounts.value);
-        
         contract.methods.notifyRewardAmount(6000000).send({ from: accounts.value }).then(function (receipt: any) {
             console.log(receipt, 'web3.noti');
-            
             resolve(receipt)
         }).catch((err: any) => {
             resolve(0)
@@ -597,7 +610,7 @@ const notifyrewardamount = (abi: any[], address: string) => {
 
 
 // After the pledge is completed, get cyt reward
-const getReward = (abi: any[], address: string) => {
+const getReward = (abi: any[], address: string) => { // CYTStakingRewards
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -605,13 +618,28 @@ const getReward = (abi: any[], address: string) => {
             resolve(receipt)
         }).catch((err: any) => {
             resolve(0)
-            console.log('error');
+            console.log('error',err);
         })
     })
 }
 
+// After the pledge is completed, get cyt reward number
+const rewards = (abi: any[], address: string) => { // CYTStakingRewards
+    return new Promise(async (resolve, reject) => {
+        const web3 = new Web3((Web3 as any).givenProvider);
+        const contract = new web3.eth.Contract(abi, address)
+        // let rewardsNumber = contract.methods.rewards(accounts.value).call()
+        let rewardsNumber = contract.methods.rewardRate().call()
+        // let rewardsNumber = contract.methods.rewardsDuration().call()
+        // let rewardsNumber = contract.methods.lastTimeRewardApplicable().call()
+        
+        resolve(rewardsNumber)
+    })
+}
+
+
 // After the pledge is completed, receive NFT rewards
-const getNFT = (abi: any[], address: string, amount: number) => {
+const getNFT = (abi: any[], address: string, amount: number) => { // staking
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
@@ -619,7 +647,7 @@ const getNFT = (abi: any[], address: string, amount: number) => {
             resolve(receipt)
         }).catch((err: any) => {
             resolve(0)
-            console.log('error');
+            console.log('error',err);
         })
     })
 }
@@ -662,6 +690,7 @@ export default {
     ERC20balanceOf,
     stake,
     DaysRemaining,
+    DaysRemainingCoin,
     DaysRemainingSpeed,
     notifyrewardamount,
     getReward,
@@ -671,5 +700,6 @@ export default {
     DaysNeededPrediction,
     DaysNeededPredictionx,
     leftNumber,
+    rewards,
     contracts,
 }

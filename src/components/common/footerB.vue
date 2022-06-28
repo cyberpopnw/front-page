@@ -3,9 +3,12 @@
         <div class="footer-wrap">
             <img class="logo" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/logo.png'" alt="">
             <div class="email_box">
-                <div class="title">Become a partner</div>
-                <div class="des">Simple, rewarding, collaborative.</div>
-                <div class="email_botton"><a href="mailto:business@cyberpop.online">Become a partner</a><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt=""></div>
+                <div class="title">{{$t('message.common.footer_email_title')}}</div>
+                <div class="des">{{$t('message.common.footer_email_desc')}}</div>
+                <div class="email_botton" @click="openEmail">
+                    <!-- <a href="mailto:business@cyberpop.online">{{$t('message.common.footer_email_title')}}</a><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt=""> -->
+                    <div>{{$t('message.common.footer_email_title')}}</div><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt="">
+                </div>
             </div>
             <div class="clause">
                 <div class="policy"><router-link to="/privacy">{{$t('message.common.footer_policy')}}</router-link></div>
@@ -13,7 +16,7 @@
             </div>
             <div class="icon">
                 <a href="https://medium.com/@Cyberpopmetaverse" target="view_window">
-                    <img class="first" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/medium_1.svg" alt="">
+                    <img class="first" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/medium_1.png" alt="">
                 </a>
                 <a href="https://t.me/cyberpopnw" target="view_window">
                     <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/medium-footer.svg" alt="">
@@ -35,7 +38,10 @@ import { onMounted, onUnmounted, computed, readonly, ref } from 'vue'
 import store from '@/store'
 import Web3 from '@/tools/web3' 
 import {  useRouter } from 'vue-router'
- 
+
+const openEmail = () => {
+    window.location.href='mailto:business@cyberpop.online'
+}
 
 onMounted(() => {
 })
