@@ -533,9 +533,9 @@ const kr = {
         download: {
             tips1: '계정은 자동으로 등록될 것이다',
             REGISTER: '확인',
-            ios: '사과',
-            Android: '안 드 로이드',
-            windows: '윈도',
+            ios: 'iOS',
+            Android: 'Android',
+            windows: 'Windows',
             version: '최신 버전 1.0.3',
             inputEmail: '이메일 주소',
             tips2: 'ios 앱 없음',

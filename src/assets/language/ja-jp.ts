@@ -533,9 +533,9 @@ const kr = {
         download: {
             tips1: 'アカウントが自動的に登録されます',
             REGISTER: '確認',
-            ios: 'リンゴ',
-            Android: 'アンドロイド',
-            windows: 'ウィンドウ',
+            ios: 'iOS',
+            Android: 'Android',
+            windows: 'Windows',
             version: '最新バージョン1.0.4',
             inputEmail: 'メールアドレス',
             tips2: 'ios appはありません',

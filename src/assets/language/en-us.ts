@@ -540,7 +540,7 @@ const us = {
         download: {
             tips1: 'Your account will be registered automatically',
             REGISTER: 'REGISTER',
-            ios: 'Apple',
+            ios: 'iOS',
             Android: 'Android',
             windows: 'Windows',
             version: 'Latest Version 1.0.4',

@@ -538,9 +538,9 @@ const cn = {
         download: {
             tips1: '帳戶將自動註冊',
             REGISTER: '註冊',
-            ios: '蘋果',
-            Android: '安卓',
-            windows: '視窗',
+            ios: 'iOS',
+            Android: 'Android',
+            windows: 'Windows',
             version: '最新版本1.0.4',
             inputEmail: '輸入電子郵件',
             tips2: '沒有ios app',
