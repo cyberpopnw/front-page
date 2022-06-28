@@ -97,36 +97,44 @@
         <div class="more">
             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin2.png" alt="">
         </div>
-        <div class="days">
-            <!-- <div class="title">{{$t('message.mining.Days')}}</div> -->
-            <div class="progress">
-                <div class="cwrap">
-                    <div class="content">
-                        <div :style="{'width': progress + '%'}"></div>
-                    </div>
-                    <div class="date">
-                        <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">{{floorTofixed(progress,2)}}%</span></div>
-                        <div class="total_day">{{$t('message.mining.cycle_days')}}: <span>30{{$t('message.mining.day')}}</span></div>
-                    </div>
+        <div class="myAssets">
+            <div class="item1">
+                <div class="left">
+                    {{$t('message.mining.mycyt')}} <span>{{ mycyt }}</span>
                 </div>
-                <div id="Chart"></div>
+                <div class="right button getcytbtn">
+                    {{$t('message.mining.getcyt')}}
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="item2">
+                <div class="left">
+                    {{$t('message.mining.mycoin')}} <span>{{ mycoin }}</span>
+                </div>
+                <div class="right coin_logo">
+                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin9.png" alt="">
+                </div>
             </div>
         </div>
-        <div class="pledge">
+        <div class="Operation">
+            <div class="owrap">
+                <div class="btns btnfont" @click="stakingCyt">
+                    {{$t('message.mining.Stake_btn')}}
+                </div>
+                <div class="btns btnfont" @click="cancelStake(1)">
+                    <div class="bg"></div>
+                    <div class="button">{{$t('message.mining.Cancel')}}</div>
+                </div>
+                <div class="btns btnfont" @click="harvest">
+                    <div class="bg"></div>
+                    <div class="button">{{$t('message.mining.Harvest_btn')}}</div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="pledge">
             <div class="title">{{$t('message.mining.pledge_title')}}<span>2/4</span></div>
             <ul>
-                <!-- <li>
-                    <div class="img-wrap" @mouseenter="flipMove()" @mouseleave="flipEnd()">
-                        <img id="pledgeImg" class="pledge-img" :src="greenImgSrc" alt="">
-                    </div>
-                    <div class="top-txt">{{$t('message.mining.pledge_top_txt')}}</div>
-                    <div class="bot-txt greenNft">
-                        <div>{{$t('message.mining.pledge_bot_txt1')}}</div>
-                        <img :src="greenBorderSrc" alt="">
-                    </div>
-                </li> -->
                 <li>
-                    <!-- <div class="not-stak" v-if="(myStakCyt == 0) && (progress != 100)"> -->
                     <div class="not-stak" v-if="myStakCyt == 0">
                         <div class="img-wrap" @click="stakingCyt">
                             <img class="pledge-img" :src="whiteImgSrc" alt="">
@@ -138,7 +146,6 @@
                         </div>
                     </div>
                     <div class="have-stak" @click="stakingCyt" v-else>
-                        <!-- <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br> {{$t('message.mining.current_day')}}: {{ myTime > 0 ? myTime : $t('message.mining.finish_receive')}}</p> -->
                         <p>{{$t('message.mining.your_staking')}}: {{ myStakCyt }} <br/> {{$t('message.mining.current_pro')}}：{{floorTofixed(progress,2)}}%</p>
                         <div class="bot-txt whiteNft" @click.stop="cancelStake(1)">
                             <div>{{$t('message.mining.cancel_staking')}}</div>
@@ -182,24 +189,20 @@
                     </div>
                 </li>
             </ul>
-        </div>
-        <div class="myAssets">
-            <div class="item1">
-                <div class="left">
-                    {{$t('message.mining.mycyt')}} <span>{{ mycyt }}</span>
+        </div> -->
+        <div class="days">
+            <!-- <div class="title">{{$t('message.mining.Days')}}</div> -->
+            <div class="progress">
+                <div class="cwrap">
+                    <div class="content">
+                        <div :style="{'width': progress + '%'}"></div>
+                    </div>
+                    <div class="date">
+                        <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">{{floorTofixed(progress,2)}}%</span></div>
+                        <div class="total_day">{{$t('message.mining.cycle_days')}}: <span>30{{$t('message.mining.day')}}</span></div>
+                    </div>
                 </div>
-                <div class="right button getcytbtn">
-                    {{$t('message.mining.getcyt')}}
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="item2">
-                <div class="left">
-                    {{$t('message.mining.mycoin')}} <span>{{ mycoin }}</span>
-                </div>
-                <div class="right coin_logo">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin9.png" alt="">
-                </div>
+                <!-- <div id="Chart"></div> -->
             </div>
         </div>
         <div class="farms">
@@ -251,7 +254,7 @@
                                 <p>318 BNB<span>/{{$t('message.mining.DAY')}}</span> </p> -->
                             </div>
                         </div>
-                        <div class="table cancelStake" @click="cancelStake(2)">
+                        <div class="table cancelStake btnfont" @click="cancelStake(2)">
                             <div class="bg"></div>
                             <div>{{$t('message.mining.Cancel')}}</div>
                         </div>
@@ -265,7 +268,7 @@
                             <div class="title">{{$t('message.mining.Harvest_cyt')}} ≈ $0</div>
                             <div class="desc">{{ earnedCoin }}</div>
                         </div>
-                        <div class="Harvest harvestbtn" @click="stakingCoin(2)">
+                        <div class="Harvest harvestbtn btnfont" @click="stakingCoin(2)">
                             <div class="bg"></div>
                             <div>{{$t('message.mining.Harvest_btn')}}</div>
                         </div>
@@ -274,7 +277,7 @@
                                 <p class="title">{{$t('message.mining.Staked_cyt')}}</p>
                                 <div class="desc">{{ myStakCytCoin }}</div>
                             </div>
-                            <div class="button stakebtn" @click="stakingCoin(1)">
+                            <div class="button stakebtn btnfont" @click="stakingCoin(1)">
                                 {{$t('message.mining.Stake_btn')}}
                             </div>
                         </div>
@@ -314,6 +317,7 @@ const realId = computed(() => store?.state.wallet?.realId);  // Asterisk address
 const chainId: any = computed(() => store.state.user?.chainId);
 const readyAssets: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 const readyAssetsCoin: any = computed(() => store.state.staking?.readyAssetsCoin ); // Status value of the connection
+const mountedInit: any = ref(false);
 watch(readyAssets, (newVal: number, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssets');
     if(newVal <= 0 || oldVal == -1) return;
@@ -321,11 +325,10 @@ watch(readyAssets, (newVal: number, oldVal: any) => {
     console.log('her3');
 }, {immediate:true,deep:true});
 
-const mountedInit: any = ref(false);
+
 watch(readyAssetsCoin, (newVal: number, oldVal: any) => {
     console.log(newVal, oldVal, 'readyAssetsCoin');
     if(newVal <= 0 || oldVal == -1) return;
-    // if( !mountedInit.value ) return
     initCoin()
     console.log('her3');
 }, {immediate:true,deep:true});
@@ -414,6 +417,7 @@ const test = ref(0) as any
 const harvest = () => {
     stakingCoinType.value = false; 
     if(myTime.value > 0 || progress.value < 100) { // You can continue to pledge before the time is up
+        store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.mining.getMsg')}})
         return;
     }
     store.dispatch('user/xplanChangeAni', true);
@@ -432,7 +436,6 @@ const stakingCyt = async () => {
     }
     store.dispatch('user/xplanChangeAni', true);
     isShowFinished.value = true;
-    // await Web3.getReward(staking.abi, staking.address);
 }
 
 const stakingCoin = async (type: any) => { // type 1:stake 2:havest
@@ -441,6 +444,9 @@ const stakingCoin = async (type: any) => { // type 1:stake 2:havest
         store.dispatch('staking/stakingState', { show: true, info: { state: 2, haveCTY: mycoin.value }});
         store.dispatch('user/xplanChangeAni', true);
         return;
+    }
+    if( !Number(earnedCoin.value) ){
+        return
     }
     store.dispatch('user/xplanChangeAni', true);
     isShowFinished.value = true;
@@ -479,7 +485,7 @@ const init = async () => {
     console.log(myStakCyt.value, 'myStakCyt.value');
     let DaysResult: any = await Web3.DaysRemaining(staking.abi, staking.address, 3) as number;
     earned.value = DaysResult.earned;
-    rewardPerToken.value =  Number( DaysResult.rewardPerToken) / 1000000000000000000;
+    rewardPerToken.value =  Number( DaysResult.rewardPerToken);
     myTime.value = DaysResult.result.toFixed(2);
     console.log(DaysResult, 'DaysResult');
     console.log(myTime.value , 'myTime.value');
@@ -488,63 +494,64 @@ const init = async () => {
     finishGetNFT.value = oResult.finishGetNFT;
     console.log(progress.value, finishGetNFT.value, 'progress.value,finishGetNFT.value');
     const myRatio: any = floorTofixed((myStakCyt.value / getTotalSupply.value * 100),2);
-    const option: any = {
-        //   title: {
-        //     text: t('message.mining.my_Prop'),
-        //     left: 'center',
-        //     textStyle: {
-        //         color: '#B3B3B3',
-        //         fontSize: 16,
-        //         fontFamily: 'AlibabaPuHuiTi_2_55_Regular',
-        //     }
-        //   },
-        color: ['#5470c7', '#a4f238'],
-        series: [
-            {
-                name: 'Pledge proportion',
-                type: 'pie',
-                radius: '50%',
-                center: ['50%', '50%'],
-                data: [
-                    { value: getTotalSupply.value - myStakCyt.value, name: t('message.mining.pie_ratio') },
-                    { value: myStakCyt.value, name: t('message.mining.pie_me_ratio')},
-                ],
-                label:{  
-                    show: true, 
-                    formatter: '{b}',
-                    fontSize: '14',
-                    color:'#ffffff',
-                }, 
-                labelLine :{
-                    show: true
-                } 
-            },
-            {
-                name: 'Pledge proportion1',
-                type: 'pie',
-                avoidLabelOverlap: true,
-                radius: '50%',
-                center: ['50%', '50%'],
-                data: [
-                    { value: getTotalSupply.value - myStakCyt.value, name:floorTofixed((100 - myRatio),2) + '%' },
-                    { value: myStakCyt.value, name: myRatio + '%' },
-                ],
-                label:{  
-                    show: true, 
-                    position: 'inside',
-                    formatter: '{b}',
-                    fontSize: '14',
-                    color:'#ffffff',
-                }, 
-                labelLine :{
-                    show: true
-                } 
-            }
-        ]
-    };
-    myChart.setOption(option);
+    // const option: any = {
+    //     //   title: {
+    //     //     text: t('message.mining.my_Prop'),
+    //     //     left: 'center',
+    //     //     textStyle: {
+    //     //         color: '#B3B3B3',
+    //     //         fontSize: 16,
+    //     //         fontFamily: 'AlibabaPuHuiTi_2_55_Regular',
+    //     //     }
+    //     //   },
+    //     color: ['#5470c7', '#a4f238'],
+    //     series: [
+    //         {
+    //             name: 'Pledge proportion',
+    //             type: 'pie',
+    //             radius: '50%',
+    //             center: ['50%', '50%'],
+    //             data: [
+    //                 { value: getTotalSupply.value - myStakCyt.value, name: t('message.mining.pie_ratio') },
+    //                 { value: myStakCyt.value, name: t('message.mining.pie_me_ratio')},
+    //             ],
+    //             label:{  
+    //                 show: true, 
+    //                 formatter: '{b}',
+    //                 fontSize: '14',
+    //                 color:'#ffffff',
+    //             }, 
+    //             labelLine :{
+    //                 show: true
+    //             } 
+    //         },
+    //         {
+    //             name: 'Pledge proportion1',
+    //             type: 'pie',
+    //             avoidLabelOverlap: true,
+    //             radius: '50%',
+    //             center: ['50%', '50%'],
+    //             data: [
+    //                 { value: getTotalSupply.value - myStakCyt.value, name:floorTofixed((100 - myRatio),2) + '%' },
+    //                 { value: myStakCyt.value, name: myRatio + '%' },
+    //             ],
+    //             label:{  
+    //                 show: true, 
+    //                 position: 'inside',
+    //                 formatter: '{b}',
+    //                 fontSize: '14',
+    //                 color:'#ffffff',
+    //             }, 
+    //             labelLine :{
+    //                 show: true
+    //             } 
+    //         }
+    //     ]
+    // };
+    // myChart.setOption(option);
 }
 
+// let myChart: any = ref(null);
 
 // staking coin get coin
 const initCoin = async () => {
@@ -553,11 +560,10 @@ const initCoin = async () => {
     console.log(myStakCytCoin.value, 'myStakCytCoin.value');
     let DaysResult: any = await Web3.DaysRemainingCoin(CYTStakingRewards.abi, CYTStakingRewards.address) as number;
     earnedCoin.value = DaysResult.earned;
-    rewardPerTokenCoin.value =  Number( DaysResult.rewardPerToken) / 1000000000000000000;
+    rewardPerTokenCoin.value =  Number( DaysResult.rewardPerToken);
     console.log(DaysResult , 'DaysResultCoin');
 }
 
-let myChart: any = ref(null);
 
 // tofixed math.floor
 const floorTofixed = (number: any, pow: any) => {
@@ -566,15 +572,10 @@ const floorTofixed = (number: any, pow: any) => {
 }
 
 onMounted(async () => {
-    myChart = echarts.init(document.getElementById("Chart") as HTMLElement)
-    // let a = await Web3.notifyrewardamount(CYTStakingRewards.abi, CYTStakingRewards.address)
+    // myChart = echarts.init(document.getElementById("Chart") as HTMLElement)
     // let a = await Web3.rewards(staking.abi, staking.address)
     // let b = await Web3.rewards(CYTStakingRewards.abi, CYTStakingRewards.address)
     // console.log(a,b,'------------------')
-    // let result = await Web3.DaysNeededPrediction(staking.abi, staking.address)
-    // console.log(result, 'DaysNeededPrediction');
-    // let DaysNeededPredictionx = await Web3.DaysNeededPredictionx(staking.abi, staking.address)
-    // console.log(DaysNeededPredictionx, 'DaysNeededPredictionx');
 
     setTimeout(() => {
         if(chainId.value != 43113){
@@ -627,6 +628,27 @@ onMounted(async () => {
     }
     a {
         text-decoration: none;
+    }
+    .btnfont{
+        width: 6.4vw;
+        line-height: 2.08vw;
+        text-align: center;
+        font-size: 0.93vw;
+        font-family: AlibabaPuHuiTi_2_85_Bold;
+        cursor: pointer;
+        .bg{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .line{
+        width: 0.104vw;
+        height: 2.08vw;
+        margin-top: 2vw;
+        background: #59647E;
     }
     .section{
         z-index: 12;
@@ -776,12 +798,6 @@ onMounted(async () => {
             box-shadow: 0px 12px 20px 0px rgba(0,0,0,.65);
             border: 2px solid #27E37C;
             z-index: 1;
-            .line{
-                width: 0.104vw;
-                height: 2.08vw;
-                margin-top: 2vw;
-                background: #59647E;
-            }
             .element1{
                 width: 1px;
                 height: 1.82vw;
@@ -900,25 +916,19 @@ onMounted(async () => {
                         margin-left: -10vw;
                     }
                 }
-                .line{
-                    width: 0.104vw;
-                    height: 2.08vw;
-                    margin-top: 2vw;
-                    background: #59647E;
-                }
             }
             .Harvest{
-                width: 19.11vw;
-                height: 7.18vw;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin3.png'); 
-                background-size: 100% 100%;
                 position: absolute;
                 right: 0;
                 top: 0;
-                padding: 0 1.30vw .6vw 1.56vw;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                width: 19.11vw;
+                height: 7.18vw;
+                padding: 0 1.30vw .6vw 1.56vw;
+                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin3.png'); 
+                background-size: 100% 100%;
                 .texts{
                     .exchange{
                         font-size: 0.98vw;
@@ -978,11 +988,10 @@ onMounted(async () => {
                 align-items: center;
                 height: 10vw;
                 .cwrap{
-                    width: 80%;
+                    width: 100%;
                     margin-top: 3vw;
                 }
                 .content{
-                    width: 80%;
                     width: 100%;
                     height: 0.625vw;
                     display: flex;
@@ -1174,7 +1183,8 @@ onMounted(async () => {
             background: #171C28;
             box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.69);
             border: 2px solid;
-            margin: 5.78vw auto 1.56vw auto;
+            // margin: 5.78vw auto 1.56vw;
+            margin: 5.78vw auto 0;
             border-image: linear-gradient(45deg, rgba(35, 71, 54, 1), rgba(51, 32, 91, 1)) 2 2;
             display: flex;
             .item1, .item2{
@@ -1224,12 +1234,6 @@ onMounted(async () => {
                     color: #04FF55;
                     margin-left: 1.04vw;
                 }
-            }
-            .line{
-                width: 0.104vw;
-                height: 2.08vw;
-                background: #59647E;
-                margin-top: 2.03vw;
             }
         }
         .farms{
@@ -1343,22 +1347,11 @@ onMounted(async () => {
                             }
                         }
                         .cancelStake{
-                            width: 6.4vw;
-                            line-height: 2.08vw;
-                            text-align: center;
-                            font-size: 0.93vw;
-                            font-family: AlibabaPuHuiTi_2_85_Bold;
                             color: #A4F238;
                             position: absolute;
                             right: 2vw;
                             bottom: 1.3vw;
-                            cursor: pointer;
                             .bg{
-                                position: absolute;
-                                left: 0;
-                                top: 0;
-                                width: 100%;
-                                height: 2.08vw;
                                 background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
                                 background-size: 100%; 
                                 &:hover{
@@ -1404,22 +1397,11 @@ onMounted(async () => {
                             left: 18vw;
                         }
                         .Harvest{
-                            width: 6.4vw;
-                            line-height: 2.08vw;
-                            text-align: center;
-                            font-size: 0.93vw;
-                            font-family: AlibabaPuHuiTi_2_85_Bold;
                             color: #A4F238;
                             position: absolute;
                             left: 28.5vw;
                             bottom: 1.3vw;
-                            cursor: pointer;
                             .bg{
-                                position: absolute;
-                                left: 0;
-                                top: 0;
-                                width: 100%;
-                                height: 100%;
                                 background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
                                 background-size: 100%; 
                                 &:hover{
@@ -1428,14 +1410,14 @@ onMounted(async () => {
                             }
                         }
                         .stake{
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin11.png');
-                            background-size: 100%; 
-                            width: 21.92vw;
-                            height: 6.66vw;
                             position: absolute;
                             right: 0;
                             z-index: 0;
                             bottom: 0;
+                            width: 21.92vw;
+                            height: 6.66vw;
+                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin11.png');
+                            background-size: 100%; 
                             .staked{
                                 position: absolute;
                                 top: 1.8vw;
@@ -1454,18 +1436,12 @@ onMounted(async () => {
                                 }
                             }
                             .button{
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin12.png');
-                                background-size: 100%; 
-                                width: 6.4vw;
-                                line-height: 2.08vw;
-                                text-align: center;
-                                font-size: 0.93vw;
-                                font-family: AlibabaPuHuiTi_2_85_Bold;
-                                color: #363A54;
                                 position: absolute;
                                 right: 2vw;
                                 bottom: 1.3vw;
-                                cursor: pointer;
+                                color: #363A54;
+                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin12.png');
+                                background-size: 100%; 
                                 &:hover{
                                     filter: drop-shadow(0 0 .2vw #A4F238);
                                 }
@@ -1475,7 +1451,49 @@ onMounted(async () => {
                 }
             }
         }
+        .Operation{
+            width: 60.78vw;
+            height: 6.14vw;
+            background: #171C28;
+            box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.69);
+            border: 2px solid;
+            margin: -.1vw auto 1.56vw;
+            border-image: linear-gradient(-45deg, rgba(35, 71, 54, 1), rgba(51, 32, 91, 1)) 2 2;
+            .owrap{
+                width: 100%;
+                height: 100%;
+                padding: 0 2vw 0 2.6vw;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                background: linear-gradient(-90deg, rgba(88, 0, 255, 0) 70%, rgba(105, 0, 255, 0.6) 100%);
+                .btns{
+                    position: relative;
+                    color: #A4F238;
+                    .bg{
+                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
+                        background-size: 100%; 
+                        &:hover{
+                            filter: drop-shadow(0 0 .2vw #A4F238);
+                        }
+                    }
+                }
+                .btns:first-child{
+                    color: #363A54;
+                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin12.png');
+                    background-size: 100%; 
+                    &:hover{
+                        filter: drop-shadow(0 0 .2vw #A4F238);
+                    }
+                }
+                .btns + .btns{
+                    margin-left: 4vw;
+                }
+            }
+            
+        }
     }
+
     @media screen {
         @media (max-width: 1020px) {
             .data{

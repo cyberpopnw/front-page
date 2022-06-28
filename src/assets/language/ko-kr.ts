@@ -303,7 +303,8 @@ const kr = {
             pledge_bot_txt3: '커밍순',
             staking: 'Staking',
             STAKE: 'STAKE',
-            Cancel: 'Cancel',
+            Cancel: 'Withdraw',
+            getMsg: '진도가 아직 끝나지 않았다',
             // update 
             pool_amount: 'Mining PooL Amount (COIN)',
             pool: 'Mining PooL',

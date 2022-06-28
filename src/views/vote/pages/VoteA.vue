@@ -299,6 +299,7 @@ onMounted(() => {
                             display:-webkit-box;
                             -webkit-box-orient:vertical;
                             -webkit-line-clamp: 2;
+                            shape-outside: circle();
                             overflow: hidden;
                             &::before{
                                 content: '';

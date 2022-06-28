@@ -8,13 +8,13 @@
                 <div class="title">{{$t('message.mining.finish.finished')}}</div>
                 <div class="text">{{$t('message.mining.finish.text')}}</div>
                 <div class="reward_chunks">
-                    <div class="item" :class="{'selected': selected == 0}">
+                    <div class="item selected" v-if="isCoin">
                         <div class="chunk">
                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/CYTIcon.png" alt="">
                         </div>
                         <p>COIN</p>
                     </div>
-                    <div class="item" :class="{'selected': selected == 1}">
+                    <div class="item selected" v-else>
                         <div class="chunk">
                             <img src="https://cyberpop.mypinata.cloud/ipfs/QmRVeBntXA1wgakGCSD6BpyGyXjTsShqUyb6dNooHXwDEr" alt="">
                         </div>
@@ -245,7 +245,7 @@ onMounted( async () => {
                         }
                     }
                     .item:first-child{
-                        margin-right: 7.29vw;
+                        // margin-right: 7.29vw;
                     }
                 }
                 .btn{

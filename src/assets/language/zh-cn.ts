@@ -303,7 +303,8 @@ const cn = {
             pledge_bot_txt3: '即將上線',
             staking: '質押',
             STAKE: '質押',
-            Cancel: '取消',
+            Cancel: '撤回',
+            getMsg: '進度未完成',
              // update 
              pool_amount: '挖礦池數量 (COIN)',
              pool: '挖礦池',
@@ -311,6 +312,7 @@ const cn = {
              total_staked: '總質押數量',
              total_Tokens: '已質押代幣總數(COIN)',
              percyt_earn: '質押1個COIN產生的利息',
+            //  allpercyt_earn: '',
              my_power: '我的挖礦力',
              my_staked: '我的質押數量',
              my_tokens: '我的質押代幣(COIN)',

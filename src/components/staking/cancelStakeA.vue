@@ -142,11 +142,13 @@ const confirm = async () => {
 const init = async () => {
     if( props.isCoin ){
         myStakCyt.value = await Web3.getBalanceOf(CYTStakingRewards.abi, CYTStakingRewards.address) // you have stake
+        if( !Number(myStakCyt.value) ) valueIn.value= 0;
         console.log(myStakCyt.value, 'myStakCyt.value');
         return
     }
     myStakCyt.value = await Web3.getBalanceOf(staking.abi, staking.address) // you have stake
     console.log(myStakCyt.value, 'myStakCyt.value');
+    if( !Number(myStakCyt.value) ) valueIn.value= 0;
 }
 
 

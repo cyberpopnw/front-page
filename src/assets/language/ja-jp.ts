@@ -303,7 +303,8 @@ const kr = {
             pledge_bot_txt3: 'まもなく登場',
             staking: '抵当に入れる',
             STAKE: '抵当に入れる',
-            Cancel: 'キャンセル',
+            Cancel: '回収する',
+            getMsg: '進捗が完了していません',
             // update 
             pool_amount: '掘削池の数 (COIN)',
             pool: '採掘池',

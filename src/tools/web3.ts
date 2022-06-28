@@ -513,10 +513,15 @@ const DaysRemaining = (abi: any[], address: string, tokenId: number) => {
         const contract = new web3.eth.Contract(abi, address)
         let _price = await contract.methods._price([1]).call();
         let earned = await contract.methods.earned(accounts.value).call();
-        let rewardPerToken = await contract.methods.rewardPerToken().call();
+        let rewardAllToken = await contract.methods.rewardPerToken().call(); // all person get coin from notifyRewardAmount
         let getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
-        let result = ((_price - earned) * 1000000000000000000)  / (rewardPerToken * getBalanceOf); //_balances
-        resolve({result,earned,rewardPerToken });
+        let result = ((_price - earned) * 1000000000000000000)  / (rewardAllToken * getBalanceOf); //_balances
+
+        const rewardRate = await contract.methods.rewardRate().call()
+        const totalSupply = await contract.methods.getTotalSupply().call();
+        const rewardPerToken = rewardRate*getBalanceOf / totalSupply  // one person stake one coin get coin /s 
+        console.log(rewardRate ,getBalanceOf,totalSupply , rewardPerToken);
+        resolve({result,earned,rewardPerToken,rewardAllToken  });
     })
 }
 
@@ -525,8 +530,15 @@ const DaysRemainingCoin = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
         const contract = new web3.eth.Contract(abi, address)
-        let earned = await contract.methods.earned(accounts.value).call();
-        let rewardPerToken = await contract.methods.rewardPerToken().call();
+        const earned = await contract.methods.earned(accounts.value).call();
+        // const rewardAllToken = await contract.methods.rewardPerToken().call(); // all person get coin from notifyRewardAmount
+
+        const rewardRate = await contract.methods.rewardRate().call()
+        const getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
+        const totalSupply = await contract.methods.getTotalSupply().call();
+        const rewardPerToken = rewardRate*getBalanceOf / totalSupply // one person stake one coin get coin /s 
+        console.log(rewardRate,getBalanceOf,totalSupply , rewardPerToken);
+        
         resolve({earned,rewardPerToken });
     })
 }

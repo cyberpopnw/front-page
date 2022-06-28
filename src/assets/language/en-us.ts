@@ -306,7 +306,8 @@ const us = {
             pledge_bot_txt3: 'Coming soon',
             staking: 'Staking',
             STAKE: 'STAKE',
-            Cancel: 'Cancel',
+            Cancel: 'Withdraw',
+            getMsg: 'Progress not completed',
             // update 
             pool_amount: 'Mining PooL Amount (COIN)',
             pool: 'Mining PooL',
