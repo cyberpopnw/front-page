@@ -198,7 +198,7 @@ const goDownload = () => {
     return;
 }
 const toMarket = () => {
-    window.open('https://testmarket.cyberpop.online/#/', '_blank');
+    window.open('https://market.cyberpop.online/#/', '_blank');
 }
 
 

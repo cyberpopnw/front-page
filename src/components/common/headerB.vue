@@ -364,7 +364,7 @@ const toAssets = () => {
     store.dispatch('wallet/walletMenuAni', false);
 }
 const toMarket = () => {
-    window.open('https://testmarket.cyberpop.online/#/', '_blank');
+    window.open('https://market.cyberpop.online/#/', '_blank');
 }
 
 
