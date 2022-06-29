@@ -1,7 +1,7 @@
 <template>
     <header-a path="vote" :type="6"></header-a>
     <div class="container">
-        <!-- <div class="bgIm"></div> -->
+        <div class="bgIm"></div>
         <div class="wrap">
             <div class="chat">
                 <ul ref="bullet"></ul>
@@ -34,7 +34,7 @@
                         <div class="name">Proposals</div>
                         <div class="select">
                             <ul>
-                                <li class="one" @click="showSelect1 = !showSelect1"><div>Random</div></li>
+                                <li class="one" @click="showSelect1 = !showSelect1,showSelect2 = false"><div>Random</div></li>
                                 <li class="items" v-show="showSelect1">
                                     <div>Random</div>
                                     <div>Hot</div>
@@ -42,7 +42,7 @@
                                 </li>
                             </ul>
                             <ul>
-                                <li class="one" @click="showSelect2 = !showSelect2"><div>Pending</div></li>
+                                <li class="one" @click="showSelect2 = !showSelect2, showSelect1 = false"><div>Pending</div></li>
                                 <li class="items" v-show="showSelect2">
                                     <div>All</div>
                                     <div>Active</div>
@@ -52,7 +52,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" v-for="i in 3" @click="openDetails">
                         <div class="state sActive">Active</div>
                         <div class="name">
                             <img src="https://cdn.stamp.fyi/space/cyberpoponline.eth?s=160&cb=1e775ba9559d9a9d" alt="">
@@ -85,7 +85,9 @@ const router = useRouter()
 const showSelect1:any = ref(false);
 const showSelect2:any = ref(false);
 
-
+const openDetails = () => {
+    // router.push({path:'/vote'})
+}
 
 onMounted(() => {
 
@@ -97,10 +99,13 @@ onMounted(() => {
     .container{
         position: relative;
         width: 100%;
+        min-height: calc(100vh - 12.03vw);
         padding-top: 5.5vw;
-        background: #080808;
+        background: #000000;
         color: #fff;
         .wrap{
+            z-index: 2;
+            position: relative;
             .content{
                 display: flex;
                 justify-content: center;
@@ -108,6 +113,7 @@ onMounted(() => {
                 .left{
                     margin: 0 3.125vw 5.83vw 0;
                     width: 20vw;
+                    max-height: 36.77vw;
                     background: #1A1728;
                     &-wrap{
                         background: linear-gradient(90deg, rgba(63, 22, 175, .25) 0%, rgba(63, 22, 175, 0) 100%);
@@ -233,6 +239,7 @@ onMounted(() => {
                                     }
                                 }
                                 .items{
+                                    z-index: 8;
                                     position: absolute;
                                     top: 2.6vw;
                                     right: 0;
@@ -261,9 +268,11 @@ onMounted(() => {
                         position: relative;
                         width: 100%;
                         padding: 1.25vw;
+                        margin-bottom: 1.04vw;
                         background: linear-gradient(168deg, rgba(63, 22, 175, 0.38) 0%, rgba(30, 24, 52, 0.71) 100%);
                         border: 2px solid;
                         border-image: linear-gradient(180deg, rgba(151, 151, 151, 0), rgba(94, 47, 253, 1)) 2 2;
+                        cursor: pointer;
                         .name{
                             display: flex;
                             align-items: center;
@@ -299,17 +308,15 @@ onMounted(() => {
                             display:-webkit-box;
                             -webkit-box-orient:vertical;
                             -webkit-line-clamp: 2;
-                            shape-outside: circle();
                             overflow: hidden;
                             &::before{
                                 content: '';
-                                // display: inline;
+                                display: inline-block;
                                 width: 6vw;
                                 height: 1.56vw;
-                                margin-top: 1.56vw;
+                                margin-top: 2vw;
                                 float: right;
-                                shape-outside: circle();
-                                // background: #fff;
+                                shape-outside: polygon(0 100%,100% 0,100% 0,100% 100%);
                             }
                         }
                         .data{
@@ -344,8 +351,43 @@ onMounted(() => {
                                 background-size: 100% auto;
                             }
                         }
+                        &:hover{
+                            box-shadow: 0px 0px 8px 0px rgba(96, 78, 255, 0.96);
+                        }
                     }
                 }
+            }
+        }
+        .bgIm{
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            &::before{
+                content: '';
+                display: inline-block;
+                position: absolute;
+                top: 14.84vw;
+                left: 5.72vw;
+                width: 38.64vw;
+                height: 20.2vw;
+                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/bg-blur1.png');
+                background-size: 100% auto;
+                filter: blur(8px);
+            }
+            &::after{
+                content: '';
+                display: inline-block;
+                position: absolute;
+                top: 36vw;
+                right: -2vw;
+                width: 38.64vw;
+                height: 20.2vw;
+                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/bg-blue2.png');
+                background-size: 100% auto;
+                filter: blur(8px);
             }
         }
     }
