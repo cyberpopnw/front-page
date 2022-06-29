@@ -183,7 +183,7 @@
             <div class="col th">
                 <div class="name">Contract</div>
                 <div class="Fuji">Fuji</div>
-                <div class="Mumbai">Mumbai</div>
+                <div class="Mumbai">BSC</div>
             </div>
             <div class="col td">
                 <div class="name">Badge</div>
@@ -199,22 +199,22 @@
             <div class="col td">
                 <div class="name">Game</div>
                 <div class="Fuji">0xD4c27B5A5c15B1524FC909F0FE0d191C4e893695</div>
-                <div class="Mumbai">0x3B52df1CAcb5d397f7A23Bf136DE110584d0Cd60</div>
+                <div class="Mumbai">0x79B73BdEFCD3C8417b01a2Ba73702BD1a7a650E1</div>
             </div>
             <div class="col td">
                 <div class="name">role</div>
                 <div class="Fuji">0x78F66E37e9fE077d2F0126E3a26e6FB0D14F2BB0</div>
-                <div class="Mumbai">0x37e769d34Cb48fb074fDd181bB4d803fBD49C712</div>
+                <div class="Mumbai">-----</div>
             </div>
             <div class="col td">
                 <div class="name">head</div>
                 <div class="Fuji">0x4B4cbe55125B48e868AA68E08b7527524C46E8AC</div>
-                <div class="Mumbai">0x04b5D133394F360A3B88600043b8153AaA1C0e59</div>
+                <div class="Mumbai">-----</div>
             </div>
             <div class="col td">
                 <div class="name">LootBox</div>
                 <div class="Fuji">0x55eFD6D4cF31F925E36d268C12353848c9e782fD</div>
-                <div class="Mumbai">0xC5FE394692a469BD5789D8247F281403e064E576</div>
+                <div class="Mumbai">-----</div>
             </div>
             <!-- <div class="col td">
                 <div class="name">UGC</div>
