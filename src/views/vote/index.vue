@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { onMounted, ref, reactive, computed } from 'vue'
 import store from '../../store'
-import voteA from './pages/VoteA.vue';
+import voteA from './pages/VoteDetailsA.vue';
 import voteB from './pages/VoteB.vue';
 
 const innerWidth = computed(() => {
