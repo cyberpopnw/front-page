@@ -36,8 +36,11 @@
                     <div>{{ $t('message.download.version') }}</div>
                 </div>
             </div>
+            <div class="card" v-show="AndroidQcode">
+                <img src="@/assets/nwDownload/ad.png" alt="">
+            </div>
             <div class="buttons">
-                <div class="down_cyberpop" @click="downloadGame(0)">
+                <div class="down_cyberpop" @mouseenter="AndroidQcode = true" @mouseleave="AndroidQcode = false" @click="downloadGame(0)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
                     <b>{{ $t('message.download.Android') }}</b>
                 </div>
@@ -71,6 +74,7 @@ const isClick = ref(false as any);
 
 // download
 const isDonload: any = ref(false);
+const AndroidQcode: any = ref(false);
 const downloadGame = (type: number) => {
     isDonload.value = true;
     if(emailAddress.value == ''){
@@ -518,6 +522,33 @@ onMounted(() => {
                     }
                 }
             }
+            .card{
+                position: absolute;
+                top: 69vw;
+                left: 21vw;
+                width: 20.46vw;
+                padding: .625vw 1.04vw 1.25vw;
+                background: rgba(40, 38, 38,.9);
+                transform: translate(0,-114%);
+                animation: teamCardAni 0.1s ease-in;
+                animation-fill-mode: forwards;
+                z-index: 9999;
+                img{
+                    width: 100%;
+                }
+                &::after{
+                    position: absolute;
+                    left: 50%;
+                    bottom: .0546vw;
+                    content: '';
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border: solid .83vw transparent;
+                    border-top-color: rgba(40, 38, 38,.9);
+                    transform: translate(-50%,100%);
+                }
+            }
             .buttons{
                 display: flex;
                 justify-content: space-between;
@@ -528,9 +559,9 @@ onMounted(() => {
                 padding: 0 1.17vw 0 3.64vw;
                 background: linear-gradient(113deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.32) 0%, rgba(31, 38, 110, 0.21) 33%, rgba(108, 250, 166, 0.18) 47%, rgba(32, 38, 110, 0.3) 70%, rgba(0, 0, 0, 0.35) 100%);
                 border: 2px solid;
+                position: relative;
                 border-image: linear-gradient(270deg, rgba(108, 248, 167, 1), rgba(93, 16, 244, 0.5), rgba(108, 248, 167, 1)) 2 2;
                 backdrop-filter: blur(16px);
-                z-index: 1;
                 .down_cyberpop{
                     display: flex;
                     align-items: center;
@@ -556,7 +587,7 @@ onMounted(() => {
                     cursor:not-allowed !important;
                 }
                 .down_cyberpop:hover{
-                    opacity: .7;
+                    transform: scale(.95);
                 }
             }
         }
