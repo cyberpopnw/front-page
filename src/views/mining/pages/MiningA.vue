@@ -17,85 +17,12 @@
                 <div class="right">
                     <div class="right_content">
                         <div class="total-title">{{$t('message.mining.pool_amount')}}</div>
-                        <div class="price">{{ Number(poolAmount) + Number(getTotalSupply) }}</div>
+                        <div class="price">-- --</div>
+                        <!-- <div class="price">{{ Number(getTotalSupplyCoin) + Number(getTotalSupply) }}</div> -->
                         <!-- <div class="total-subtitle">{{$t('message.mining.pool')}}:{{ getTotalSupply }}</div> -->
                     </div>
                 </div>
             </div>
-        </div>
-        <ul class="data">   
-            <!-- <li>
-                <div>
-                    <div class="txt">{{$t('message.mining.total_power')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin5.png" alt=""> </div>
-                    <div class="percent">--</div>
-                </div>
-            </li>
-            <div class="line"></div> -->
-            <li>
-                <div>
-                    <div class="txt">{{$t('message.mining.total_staked')}}</div>
-                    <div class="percent">{{ getTotalSupply }}</div>
-                </div>
-            </li>
-            <div class="line"></div>
-            <li>
-                <div>
-                    <div class="txt">{{$t('message.mining.percyt_earn')}}</div>
-                    <div class="percent">{{ rewardPerToken.toFixed(6) }}/s</div>
-                </div>
-            </li>
-            <!-- <div class="line"></div> -->
-            <!-- <li>
-                <div>
-                    <div class="txt">{{$t('message.mining.total_Tokens')}} ≈ $5,278,606</div>
-                    <div class="percent">$--</div>
-                </div>
-            </li> -->
-            <div class="element1"></div>
-            <div class="element2"></div>
-            <div class="element3"></div>
-        </ul>
-        <div class="mystaked">
-            <ul>
-                <!-- <li>
-                    <div>
-                        <p class="title">{{$t('message.mining.my_power')}}</p>
-                        <p class="number_list"> <span class="number">--</span> <span class="dollar">≈ $0.278</span></p>
-                    </div>
-                </li> -->
-                <li>
-                    <div>
-                        <p class="title">{{$t('message.mining.my_staked')}}</p>
-                        <p> <span class="number">{{ myStakCyt }}</span></p>
-                    </div>
-                </li>
-                <div class="line"></div>
-                <li>
-                    <div>
-                        <p class="title">{{$t('message.mining.my_Prop')}}</p>
-                        <p> <span class="number">≈ {{ floorTofixed((myStakCyt / getTotalSupply * 100),2) }}%</span></p>
-                    </div>
-                </li>
-                <!-- <li>
-                    <div id="Chart" style="width:100%; height: 100%;"></div>
-                </li> -->
-                <!-- <li>
-                    <div>
-                        <p class="title">{{$t('message.mining.my_tokens')}}≈ $0</p>
-                        <p> <span class="number">--</span></p>
-                    </div>
-                </li> -->
-            </ul>
-            <div class="Harvest">
-                <div class="texts">
-                    <div class="exchange">{{ $t('message.mining.you_earn') }} (COIN)</div>
-                    <div class="price">{{ earned }}</div>
-                </div>
-                <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
-            </div>
-        </div>
-        <div class="more">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin2.png" alt="">
         </div>
         <div class="myAssets">
             <div class="item1">
@@ -118,7 +45,21 @@
         </div>
         <div class="Operation">
             <div class="owrap">
-                <div class="btns btnfont" @click="stakingCyt">
+                <ul>
+                    <li>
+                        <div class="txt">{{$t('message.mining.total_staked')}}</div>
+                        <div class="number">{{ getTotalSupply }}</div>
+                    </li>
+                    <li>
+                        <div class="txt">{{$t('message.mining.percyt_earn')}}</div>
+                        <div class="number">{{ rewardPerToken.toFixed(6) }}/s</div>
+                    </li>
+                    <li>
+                        <div class="txt">{{$t('message.mining.your_staked')}}</div>
+                        <div class="number">{{ myStakCyt }}</div>
+                    </li>
+                </ul>
+                <div class="btns btnfont stake" @click="stakingCyt">
                     {{$t('message.mining.Stake_btn')}}
                 </div>
                 <div class="btns btnfont" @click="cancelStake(1)">
@@ -130,6 +71,74 @@
                     <div class="button">{{$t('message.mining.Harvest_btn')}}</div>
                 </div>
             </div>
+        </div>
+        <!-- <ul class="data">   
+            <li>
+                <div>
+                    <div class="txt">{{$t('message.mining.total_power')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin5.png" alt=""> </div>
+                    <div class="percent">--</div>
+                </div>
+            </li>
+            <div class="line"></div>
+            <li>
+                <div>
+                    <div class="txt">{{$t('message.mining.total_staked')}}</div>
+                    <div class="percent">{{ getTotalSupply }}</div>
+                </div>
+            </li>
+            <div class="line"></div>
+            <li>
+                <div>
+                    <div class="txt">{{$t('message.mining.percyt_earn')}}</div>
+                    <div class="percent">{{ rewardPerToken.toFixed(6) }}/s</div>
+                </div>
+            </li>
+            <div class="line"></div>
+            <li>
+                <div>
+                    <div class="txt">{{$t('message.mining.total_Tokens')}} ≈ $5,278,606</div>
+                    <div class="percent">$--</div>
+                </div>
+            </li>
+            <div class="element1"></div>
+            <div class="element2"></div>
+            <div class="element3"></div>
+        </ul> -->
+        <!-- <div class="mystaked">
+            <ul>
+                <li>
+                    <div>
+                        <p class="title">{{$t('message.mining.my_staked')}}</p>
+                        <p> <span class="number">{{ myStakCyt }}</span></p>
+                    </div>
+                </li>
+                <div class="line"></div>
+                <li>
+                    <div>
+                        <p class="title">{{$t('message.mining.my_Prop')}}</p>
+                        <p> <span class="number">≈ {{ floorTofixed((myStakCyt / getTotalSupply * 100),2) }}%</span></p>
+                    </div>
+                </li>
+                <li>
+                    <div id="Chart" style="width:100%; height: 100%;"></div>
+                </li>
+                <li>
+                    <div>
+                        <p class="title">{{$t('message.mining.my_tokens')}}≈ $0</p>
+                        <p> <span class="number">--</span></p>
+                    </div>
+                </li>
+            </ul>
+            <div class="Harvest">
+                <div class="texts">
+                    <div class="exchange">{{ $t('message.mining.you_earn') }} (COIN)</div>
+                    <div class="price">{{ earned }}</div>
+                </div>
+                <div class="button" @click="harvest">{{$t('message.mining.Harvest_btn')}}</div>
+            </div>
+        </div> -->
+        <div class="more">
+            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin2.png" alt="">
         </div>
         <!-- <div class="pledge">
             <div class="title">{{$t('message.mining.pledge_title')}}<span>2/4</span></div>
@@ -263,10 +272,6 @@
                         <div class="table">
                             <div class="title">{{$t('message.mining.Earned')}}</div>
                             <div class="desc">≈ {{ earnedCoin }}</div>
-                        </div>
-                        <div class="table bottom_element2">
-                            <div class="title">{{$t('message.mining.Harvest_cyt')}} ≈ $0</div>
-                            <div class="desc">{{ earnedCoin }}</div>
                         </div>
                         <div class="Harvest harvestbtn btnfont" @click="stakingCoin(2)">
                             <div class="bg"></div>
@@ -1184,7 +1189,7 @@ onMounted(async () => {
             box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.69);
             border: 2px solid;
             // margin: 5.78vw auto 1.56vw;
-            margin: 5.78vw auto 0;
+            margin: 0 auto;
             border-image: linear-gradient(45deg, rgba(35, 71, 54, 1), rgba(51, 32, 91, 1)) 2 2;
             display: flex;
             .item1, .item2{
@@ -1346,6 +1351,9 @@ onMounted(async () => {
                                 line-height: 1.92vw;
                             }
                         }
+                        .table + .table{
+                            margin-left: 4vw;
+                        }
                         .cancelStake{
                             color: #A4F238;
                             position: absolute;
@@ -1376,7 +1384,7 @@ onMounted(async () => {
                     .bottom{
                         display: flex;
                         align-items: center;
-                        padding-left: 1.56vw;
+                        padding-left: 9.4vw;
                         height: 6.66vw;
                         .table{
                             .title{
@@ -1462,7 +1470,7 @@ onMounted(async () => {
             .owrap{
                 width: 100%;
                 height: 100%;
-                padding: 0 2vw 0 2.6vw;
+                padding: 0 1.8vw 0 2.6vw;
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
@@ -1472,22 +1480,48 @@ onMounted(async () => {
                     color: #A4F238;
                     .bg{
                         background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
-                        background-size: 100%; 
+                        background-size: 100% 100%; 
                         &:hover{
                             filter: drop-shadow(0 0 .2vw #A4F238);
                         }
                     }
                 }
-                .btns:first-child{
+                .btns.stake{
                     color: #363A54;
                     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin12.png');
-                    background-size: 100%; 
+                    background-size: 100% 100%; 
                     &:hover{
                         filter: drop-shadow(0 0 .2vw #A4F238);
                     }
                 }
                 .btns + .btns{
-                    margin-left: 4vw;
+                    margin-left: 2vw;
+                }
+                ul{
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    li{
+                        flex: 1;
+                        .txt{
+                            font-size: .98vw;
+                            font-family: AlibabaPuHuiTi_2_55_Regular;
+                            color: #B3B3B3;
+                            line-height: 1.35vw;
+                            display: flex;
+                            align-items: center;
+                            img{
+                                margin-left: 0.5vw;
+                                width: 1.04vw;
+                            }
+                        }
+                        .number{
+                            font-size: 1.61vw;
+                            line-height: 2.29vw;
+                            font-family: AlibabaPuHuiTi_2_85_Bold;
+                            color: #04FF55;
+                        }
+                    }
                 }
             }
             
