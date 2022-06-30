@@ -556,14 +556,14 @@ const router = useRouter()
 let close:any = ref(true)
 const teamInfo: any = ref([
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_frank.png',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/frank.png',
         name: 'Frank',
         desc: 'Co-Founder',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_caroline.png',
-        name: 'Caroline',
-        desc: 'Marketing director',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/YuSonEn.png',
+        name: 'Yu Son En',
+        desc: 'Yu Vitalik',
     },
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_hason.png',
