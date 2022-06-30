@@ -3,24 +3,24 @@
         <div class="popup" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide') ">
             <div class="content" ref="cursor">
                 <div class="title">{{$t('message.mining.STAKE')}}</div>
-                <div class="nav">
+                <div class="nav flex_align_center">
                     <div class="multiple" :class="switchFlag ? 'activePink': ''" @click="switchFlag = false">{{$t('message.mining.stakingA.add')}}</div>
                     <div class="alone" :class="!switchFlag ? 'activePink': ''" @click="switchFlag = false">{{$t('message.mining.stakingA.solo')}}</div>
                 </div>
                 <div class="card-wrap">
                     <div class="card1" v-if="switchFlag">
                         <div class="item">
-                            <div class="border">
+                            <div class="border flex_between">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
                                     <div class="name">">{{$t('message.mining.stakingA.input')}}</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
                                 </div>
                                 <div class="btns">
                                     <div class="balance">{{$t('message.mining.cancel.balance')}}:0</div>
-                                    <div class="icon">
+                                    <div class="icon flex_align_center">
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">{{$t('message.mining.cancel.max')}}</div>
-                                        <div class="desc">
+                                        <div class="desc flex_align_center">
                                             <div></div>
                                             COIN
                                         </div>
@@ -31,17 +31,17 @@
                         </div>
                         <img class="addicon" src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stake_addicon.svg" alt="">
                         <div class="item">
-                            <div class="border">
+                            <div class="border flex_between">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
                                     <div class="name">{{$t('message.mining.stakingA.input')}}</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
                                 </div>
                                 <div class="btns">
                                     <div class="balance">{{$t('message.mining.cancel.balance')}}:0</div>
-                                    <div class="icon">
+                                    <div class="icon flex_align_center">
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">{{$t('message.mining.cancel.max')}}</div>
-                                        <div class="desc">
+                                        <div class="desc flex_align_center">
                                             <div></div>
                                             YOOSHI
                                         </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="card2" v-else>
                         <div class="item">
-                            <div class="border">
+                            <div class="border flex_between">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
                                     <div class="name">{{$t('message.mining.stakingA.input')}}</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn" :placeholder="valueIn">
@@ -64,11 +64,11 @@
                                 </div>
                                 <div class="btns">
                                     <div class="balance">{{$t('message.mining.cancel.balance')}}:{{haveCTY}}</div>
-                                    <div class="icon">
+                                    <div class="icon flex_align_center">
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <!-- <div class="max" @click="active = 1">MAX</div> -->
                                         <div class="max" @click="maxActive">{{$t('message.mining.cancel.max')}}</div>
-                                        <div class="desc">
+                                        <div class="desc flex_align_center">
                                             COIN
                                         </div>
                                     </div>
@@ -244,8 +244,6 @@ onMounted(() => {
                 line-height: 40px;
             }
             .nav{
-                display: flex;
-                align-items: center;
                 width: 100%;
                 height: 40px;
                 margin: 0 auto 15px;
@@ -275,8 +273,6 @@ onMounted(() => {
                     .item{
                         .border{
                             position: relative;
-                            display: flex;
-                            justify-content: space-between;
                             width: 100%;
                             height: 90px;
                             padding: 15px 14px;
@@ -324,8 +320,6 @@ onMounted(() => {
                                     // margin-bottom: .4vw;
                                 }
                                 .icon{
-                                    display: flex;
-                                    align-items: center;
                                     justify-content: flex-end;
                                     .max{
                                         width: 57px;
@@ -340,8 +334,6 @@ onMounted(() => {
                                         border-image: linear-gradient(45deg, rgba(255, 0, 255, 1), rgba(176, 65, 216, 1)) 1 1;
                                     }
                                     .desc{
-                                        display: flex;
-                                        align-items: center;
                                         font-size: 16px;
                                         font-family: AlibabaPuHuiTi_2_85_Bold;
                                         color: #ffffff;

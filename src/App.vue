@@ -15,12 +15,12 @@
         <boxOpenedA v-if="innerWidth > 1025 && boxOpened" :isShowTips="boxOpened" :boxId="boxId"></boxOpenedA>
         <boxOpenedB v-if="innerWidth <= 1025 && boxOpened" :isShowTips="boxOpened" :boxId="boxId"></boxOpenedB>
         <Waiting v-if="waitingState" :isShowWaiting="waitingState" :loadInfo="waitingInfo"></Waiting>
-        <div class="ip_error" v-if="iperror && innerWidth > 1025">
+        <div class="ip_error flex_center" v-if="iperror && innerWidth > 1025">
             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">
             {{$t('message.common.ip')}}
             <img class="close" src="@/assets/nwhome/close.svg" @click="iperror = false" alt="">
         </div>
-        <div class="ip_error_Mobile" v-if="iperror && innerWidth <= 1025">
+        <div class="ip_error_Mobile flex_center" v-if="iperror && innerWidth <= 1025">
             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">
             {{$t('message.common.ip')}}
             <img class="close" src="@/assets/nwhome/close.svg" @click="iperror = false" alt="">
@@ -129,9 +129,6 @@ onMounted(() => {
 <style lang="less">
     .ip_error, .ip_error_Mobile{
         z-index: 6;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: absolute;
         top: 0vw;
         left: 50%;

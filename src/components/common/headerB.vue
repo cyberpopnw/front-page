@@ -1,11 +1,11 @@
 <template>
     <div class="home">
         <header>
-            <div class="tips" v-if="warning">
+            <div class="tips flex_align_center" v-if="warning">
                 <div>{{ $t('message.common.tips1')}}<span> https://cyberpop.online </span>{{ $t('message.common.tips2')}}</div>
                 <img class="close" src="@/assets/nwhome/close.svg" @click="closeWarn" alt="">
             </div>
-            <div class="content" id="header">
+            <div class="content flex_between_center" id="header">
                 <div class="logo">
                     <a :href="path"><img v-show="!logoHFlag" :src="logoHSrcP" @mouseenter="logoHFlag = true" alt=""></a>
                     <a :href="path"><img v-show="logoHFlag" :src="logoHSrcG" @mouseleave="logoHFlag = false" alt=""></a>
@@ -13,9 +13,9 @@
                 <img class="menu" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/header-menu.svg" @click="showMenu()" alt="">
             </div>
             <div class="menuMask" ref="cursor" :class="isPage && (showMenuAni ? 'menuAnimation' : 'stopMenuAnimation')">
-                <div class="close-menu">
+                <div class="close-menu flex_between">
                     <div v-show="realId == -1"></div>
-                    <div class="select_chain" v-show="realId !== -1" @click="showMsgPop()"><img :src="chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.name : chainList.notSupported.name }}</span></div>
+                    <div class="select_chain flex_align_center" v-show="realId !== -1" @click="showMsgPop()"><img :src="chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.name : chainList.notSupported.name }}</span></div>
                     <img @click="closeMenuIcon()" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/close-menu.svg" alt="">
                 </div>
                 <div class="login_in" v-if="!loggined" @click="login()">
@@ -24,14 +24,14 @@
                 <div class="logged_in" v-if="loggined">
                     <img class="portrait" src="@/assets/nwhome/portrait.svg" alt="">
                     <div class="idtxt">{{ realId }}</div>
-                    <div class="submenu">
+                    <div class="submenu flex_between">
                         <div class="myassets" @click="toAssets()">{{$t('message.common.login_myAssets')}}</div>
                         <div class="logout" @click="signout">{{$t('message.common.login_logout')}}</div>
                     </div>
                     <div class="mask"></div>
                 </div>
                 <div class="code"> 
-                    <div class="email-wrap" @click="isRegister(true)">
+                    <div class="email-wrap flex_center" @click="isRegister(true)">
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/register-email-b.svg" alt="">
                         <span>Email Register</span>
                     </div>
@@ -429,8 +429,6 @@ onMounted(() => {
         position: relative;
         width: 100%;
         .tips{
-            display: flex;
-            align-items: center;
             position: relative;
             margin: 6px 10px 0;
             font-size: 12px;
@@ -464,9 +462,6 @@ onMounted(() => {
             .content{
                 width: 100%;
                 height: 55px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
                 .logo{
                     width: 151px;
                     height: 41px;
@@ -499,15 +494,11 @@ onMounted(() => {
                 overflow-y: auto;
 
                 .close-menu{
-                    display: flex;
-                    justify-content: space-between;
                     width: 100%;
                     height: 44px;
                     padding: 12px 17px 0;
                     // text-align: right;
                     .select_chain{
-                        display: flex;
-                        align-items: center;
                         font-size: 14px;
                         font-family: AlibabaPuHuiTi_2_55_Regular;
                         cursor: pointer;
@@ -554,9 +545,6 @@ onMounted(() => {
                     font-size: 1vw;
                     .email-wrap{
                         position: relative;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
                         width: 100%;
                         height: 45px;
                         &::before{
@@ -612,8 +600,6 @@ onMounted(() => {
                         line-height: 28px;
                     }
                     .submenu{
-                        display: flex;
-                        justify-content: space-between;
                         width: 286px;
                         height: 60px;
                         margin-left: 30px;

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container flex_center">
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide')">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -16,8 +16,8 @@
                         </div>
                     </thead>
                     <div class="tbody" v-if="1">
-                        <div class="item" v-for="item in 6" :key="item">
-                            <div class="name">
+                        <div class="item flex_align_center" v-for="item in 6" :key="item">
+                            <div class="name flex_align_center">
                                 <img src="https://cyberpop.mypinata.cloud/ipfs/QmPx82XhgdmkgEy1C8t2zivFZfySn7krCv3wSdfLeKwZfS" alt="">
                                 <span>Kakulupia</span>
                             </div>
@@ -105,9 +105,6 @@ onMounted(() => {
     }
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;
@@ -230,8 +227,6 @@ onMounted(() => {
                     }
                     .name{
                         width: 13.43vw;
-                        display: flex;
-                        align-items: center;
                         img{
                             margin-right: 1.3vw;
                             width: 3.85vw;
@@ -239,17 +234,11 @@ onMounted(() => {
                     }
                     .id{
                         width: 5.57vw;
-                        display: flex;
-                        align-items: center;
                     }
                     .HashRate{
                         width: 8.02vw;
-                        display: flex;
-                        align-items: center;
                     }
                     .Operate{
-                        display: flex;
-                        align-items: center;
                         font-size: 1.04vw;
                         font-family: AlibabaPuHuiTi_2_115_Black;
                         font-weight: bold;

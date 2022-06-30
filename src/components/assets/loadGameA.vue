@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container flex_center">
         <div class="mask" :class="isShowTips && (transition ? 'bounceShow' : 'bounceHide')">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -12,7 +12,7 @@
                 </div> -->
                 <div class="item">
                     <p>step1</p>
-                    <div class="content1" :class="{'success': state >= 1 && state != 2, 'reject': state == 2}">
+                    <div class="content1 flex_between_center" :class="{'success': state >= 1 && state != 2, 'reject': state == 2}">
                         <span>{{ 'Authorization in progress....' }}</span>
                         <div class="loading" v-if="state == 0">
                             <img src="@/assets/nwhomePhone/loading-phone.svg" alt="">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="item">
                     <p>step2</p>
-                    <div class="content1" :class="{'success': state >= 4 && state != 5, 'reject': state == 5}">
+                    <div class="content1 flex_between_center" :class="{'success': state >= 4 && state != 5, 'reject': state == 5}">
                         <span>{{ 'Loading....' }}</span>
                         <div class="loading" v-if="state == 3">
                             <img src="@/assets/nwhomePhone/loading-phone.svg" alt="">
@@ -142,9 +142,6 @@ onMounted(() => {
     }
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;
@@ -234,9 +231,6 @@ onMounted(() => {
                         padding: 0.4vw;
                         border: 1px solid #fff;
                         font-family: AlibabaPuHuiTi_2_55_Regular;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
                         height: 3vw;
                         box-sizing: border-box;
                     }

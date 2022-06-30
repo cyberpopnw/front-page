@@ -1,6 +1,6 @@
 <template>
     <header-b path="/mining" :type="1"></header-b>
-    <div class="section">
+    <div class="section flex_centent_center">
         <div class="title">{{$t('message.mining.coming')}}</div>
     </div>
     <div class="mining">
@@ -131,8 +131,6 @@ onMounted(() => {
     .section{
         z-index: 8;
         position: fixed;
-        display: flex;
-        justify-content: center;
         top: 0;
         width: 100%;
         height: 120vh;

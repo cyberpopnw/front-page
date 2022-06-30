@@ -36,7 +36,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                     <div class="name">{{ data[0].info.name }} </div>
                     <div>{{ $t('message.box.Genesis_Hero') }}</div>
                     <div class="introduce" v-html="locale == 'cn' ? data[0].info.description_zh : data[0].info.description"></div>
-                    <div class="price">
+                    <div class="price flex_center">
                         <img src="@/assets/nwbox/nfts-icon.svg" alt="">
                         <!-- <div class="num">100.00</div> -->
                         <!-- <div class="exchange">≈$20</div> -->
@@ -326,7 +326,6 @@ onMounted(() => {
                 background-position: center bottom;
                 background-size: 100% auto;
                 li{
-                    // display: flex;
                     width: 334px;
                     // height: 708px;
                     margin: 0 auto 31px;
@@ -368,9 +367,6 @@ onMounted(() => {
                         line-height: 18px;
                     }
                     .price{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
                         margin: 10px 0 17px;
                         img{
                             width: 35px;

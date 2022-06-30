@@ -1,6 +1,6 @@
 <template>
     <header-a path="javascript:scrollTo(0,0);" :type="0" ref="header"></header-a>
-    <!-- <div class="section">
+    <!-- <div class="section flex_centent_center">
         <div class="title">COMING SOON</div>
     </div> -->
     <div class="assets">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="ecrchange">
-                    <div class="top"  ref="ecrchange">
+                    <div class="top flex_centent_center"  ref="ecrchange">
                         <div class="typeALL" :class="!ecrType ? 'active' : ''" @click="changeType(0)">ALL</div>
                         <div class="type1" :class="ecrType == 1? 'active' : ''" @click="changeType(1)">ERC 721</div>
                         <div class="type2" :class="ecrType == 2 ? 'active' : ''" @click="changeType(2)">ERC 1155</div>
@@ -864,8 +864,6 @@ onMounted(() => {
     .section{
         z-index: 8;
         position: fixed;
-        display: flex;
-        justify-content: center;
         top: 0;
         width: 100%;
         height: 100vh;
@@ -945,7 +943,6 @@ onMounted(() => {
             }
             .ecr{
                 display: flex;
-                // padding-bottom: 13vw;
                 .search{
                     position: absolute;
                     width: 15.98vw;
@@ -1073,7 +1070,6 @@ onMounted(() => {
                                 }
                                 label {
                                     display: flex;
-                                    // align-items: flex-start;
                                     position: absolute;
                                     left: 0;
                                     top: 0;
@@ -1126,8 +1122,6 @@ onMounted(() => {
                     margin-left: 21vw;
                     width: 57.76vw;
                     .top{
-                        display: flex;
-                        justify-content: center;
                         margin-bottom: 2.45vw;
                         div{
                             height: 1.87vw;

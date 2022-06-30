@@ -1,5 +1,5 @@
 <template>
-    <div class="warp" v-show="isShowTips">
+    <div class="warp flex_center" v-show="isShowTips">
         <div class="container" @click="close"></div>
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide') ">
             <div class="cover"></div>
@@ -74,9 +74,6 @@ onMounted(() => {
         position: relative;
         width: 100%;
         height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: fixed;
         left: 0;
         top: 0;

@@ -8,14 +8,14 @@
 id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed6255c8406b7294d.mp4`]" img="https://d2cimmz3cflrbm.cloudfront.net/nwhome/videobg3.png">
             </video-bg>
             <div class="titles"> 
-                <div class="title-wrap">
+                <div class="title-wrap flex_center">
                     <div class="title1">{{$t('message.home.banner_title1Bef')}}<br/>{{$t('message.home.banner_title1Aft')}}</div>
                     <div class="title2">
                         {{$t('message.home.banner_title2')}}
                     </div>
                     <div class="btnbox">
                         <div class="btn-register" @click="playToEarn()">{{$t('message.home.banner_btn1')}}</div>
-                        <div class="btn-video" @click="playVideo(5)">
+                        <div class="btn-video flex_center" @click="playVideo(5)">
                             <div>{{$t('message.home.banner_btn2')}}</div>
                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/section-btnPlay.svg" alt="">
                         </div>
@@ -48,7 +48,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 </form>
             </div>
             <div class="down_button" @click="downloadGame">
-                <div class="down_cyberpop">
+                <div class="down_cyberpop flex_center">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
                     <b>DOWNLOAD CYBERPOP</b>
                 </div>
@@ -213,7 +213,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             </div>
             <div class="icon">
                 <div class="txt">{{$t('message.home.make_cross')}}</div>
-                <div class="icon-img">
+                <div class="icon-img flex_align_center">
                     <img src="@/assets/nwhome/make-avala.svg" alt="">
                     <!-- <img src="@/assets/nwhome/make-flow.svg" alt=""> -->
                     <img src="@/assets/nwhome/make-ethernet.png" alt="">
@@ -244,7 +244,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             <!-- <div class="opensea" @mouseenter="openseaEnter()" @mouseleave="openseaLeave()"> -->
             <div class="opensea">
                 <div class="opensea-title">{{$t('message.home.make_opensea_title')}}</div>
-                <div class="openUrl" target="view_window">
+                <div class="openUrl flex_center" target="view_window">
                     <!-- <a href=""> -->
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/openSea.png" alt="">
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/make-rightArrow.svg" alt="">
@@ -255,7 +255,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         </div>
     </div>
     <div class="news">
-        <div class="news-wrap">
+        <div class="news-wrap flex_center">
             <div class="title" id="ele4">{{$t('message.home.news_title')}}</div>
             <div class="content" @click="newsActiveSrc()">
                 <div class="hover-img">
@@ -395,7 +395,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         <div class="title" id="ele7">{{ $t('message.home.team_title') }}</div>
         <div class="wrap">
             <ul>
-                <li v-for="(item,index) in teamInfo" :key="index" @click="teamCard(index)">
+                <li v-for="(item,index) in teamInfo" :key="index" class="flex_center" @click="teamCard(index)">
                     <div class="avator"><img :src="item.img" alt=""></div>
                     <div class="msg">
                         <div>{{ item.name }}</div>
@@ -413,11 +413,11 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         </div>
     </div>
     <div class="partners">
-        <div class="title" id="ele6">{{ $t('message.home.part_title') }}
+        <div class="title flex_center" id="ele6">{{ $t('message.home.part_title') }}
             <img class="xplan" @click="showxplan()" src="@/assets/nwhome/xplan.svg" alt="" >
         </div>
-        <div class="logo">
-            <div class="line1">
+        <div class="logo flex_centent_center">
+            <div class="line1 flex_centent_center">
                 <a href="https://www.ubisoft.com/en-us/" target="view_window">
                     <img class="logo10" src="@/assets/nwhome/UBISOFT.png" alt="">
                 </a>
@@ -510,7 +510,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
     </div>
     <div class="will">
         <div class="title" id="ele6">{{ $t('message.home.will_title') }}</div>
-        <ul class="logo">
+        <ul class="logo flex_centent_center">
             <li>
                 <img class="wlogo1" src="@/assets/nwhome/googleplay.svg" alt="">
                 <div class="googleplay">{{ $t('message.home.will_logo3_txt') }}</div>
@@ -529,7 +529,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             </li>
         </ul>
     </div>
-    <div class="register">
+    <div class="register flex_align_center">
         <div class="title">{{ $t('message.home.reg_title') }}</div>
         <div class="subtitle">{{ $t('message.home.reg_subtitle') }}</div>
         <div class="email">
@@ -1081,10 +1081,7 @@ onMounted(() => {
                 background-position: left top;
                 .title-wrap{
                     height: 100%;
-                    display: flex;
                     flex-direction: column;            
-                    justify-content: center;
-                    align-items: center;
                     .title1{
                         // width: 64.84vw;
                         height: 10.41vw;
@@ -1109,7 +1106,6 @@ onMounted(() => {
                     }
                     .btnbox{
                         display: flex;
-                        // margin-bottom: 3.85vw;
                         margin-bottom: 6vw;
                         .btn-register{
                             width: 16.56vw;
@@ -1128,9 +1124,6 @@ onMounted(() => {
                             cursor: pointer;
                         }
                         .btn-video{
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
                             width: 18.75vw;
                             height: 7.24vw;
                             background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/section-btn2.svg');
@@ -1304,9 +1297,6 @@ onMounted(() => {
                     height: 100%;
                     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_button2.png');
                     background-size: 100% 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                     font-size: 1.14vw;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     color: #FFFFFF;
@@ -1824,8 +1814,6 @@ onMounted(() => {
                     line-height: 3.125vw;
                 }
                 .icon-img{
-                    display: flex;
-                    align-items: center;
                     margin-bottom: 1vw;
                     img:nth-child(1){
                         width: 9vw;
@@ -1927,9 +1915,6 @@ onMounted(() => {
                     text-align: center;
                 }
                 .openUrl{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     height: 3.38vw;
                     img:nth-child(1){
                         width: 14.58vw;
@@ -1972,10 +1957,7 @@ onMounted(() => {
         height: 100vh;
         background-color: #000000;
         .news-wrap{
-            display: flex;
             flex-direction: column;            
-            justify-content: center;
-            align-items: center;
             height: 100%;
             .title{
                 font-size: 2.6vw;
@@ -2315,9 +2297,6 @@ onMounted(() => {
                 background-repeat: no-repeat;
                 li{
                     position: absolute;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                     width: 15vw;
                     height: 4.4vw;
                     padding: .46vw 0vw;
@@ -2467,9 +2446,6 @@ onMounted(() => {
         // overflow: hidden;
         border: 1px solid #000;
         .title{
-            display: flex;
-            align-items: center;
-            justify-content: center;
             height: 3.69vw;
             font-size: 2.6vw;
             font-family: AlibabaPuHuiTi_2_115_Black;
@@ -2486,8 +2462,6 @@ onMounted(() => {
             }
         }
         .logo{
-            display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             // width: 54.24vw;
             width: 60vw;
@@ -2495,8 +2469,6 @@ onMounted(() => {
             overflow: hidden;
             .line1{
                 width: 100%;
-                display: flex;
-                justify-content: center;
                 border-bottom: 2px solid rgb(34, 33, 33);
                 margin-bottom: 1.56vw;
             }
@@ -2570,8 +2542,6 @@ onMounted(() => {
             text-align: center;
         }
         .logo{
-            display: flex;
-            justify-content: center;
             margin-top: 3.8vw;
             margin-bottom: 7vw;
             overflow: hidden;  
@@ -2615,9 +2585,7 @@ onMounted(() => {
         height: 27.44vw;
         background-color: #04FF55;
         overflow: hidden;
-        display: flex;
         flex-direction: column;
-        align-items: center;
         .title{
             margin-top: 4.73vw;
             font-size: 2.86vw;

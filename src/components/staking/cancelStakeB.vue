@@ -5,7 +5,7 @@
                 <div class="title">{{$t('message.mining.cancel.unstake')}}</div>
                 <div class="chunks">
                     <div class="withdraw_wrap">
-                        <div class="withdraw" :class="{'select': selected == 0}" @click="selected = 0">
+                        <div class="withdraw flex_between_center" :class="{'select': selected == 0}" @click="selected = 0">
                             <div class="left" :class="numState == 'error' ? 'error':''"> 
                                 <p>{{$t('message.mining.cancel.will_withdraw')}}</p>
                                 <!-- <p>{{ myStakCyt / 2}}</p> -->
@@ -15,7 +15,7 @@
                                 <div class="balance">{{$t('message.mining.cancel.balance')}}:{{myStakCyt}}</div>
                                 <div class="icon">
                                     <div class="max" @click="maxActive">{{$t('message.mining.cancel.max')}}</div>
-                                    <div class="bull">
+                                    <div class="bull flex_align_center">
                                         <div></div>
                                         <div></div>
                                     </div>
@@ -25,7 +25,7 @@
                         <div class="errmsg" v-if="!Number(myStakCyt)">{{$t('message.mining.cancel.tips')}}</div>
                         <div class="errmsg" v-if="Number(myStakCyt) && numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
                     </div>
-                    <!-- <div class="reward" :class="{'select': selected == 1}" @click="selected = 1">
+                    <!-- <div class="reward flex_between_center" :class="{'select': selected == 1}" @click="selected = 1">
                         <div class="left">
                             <p>{{$t('message.mining.cancel.Unclaimed')}}</p>
                             <div class="txt">0</div>
@@ -35,7 +35,7 @@
                             <p>NETT</p>
                         </div>
                     </div> -->
-                    <div class="tips">
+                    <div class="tips flex_align_center">
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin13.png" alt="">
                         <div class="texts">{{$t('message.mining.cancel.warn_tips')}}</div>
                     </div>
@@ -203,9 +203,6 @@ onMounted(() => {
                 .withdraw, .reward{
                     height: 84px;
                     padding: 0 14px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
                     position: relative;
                     .left,.right{
                         p,.balance{
@@ -248,8 +245,6 @@ onMounted(() => {
                                 border-image: linear-gradient(45deg, rgba(255, 0, 255, 1), rgba(176, 65, 216, 1)) 1 1;
                             }
                             .bull{
-                                display: flex;
-                                align-items: center;
                                 div{
                                     width: 24px;
                                     height: 24px;
@@ -288,8 +283,6 @@ onMounted(() => {
                     background: rgba(182, 156, 199, 0.17);
                 }
                 .tips{
-                    display: flex;
-                    align-items: center;
                     // width: 355px;
                     margin: 10px 0 14px;
                     padding: 8px 14px;

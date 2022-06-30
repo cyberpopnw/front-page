@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container flex_center">
         <div class="mask" :class="register && (registerTrans ? 'bounceShow' : 'bounceHide')">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -16,7 +16,7 @@
                     </div> -->
                     <div class="item">
                         <label for="Email">{{ $t('message.common.register.Email') }}</label>
-                        <div class="content1" :class="{'error': emailErr}">
+                        <div class="content1 flex_between_center" :class="{'error': emailErr}">
                             <input type="text" id="Email" :placeholder="$t('message.common.register.placeholder')" @input="emailInput" @blur="blur(1)" v-model="email">
                             <!-- <div class="send" :class="{'error': emailErr}" @click="send" v-if="Sended == 60">Send</div>
                             <div class="send timer" v-else>{{ Sended }}</div> -->
@@ -25,13 +25,13 @@
                     </div>
                     <!-- <div class="item">
                         <label for="Email">Email Code</label>
-                        <div class="content1" :class="{'error': emailCodeErr}">
+                        <div class="content1 flex_between_center" :class="{'error': emailCodeErr}">
                             <input type="text" id="Email" placeholder="input your email 6 code" @input="emailCodeInput" @blur="blur(2)" v-model="emailCode">
                         </div>
                     </div> -->
                     <!-- <div class="item">
                         <label for="Email">Referral Code (option)</label>
-                        <div class="content1" :class="{'error': ReferralCodeErr}">
+                        <div class="content1 flex_between_center" :class="{'error': ReferralCodeErr}">
                             <input type="text" id="Email" readonly placeholder="Not ReferralCode" @blur="blur(5)" v-model="ReferralCode">
                         </div>
                     </div> -->
@@ -296,9 +296,6 @@ onMounted(() => {
     }
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;
@@ -399,9 +396,6 @@ onMounted(() => {
                     .content1, .content2{
                         border: 1px solid #fff;
                         font-family: AlibabaPuHuiTi_2_55_Regular;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
                         height: 3vw;
                         box-sizing: border-box;
                         input{

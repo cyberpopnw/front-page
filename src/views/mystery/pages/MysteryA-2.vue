@@ -1,6 +1,6 @@
 <template>
     <header-a path="/mystery" :type="2"></header-a>
-    <!-- <div class="section">
+    <!-- <div class="section flex_centent_center">
         <div class="title">{{$t('message.mining.coming')}}</div>
     </div> -->
     <div class="boxBg">
@@ -8,7 +8,7 @@
             <video-bg 
 id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.mp4`]">
             </video-bg>
-            <div class="titles"> 
+            <div class="titles flex_align_center"> 
                 <div class="titles-wrap">
                     <div class="title">{{$t('message.box.title_1')}}<br/>{{$t('message.box.title_2')}}</div>
                     <div class="round">
@@ -39,13 +39,13 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                         <!-- <div class="left_over">Left: <span class="number">{{ Remaining[0] + '/2000'}}</span></div> -->
                         <div>{{ $t('message.box.Genesis_Hero') }}</div>
                         <div class="introduce" v-html="locale == 'cn' ? data[0].info.description_zh : data[0].info.description"></div>
-                        <div class="price">
+                        <div class="price flex_align_center">
                             <!-- <img src="@/assets/nwbox/nfts-icon.svg" alt="">
                             <div class="num">100.00</div>
                             <div class="exchange">≈$49.00</div> -->
                             <div class="num">$49.00</div>
                         </div>
-                        <div class="btn">
+                        <div class="btn flex_between">
                             <div class="purchase" :class="{'not-allowed': Remaining[0] == 0 || isProduction}" @click="purchase(0, Remaining[0])">{{$t('message.details.box_btn_pur')}}</div>
                             <div class="open" :class="{'not-allowed': data[0].number == 0 || chainId == 56}" @click="open(0, data[0].number)">{{$t('message.box.open')}}</div>
                             <div class="details" @click="toDetails(9)">
@@ -224,8 +224,6 @@ onMounted(() => {
     .section{
         z-index: 8;
         position: fixed;
-        display: flex;
-        justify-content: center;
         top: 0;
         width: 100%;
         height: 100vh;
@@ -262,8 +260,6 @@ onMounted(() => {
             margin-top: 5.5vw;
             background-color: #000000;
             .titles{
-                display: flex;
-                align-items: center;
                 position: absolute;
                 top: 0;
                 width: 100%;
@@ -416,8 +412,6 @@ onMounted(() => {
                             line-height: 1.35vw;  
                         }
                         .price{
-                            display: flex;
-                            align-items: center;
                             margin-top: 1vw;
                             img{
                                 width: 1.71vw;
@@ -442,8 +436,6 @@ onMounted(() => {
                             }
                         }
                         .btn{
-                            display: flex;
-                            justify-content: space-between;
                             width: 100%;
                             height: 2.81vw;
                             margin-top: 2.08vw;

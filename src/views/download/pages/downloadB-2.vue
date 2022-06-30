@@ -29,15 +29,15 @@
             </div>
             <div class="person"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt=""></div>
             <div class="buttons">
-                <div class="down_cyberpop" @click="downloadGame(0)">
+                <div class="down_cyberpop flex_center" @click="downloadGame(0)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
                     <b>{{ $t('message.download.Android') }}</b>
                 </div>
-                <div class="down_cyberpop" @click="downloadGame(2)">
+                <div class="down_cyberpop flex_center" @click="downloadGame(2)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
                     <b>{{ $t('message.download.ios') }}</b>
                 </div>
-                <div class="down_cyberpop" @click="downloadGame(1)">
+                <div class="down_cyberpop flex_center" @click="downloadGame(1)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/windows.png" alt="">
                     <b>{{ $t('message.download.windows') }}</b>
                 </div>
@@ -458,9 +458,6 @@
                 backdrop-filter: blur(16px);
                 z-index: 0;
                 .down_cyberpop{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                     width: 200px;
                     height: 42px;
                     margin-bottom: 40px;

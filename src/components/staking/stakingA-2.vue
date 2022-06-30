@@ -1,19 +1,19 @@
 <template>
-    <div class="container">
+    <div class="container flex_center">
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide')">
             <div class="cover"></div>
             <div class="coverborder"></div>
             <img class="close" src="@/assets/nwhome/close.svg" alt=""  @click="closeDialog">
             <div class="content">
                 <div class="title">{{$t('message.mining.STAKE')}}</div>
-                <div class="nav">
+                <div class="nav flex_align_center">
                     <div class="multiple" :class="switchFlag ? 'activePink': ''" @click="switchFlag = false">{{$t('message.mining.stakingA.add')}}</div>
                     <div class="alone" :class="!switchFlag ? 'activePink': ''" @click="switchFlag = false">{{$t('message.mining.stakingA.solo')}}</div>
                 </div>
                 <div class="card-wrap">
                     <div class="card1" v-if="switchFlag">
                         <div class="item">
-                            <div class="border">
+                            <div class="border flex_between">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
                                     <div class="name">{{$t('message.mining.stakingA.input')}}</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
@@ -23,7 +23,7 @@
                                     <div class="icon">
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">{{$t('message.mining.cancel.max')}}</div>
-                                        <div class="desc">
+                                        <div class="desc flex_align_center">
                                             <div></div>
                                             COIN
                                         </div>
@@ -34,17 +34,17 @@
                         </div>
                         <img class="addicon" src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stake_addicon.svg" alt="">
                         <div class="item">
-                            <div class="border">
+                            <div class="border flex_between">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
                                     <div class="name">{{$t('message.mining.stakingA.input')}}</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn">
                                 </div>
                                 <div class="btns">
                                     <div class="balance">{{$t('message.mining.cancel.balance')}}:0</div>
-                                    <div class="icon">
+                                    <div class="icon flex_align_center">
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <div class="max" @click="active = 1">{{$t('message.mining.cancel.max')}}</div>
-                                        <div class="desc">
+                                        <div class="desc flex_align_center">
                                             <div></div>
                                             YOOSHI
                                         </div>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="card2" v-else>
                         <div class="item">
-                            <div class="border">
+                            <div class="border flex_between">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
                                     <div class="name">{{$t('message.mining.stakingA.input')}}</div>
                                     <input id="inputNum" type="text" @input="inputNumber($event)" :value="valueIn" :placeholder="valueIn">
@@ -67,11 +67,11 @@
                                 </div>
                                 <div class="btns">
                                     <div class="balance">{{$t('message.mining.cancel.balance')}}:{{haveCTY}}</div>
-                                    <div class="icon">
+                                    <div class="icon flex_align_center">
                                         <!-- <div :class="{'active': active == 0}" @click="active = 0">Mix</div> -->
                                         <!-- <div class="max" @click="active = 1">MAX</div> -->
                                         <div class="max" @click="maxActive">{{$t('message.mining.cancel.max')}}</div>
-                                        <div class="desc">
+                                        <div class="desc flex_align_center">
                                             COIN
                                         </div>
                                     </div>
@@ -211,9 +211,6 @@ onMounted(() => {
 <style scoped lang="less">
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;
@@ -272,8 +269,6 @@ onMounted(() => {
                     text-align: center;
                 }
                 .nav{
-                    display: flex;
-                    align-items: center;
                     width: 23.75vw;
                     height: 2.5vw;
                     margin: 0 auto 1.56vw;
@@ -303,8 +298,6 @@ onMounted(() => {
                         .item{
                             .border{
                                 position: relative;
-                                display: flex;
-                                justify-content: space-between;
                                 width: 100%;
                                 height: 6.14vw;
                                 padding: 1.09vw 1.56vw;
@@ -352,8 +345,6 @@ onMounted(() => {
                                         margin-bottom: .4vw;
                                     }
                                     .icon{
-                                        display: flex;
-                                        align-items: center;
                                         justify-content: flex-end;
                                         .max{
                                             width: 4.47vw;
@@ -369,8 +360,6 @@ onMounted(() => {
                                             cursor: pointer;
                                         }
                                         .desc{
-                                            display: flex;
-                                            align-items: center;
                                             font-size: 1.25vw;
                                             font-family: AlibabaPuHuiTi_2_85_Bold;
                                             color: #ffffff;

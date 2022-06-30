@@ -6,18 +6,18 @@
                 <div>{{ $t('message.common.tips1')}}<span> https://cyberpop.online </span>{{ $t('message.common.tips2')}}</div>
                 <img class="close" src="@/assets/nwhome/close.svg" @click="closeWarn" alt="">
             </div>
-            <div class="content" id="header">
+            <div class="content flex_between" id="header">
                 <div class="logo">
                     <a :href="path"><img v-show="!logoHFlag" :src="logoHSrcP" @mouseenter="logoHFlag = true" alt=""></a>
                     <a :href="path"><img v-show="logoHFlag" :src="logoHSrcG" @mouseleave="logoHFlag = false" alt=""></a>
                 </div>
                 <div class="user">
-                    <div class="switch_chain"
+                    <div class="switch_chain flex_center"
                         @mouseover="mouseOver"
                         @mouseleave="mouseLeaveChain"
                         v-show="realId !== -1"
                     >
-                        <div class="select_chain" @click="switchChain" :class="{'selected': chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85}"><img :src="chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.name : chainList.notSupported.name }}</span><div class="blur"></div></div>
+                        <div class="select_chain flex_center" @click="switchChain" :class="{'selected': chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85}"><img :src="chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 80001 || chainId == 85 ? chainList.select.name : chainList.notSupported.name }}</span><div class="blur"></div></div>
                         <div class="hover_chunk" v-show="showChainList">
                             <div class="chunk_wrap">
                                 <div class="cover"></div>
@@ -57,11 +57,11 @@
                             <span>{{ $t('message.home.reg_submit2') }}</span> -->
                         </div>
                     </div>
-                    <div class="login_in" v-if="!loggined" @click="login()" @mouseenter="mouseEnter()" @mouseleave="mouseLeave()">
+                    <div class="login_in flex_center" v-if="!loggined" @click="login()" @mouseenter="mouseEnter()" @mouseleave="mouseLeave()">
                         <div class="txt">{{$t('message.common.wallet')}}</div>
                         <div class="mask" id="mask"></div>
                     </div>
-                    <div class="logged_in" v-if="loggined">
+                    <div class="logged_in flex_center" v-if="loggined">
                         <img class="wallet" src="@/assets/nwhome/wallet.svg" alt="">
                         <div class="idtxt">{{realId}}</div>
                         <img class="portrait" src="@/assets/nwhome/portrait.svg" ref="clickCursor2" alt="" @click="showloggedFlag = !showloggedFlag,hoverLogged = false" @mouseenter="hoverLogged = true" @mouseleave="hoverLogged = false">
@@ -113,7 +113,7 @@
                 </div>
             </div>
             <!-- <div class="white-list" v-show="close && path == '/'">
-                <div class="wrap">
+                <div class="wrap flex_center">
                     <div class="left">Total Raise：<span>$750,000</span></div>
                     <img class="cImg" src="@/assets/nwhome/whitelistbanner_seg.svg" alt="">
                     <div class="right">
@@ -601,8 +601,6 @@ onMounted(() => {
             .content{
                 height: 5.5vw;
                 margin: 0 2.91vw 0 0;
-                display: flex;
-                justify-content: space-between;
                 position: relative;
                 .logo{
                     width: 18.20vw;
@@ -622,9 +620,6 @@ onMounted(() => {
                     display: flex;
                     position: relative;
                     .switch_chain{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
                         font-size: 0.83vw;
                         padding-bottom: .5vw;
                         img{
@@ -636,9 +631,6 @@ onMounted(() => {
                             padding: 0.5vw 1vw;
                             font-size: 1.02vw;
                             color: #DD2ECE;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
                             font-size: .83vw;
                             white-space: nowrap;
                             cursor: pointer;
@@ -775,9 +767,6 @@ onMounted(() => {
                     }
                     .login_in{
                         position: relative;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
                         width: 10.3vw;
                         height: 2.3vw;
                         margin-top: 1.34vw;
@@ -816,9 +805,6 @@ onMounted(() => {
                         }
                     }
                     .logged_in{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
                         position: relative;
                         height: 2.3vw;
                         margin: auto 0;
@@ -1138,9 +1124,6 @@ onMounted(() => {
                 background-image: url('../../assets/nwhome/whitelist_banner.png');
                 background-size: 100% 100%;
                 .wrap{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     position: relative;
                     height: 100%;
                     .left{
