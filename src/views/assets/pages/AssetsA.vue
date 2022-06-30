@@ -214,7 +214,7 @@
             <div class="col td">
                 <div class="name">LootBox</div>
                 <div class="Fuji">0x55eFD6D4cF31F925E36d268C12353848c9e782fD</div>
-                <div class="Mumbai">-----</div>
+                <div class="Mumbai">0x10fdE59432D1d6eE7aD25448e3D8B9b3D2c08b89</div>
             </div>
             <!-- <div class="col td">
                 <div class="name">UGC</div>
@@ -484,7 +484,7 @@ const initLoad = () => {
 }
 
 
-const { nft, nft_fuji, arms, gamePool, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, LootBox, lootBox_Bsc, cytV2, coin } = Web3.contracts;
+const { nft, nft_fuji, arms, gamePool, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, LootBox, lootBox_Bsc, cytV2, coin, game_bsc } = Web3.contracts;
 
 const getData: any = async (type: Number, filter: any = false) => {
     if(!filter) {
@@ -671,12 +671,17 @@ const getData: any = async (type: Number, filter: any = false) => {
             }
             if(chainId.value == 56){
                 if(!type){
+                    let game_result: any = await Web3.balanceOfBatch(game_bsc.abi, game_bsc.address, store.state.myBox?.game);
+                    await getNFTData(game_result, 'game', 'game_bsc', store.state.myBox?.game)
                     let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
                     if(box_result[9] > 0) boxId9.value = true;
                     await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+                    
                 }else if(type == 1){
 
                 }else{
+                    let game_result: any = await Web3.balanceOfBatch(game_bsc.abi, game_bsc.address, store.state.myBox?.game);
+                    await getNFTData(game_result, 'game', 'game_bsc', store.state.myBox?.game)
                     let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
                     if(box_result[9] > 0) boxId9.value = true;
                     await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
@@ -808,6 +813,9 @@ const transferPopup = (item:any) => {
     }else if( item.type == 'box_bsc'){
         abiSelect.value = Web3.contracts.lootBox_Bsc.abi
         addressSelect.value = Web3.contracts.lootBox_Bsc.address
+    }else if( item.type == 'game_bsc'){
+        abiSelect.value = Web3.contracts.game_bsc.abi
+        addressSelect.value = Web3.contracts.game_bsc.address
     }
     console.log(item.type, 'item.type');
     console.log(transferItem.value , 'transferItem.value ');

@@ -524,9 +524,9 @@ onMounted(() => {
             }
             .card{
                 position: absolute;
-                top: 69vw;
-                left: 21vw;
-                width: 20.46vw;
+                top: 67.5vw;
+                left: 24vw;
+                width: 14.46vw;
                 padding: .625vw 1.04vw 1.25vw;
                 background: rgba(40, 38, 38,.9);
                 transform: translate(0,-114%);
