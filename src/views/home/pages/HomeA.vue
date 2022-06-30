@@ -406,7 +406,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                             <div>{{ item.name }}</div>
                             <span>{{ item.desc }}</span>
                         </div>
-                        <div class="text">{{ $t(item.info) }}</div>
+                        <div class="text" v-html="$t(item.info)"></div>
                     </div>
                 </li>
             </ul>
@@ -568,7 +568,7 @@ const teamInfo: any = ref([
         info: 'message.home.team_mem_jie',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_frank.png',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/frank.png',
         name: 'Frank',
         desc: 'Co-Founder',
         info: 'message.home.team_mem_frank',
@@ -586,10 +586,10 @@ const teamInfo: any = ref([
         info: 'message.home.team_mem_nick',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_caroline.png',
-        name: 'Caroline',
-        desc: 'Marketing director',
-        info: 'message.home.team_mem_caroline',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/YuSonEn.png',
+        name: 'Yu Son En',
+        desc: 'Yu Vitalik',
+        info: 'message.home.team_mem_YuSonEn',
     },
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_fy.png',

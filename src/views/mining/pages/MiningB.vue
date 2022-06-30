@@ -1,8 +1,8 @@
 <template>
     <header-b path="/mining" :type="1"></header-b>
-    <div class="section flex_centent_center">
+    <!-- <div class="section flex_centent_center">
         <div class="title">{{$t('message.mining.coming')}}</div>
-    </div>
+    </div> -->
     <div class="mining">
         <div class="banner">
             <div class="title">{{$t('message.mining.title')}}</div>
