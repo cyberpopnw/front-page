@@ -2,23 +2,25 @@
     <header-a path="vote" :type="6"></header-a>
     <div class="container">
         <div class="back">Back</div>
-        <div class="content">
+        <div class="content flex_centent_center">
             <div class="left">
                 <div class="title">[EP14] [Social] Dissolve Community Working Group</div>
                 <div class="card">
-                    <div class="top">
+                    <div class="top flex_align_center">
                         <div class="state sActive"><div>Active</div></div>
                         <img class="logo" src="https://cdn.stamp.fyi/space/cyberpoponline.eth?s=160&cb=1e775ba9559d9a9d" alt="">
                         <div class="space">Cyberpop by <span>game</span></div>
-                        <div class="share" @mouseleave="hoverShare = false">
-                            <div class="sbtn" @click="showShare = !showShare,hoverShare = false" @mouseenter="hoverShare = true">
+                        <div class="share">
+                            <div class="sbtn" @click="showShare = !showShare,hoverShare = false" @mouseenter="hoverShare = true" @mouseleave="hoverShare = false">
                                 <img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/share-icon.svg" alt="">
                                 <span>Share</span>
                             </div>
-                            <ul v-show="showShare || hoverShare">
-                                <li><img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/twitter-w.svg" alt="">Twitter</li>
-                                <li><img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/copy-icon.svg" alt="">Copy link</li>
-                            </ul>
+                            <div class="swrap" v-show="showShare || hoverShare" @mouseenter="hoverShare = true" @mouseleave="hoverShare = false">
+                                <ul>
+                                    <li class="flex_align_center"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/twitter-w.svg" alt="">Twitter</li>
+                                    <li class="flex_align_center"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/copy-icon.svg" alt="">Copy link</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="other">
@@ -42,7 +44,7 @@
                                 If this proposal is passed, the Community Working Group will be dissolved at 
                                 the conclusion of the First Term of 2022, leaving three
                             </div>
-                            <div class="more"><div>Show more</div></div>
+                            <div class="more moreCommon"><div>Show more</div></div>
                         </div>
                         <div class="discussion">
                             <div class="name">Discussion</div>
@@ -64,15 +66,15 @@
                         </div>
                         <div class="votes">
                             <div class="name">Votes <span>408</span></div>
-                            <div>
+                            <div class="options">
                                 <ul>
-                                    <li>
-                                        <div><img src="" alt=""><span>brantly.eth</span></div>
+                                    <li v-for="i in 5" class="flex_between_center">
+                                        <div class="flex_align_center"><img src="https://cdn.stamp.fyi/space/cyberpoponline.eth?s=160&cb=1e775ba9559d9a9d" alt="">brantly.eth</div>
                                         <div>For</div>
-                                        <div><span>260k ENS</span><img src="" alt=""></div>
+                                        <div class="flex_align_center">260k ENS<img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/receipt-icon.svg" alt=""></div>
                                     </li>
                                 </ul>
-                                <div class="more"><div>Show more</div></div>
+                                <div class="more moreCommon"><div>Show more</div></div>
                             </div>
                         </div>
                     </div>
@@ -160,12 +162,11 @@ onMounted(() => {
     padding-top: 5.5vw;
     background: #080808;
     color: #fff;
+    font-size: .93vw;
     .back{
         position: absolute;
     }
     .content{
-        display: flex;
-        justify-content: center;
         .left{
             width: 39.47vw;
             margin-top: 3.64vw;
@@ -186,13 +187,10 @@ onMounted(() => {
                     filter: blur(2px);
                 }
                 .top{
-                    display: flex;
-                    align-items: center;
                     .state{
                         width: 6.77vw;
                         height: 2.23vw;
                         margin-left: -.7vw;
-                        font-size: .93vw;
                         font-family: AlibabaPuHuiTi_2_105_Heavy;
                         line-height: 2.23vw;
                         text-align: center;
@@ -222,7 +220,6 @@ onMounted(() => {
                         margin: 0 .54vw 0 1.04vw;
                     }
                     .space{
-                        font-size: .93vw;
                         font-family: AlibabaPuHuiTi_2_65_Medium;
                         color: rgba(255, 255, 255, 0.5);
                         line-height: 1.3vw;
@@ -233,7 +230,6 @@ onMounted(() => {
                     .share{
                         flex: 1;
                         position: relative;
-                        font-size: .93vw;
                         font-family: AlibabaPuHuiTi_2_65_Medium;
                         color: rgba(255, 255, 255, 0.5);
                         line-height: 1.3vw;
@@ -246,33 +242,33 @@ onMounted(() => {
                             margin-right: .52vw;
                             cursor: pointer;
                         }
-                        ul{
+                        .swrap{
                             z-index: 4;
                             position: absolute;
-                            top: 1.8vw;
+                            top: 1vw;
                             right: 0;
-                            padding: .57vw .78vw 1.14vw;
-                            background: #080808;
-                            box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
-                            text-align: left;
-                            li{
-                                display: flex;
-                                align-items: center;
-                                font-size: .93vw;
-                                font-family: AlibabaPuHuiTi_2_65_Medium;
-                                color: #FFFFFF;
-                                line-height: 1.3vw;
-                                opacity: .5;
-                                cursor: pointer;
-                                img{
-                                    width: 1.14vw;
+                            padding-top: .8vw;
+                            ul{
+                                padding: .57vw .78vw 1.14vw;
+                                background: #080808;
+                                box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
+                                text-align: left;
+                                li{
+                                    font-family: AlibabaPuHuiTi_2_65_Medium;
+                                    color: #FFFFFF;
+                                    line-height: 1.3vw;
+                                    opacity: .5;
+                                    cursor: pointer;
+                                    img{
+                                        width: 1.14vw;
+                                    }
+                                    &:hover{
+                                        opacity: 1;
+                                    }
                                 }
-                                &:hover{
-                                    opacity: 1;
+                                li + li{
+                                    margin-top: .52vw;
                                 }
-                            }
-                            li + li{
-                                margin-top: .52vw;
                             }
                         }
                     }
@@ -292,23 +288,7 @@ onMounted(() => {
                             }
                         }
                         .more{
-                            position: absolute;
-                            bottom: 0;
-                            width: 100%;
-                            height: 3.95vw;
                             background: linear-gradient(180deg, rgba(8, 8, 8, 0) 0%, #080808 100%);
-                            text-align: center;
-                            div{
-                                display: inline-block;
-                                padding: .78vw 1.04vw;
-                                margin-top: .6vw;
-                                font-size: .93vw;
-                                font-family: AlibabaPuHuiTi_2_115_Black;
-                                line-height: 1.3vw;
-                                border: 1px solid #FFFFFF;
-                                // filter: blur(3px);
-                                cursor: pointer;
-                            }
                         }
                     }
                     .discussion{
@@ -328,7 +308,6 @@ onMounted(() => {
                             border-image: linear-gradient(180deg, rgba(151, 151, 151, 0), rgba(94, 47, 253, 1)) 2 2;
                             div:first-child{
                                 margin-bottom: .52vw;
-                                font-size: .93vw;
                                 font-family: AlibabaPuHuiTi_2_85_Bold;
                                 line-height: 1.3vw;
                             }
@@ -384,11 +363,75 @@ onMounted(() => {
                         }
                     }
                     .votes{
-                        
+                        .name{
+                            font-size: 1.25vw;
+                            font-family: AlibabaPuHuiTi_2_85_Bold;
+                            line-height: 1.71vw;
+                            span{
+                                vertical-align: middle;
+                                padding: .1vw .4vw;
+                                margin-left: .88vw;
+                                font-size: .73vw;
+                                font-family: AlibabaPuHuiTi_2_65_Medium;
+                                color: #A1FF3F;
+                                line-height: 1.04vw;
+                                border: 1px solid rgba(161, 255, 63, 0.5);
+                            }
+                        }
+                        .options{
+                            position: relative;
+                            margin: 1.04vw 0 5.1vw;
+                            background: linear-gradient(142deg, rgba(63, 22, 175, 0.48) 0%, rgba(30, 24, 52, 0.81) 100%);
+                            opacity: 0.9;
+                            border: 2px solid;
+                            border-image: linear-gradient(180deg, rgba(151, 151, 151, 0), rgba(94, 47, 253, 1)) 2 2;
+                            li{
+                                height: 3.8vw;
+                                padding: 0 1.04vw;
+                                font-family: AlibabaPuHuiTi_2_65_Medium;
+                                div:first-child{
+                                    img{
+                                        width: 1.3vw;
+                                        height: 1.3vw;
+                                        margin-right: .52vw;
+                                    }
+                                }
+                                div:last-child{
+                                    img{
+                                        height: 1.09vw;
+                                        margin-left: .68vw;
+                                    }
+                                }
+
+                            }
+                            li+li{
+                                border-top: 1px solid #8B8994;
+                            }
+                            .more{
+                                background: linear-gradient(180deg, rgba(30, 21, 69, 0) 0%, #1E1545 100%);
+                            }
+                        }
                     }
                 }
             }
         }   
+    }
+}
+.moreCommon{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3.95vw;
+    text-align: center;
+    div{
+        display: inline-block;
+        padding: .78vw 1.04vw;
+        margin-top: .6vw;
+        font-family: AlibabaPuHuiTi_2_115_Black;
+        line-height: 1.3vw;
+        border: 1px solid #FFFFFF;
+        // filter: blur(3px);
+        cursor: pointer;
     }
 }
 </style>

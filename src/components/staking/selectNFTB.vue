@@ -12,8 +12,8 @@
                     </div>
                 </thead>
                 <div class="tbody">
-                    <div class="item" v-for="item in 6" :key="item">
-                        <div class="name">
+                    <div class="item flex_align_center" v-for="item in 6" :key="item">
+                        <div class="name flex_align_center">
                             <img src="https://cyberpop.mypinata.cloud/ipfs/QmPx82XhgdmkgEy1C8t2zivFZfySn7krCv3wSdfLeKwZfS" alt="">
                             <span>Kakulupia</span>
                         </div>
@@ -184,8 +184,6 @@ onMounted(() => {
                 }
                 .name{
                     width: 128px;
-                    display: flex;
-                    align-items: center;
                     img{
                         margin-right: 5px;
                         width: 44px;
@@ -193,17 +191,11 @@ onMounted(() => {
                 }
                 .id{
                     width: 49px;
-                    display: flex;
-                    align-items: center;
                 }
                 .HashRate{
                     width: 66px;
-                    display: flex;
-                    align-items: center;
                 }
                 .Operate{
-                    display: flex;
-                    align-items: center;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     font-weight: bold;
                     .stak{

@@ -1,14 +1,14 @@
 <template>
-    <div class="message" :class="comingOutFlag ? 'comingOut' : 'comingIn'" v-if="state == 0">
-        <div class="info">
+    <div class="message flex_align_center" :class="comingOutFlag ? 'comingOut' : 'comingIn'" v-if="state == 0">
+        <div class="info flex_center">
             <img src="@/assets/nwhome/warning.svg" alt="">
         </div>
         <div class="text">{{txt}}</div>
         <img @click="closeDialog()" class="close" src="@/assets/nwhome/warning-close.svg" alt="">
     </div>
 
-    <div class="message success" :class="comingOutFlag ? 'comingOut' : 'comingIn'"  v-if="state == 1">
-        <div class="info successIcon">
+    <div class="message success flex_align_center" :class="comingOutFlag ? 'comingOut' : 'comingIn'"  v-if="state == 1">
+        <div class="info successIcon flex_center">
             <img src="@/assets/nwhome/success-fill.svg" alt="">
         </div>
         <div class="text successTxt">{{txt}}</div>
@@ -68,8 +68,6 @@ onMounted(() => {
 }
 .message{
     z-index: 188;
-    display: flex;
-    align-items: center;
     position: fixed;
     top: 0;
     right: 0;
@@ -82,9 +80,6 @@ onMounted(() => {
     border: 1px solid #FF5CA1;
     animation-fill-mode: forwards;
     .info{
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 3vw;
         height: 3vw;
         background: rgba(255, 82, 82, 0.16);

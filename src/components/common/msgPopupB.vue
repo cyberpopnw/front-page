@@ -1,12 +1,12 @@
 <template>
-    <div class="container" v-show="isShowTips">
+    <div class="container flex_center" v-show="isShowTips">
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide') ">
             <img class="close" v-if="props.isClose" src="@/assets/nwhome/close.svg" alt=""  @click="close">
             <div class="content">
                 <div class="title">{{ props.title }}</div>
                 <!-- <div class="text">{{ props.content == 'netWork' ? $t('message.common.metamask.switch') : props.content }} <a v-if="props.addNetwork" href="https://chainlist.org/" target="_blank">{{ $t('message.common.metamask.add1') }}</a> </div> -->
                 <div class="text" v-if="props.addNetwork">{{ $t('message.common.metamask.switch') }} <br/>
-                    <div class="buttons">
+                    <div class="flex_between">
                         <span @click="changeChain(56)">{{ $t('message.common.metamask.switchBSC') }}</span>
                         <span @click="changeChain(43113)">{{ $t('message.common.metamask.switchFuji') }}</span> 
                         <span @click="changeChain(80001)">{{ $t('message.common.metamask.switchMumbai') }}</span>    
@@ -17,7 +17,7 @@
                 <div v-if="boxId != undefined">
                     <div class="tips" v-show="numState == ''">{{$t('message.assets.pop.tips')}}</div>
                     <div class="tips" v-show="numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
-                    <div class="number">
+                    <div class="number flex_between_center">
                         <div class="add" @click="addNft()" :class="canAdd == 'disable' ? 'disableNum':''">+</div>
                         <input id="inputNum" type="text" :value="valueIn" @input="inputNumber($event)">
                         <div class="reduce" @click="reduceNft()" :class="canReduce == 'disable' ? 'disableNum':''">—</div>
@@ -26,7 +26,7 @@
                         <div :class="{'active': active == 0}" @click="active = 0">Mix</div>
                         <div :class="{'active': active == 1}" @click="active = 1">Max</div>
                     </div>
-                    <div class="unpack" v-if="!isUnpack" @click="unpack">{{ $t('message.details.box_btn_open') }}</div>
+                    <div class="unpack flex_centent_center" v-if="!isUnpack" @click="unpack">{{ $t('message.details.box_btn_open') }}</div>
                     <div v-if="props.content && isUnpack" class="text">{{ props.content }}</div>
                     <div v-if="props.content && isUnpack" class="loading">
                         <img src="@/assets/nwhomePhone/loading-phone.svg" alt="">
@@ -208,9 +208,6 @@ onMounted(() => {
     }
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;
@@ -248,9 +245,6 @@ onMounted(() => {
                     line-height: 39px;
                 }
                 .number{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
                     width: 100%;
                     height: 40px;
                     .add.disableNum,.reduce.disableNum,.transfer.disableNum{
@@ -309,8 +303,6 @@ onMounted(() => {
                     background-size: 100% 100%;
                     background-repeat: no-repeat;
                     font-size: 7.64vw;
-                    display: flex;
-                    justify-content: center;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                 }
                 .text{
@@ -332,10 +324,6 @@ onMounted(() => {
                         color: rgb(255, 24, 255);
                         border: 1px solid rgb(255, 24, 255);
                         filter: drop-shadow(0 0 1px rgb(255, 24, 255));
-                    }
-                    .buttons{
-                        display: flex;
-                        justify-content: space-between;
                     }
                     a{
                         color: #fff;

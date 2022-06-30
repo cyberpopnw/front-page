@@ -2,7 +2,7 @@
     <header-b path="/" :type="0"></header-b>
     <my-video v-if="isPlay" @touchmove.prevent :mobel="true" :videotype="type2" @click="playVideo"></my-video>
 
-    <!-- <div class="white-list" v-show="close">
+    <!-- <div class="white-list flex_center" v-show="close">
         <div class="name">IDO WHITELISTS OPEN</div>
         <div class="total">Total Raise：<span>$750,000</span></div>
         <div class="desc">
@@ -18,14 +18,14 @@
 id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed6255c8406b7294d.mp4`]" img="https://d2cimmz3cflrbm.cloudfront.net/nwhome/videobg3.png">
             </video-bg>
             <div class="titles"> 
-                <div class="title-wrap">
+                <div class="title-wrap flex_center">
                     <div class="title1" id="title1">{{$t('message.home.banner_title1Bef')}}<br/>{{$t('message.home.banner_title1Aft')}}</div>
                     <div class="title2">
                         {{$t('message.home.banner_title2')}}
                     </div>
-                    <div class="btnbox">
-                        <div class="btn-register" @click="playToEarn()"><div>{{$t('message.home.banner_btn1')}}</div></div>
-                        <div class="btn-video" @click="playVideo(5)">
+                    <div class="btnbox flex_centent_center">
+                        <div class="btn-register flex_center" @click="playToEarn()"><div>{{$t('message.home.banner_btn1')}}</div></div>
+                        <div class="btn-video flex_center" @click="playVideo(5)">
                             <div>{{$t('message.home.banner_btn2')}}</div>
                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/section-btnPlay.svg" alt="">
                         </div>
@@ -56,7 +56,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         </div>
         <div class="down_button" @click="downloadGame">
             <img class="person" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
-            <div class="down_cyberpop">
+            <div class="down_cyberpop flex_center">
                 <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
                 <b>DOWNLOAD CYBERPOP</b>
             </div>
@@ -145,7 +145,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         </div>
     </div>
     <div class="nobody">
-        <div class="nobody-wrap">
+        <div class="nobody-wrap flex_align_center">
             <div class="nobody-left">
                 <div class="nobody-img"></div>
                 <!-- <img id="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/nobody-leftBg3.png" alt="">
@@ -186,7 +186,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                     </swiper-slide>
                 </swiper>
             </div>
-            <div class="nobody-right">
+            <div class="nobody-right flex_align_center">
                 <div class="title" id="ele2">{{$t('message.home.nobody_r_titleBef')}}<br/>{{$t('message.home.nobody_r_titleAft')}}</div>
                 <div class="subtitle">{{$t('message.home.nobody_r_subtitle')}}</div>
                 <div class="desc">
@@ -195,7 +195,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <div class="video">
                     <img class="videoBg" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/yellowBg-r.svg" alt="">
                     <img class="banner" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/nobody-videoBg.png" alt="">
-                    <div class="video-wrap">
+                    <div class="video-wrap flex_center">
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/nobody-controls.svg" alt="" @click="playVideo(4)">
                     </div>
                     <div class="content">
@@ -271,10 +271,10 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
     <div class="news">
         <div class="news-wrap">
             <div class="title" id="ele4">{{$t('message.home.news_title')}}</div>
-            <div class="news-top" @click="toYoutube($event)">
+            <div class="news-top flex_align_center" @click="toYoutube($event)">
                 <div class="channel">{{$t('message.home.news_lt_channel')}}</div>
                 <div class="arrival">{{$t('message.home.news_lt_arrival')}}</div>
-                <div class="news-logo">
+                <div class="news-logo flex_align_center">
                     <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/news-logo.svg" alt="">
                     <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/youtube-play.svg" alt="">
                 </div>
@@ -411,10 +411,10 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         </div>
     </div>
     <div class="partners">
-        <div class="title" id="ele6">{{ $t('message.home.part_title') }}
+        <div class="title flex_center" id="ele6">{{ $t('message.home.part_title') }}
             <img class="xplan" @click="showxplan()" src="@/assets/nwhome/xplan.svg" alt="" >
         </div>
-        <div class="logo">
+        <div class="logo flex_between">
             <a href="https://www.ubisoft.com/en-us/" target="view_window">
                 <img class="logo9" src="@/assets/nwhome/UBISOFT.png" alt="">
             </a>
@@ -506,7 +506,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
     </div>
     <div class="will">
         <div class="title" id="ele6">{{ $t('message.home.will_title') }}</div>
-        <ul class="logo">
+        <ul class="logo flex_centent_center">
             <li>
                 <img class="logo3" src="@/assets/nwhome/googleplay.svg" alt="">
                 <div class="googleplay">{{ $t('message.home.will_logo3_txt') }}</div>
@@ -525,7 +525,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             </li>
         </ul>
     </div>
-    <div class="register">
+    <div class="register flex_align_center">
         <div class="title">{{ $t('message.home.reg_title') }}</div>
         <div class="subtitle">{{ $t('message.home.reg_subtitle') }}</div>
         <div class="email">
@@ -964,10 +964,7 @@ onMounted(() => {
         z-index: 9;
         position: fixed;
         top: 0px;
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         width: 100%;
         height: 192px;
         margin: 55px 0 0;
@@ -1028,10 +1025,7 @@ onMounted(() => {
                 background-position: -1vw 1vw;
                 .title-wrap{
                     height: 100%;
-                    display: flex;
-                    flex-direction: column;            
-                    justify-content: center;
-                    align-items: center;
+                    flex-direction: column;  
                     .title1{
                         // width: 273px;
                         // height: 47px;
@@ -1056,12 +1050,7 @@ onMounted(() => {
                         text-align: center;
                     }
                     .btnbox{
-                        display: flex;
-                        justify-content: center;
                         .btn-register{
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
                             width: 213px;
                             height: 75px;
                             margin-right: -6%;
@@ -1078,9 +1067,6 @@ onMounted(() => {
                             }
                         }
                         .btn-video{
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
                             width: 213px;
                             height: 75px;
                             margin-left: -6%;
@@ -1239,9 +1225,6 @@ onMounted(() => {
                 height: 60px;
                 background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_button2.png');
                 background-size: 100% 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 font-size: 16px;
                 font-family: AlibabaPuHuiTi_2_115_Black;
                 color: #FFFFFF;
@@ -1487,9 +1470,7 @@ onMounted(() => {
         .nobody-wrap{
             width: 100%;
             height: 100%;
-            display: flex;
             flex-direction: column;
-            align-items: center;
             .nobody-left{
                 position: relative;
                 width: 100%;
@@ -1538,9 +1519,7 @@ onMounted(() => {
                 }
             }
             .nobody-right{
-                display: flex;
                 flex-direction: column;
-                align-items: center;
                 z-index: 0;
                 width: 100%;
                 height: 560px;
@@ -1591,9 +1570,6 @@ onMounted(() => {
                         padding: 2px;
                     }
                     .video-wrap{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
                         width: 100%;
                         height: 105px;
                         background: #000000;
@@ -1870,8 +1846,8 @@ onMounted(() => {
                 .openUrl{
                     div{
                         display: flex;
-                        flex-direction: column;
                         align-items: center;
+                        flex-direction: column;
                         img:nth-child(1){
                             width: 276px;
                             height: 63px;
@@ -1929,9 +1905,7 @@ onMounted(() => {
             }
             .news-top{
                 text-align: center;
-                display: flex;
                 flex-direction: column;
-                align-items: center;
                 .channel{
                     height: 28px;
                     font-size: 16px;
@@ -1952,9 +1926,7 @@ onMounted(() => {
                     background: #04FFA2;
                 }
                 .news-logo{
-                    display: flex;
                     flex-direction: column;
-                    align-items: center;
                     img:nth-child(1){
                         width: 157px;
                         height: 120px;
@@ -2343,9 +2315,6 @@ onMounted(() => {
         background-color: #000000;
         overflow: hidden;
         .title{
-            display: flex;
-            align-items: center;
-            justify-content: center;
             height: 31px;
             margin-bottom: 36px;
             font-size: 22px;
@@ -2362,8 +2331,6 @@ onMounted(() => {
             }
         }
         .logo{
-            display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
             width: 100%;   
             padding: 0 38px;
@@ -2434,8 +2401,6 @@ onMounted(() => {
             text-align: center;
         }
         .logo{
-            display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             margin: 30px 0;
             li{
@@ -2474,9 +2439,7 @@ onMounted(() => {
         }
     }
     .register{
-        display: flex;
         flex-direction: column;
-        align-items: center;
         height: 222px;
         background: #04FF55;
         .title{

@@ -1,6 +1,6 @@
 <template>
     <header-b path="/mining" :type="1"></header-b>
-    <div class="section">
+    <div class="section flex_centent_center">
         <div class="title">{{$t('message.mining.coming')}}</div>
     </div>
     <div class="mining">
@@ -99,7 +99,7 @@
                 <ul>
                     <li>
                         <p class="title">{{$t('message.mining.my_power')}}</p>
-                        <p class="number_list"> <span class="number">0</span> <span class="dollar">≈ $0.278</span></p>
+                        <p class="flex_align_center"> <span class="number">0</span> <span class="dollar">≈ $0.278</span></p>
                     </li>
                     <li>
                         <p class="title">{{$t('message.mining.my_staked')}}</p>
@@ -192,7 +192,7 @@
        <div class="days">
             <div class="title">{{$t('message.mining.Days')}}</div>
             <div class="total_day">{{$t('message.mining.cycle_days')}}: <span>30{{$t('message.mining.day')}}</span></div>
-            <div class="content">
+            <div class="content flex_align_center">
                 <div :style="{'width': progress + '%'}"></div>
             </div>
             <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">{{floorTofixed(progress,2)}}%</span></div>
@@ -203,7 +203,7 @@
                     <p>{{$t('message.mining.farms')}}</p>
                     <p>{{$t('message.mining.farms_subtitle')}}</p>
                 </div>
-                <div class="texts">
+                <div class="texts flex_align_center">
                     <div class="texts-img"></div>
                     <div class="texts-info">
                         <p>{{$t('message.mining.total_lp')}}</p>
@@ -213,7 +213,7 @@
             </div>
             <div class="content">
                 <div class="item" v-for="item in 1" :key="item">
-                    <div class="top">
+                    <div class="top flex_align_center">
                         <div class="top_element1"></div>
                         <div class="top_element2"></div>
                         <div class="title">COIN</div>
@@ -240,7 +240,7 @@
                         <div class="table cancelStake btnfont" @click="cancelStake(2)">{{$t('message.mining.Cancel')}}</div>
                     </div>
                     <div class="bottom">
-                        <div class="bottom-item">
+                        <div class="bottom-item flex_between_center">
                             <div class="table bottom_element2">
                                 <div class="title">{{$t('message.mining.Harvest_cyt')}} ≈ $0</div>
                                 <div class="desc">{{ earnedCoin }}</div>
@@ -248,7 +248,7 @@
                             <div class="harvest btnfont" @click="stakingCoin(2)">{{$t('message.mining.Harvest_btn')}}</div>
                         </div>
                         <div class="line"></div>
-                        <div class="bottom-item">
+                        <div class="bottom-item flex_between_center">
                             <div class="table staked">
                                 <p class="title">{{$t('message.mining.Staked_cyt')}}</p>
                                 <div class="desc">{{ myStakCytCoin }}</div>
@@ -428,8 +428,8 @@ const stakingCoin = async (type: any) => { // type 1:stake 2:havest
 }
 
 const stakingNFT = async () => {
-    // store.dispatch('user/xplanChangeAni', true);
-    // isShowSelectNFT.value = true;
+    store.dispatch('user/xplanChangeAni', true);
+    isShowSelectNFT.value = true;
 }
 
 
@@ -605,8 +605,6 @@ onMounted(async () => {
     .section{
         z-index: 8;
         position: fixed;
-        display: flex;
-        justify-content: center;
         top: 0;
         width: 100%;
         height: 120vh;
@@ -805,10 +803,6 @@ onMounted(async () => {
                             line-height: 20px;
                             text-align: center;
                         }
-                        .number_list{
-                            display: flex;
-                            align-items: center;
-                        }
                         .number{
                             margin-top: 6px;
                             font-size: 28px;
@@ -912,8 +906,6 @@ onMounted(async () => {
                 }
             }
             .content{
-                display: flex;
-                align-items: center;
                 width: 100%;
                 height: 8px;
                 margin: 26px 0;
@@ -966,11 +958,11 @@ onMounted(async () => {
                     .have-stak{
                         height: 100%;
                         display: flex;
-                        color: #DFF;
                         flex-wrap: wrap;
                         justify-content: center;
                         align-items: center;
                         text-align: center;
+                        color: #DFF;
                         p{
                             font-size: 16px;
                             line-height: 18px;
@@ -1145,8 +1137,6 @@ onMounted(async () => {
                     }
                 }
                 .texts{
-                    display: flex;
-                    align-items: center;
                     &-img{
                         width: 115px;
                         height: 98px;
@@ -1185,8 +1175,6 @@ onMounted(async () => {
                     position: relative;
                     .top{
                         height: 82px;
-                        display: flex;
-                        align-items: center;
                         padding-left: 10px;
                         .top_element1, .top_element2{
                             width: 42px;
@@ -1249,9 +1237,6 @@ onMounted(async () => {
                         flex-direction: column;
                         &-item{
                             height: 132px;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
                             padding: 0 15px 0 10px;
                             .table{
                                 .title{

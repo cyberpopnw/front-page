@@ -1,5 +1,5 @@
 <template>
-    <div class="container" v-show="isShowTips">
+    <div class="container flex_center" v-show="isShowTips">
         <div class="mask" :style="{'height': boxId != undefined ? '27vw' : '16vw'}" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide') ">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -33,7 +33,7 @@
                         <div :class="{'active': active == 0}" @click="active = 0">Mix</div>
                         <div :class="{'active': active == 1}" @click="active = 1">Max</div>
                     </div>
-                    <div class="unpack" v-if="!isUnpack" @click="unpack">{{ $t('message.details.box_btn_open') }}</div>
+                    <div class="unpack flex_centent_center" v-if="!isUnpack" @click="unpack">{{ $t('message.details.box_btn_open') }}</div>
                     <div v-if="props.content && isUnpack" class="text">{{ props.content }}</div>
                     <div v-if="props.content && isUnpack" class="loading">
                         <img src="@/assets/nwhomePhone/loading-phone.svg" alt="">
@@ -195,9 +195,6 @@ onMounted(() => {
     }
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;
@@ -411,8 +408,6 @@ onMounted(() => {
                     background-repeat: no-repeat;
                     cursor: pointer;
                     font-size: 1.64vw;
-                    display: flex;
-                    justify-content: center;
                     cursor: pointer;
                     align-items: center;
                     font-family: AlibabaPuHuiTi_2_115_Black;

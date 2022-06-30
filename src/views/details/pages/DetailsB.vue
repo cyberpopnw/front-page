@@ -34,7 +34,7 @@
                 <div class="view" :class="{'not-allowed': chainId == 56 }" @click="opensea">{{$t('message.details.box_btn_view')}}</div>
             </div>
         </div>
-        <div class="changeMenu">
+        <div class="changeMenu flex_centent_center">
             <div class="content" :class="exMenu == 0 ? 'active':''" @click="intClick(0)">{{$t('message.details.exMenu1')}}</div>
             <div class="intro" :class="exMenu == 1 ? 'active':''" @click="intClick(1)">{{$t('message.details.exMenu2')}}</div>
             <!-- <div class="terms" :class="exMenu == 2 ? 'active':''" @click="intClick(2)">{{$t('message.details.exMenu3')}}</div> -->
@@ -429,33 +429,6 @@ onMounted( () => {
 
 </script>
 <style lang="less" scoped>
-    .section{
-        z-index: 8;
-        position: fixed;
-        display: flex;
-        justify-content: center;
-        top: 0;
-        width: 100%;
-        height: 120vh;
-        background: rgba(0,0,0,.5);
-        overflow: hidden;
-        .title{
-            width: 100%;
-            height: 90px;
-            margin-top: 200px;
-            font-size: 18px;
-            font-family: AlibabaPuHuiTi_2_75_SemiBold;
-            color: #FFFFFF;
-            line-height: 90px;
-            letter-spacing: 18px;
-            text-align: center;
-            text-indent: 14px;
-            background-image: url('../../../assets/nwmining/coming-bg.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 110% auto;
-        }
-    }
     .details{
         padding: 0 36px;
         color: #ffffff;
@@ -580,9 +553,6 @@ onMounted( () => {
             }
         }
         .changeMenu{
-            display: flex;
-            // justify-content: space-between;
-            justify-content: center;
             height: 30px;
             margin: 40px 0 24px;
             font-size: 16px;

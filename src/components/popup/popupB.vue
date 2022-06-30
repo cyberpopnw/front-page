@@ -5,7 +5,7 @@
                 <div class="title">{{$t('message.assets.pop.title')}}</div>
                 <div class="tips" v-show="numState == ''">{{$t('message.assets.pop.tips')}}</div>
                 <div class="tips" v-show="numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
-                <div class="number">
+                <div class="number flex_between_center">
                     <div class="add" @click="addNft()" :class="canAdd == 'disable' ? 'disableNum':''">+</div>
                     <input id="inputNum" type="text" :value="valueIn" @input="inputNumber($event)">
                     <div class="reduce" @click="reduceNft()" :class="canReduce == 'disable' ? 'disableNum':''">—</div>
@@ -16,7 +16,7 @@
                     <div class="mess" v-if="addressState == 'empty'">{{$t('message.assets.pop.mess_empty')}}</div>
                     <div class="mess" v-if="addressState == 'error'">{{$t('message.assets.pop.mess_err')}}</div>
                 </div>
-                <div class="btn">
+                <div class="btn flex_between_center">
                     <div class="cancel" @click="closeDialog()">{{$t('message.assets.pop.btn_cancel')}}</div>
                     <div class="transfer" :class="canTransfer == 'disable' ? 'disableNum':''" @click="transfer()">{{$t('message.assets.pop.btn_tran')}}</div>
                 </div>
@@ -249,9 +249,6 @@ onMounted(() => {
                 line-height: 22px;
             }
             .number{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
                 width: 100%;
                 height: 40px;
                 .add,.reduce{
@@ -323,9 +320,6 @@ onMounted(() => {
                 }
             }
             .btn{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
                 width: 100%;
                 height: 48px;
                 .cancel{    

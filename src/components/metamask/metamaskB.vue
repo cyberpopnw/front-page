@@ -13,7 +13,7 @@
                 </div>
                 <div class="desc" v-if="!isInstall">{{$t('message.common.metamask.descBef')}}<strong>{{$t('message.common.metamask.logoText')}}</strong>{{$t('message.common.metamask.descNAft')}}</div>
                 <div class="desc" v-if="isInstall">{{$t('message.common.metamask.descIns')}}</div>
-                <div class="btn" v-if="!isInstall">
+                <div class="btn flex_between" v-if="!isInstall">
                     <div class="cancel" @click="closePopUp()">{{$t('message.common.metamask.cancel')}}</div>
                     <div class="open"><a @click="closePopUp()" href="https://metamask.io/" target="view_window">{{$t('message.common.metamask.open')}}</a></div>
                 </div>
@@ -139,8 +139,6 @@ const closePopUp = () => {
                 }
             }
             .btn{
-                display: flex;
-                justify-content: space-between;
                 width: 100%;
                 height: 48px;
                 margin-top: 30px;

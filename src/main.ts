@@ -36,7 +36,7 @@ import boxOpenedB from './components/assets/boxOpenedB.vue';
 import registerA from './components/common/registerA.vue';
 import registerB from './components/common/registerB.vue';
 import Waiting from './components/staking/waiting.vue';
-
+import './assets/common/common.css'
 
 import vue3videoPlay from 'vue3-video-play' 
 import 'vue3-video-play/dist/style.css' 

@@ -71,16 +71,6 @@ const routes = [
         },
     },
     {
-        name: 'cyberspace',
-        path: '/cyberspace',
-        component: () => import('../views/cyberspace/index.vue'),
-        meta: {
-            keepAlive: false,
-            showFooter: true,
-            transition: 'slide-right',
-        },
-    },
-    {
         name: 'knapsack',
         path: '/knapsack',
         component: () => import('../views/assets/index.vue'),

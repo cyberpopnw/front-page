@@ -13,7 +13,7 @@
                 </div>
                 <div class="desc" v-if="!isInstall">{{$t('message.common.metamask.descBef')}}<strong>{{$t('message.common.metamask.logoText')}}</strong>{{$t('message.common.metamask.descNAft')}}</div>
                 <div class="desc" v-if="isInstall">{{$t('message.common.metamask.descIns')}}</div>
-                <div class="btn" v-if="!isInstall">
+                <div class="btn flex_between" v-if="!isInstall">
                     <div class="cancel" @click="closePopUp()">
                         <div>{{$t('message.common.metamask.cancel')}}</div>
                         <div class="bg"></div>
@@ -142,8 +142,6 @@ const closePopUp = () => {
                 }
             }
             .btn{
-                display: flex;
-                justify-content: space-between;
                 width: 23.68vw;
                 height: 2.91vw;
                 margin: 2.91vw 0 0 2.91vw;

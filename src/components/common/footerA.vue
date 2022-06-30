@@ -22,7 +22,7 @@
         <div class="email_box">
             <div class="title">{{$t('message.common.footer_email_title')}}</div>
             <div class="des">{{$t('message.common.footer_email_desc')}}</div>
-            <div class="email_botton" @click="openEmail">
+            <div class="email_botton flex_center" @click="openEmail">
                 <div class="border"></div>
                 <div>{{$t('message.common.footer_email_title')}}</div><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt="">
             </div>
@@ -140,9 +140,6 @@ onMounted(() => {
             }
             .email_botton{
                 position: relative;
-                display: flex;
-                justify-content: center;
-                align-items: center;
                 padding: .3vw .8vw;
                 transition: all .2s ease-in-out;
                 cursor: pointer;

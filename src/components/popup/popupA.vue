@@ -19,7 +19,7 @@
                     <div class="mess" v-if="addressState == 'error'">{{$t('message.assets.pop.mess_err')}}</div>
                 </div>
                 <div class="btn">
-                    <div class="btn-wrap">
+                    <div class="btn-wrap flex_between_center">
                         <div class="cancel" @click="closeDialog()">{{$t('message.assets.pop.btn_cancel')}}</div>
                         <div class="transfer" :class="canTransfer == 'disable' ? 'disableNum':''" @click="transfer()">{{$t('message.assets.pop.btn_tran')}}</div>
                     </div>
@@ -354,9 +354,6 @@ onMounted(() => {
                 justify-content: flex-end;
                 width: 100%;
                 .btn-wrap{  
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
                     width: 18.33vw;
                     height: 2.91vw;
                     .cancel{    

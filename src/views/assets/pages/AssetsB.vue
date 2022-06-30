@@ -1,6 +1,6 @@
 <template>
     <header-b path="javascript:scrollTo(0,0);" :type="0"></header-b>
-    <!-- <div class="section">
+    <!-- <div class="section flex_centent_center">
         <div class="title">COMING SOON</div>
     </div> -->
     <div class="assets">
@@ -896,8 +896,6 @@ onMounted(async () => {
     .section{
         z-index: 8;
         position: fixed;
-        display: flex;
-        justify-content: center;
         top: 0;
         width: 100%;
         height: 120vh;

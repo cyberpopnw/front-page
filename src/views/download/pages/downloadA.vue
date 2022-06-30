@@ -18,17 +18,17 @@
         <div class="down_button">
             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
             <div class="tips">DOWNLOAD CYBERPOP</div>
-            <div class="buttons">
-                <div class="down_cyberpop" @click="downloadGame(0)">
+            <div class="buttons flex_between">
+                <div class="down_cyberpop flex_center" @click="downloadGame(0)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
                     <b>{{ $t('message.download.Android') }}</b>
                 </div>
-                <div class="down_cyberpop" @click="downloadGame(1)">
+                <div class="down_cyberpop flex_center" @click="downloadGame(1)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/windows.png" alt="">
                     <b>{{ $t('message.download.windows') }}</b>
                     <div class="version">{{ $t('message.download.version') }}</div>
                 </div>
-                <div class="down_cyberpop not-error" @click="downloadGame(2)">
+                <div class="down_cyberpop not-error flex_center" @click="downloadGame(2)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
                     <b>{{ $t('message.download.ios') }}</b>
                 </div>
@@ -383,16 +383,11 @@ onMounted(() => {
                 top: 5vw;
             }
             .buttons{
-                display: flex;
-                justify-content: space-between;
                 .down_cyberpop{
                     width: 15.10vw;
                     height: 4.06vw;
                     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_button2.png');
                     background-size: 100% 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                     font-size: 1.14vw;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     color: #FFFFFF;

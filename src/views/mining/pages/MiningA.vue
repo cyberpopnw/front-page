@@ -1,6 +1,6 @@
 <template>
     <header-a path="/mining" :type="1"></header-a>
-    <div class="section">
+    <div class="section flex_centent_center">
         <div class="title">{{$t('message.mining.coming')}}</div>
     </div>
     <div class="mining">
@@ -14,7 +14,7 @@
                     <img class="ballBorder" src="https://d2cimmz3cflrbm.cloudfront.net/nwmining/ballBorder.svg" alt="">
                     <div class="ball-inner"></div>
                 </div>
-                <div class="right">
+                <div class="right flex_center">
                     <div class="right_content">
                         <div class="total-title">{{$t('message.mining.pool_amount')}}</div>
                         <div class="price">-- --</div>
@@ -45,7 +45,7 @@
         </div>
         <div class="Operation">
             <div class="owrap">
-                <ul>
+                <ul class="flex_align_center">
                     <li>
                         <div class="txt">{{$t('message.mining.total_staked')}}</div>
                         <div class="number">{{ getTotalSupply }}</div>
@@ -129,7 +129,7 @@
                     </div>
                 </li>
             </ul>
-            <div class="Harvest">
+            <div class="Harvest flex_between_center">
                 <div class="texts">
                     <div class="exchange">{{ $t('message.mining.you_earn') }} (COIN)</div>
                     <div class="price">{{ earned }}</div>
@@ -201,12 +201,12 @@
         </div> -->
         <div class="days">
             <!-- <div class="title">{{$t('message.mining.Days')}}</div> -->
-            <div class="progress">
+            <div class="progress flex_align_center">
                 <div class="cwrap">
                     <div class="content">
                         <div :style="{'width': progress + '%'}"></div>
                     </div>
-                    <div class="date">
+                    <div class="date flex_between">
                         <div class="total_day">{{$t('message.mining.current_pro')}}：<span class="white">{{floorTofixed(progress,2)}}%</span></div>
                         <div class="total_day">{{$t('message.mining.cycle_days')}}: <span>30{{$t('message.mining.day')}}</span></div>
                     </div>
@@ -216,8 +216,8 @@
         </div>
         <div class="farms">
             <div class="background">
-                <div class="elements">
-                    <div class="left">
+                <div class="elements flex_between">
+                    <div class="left flex_align_center">
                         <div class="img_title"></div>
                         <div class="texts">
                             <p class="title">{{$t('message.mining.total_lp')}}</p>
@@ -236,7 +236,7 @@
             </div>
             <div class="content">
                 <div class="item" v-for="item in 1" :key="item">
-                    <div class="top">
+                    <div class="top flex_align_center">
                         <div class="top_element1"></div>
                         <div class="top_element2"></div>
                         <!-- <div class="table">
@@ -268,7 +268,7 @@
                             <div>{{$t('message.mining.Cancel')}}</div>
                         </div>
                     </div>
-                    <div class="bottom">
+                    <div class="bottom flex_align_center">
                         <div class="table">
                             <div class="title">{{$t('message.mining.Earned')}}</div>
                             <div class="desc">≈ {{ earnedCoin }}</div>
@@ -458,8 +458,8 @@ const stakingCoin = async (type: any) => { // type 1:stake 2:havest
 }
 
 const stakingNFT = async () => {
-    // store.dispatch('user/xplanChangeAni', true);
-    // isShowSelectNFT.value = true;
+    store.dispatch('user/xplanChangeAni', true);
+    isShowSelectNFT.value = true;
 }
 
 
@@ -658,8 +658,6 @@ onMounted(async () => {
     .section{
         z-index: 12;
         position: fixed;
-        display: flex;
-        justify-content: center;
         top: 0;
         width: 100%;
         height: 100vh;
@@ -756,9 +754,6 @@ onMounted(async () => {
                 }
                 .right{
                     margin-left: 2.13vw;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     .right_content{
                         .total-title{
                             height: 1.71vw;
@@ -926,9 +921,6 @@ onMounted(async () => {
                 position: absolute;
                 right: 0;
                 top: 0;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
                 width: 19.11vw;
                 height: 7.18vw;
                 padding: 0 1.30vw .6vw 1.56vw;
@@ -989,8 +981,6 @@ onMounted(async () => {
             }
             .progress{
                 position: relative;
-                display: flex;
-                align-items: center;
                 height: 10vw;
                 .cwrap{
                     width: 100%;
@@ -1021,8 +1011,6 @@ onMounted(async () => {
                     }
                 }
                 .date{
-                    display: flex;
-                    justify-content: space-between;
                     margin-top: 1.4vw;
                     color: #B3B3B3;
                     font-size: 1.04vw;
@@ -1038,8 +1026,6 @@ onMounted(async () => {
                 }
             }
             .date{
-                display: flex;
-                justify-content: space-between;
                 margin-top: 1.4vw;
                 color: #B3B3B3;
                 font-size: 1.04vw;
@@ -1084,10 +1070,10 @@ onMounted(async () => {
                     .have-stak{
                         height: 100%;
                         display: flex;
-                        color: #DFF;
                         flex-wrap: wrap;
                         justify-content: center;
                         align-items: center;
+                        color: #DFF;
                         text-align: center;
                         cursor: pointer;
                         p{
@@ -1251,12 +1237,8 @@ onMounted(async () => {
                     margin: 0 auto;
                     width: 61.3vw;
                     padding-top: 4.73vw;
-                    display: flex;
-                    justify-content: space-between;
                     .left{
                         height: 15.26vw;
-                        display: flex;
-                        align-items: center;
                         .img_title{
                             background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin1.png');
                             background-size: auto 100%;
@@ -1319,8 +1301,6 @@ onMounted(async () => {
                         height: 6.14vw;
                         background: #171C28;
                         box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.69);
-                        display: flex;
-                        align-items: center;
                         padding-left: 1.56vw;
                         position: relative;
                         z-index: 11;
@@ -1382,8 +1362,6 @@ onMounted(async () => {
                         }
                     }
                     .bottom{
-                        display: flex;
-                        align-items: center;
                         padding-left: 9.4vw;
                         height: 6.66vw;
                         .table{
@@ -1499,8 +1477,6 @@ onMounted(async () => {
                 }
                 ul{
                     flex: 1;
-                    display: flex;
-                    align-items: center;
                     li{
                         flex: 1;
                         .txt{
@@ -1508,12 +1484,6 @@ onMounted(async () => {
                             font-family: AlibabaPuHuiTi_2_55_Regular;
                             color: #B3B3B3;
                             line-height: 1.35vw;
-                            display: flex;
-                            align-items: center;
-                            img{
-                                margin-left: 0.5vw;
-                                width: 1.04vw;
-                            }
                         }
                         .number{
                             font-size: 1.61vw;

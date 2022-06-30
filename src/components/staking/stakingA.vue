@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container flex_center">
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide')">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -22,12 +22,12 @@
                             <div :class="{'active': active == 0}" @click="active = 0">Mix</div>
                             <div :class="{'active': active == 1}" @click="active = 1">Max</div>
                         </div>
-                        <div class="staking" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">{{ $t('message.mining.staking') }}</div>
+                        <div class="staking flex_center" :class="{'not-allowed': numState == 'error'}"  @click="stakingCYT">{{ $t('message.mining.staking') }}</div>
                     </div>
                 </div>
                 <div class="item">
                     <p>step2</p>
-                    <div class="content1" :class="{'success': state >= 4 && state != 5, 'reject': state == 5}"> 
+                    <div class="content1 flex_between_center" :class="{'success': state >= 4 && state != 5, 'reject': state == 5}"> 
                         <span>Authorization in progress....</span>
                         <div class="loading" v-if="state == 3">
                             <img src="@/assets/nwhomePhone/loading-phone.svg" alt="">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="item">
                     <p>step3</p>
-                    <div class="content1" :class="{'success': state >= 7 && state != 8, 'reject': state == 8}">
+                    <div class="content1 flex_between_center" :class="{'success': state >= 7 && state != 8, 'reject': state == 8}">
                         <span>staking....</span>
                         <div class="loading" v-if="state == 6">
                             <img src="@/assets/nwhomePhone/loading-phone.svg" alt="">
@@ -154,9 +154,6 @@ onMounted(() => {
     }
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;
@@ -246,9 +243,6 @@ onMounted(() => {
                         padding: 0.4vw;
                         border: 1px solid #fff;
                         font-family: AlibabaPuHuiTi_2_55_Regular;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
                         height: 3vw;
                         box-sizing: border-box;
                     }
@@ -350,19 +344,15 @@ onMounted(() => {
                         }
                     }
                     .staking{
-                        background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwbox/details2.png);
                         width: 11.94vw;
                         height: 3.125vw;
+                        font-size: 1.64vw;
+                        font-family: AlibabaPuHuiTi_2_115_Black;
+                        background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwbox/details2.png);
                         background-size: 100% 100%;
                         background-repeat: no-repeat;
-                        cursor: pointer;
-                        font-size: 1.64vw;
-                        display: flex;
-                        justify-content: center;
-                        cursor: pointer;
-                        align-items: center;
-                        font-family: AlibabaPuHuiTi_2_115_Black;
                         transition: all .2s ease-in-out;
+                        cursor: pointer;
                     }
                     .purchase:hover{
                         opacity: .7;

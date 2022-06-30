@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container flex_center">
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide')">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -8,7 +8,7 @@
                 <div class="title">{{$t('message.mining.cancel.unstake')}}</div>
                 <div class="chunks">
                     <div class="withdraw_wrap">
-                        <div class="withdraw" :class="{'select': selected == 0}" @click="selected = 0">
+                        <div class="withdraw flex_between_center" :class="{'select': selected == 0}" @click="selected = 0">
                             <div class="left" :class="numState == 'error' ? 'error':''"> 
                                 <p>{{$t('message.mining.cancel.will_withdraw')}}</p>
                                 <!-- <p>{{ myStakCyt / 2}}</p> -->
@@ -18,7 +18,7 @@
                                 <div class="balance">{{$t('message.mining.cancel.balance')}}:{{myStakCyt}}</div>
                                 <div class="icon">
                                     <div class="max" @click="maxActive">{{$t('message.mining.cancel.max')}}</div>
-                                    <div class="bull">
+                                    <div class="bull flex_align_center">
                                         <div></div>
                                         <div></div>
                                     </div>
@@ -28,7 +28,7 @@
                         <div class="errmsg" v-if="!Number(myStakCyt)">{{$t('message.mining.cancel.tips')}}</div>
                         <div class="errmsg" v-show="Number(myStakCyt) && numState == 'error'">{{$t('message.assets.pop.tips_err')}}</div>
                     </div>
-                    <!-- <div class="reward" :class="{'select': selected == 1}" @click="selected = 1">
+                    <!-- <div class="reward flex_between_center" :class="{'select': selected == 1}" @click="selected = 1">
                         <div class="left">
                             <p>{{$t('message.mining.cancel.Unclaimed')}}</p>
                             <div class="txt">0</div>
@@ -38,7 +38,7 @@
                             <p>NETT</p>
                         </div>
                     </div> -->
-                    <div class="tips">
+                    <div class="tips flex_align_center">
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin13.png" alt="">
                         <div class="text">{{$t('message.mining.cancel.warn_tips')}}</div>
                     </div>
@@ -171,9 +171,6 @@ onMounted(() => {
     }
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;
@@ -252,9 +249,6 @@ onMounted(() => {
                         // width: 27.3vw;
                         height: 6.4vw;
                         padding: 0 1.04vw;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
                         position: relative;
                         .left,.right{
                             color: #FFFFFF;
@@ -299,8 +293,6 @@ onMounted(() => {
                                     cursor: pointer;
                                 }
                                 .bull{
-                                    display: flex;
-                                    align-items: center;
                                     div{
                                         width: 1.97vw;
                                         height: 1.97vw;
@@ -343,8 +335,6 @@ onMounted(() => {
                         height: 4.79vw;
                         border: 1px solid #FFE154;
                         margin: 1vw 0 1.97vw;
-                        display: flex;
-                        align-items: center;
                         padding-left: 1.04vw;
                         padding-right: 2.39vw;
                         img{

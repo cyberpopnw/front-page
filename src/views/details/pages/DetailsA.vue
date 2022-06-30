@@ -1,10 +1,10 @@
 <template>
     <header-a path="/details" :type="2"></header-a>
-    <!-- <div class="section">
+    <!-- <div class="section flex_centent_center">
         <div class="title">{{$t('message.mining.coming')}}</div>
     </div> -->
     <div class="details">
-        <div class="box" v-if="data.info">
+        <div class="box flex_center" v-if="data.info">
             <div class="video">
                 <img :src="data.info.image" v-if="!data.info.animation_url" alt="">
                 <video autoplay loop muted v-else>
@@ -12,21 +12,21 @@
                 </video>
             </div>
             <div class="desc">
-                <div class="title"><span class="title-content">{{ data.info.name }}</span></div>
-                <div class="price">
-                    <div class="left">
+                <div class="title flex_between"><span class="title-content">{{ data.info.name }}</span></div>
+                <div class="price flex_align_center">
+                    <div class="left flex_between">
                         <div class="text1">{{$t('message.details.box_price')}}: $49.00</div>
-                        <div class="text2">
+                        <div class="text2 flex_align_center">
                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/eth_icon.png" alt="">
                             <div>0.03<span>{{$t('message.details.box_eth')}}</span></div>
                         </div>
                     </div>
                     <div class="line"></div>
-                    <div class="right">
-                        <!-- <div class="text1">{{$t('message.details.box_remain')}} <span v-if="data.Remaining">{{ data.Remaining + '/2000'}}</span><span v-else>0/2000</span></div> -->
-                        <div class="text1">{{$t('message.details.box_have')}} <span>{{ ownerNumber }}</span></div>
+                    <div class="right flex_between">
+                        <!-- <div class="text1 flex_align_center">{{$t('message.details.box_remain')}} <span v-if="data.Remaining">{{ data.Remaining + '/2000'}}</span><span v-else>0/2000</span></div> -->
+                        <div class="text1 flex_align_center">{{$t('message.details.box_have')}} <span>{{ ownerNumber }}</span></div>
                        
-                        <!-- <div class="text2">{{$t('message.details.box_sale')}} <div>21<span>H</span>:33<span>M</span>:48<span>S</span></div></div> -->
+                        <!-- <div class="text2 flex_align_center">{{$t('message.details.box_sale')}} <div>21<span>H</span>:33<span>M</span>:48<span>S</span></div></div> -->
                     </div>
                 </div>
                 <div class="btn">
@@ -36,8 +36,8 @@
                 </div>
             </div>
         </div>
-        <div v-else class="loadingState"><loading v-if="true" :show="true" :index="0.5"/></div>
-        <div class="changeMenu">
+        <div v-else class="loadingState flex_align_center"><loading v-if="true" :show="true" :index="0.5"/></div>
+        <div class="changeMenu flex_centent_center">
             <!-- <div class="content" :class="!exMenu ? 'active':''" @click="exMenu = false">CONTENT</div>
             <div class="intro" :class="exMenu ? 'active':''" @click="exMenu = true">INTRODUCTION</div>
             <div class="intro" :class="exMenu ? 'active':''" @click="exMenu = true">INTRODUCTION</div> -->
@@ -560,8 +560,6 @@ onMounted(() => {
     .section{
         z-index: 8;
         position: fixed;
-        display: flex;
-        justify-content: center;
         top: 0;
         width: 100%;
         height: 100vh;
@@ -592,9 +590,6 @@ onMounted(() => {
         background-size: 100% auto;
         overflow: hidden;
         .box{
-            display: flex;
-            align-items: center;
-            justify-content: center;
             // margin-left: 24.47vw;
             height: 16.97vw;
             .video{
@@ -625,8 +620,6 @@ onMounted(() => {
                     font-size: 2.5vw;
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     line-height: 3.48vw;
-                    display: flex;
-                    justify-content: space-between;
                 }
                 .title-content{
                     width: 100%;
@@ -636,14 +629,10 @@ onMounted(() => {
                     text-overflow: ellipsis;
                 }
                 .price{
-                    display: flex;
-                    align-items: center;
                     height: 7.08vw;
                     margin: .41vw 0 1.87vw;
                     .left{
-                        display: flex;
                         flex-direction: column;
-                        justify-content: space-between;
                         width: 10.36vw;
                         height: 100%;
                         .text1{
@@ -656,8 +645,6 @@ onMounted(() => {
                         }
                         .text2{
                             height: 4.37vw;
-                            display: flex;
-                            align-items: center;
                             img{
                                 width: 1.2vw;
                                 height: 1.98vw;
@@ -683,15 +670,11 @@ onMounted(() => {
                         background: #A81BFF;
                     }
                     .right{
-                        display: flex;
                         flex-direction: column;
-                        justify-content: space-between;
                         // width: 16.04vw;
                         height: 100%;
                         padding: .4vw 0;
                         .text1{
-                            display: flex;
-                            align-items: center;
                             font-size: 1.04vw;
                             font-family: AlibabaPuHuiTi_2_75_SemiBold;
                             line-height: 1.04vw;
@@ -706,8 +689,6 @@ onMounted(() => {
                             }
                         }
                         .text2{
-                            display: flex;
-                            align-items: center;
                             height: 2.76vw;
                             font-size: 1.04vw;
                             font-family: AlibabaPuHuiTi_2_75_SemiBold;
@@ -777,12 +758,8 @@ onMounted(() => {
         }
         .loadingState{
             height: 16.97vw;
-            display: flex;
-            align-items: center;
         }
         .changeMenu{
-            display: flex;
-            justify-content: center;
             height: 1.45vw;
             margin: 4.27vw 0 1.87vw;
             font-size: 1.04vw;

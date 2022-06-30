@@ -6,7 +6,7 @@
             <div class="chat">
                 <ul ref="bullet"></ul>
             </div>
-            <div class="content">
+            <div class="content flex_centent_center">
                 <div class="left">
                     <div class="left-wrap">
                         <div class="img-top"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/vote-top.png" alt=""></div>
@@ -22,7 +22,7 @@
                                 metaverse more fantasy.
                             </div>
                             <div class="genesis"># Genesis</div>
-                            <div class="search">
+                            <div class="search flex_between_center">
                                 <input type="text" placeholder="search">
                                 <img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/search-w.svg" alt="">
                             </div>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="right">
-                    <div class="top">
+                    <div class="top flex_between">
                         <div class="name">Proposals</div>
                         <div class="select">
                             <ul>
@@ -107,8 +107,6 @@ onMounted(() => {
             z-index: 2;
             position: relative;
             .content{
-                display: flex;
-                justify-content: center;
                 margin-top: 2.6vw;
                 .left{
                     margin: 0 3.125vw 5.83vw 0;
@@ -164,9 +162,6 @@ onMounted(() => {
                                 line-height: 1.3vw;
                             }
                             .search{
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
                                 width: 100%;
                                 height: 2.5vw;
                                 padding: .625vw .88vw;
@@ -190,8 +185,6 @@ onMounted(() => {
                 .right{
                     width: 38vw;
                     .top{
-                        display: flex;
-                        justify-content: space-between;
                         .name{
                             margin: .625vw 0 1.35vw;
                             font-size: 1.56vw;

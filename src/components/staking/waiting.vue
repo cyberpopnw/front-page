@@ -1,5 +1,5 @@
 <template>
-    <div class="container" :class="isShowWaiting && (waitingAni ? 'bounceShow' : 'bounceHide')">
+    <div class="container flex_center" :class="isShowWaiting && (waitingAni ? 'bounceShow' : 'bounceHide')">
         <div class="mask">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -57,9 +57,6 @@ onMounted(()=>{
 }
 .container{
     position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     left: 0;
     top: 0;
     z-index: 187;

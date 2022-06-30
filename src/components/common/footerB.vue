@@ -5,7 +5,7 @@
             <div class="email_box">
                 <div class="title">{{$t('message.common.footer_email_title')}}</div>
                 <div class="des">{{$t('message.common.footer_email_desc')}}</div>
-                <div class="email_botton" @click="openEmail">
+                <div class="email_botton flex_center" @click="openEmail">
                     <!-- <a href="mailto:business@cyberpop.online">{{$t('message.common.footer_email_title')}}</a><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt=""> -->
                     <div>{{$t('message.common.footer_email_title')}}</div><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt="">
                 </div>
@@ -14,7 +14,7 @@
                 <div class="policy"><router-link to="/privacy">{{$t('message.common.footer_policy')}}</router-link></div>
                 <div class="terms"><router-link to="/terms">{{$t('message.common.footer_terms')}}</router-link></div>
             </div>
-            <div class="icon">
+            <div class="icon flex_centent_center">
                 <a href="https://medium.com/@Cyberpopmetaverse" target="view_window">
                     <img class="first" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/medium_1.png" alt="">
                 </a>
@@ -96,9 +96,6 @@ onMounted(() => {
                     height: 42px;
                     border: 1px solid #04FF55;
                     margin: 0 auto;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     font-size: 14px;
                     font-family: AlibabaPuHuiTi_2_55_Regular;
                     font-weight: 400;
@@ -141,8 +138,6 @@ onMounted(() => {
             }
             .icon{
                 width: 100%;
-                display: flex;
-                justify-content: center;
                 margin-bottom: 22px;
                 img{
                     width: 41px;

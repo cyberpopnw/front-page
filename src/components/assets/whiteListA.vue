@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container flex_center">
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide')">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -71,9 +71,6 @@ onMounted(() => {
     }
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;

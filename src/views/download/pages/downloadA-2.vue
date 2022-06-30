@@ -39,7 +39,7 @@
             <div class="card" v-show="AndroidQcode">
                 <img src="@/assets/nwDownload/ad.png" alt="">
             </div>
-            <div class="buttons">
+            <div class="buttons flex_between_center">
                 <div class="down_cyberpop" @mouseenter="AndroidQcode = true" @mouseleave="AndroidQcode = false" @click="downloadGame(0)">
                     <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
                     <b>{{ $t('message.download.Android') }}</b>
@@ -550,9 +550,6 @@ onMounted(() => {
                 }
             }
             .buttons{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
                 width: 60.8vw;
                 height: 10.83vw;
                 margin: -2.8vw 0 0 -.2vw;

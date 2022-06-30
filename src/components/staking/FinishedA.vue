@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container flex_center">
         <div class="mask" :class="isShowTips && (xplanAni ? 'bounceShow' : 'bounceHide')">
             <div class="cover"></div>
             <div class="coverborder"></div>
@@ -7,7 +7,7 @@
             <div class="content">
                 <div class="title">{{$t('message.mining.finish.finished')}}</div>
                 <div class="text">{{$t('message.mining.finish.text')}}</div>
-                <div class="reward_chunks">
+                <div class="reward_chunks flex_centent_center">
                     <div class="item selected" v-if="isCoin">
                         <div class="chunk">
                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/CYTIcon.png" alt="">
@@ -129,9 +129,6 @@ onMounted( async () => {
     }
     .container{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         left: 0;
         top: 0;
         z-index: 187;
@@ -205,8 +202,6 @@ onMounted( async () => {
                     text-align: center;
                 }
                 .reward_chunks{
-                    display: flex;
-                    justify-content: center;
                     margin-bottom: 1.97vw;
                     .item{
                         .chunk{
