@@ -391,7 +391,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             </div>
         </div>
     </div>
-    <div class="team">
+    <!-- <div class="team">
         <div class="title" id="ele7">{{ $t('message.home.team_title') }}</div>
         <div class="wrap">
             <ul>
@@ -402,6 +402,32 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                         <span>{{ item.desc }}</span>
                     </div>
                     <div v-show="showTeamCard == index" class="card">
+                        <div class="msg">
+                            <div>{{ item.name }}</div>
+                            <span>{{ item.desc }}</span>
+                        </div>
+                        <div class="text">{{ $t(item.info) }}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div> -->
+    <div class="new-team">
+        <div class="title" id="ele7">{{ $t('message.home.team_title') }}</div>
+        <div class="content">
+            <ul>
+                <li v-for="(item,index) in teamInfo" :key="index" class="flex_center" @click="teamCard(index)">
+                    <div class="warp"  @click="item.card = !item.card">
+                        <img src="@/assets/nwhome/team_icon.png" class="icon" alt="">
+                        <div class="avator"><img :src="item.img" alt=""></div>
+                        <div class="msg">
+                            <p></p>
+                            <div>{{ item.name }}</div>
+                            <span>{{ item.desc }}</span>
+                            <img src="@/assets/nwhome/point.png" alt="">
+                        </div>
+                    </div>
+                    <div :class="{'card': 1, 'showCard': item.card}"  @click="item.card = !item.card">
                         <div class="msg">
                             <div>{{ item.name }}</div>
                             <span>{{ item.desc }}</span>
@@ -562,71 +588,19 @@ const { proxy } = getCurrentInstance() as any;
 const leftModules:any = [Navigation];
 const teamInfo: any = ref([
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_jie.png',
-        name: 'JIE',
-        desc: 'Art Director',
-        info: 'message.home.team_mem_jie',
-    },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/frank.png',
-        name: 'Frank',
-        desc: 'Co-Founder',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/teme2.png',
+        name: 'Yu Vitalik ',
+        desc: 'CMO',
         info: 'message.home.team_mem_frank',
+        card: false,
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_hason.png',
-        name: 'Hason',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/teme1.png',
+        name: 'Yeldar Botabayev',
         desc: 'Co-Founder',
-        info: 'message.home.team_mem_hason',
-    },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_nick.png',
-        name: 'Nick',
-        desc: 'Back-end Developer',
-        info: 'message.home.team_mem_nick',
-    },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/YuSonEn.png',
-        name: 'Yu Son En',
-        desc: 'Yu Vitalik',
         info: 'message.home.team_mem_YuSonEn',
+        card: false,
     },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_fy.png',
-        name: 'Fy',
-        desc: 'Back-end Developer',
-        info: 'message.home.team_mem_fy',
-    },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_han.png',
-        name: 'Han',
-        desc: 'Chief Back-end developer',
-        info: 'message.home.team_mem_han',
-    },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_quanbug.png',
-        name: 'Quanbug',
-        desc: 'Framework Designer',
-        info: 'message.home.team_mem_quanbug',
-    },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_john.png',
-        name: 'John',
-        desc: 'Technical Director',
-        info: 'message.home.team_mem_john',
-    },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_water.png',
-        name: 'Water',
-        desc: 'Co-Founder',
-        info: 'message.home.team_mem_water',
-    },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_ice.png',
-        name: 'ICE',
-        desc: 'Back-end Developer',
-        info: 'message.home.team_mem_ice',
-    }
 ])
 
 const showTeamCard:any = ref(-1);
@@ -2104,6 +2078,7 @@ onMounted(() => {
         }
 
     }
+
     .roadmap{
         position: relative;
         width: 100%;
@@ -2436,6 +2411,141 @@ onMounted(() => {
                 }
                 li:hover{
                     transform: translate(0, -10px);
+                }
+            }
+        }
+    }
+    .new-team{
+        background-color: #000000;
+        color: #FFFFFF;
+        .title{
+            font-size: 2.6vw;
+            font-family: AlibabaPuHuiTi_2_115_Black;
+            line-height: 3.64vw;
+            text-align: center;
+            margin-bottom: 2.81vw;
+        }
+        .content{
+            width: 61.25vw;
+            margin: 0 auto;
+            ul{
+                overflow: hidden;
+                li{
+                    float: left;
+                    width: 18.75vw;
+                    height: 18.75vw;
+                    background: linear-gradient(180deg, rgba(143, 131, 255, 0.24) 0%, rgba(143, 131, 255, 0) 41%, rgba(143, 131, 255, 0) 56%, rgba(143, 131, 255, 0.24) 100%);
+                    border: 1px solid;
+                    border-image: linear-gradient(180deg, rgba(60, 57, 218, 1), rgba(198, 137, 255, 1)) 1 1;
+                    margin-bottom: 2.5vw;
+                    padding: 0.52vw;
+                    position: relative;
+                    cursor: pointer;
+                    overflow: hidden;
+                    .warp{
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        .icon{
+                            width: 1.875vw;
+                            height: 8.33vw;
+                            position: absolute;
+                            left: 0;
+                            top: 3.125vw;
+                        }
+                        .avator{
+                            width: 100%;
+                            height: 100%;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .msg{
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            background-image: url('@/assets/nwhome/team_tag.png');
+                            background-size: 100% 100%;
+                            height: 3.9vw;
+                            padding: 0.52vw 0 0.52vw 1.04vw;
+                            div{
+                                font-size: 1.25vw;
+                                font-family: AlibabaPuHuiTi_2_115_Black;
+                                color: #FFFFFF;
+                                line-height: 1.71vw;
+                            }
+                            span{
+                                font-size: 0.83vw;
+                                font-family: AlibabaPuHuiTi_2_85_Bold;
+                                color: #fff;
+                                line-height: 1.14vw;
+                                opacity: .5;
+                            }
+                            p{
+                                width: 5.67vw;
+                                height: 1.61vw;
+                                background: linear-gradient(270deg, rgba(4, 255, 162, 0) 0%, #04FFA2 100%);
+                                opacity: 0.5;
+                                position: absolute;
+                                left: 0;
+                            }
+                            img{
+                                width: 1.51vw;
+                                position: absolute;
+                                top: .781vw;
+                                right: 1.61vw;
+                            }
+                        }
+                    }
+                    .card{
+                        left: -20vw;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        /* 主要内容 */
+                        background: rgba(0, 0, 0, .5);
+                        /* 模糊大小就是靠的blur这个函数中的数值大小 */
+                        backdrop-filter: blur(10px);
+                        transition: all .15s ease-in-out;
+                        overflow: hidden;
+                        padding: 1.56vw 1.04vw;
+
+                        .msg{
+                            font-family: AlibabaPuHuiTi_2_115_Black;
+                            div{
+                                line-height: 1.71vw;
+                                font-size: 1.25vw;
+                            }
+                            span{
+                                font-size: 0.73vw;
+                                font-family: AlibabaPuHuiTi_2_65_Medium;
+                                line-height: 1.04vw;
+                                opacity: .4;
+                            }
+                        }
+                        .text{
+                            font-size: 0.83vw;
+                            font-family: AlibabaPuHuiTi_2_65_Medium;
+                            color: #FFFFFF;
+                            line-height: 1.14vw;
+                            opacity: .7;
+                            margin-top: 0.52vw;
+                            max-height: 12vw;
+                            overflow-y: scroll;
+                            -ms-overflow-style: none;
+                            overflow: -moz-scrollbars-none;
+                        }
+                        .text::-webkit-scrollbar { width: 0 !important }
+                    }
+                    .showCard{
+                        left: 0;
+                    }
+                }
+                li:not(:nth-child(3n+3)){
+                    margin-right: 2.5vw;
+                    
                 }
             }
         }
