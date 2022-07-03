@@ -416,7 +416,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         <div class="title" id="ele7">{{ $t('message.home.team_title') }}</div>
         <div class="content">
             <ul>
-                <li v-for="(item,index) in teamInfo" :key="index" class="flex_center" @click="teamCard(index)">
+                <li v-for="(item,index) in teamInfo" :key="index" class="flex_center">
                     <div class="warp"  @click="item.card = !item.card">
                         <img src="@/assets/nwhome/team_icon.png" class="icon" alt="">
                         <div class="avator"><img :src="item.img" alt=""></div>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="207px" height="206px" viewBox="0 0 207 206" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>add</title>
+    <defs>
+        <filter x="-117.4%" y="-116.1%" width="334.8%" height="332.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="24" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="pc" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.856422602">
+        <g id="play-to-earn-弹框" transform="translate(-1243.000000, -167.000000)" fill="#4F00FF">
+            <g id="编组-13" transform="translate(1315.673913, 239.000000)">
+                <g id="add" transform="translate(0.000000, 0.000000)">
+                    <ellipse id="椭圆形" filter="url(#filter-1)" cx="30.6630435" cy="31" rx="30.6630435" ry="31"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -196,7 +196,7 @@ const us = {
             roadmap_s3_d3_e3: 'Open NFT financial derivatives platform',
             roadmap_s3_d3_e4: 'Cyberpop ​​New World Artists Partnership',
             // homeA-team
-            team_title: 'TEAM MEMBERS',
+            team_title: 'TEAM',
             team_mem_jie: "15 years of gaming industry experience. Former Ubisoft senior game art designer who worked on Assassin's Creed, Rayman, etc. The VGAME: A World of Nothing, of which Jie was the chief game art designer, attracted 40.000 players in 3 days.",
             team_mem_frank: 'Blockchain interpreter/investor/co-founder – Blockchain technologies, Crypto Custody, Cryptocurrency, Crypto Trading, DAO, WEV 3.0, Crypto Workflow, P2P technologies for Bank industry using blockchain, Participant for development new crypto law in Kazakhstan Government, Co-organizer Wow Summit in Dubai. Co-Founder - NEO ETF Fund Luxemburg Co-Founder – Neo Custody AIFC (Astana international Financial Center KZ) Co-Founder – Oris Lab Astana Hub (AIFC hub)',
             team_mem_hason: 'Worked for Ubisoft and participated in the production of PC-side ORPG online game Devil Raiders and the PC and iPad version of TCG Devil Champions Showdown; won the best performance evaluation from Ubisoft EX multiple times.',

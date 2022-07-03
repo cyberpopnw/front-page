@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="20px" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>check-circle-fill</title>
+    <g id="pc" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home更新" transform="translate(-945.000000, -5695.000000)" fill-rule="nonzero">
+            <g id="check-circle-fill" transform="translate(945.500000, 5695.000000)">
+                <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="20" height="20"></rect>
+                <path d="M10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 Z M8.75,11.81875 L5.41625,8.63625 L3.75,10.2275 L8.75,15 L16.25,7.84125 L14.58375,6.25 L8.75,11.81875 Z" id="形状" fill="#04FFA2"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="254px" height="46px" viewBox="0 0 254 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Rectangle</title>
+    <defs>
+        <linearGradient x1="100%" y1="48.7919936%" x2="-6.44970592%" y2="51.5243134%" id="linearGradient-1">
+            <stop stop-color="#32FF8F" offset="0%"></stop>
+            <stop stop-color="#672CFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="menu" transform="translate(-791.000000, -90.000000)" fill="#201F2F" stroke="url(#linearGradient-1)">
+            <g id="编组-2" transform="translate(792.000000, 91.000000)">
+                <rect id="Rectangle" x="-0.5" y="-0.5" width="253" height="45" rx="5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
