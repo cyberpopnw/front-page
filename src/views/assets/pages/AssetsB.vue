@@ -835,10 +835,9 @@ const bobabrewery = ref('') as any;
 const haveWhiteWindow: any = ref(false);
 const initMyAssetes = async () => {
     if(chainId.value == 43113){
-        var a = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address);
         var b = await Web3.ERC20balanceOf(coin.abi, coin.address);
     }
-    myAssets.value.cyt = a || 0;
+    myAssets.value.cyt = 0;
     myAssets.value.coin = b || 0;
     console.log(myAssets.value, 'cyt');
         // Have you purchased a white paper
