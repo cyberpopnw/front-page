@@ -586,7 +586,7 @@ const progress = (abi: any[], address: string) => {
         const contract = new web3.eth.Contract(abi, address)
         let earned = await contract.methods.earned(accounts.value).call() // two staking CYTStakingRewards
         let _price = await contract.methods._price(1).call() // staking
-        let finishGetNFT = Math.floor(earned/_price)
+        let finishGetNFT = Math.floor(earned/_price) // id:2 price*3
         let progressVal = (earned/_price) * 100 > 100 ? 100 : (earned/_price) * 100
         resolve({finishGetNFT, progressVal})
     })
