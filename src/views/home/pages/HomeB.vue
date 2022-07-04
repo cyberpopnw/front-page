@@ -2004,7 +2004,7 @@ onMounted(() => {
     }
     .roadmap{
         width: 100%;
-        height: 1420px;
+        height: 1380px;
         background-color: #000000;
         overflow: hidden;
         .roadmap-bg{
@@ -2296,11 +2296,14 @@ onMounted(() => {
         background-color: #000000;
         color: #FFFFFF;
         .title{
-            font-size: 2.6vw;
+            width: 100%;
+            height: 16px;
+            margin-bottom: 63px;
+            font-size: 26px;
             font-family: AlibabaPuHuiTi_2_115_Black;
-            line-height: 3.64vw;
+            color: #FFFFFF;
+            line-height: 14px;
             text-align: center;
-            margin-bottom: 2.81vw;
         }
         .content{
             ul{
@@ -2311,7 +2314,7 @@ onMounted(() => {
                     background: linear-gradient(180deg, rgba(143, 131, 255, 0.24) 0%, rgba(143, 131, 255, 0) 41%, rgba(143, 131, 255, 0) 56%, rgba(143, 131, 255, 0.24) 100%);
                     border: 1px solid;
                     border-image: linear-gradient(180deg, rgba(60, 57, 218, 1), rgba(198, 137, 255, 1)) 1 1;
-                    margin-bottom: 2.5vw;
+                    margin-bottom: 20px;
                     padding: 8px;
                     position: relative;
                     cursor: pointer;
@@ -2344,34 +2347,34 @@ onMounted(() => {
                             width: 100%;
                             background-image: url('@/assets/nwhome/team_tag.png');
                             background-size: 100% 100%;
-                            height: 30px;
+                            height: 50px;
                             padding: 8px 0 8px 16px;
                             div{
-                                font-size: 12px;
+                                font-size: 16px;
                                 font-family: AlibabaPuHuiTi_2_115_Black;
                                 color: #FFFFFF;
-                                line-height: 1.71vw;
+                                line-height: 22px;
                             }
                             span{
-                                font-size: 0.83vw;
+                                font-size: 12px;
                                 font-family: AlibabaPuHuiTi_2_85_Bold;
                                 color: #fff;
-                                line-height: 1.14vw;
+                                line-height: 16px;
                                 opacity: .5;
                             }
                             p{
                                 width: 26px;
-                                height: 14px;
+                                height: 22px;
                                 background: linear-gradient(270deg, rgba(4, 255, 162, 0) 0%, #04FFA2 100%);
                                 opacity: 0.5;
                                 position: absolute;
                                 left: 0;
-                                top: 4px;
+                                top: 8px;
                             }
                             img{
-                                width: 16px;
+                                width: 26px;
                                 position: absolute;
-                                top: 4px;
+                                top: 12px;
                                 right: 16px;
                             }
                         }

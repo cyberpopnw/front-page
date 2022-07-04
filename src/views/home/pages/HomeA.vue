@@ -2237,7 +2237,7 @@ onMounted(() => {
                 margin-top: 0;
             }
             .time8{
-                margin-bottom: 16vw;
+                margin-bottom: 10vw;
             }
             .time5,.time6,.time7,.time8{
                 // margin-top: -3.5vw;
