@@ -336,12 +336,12 @@ const bobabrewery = ref('') as any;
 const haveWhiteWindow = ref(false);
 const initMyAssetes = async () => {
     if(chainId.value == 43113){
-        var a = await Web3.ERC20balanceOf(cytV2.abi, cytV2.address);
+        var a: number = 0;
         var b = await Web3.ERC20balanceOf(coin.abi, coin.address);
     }
-    myAssets.value.cyt = a || 0;
+    myAssets.value.cyt = 0;
     myAssets.value.coin = b || 0;
-    // console.log(myAssets.value, 'cyt');
+    console.log(myAssets.value, 'cyt');
     // Have you purchased a white paper
     console.log(idTemp.value, 'idTemp');
     proxy.$api.post(`/bobabrewery/boba/api/v1/cyberpop?walletAddress=${idTemp.value}`).then((res: any) => {
