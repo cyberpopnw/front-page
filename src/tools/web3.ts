@@ -638,7 +638,7 @@ const rewards = (abi: any[], address: string) => { // CYTStakingRewards
 }
 
 
-// After the pledge is completed, receive NFT rewards
+// After the pledge is completed, receive NFT rewards 1155
 const getNFT = (abi: any[], address: string, amount: number) => { // staking
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((Web3 as any).givenProvider);
