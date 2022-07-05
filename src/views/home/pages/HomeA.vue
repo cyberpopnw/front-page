@@ -417,7 +417,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         <div class="content">
             <ul>
                 <li v-for="(item,index) in teamInfo" :key="index" class="flex_center">
-                    <div class="warp"  @click="item.card = !item.card">
+                    <div class="warp" @mouseover="item.card = true">
                         <img src="@/assets/nwhome/team_icon.png" class="icon" alt="">
                         <div class="avator"><img :src="item.img" alt=""></div>
                         <div class="msg">
@@ -427,7 +427,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                             <img src="@/assets/nwhome/point.png" alt="">
                         </div>
                     </div>
-                    <div :class="{'card': 1, 'showCard': item.card}"  @click="item.card = !item.card">
+                    <div :class="{'card': 1, 'showCard': item.card}" @mouseleave="item.card = false">
                         <div class="msg">
                             <div>{{ item.name }}</div>
                             <span>{{ item.desc }}</span>
@@ -2237,7 +2237,7 @@ onMounted(() => {
                 margin-top: 0;
             }
             .time8{
-                margin-bottom: 10vw;
+                margin-bottom: 8vw;
             }
             .time5,.time6,.time7,.time8{
                 // margin-top: -3.5vw;
@@ -2474,6 +2474,8 @@ onMounted(() => {
                                 font-family: AlibabaPuHuiTi_2_115_Black;
                                 color: #FFFFFF;
                                 line-height: 1.71vw;
+                                position: absolute;
+
                             }
                             span{
                                 font-size: 0.83vw;
@@ -2481,6 +2483,8 @@ onMounted(() => {
                                 color: #fff;
                                 line-height: 1.14vw;
                                 opacity: .5;
+                                position: absolute;
+                                top: 2.3vw;
                             }
                             p{
                                 width: 5.67vw;
@@ -2489,6 +2493,7 @@ onMounted(() => {
                                 opacity: 0.5;
                                 position: absolute;
                                 left: 0;
+                                z-index: 0;
                             }
                             img{
                                 width: 1.51vw;
