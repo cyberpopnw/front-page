@@ -416,18 +416,18 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         <div class="title" id="ele7">{{ $t('message.home.team_title') }}</div>
         <div class="content">
             <ul>
-                <li v-for="(item,index) in teamInfo" :key="index" class="flex_center">
-                    <div class="warp" @mouseover="item.card = true">
+                <li v-for="(item,index) in teamInfo" :key="index" :class="{'flex_center': true, 'top': item.hover}" @mouseover="item.hover = true" @mouseleave="item.hover = false">
+                    <div class="warp">
                         <img src="@/assets/nwhome/team_icon.png" class="icon" alt="">
                         <div class="avator"><img :src="item.img" alt=""></div>
-                        <div class="msg">
+                        <div class="msg" @click="item.card = true">
                             <p></p>
                             <div>{{ item.name }}</div>
                             <span>{{ item.desc }}</span>
                             <img src="@/assets/nwhome/point.png" alt="">
                         </div>
                     </div>
-                    <div :class="{'card': 1, 'showCard': item.card}" @mouseleave="item.card = false">
+                    <div :class="{'card': 1, 'showCard': item.card}" @click="item.card = false">
                         <div class="msg">
                             <div>{{ item.name }}</div>
                             <span>{{ item.desc }}</span>
@@ -593,6 +593,7 @@ const teamInfo: any = ref([
         desc: 'CMO',
         info: 'message.home.team_mem_frank',
         card: false,
+        hover: false,
     },
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/teme1.png',
@@ -600,6 +601,7 @@ const teamInfo: any = ref([
         desc: 'Co-Founder',
         info: 'message.home.team_mem_YuSonEn',
         card: false,
+        hover: false,
     },
 ])
 
@@ -2418,6 +2420,7 @@ onMounted(() => {
     .new-team{
         background-color: #000000;
         color: #FFFFFF;
+        padding-bottom: 5vw;
         .title{
             font-size: 2.6vw;
             font-family: AlibabaPuHuiTi_2_115_Black;
@@ -2430,6 +2433,11 @@ onMounted(() => {
             margin: 0 auto;
             ul{
                 overflow: hidden;
+                padding-top: 2px;
+                height: calc(18.75vw + 2px);
+                .top{
+                    margin-top: -2px;
+                }
                 li{
                     float: left;
                     width: 18.75vw;
@@ -2442,6 +2450,7 @@ onMounted(() => {
                     position: relative;
                     cursor: pointer;
                     overflow: hidden;
+                    transition: all .1s ease;
                     .warp{
                         width: 100%;
                         height: 100%;
