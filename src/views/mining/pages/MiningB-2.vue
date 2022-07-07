@@ -392,7 +392,7 @@ const test = ref(0) as any
 // harvest btn
 const harvest = () => {
     stakingCoinType.value = false; 
-    if(myTime.value > 0 || progress.value < 100) { // You can continue to pledge before the time is up
+    if(progress.value < 100) { // You can continue to pledge before the time is up
         store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.mining.getMsg')}})
         return;
     }
@@ -405,7 +405,8 @@ const stakingCyt = async () => {
     console.log(progress.value, 'progress.value');
     console.log(myTime.value, 'myTime');
     stakingCoinType.value = false; 
-    if(myTime.value > 0 || progress.value < 100) { // You can continue to pledge before the time is up
+    // if(myTime.value > 0 || progress.value < 100) {
+    if(progress.value < 100) { // You can continue to pledge before the time is up
         store.dispatch('staking/stakingState', { show: true, info: { state: 1, haveCTY: mycoin.value }});
         store.dispatch('user/xplanChangeAni', true);
         return;

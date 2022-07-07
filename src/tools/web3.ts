@@ -519,7 +519,8 @@ const DaysRemaining = (abi: any[], address: string, tokenId: number) => {
 
         const rewardRate = await contract.methods.rewardRate().call()
         const totalSupply = await contract.methods.getTotalSupply().call();
-        const rewardPerToken = rewardRate*getBalanceOf / totalSupply  // one person stake one coin get coin /s 
+        let rewardPerToken = rewardRate*getBalanceOf / totalSupply  // one person stake one coin get coin /s 
+        if( !rewardPerToken ) rewardPerToken = 0
         console.log(rewardRate ,getBalanceOf,totalSupply , rewardPerToken);
         resolve({result,earned,rewardPerToken,rewardAllToken  });
     })
@@ -533,10 +534,12 @@ const DaysRemainingCoin = (abi: any[], address: string) => {
         const earned = await contract.methods.earned(accounts.value).call();
         // const rewardAllToken = await contract.methods.rewardPerToken().call(); // all person get coin from notifyRewardAmount
 
-        const rewardRate = await contract.methods.rewardRate().call()
+        // const rewardRate = await contract.methods.rewardRate().call()
+        const rewardsDuration = await contract.methods.rewardsDuration().call()
         const getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
         const totalSupply = await contract.methods.getTotalSupply().call();
-        const rewardPerToken = rewardRate*getBalanceOf / totalSupply // one person stake one coin get coin /s 
+        const rewardRate = totalSupply / rewardsDuration
+        const rewardPerToken = rewardRate*Number(getBalanceOf) / Number(totalSupply) // one person stake one coin get coin /s 
         console.log(rewardRate,getBalanceOf,totalSupply , rewardPerToken);
         
         resolve({earned,rewardPerToken });
