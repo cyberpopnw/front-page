@@ -140,7 +140,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, computed, getCurrentInstance, readonly, ref, watch } from 'vue'
 import store from '@/store'
-import NFT from '@/tools/web3' 
+import NFT from '@/tools/web3'
 import {  useRouter } from 'vue-router'
 import { Locale, useI18n } from 'vue-i18n';
 const { proxy } = getCurrentInstance() as any;
@@ -152,7 +152,7 @@ const register = ref(false);
 const registerTrans = ref(false);
 const readyAssetsF: any = computed(() => store.state.myAssets?.readyAssets ); // Status value of the connection
 const props = defineProps({
-    path: String, 
+    path: String,
     type: Number
 })
 const warning: any = computed(() => store.state.common?.warning );
@@ -259,7 +259,7 @@ const selectLang = (index: any) => {
 
     locale.value = index
     localStorage.setItem('lang', index)
-    
+
 }
 
 // connect
@@ -306,8 +306,8 @@ const changeMenu = (type: any, route?: any) => {
 
 
 // docMenu
-let showDoc:any = ref(false); 
-let hoverDoc:any = ref(false); 
+let showDoc:any = ref(false);
+let hoverDoc:any = ref(false);
 const cursor:any = ref(null)
 const clickCursor:any = ref(null)
 //logged_menu
@@ -352,8 +352,8 @@ const handleOtherClick = (e:any) => {
 
 
 
-let logoHSrcP:any = ref(''); 
-let logoHSrcG:any = ref(''); 
+let logoHSrcP:any = ref('');
+let logoHSrcG:any = ref('');
 const logoHImport = async() => {
     const logoHSrcPng:any = await import('@/assets/nwhome/logo_101.png');
     const logoHSrcGif:any = await import('@/assets/nwhome/logo.gif');
@@ -393,46 +393,46 @@ const logined = (accounts: string) => {
 }
 
 
-const connect: any = async () => {
-    const ismessage: any = await NFT.hasMetaMask()
-
-    if( ismessage == 'No install' ){
-        store.dispatch('wallet/metaChange',true);
-        store.dispatch('wallet/metaChangeAni',true);
-        store.dispatch('wallet/checkInstall',false);
-        if(code.value && messSing.value == '') {
-            register.value = true;
-            registerTrans.value = true;
-            store.dispatch('wallet/messSing', 'ok');
-        };
-    }else{
-        store.dispatch('wallet/metaChange',true);
-        store.dispatch('wallet/metaChangeAni',true);
-        store.dispatch('wallet/checkInstall',true);
-        const [accounts]: any = await NFT.login().then((res: any) => {
-            store.dispatch('wallet/metaChange',false);
-            store.dispatch('wallet/metaChangeAni',false);
-            store.dispatch('wallet/walletloggined',true);
-            return res;
-        })
-        id.value = accounts;
-        let len = id.value.length-1;
-        id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
-        store.dispatch('myAssets/dataSumSearch',{flag:0});
-        if(readyAssetsF.value <= 0) logined(accounts);
-        const Web3 = (window as any).Web3;
-        let web3obj = new Web3((Web3 as any).givenProvider);
-        await web3obj.eth.net.getId().then((chainId: any) => {
-            store.dispatch('user/chageChainId', Number(chainId))
-            if(chainId != 56 && chainId != 43113 && chainId != 80001 && chainId != 85) {
-                store.dispatch('user/xplanChangeAni', true);
-                store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
-            }
-        })
-        if(code.value && messSing.value == '') isRegister();
-    }
-}
+// const connect: any = async () => {
+//     const ismessage: any = await NFT.hasMetaMask()
+//
+//     if( ismessage == 'No install' ){
+//         store.dispatch('wallet/metaChange',true);
+//         store.dispatch('wallet/metaChangeAni',true);
+//         store.dispatch('wallet/checkInstall',false);
+//         if(code.value && messSing.value == '') {
+//             register.value = true;
+//             registerTrans.value = true;
+//             store.dispatch('wallet/messSing', 'ok');
+//         };
+//     }else{
+//         store.dispatch('wallet/metaChange',true);
+//         store.dispatch('wallet/metaChangeAni',true);
+//         store.dispatch('wallet/checkInstall',true);
+//         const [accounts]: any = await NFT.login().then((res: any) => {
+//             store.dispatch('wallet/metaChange',false);
+//             store.dispatch('wallet/metaChangeAni',false);
+//             store.dispatch('wallet/walletloggined',true);
+//             return res;
+//         })
+//         id.value = accounts;
+//         let len = id.value.length-1;
+//         id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
+//         store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
+//         store.dispatch('myAssets/dataSumSearch',{flag:0});
+//         if(readyAssetsF.value <= 0) logined(accounts);
+//         const Web3 = (window as any).Web3;
+//         let web3obj = new Web3((Web3 as any).givenProvider);
+//         await web3obj.eth.net.getId().then((chainId: any) => {
+//             store.dispatch('user/chageChainId', Number(chainId))
+//             if(chainId != 56 && chainId != 43113 && chainId != 80001 && chainId != 85) {
+//                 store.dispatch('user/xplanChangeAni', true);
+//                 store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
+//             }
+//         })
+//         if(code.value && messSing.value == '') isRegister();
+//     }
+// }
 
 // Invite users to register
 const level = ref(0) as any; // User level
@@ -447,7 +447,7 @@ const isRegister = (isClick?: boolean) => {
         if(res.data === true){
             register.value = true;
             registerTrans.value = true;
-        } 
+        }
         setTimeout(() => {
             level.value = res.data.level || 0;
             code.value = res.data.inv_level || router.currentRoute.value.query.code;
@@ -466,7 +466,7 @@ const closeRegister = () => {
 
 
 const login = () =>{
-    connect();
+    // connect();
 }
 
 const signout = () => {
@@ -475,7 +475,7 @@ const signout = () => {
     store.dispatch('wallet/connectWallet',{realId: -1});
     store.dispatch('wallet/walletloggined',false);
     store.dispatch('user/showDialog',{show: false, info: {}});
-    
+
 
     if( proxy.$route.path == '/knapsack' ){
         router.push('/');
@@ -505,7 +505,7 @@ onMounted(() => {
     store.dispatch('user/showDialog',{show: false, info: {}});
 
     if( localStorage.getItem('lang') ){
-        select.value = localStorage.getItem('lang');        
+        select.value = localStorage.getItem('lang');
     }
     code.value = router.currentRoute.value.query.code;
     if(realId.value == -1) login() //Determine whether you have logged in and then log in automatically
@@ -705,7 +705,7 @@ onMounted(() => {
                                         font-family: AlibabaPuHuiTi_2_75_SemiBold;
                                         img{
                                             width: 1.56vw;
-                                        }        
+                                        }
                                     }
                                     .item + .item{
                                         border-top: 2px solid #534968;
@@ -1004,7 +1004,7 @@ onMounted(() => {
                                     }
                                 }
                             }
-                        
+
                         }
                     }
                 }
@@ -1033,7 +1033,7 @@ onMounted(() => {
                         transform: skew(-18deg);
                         &.active{
                             background: linear-gradient(180deg, rgba(0,0,0,0),rgba(255, 24, 255, 0) 65%, rgba(255, 24, 255, 0.62) 100%);
-                        }  
+                        }
                         span{
                             display: inline-block;
                             transform: skew(18deg);
@@ -1132,7 +1132,7 @@ onMounted(() => {
                         font-family: AlibabaPuHuiTi_2_105_Heavy;
                         line-height: 2.6vw;
                         span{
-                            color: #12FD00; 
+                            color: #12FD00;
                             font-size: 3.12vw;
                         }
                     }

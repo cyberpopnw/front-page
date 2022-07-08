@@ -61,7 +61,7 @@ const waitingInfo = computed(() => store?.state.staking?.waitingInfo);
 
 const isChinese = (val: any) => {
     var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
-　　if(reg.test(val) && val !== '国内未能识别的地区' || val == 'CHINA'){     
+　　if(reg.test(val) && val !== '国内未能识别的地区' || val == 'CHINA'){
         return false;
 　　}else{
         return true;
@@ -72,55 +72,23 @@ const cname = ref(0) // City name
 
 
 onMounted(() => {
-    const ethereum = (window as any).ethereum 
     window.onresize = () => store.dispatch('sys/get_screen_size') // Monitor screen size
-    
-    if(ethereum){  // Only execute if metamask is installed
-        ethereum.on("accountsChanged", (accounts: any) => {
-            console.log(accounts[0]); //Once the account is switched, it will be executed here
-            let id = accounts[0];
-            let len = id.length-1;
-            id = id[0]+id[1]+id[2]+id[3]+id[4]+"*****"+id[len-3]+id[len-2]+id[len-1]+id[len];
-            store.dispatch('wallet/connectWallet',{realId:id, idTemp:accounts[0]});// Store asterisk ID and complete id
-            store.dispatch('myAssets/dataSumSearch',{flag:0});
-        });
-        ethereum.on('chainChanged', (chainId: string) => {
-            let id: any = Number(chainId);
-            // console.log(id);
-            
-            store.dispatch('user/chageChainId', Number(chainId))
-            
-            if(id != 56 && id != 43113 && id != 85 && id != 80001) {
-                store.dispatch('user/xplanChangeAni', true);
-                store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
-                return;
-            }
-            store.dispatch('user/TipsState', {show: false, info: { }});
-        });
-    }
 
-    // If the code of the invitation is carried, it will jump automatically
-    console.log(router.currentRoute.value.query.code, 'router.currentRoute.value.query.code');
-    
     // setTimeout(() => {
     //     if(router.currentRoute.value.query.code) router.push({ path: '/download', query: { code: router.currentRoute.value.query.code || '' } })
     // }, 500);
-     
+
     // Verify whether it is a Chinese IP
     var returnCitySN = (window as any).returnCitySN;
-    console.log(returnCitySN, 'returnCitySN');
     let HongShou = '125.69.86.177' // ip White list
     let HongShou5G = '125.69.86.216'
     let indiegame = "171.223.208.133"
-    console.log(process.env.NODE_ENV, 'process.env'); 
     cname.value = returnCitySN.cname;
     if(!isChinese(returnCitySN.cname)) {
         // route.push({ path: '/IPshielding' })
         iperror.value = true;
-        console.log(2222);
-    }else{ 
+    }else{
         setTimeout(() => {
-            console.log(route.currentRoute.value, 'route.currentRoute.value');
             if(route.currentRoute.value.path == '/IPshielding') route.push({ path: '/' })
         }, 1000);
     }//

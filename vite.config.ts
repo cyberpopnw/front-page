@@ -45,7 +45,7 @@ export default defineConfig({
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/game/, '')
             },
-            '/bobabrewery': { 
+            '/bobabrewery': {
                 target: 'https://bobabrewery.com/', //Actual request address
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/bobabrewery/, '')
@@ -56,6 +56,7 @@ export default defineConfig({
         'process.env': {},
     },
     resolve: {
+        dedupe: ['vue'],
         alias: {
             '@': '/src/',
             // '@': path.resolve(__dirname, 'src'),
@@ -66,5 +67,5 @@ export default defineConfig({
             'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js'
         },
     },
-    
+
 })

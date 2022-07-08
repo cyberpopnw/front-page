@@ -4,10 +4,10 @@
 
     <div class="banner">
         <section>
-            <video-bg 
+            <video-bg
 id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed6255c8406b7294d.mp4`]" img="https://d2cimmz3cflrbm.cloudfront.net/nwhome/videobg3.png">
             </video-bg>
-            <div class="titles"> 
+            <div class="titles">
                 <div class="title-wrap flex_center">
                     <div class="title1">{{$t('message.home.banner_title1Bef')}}<br/>{{$t('message.home.banner_title1Aft')}}</div>
                     <div class="title2">
@@ -111,7 +111,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                             class="swiper-bg3"
                             direction="vertical"
                             :slides-per-view="1"
-                            :mousewheel="true" 
+                            :mousewheel="true"
                             @slideChangeTransitionEnd="onSlideChangeEnd"
                             :loop="true"
                             :speed="200"
@@ -251,7 +251,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                     <!-- </a> -->
                 </div>
                 <div id="openMask" class="mask"></div>
-            </div>  
+            </div>
         </div>
     </div>
     <div class="news">
@@ -319,7 +319,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <div class="event-r checkgreen">
                     {{ $t('message.home.roadmap_s1_d1_e1') }} <br/>
                     {{ $t('message.home.roadmap_s1_d1_e2') }} <br/>
-                    {{ $t('message.home.roadmap_s1_d1_e3') }} 
+                    {{ $t('message.home.roadmap_s1_d1_e3') }}
                 </div>
             </div>
             <div class="time2 timeWidth-l maptime" id="time2">
@@ -548,7 +548,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
 import { onMounted, ref, reactive, computed, getCurrentInstance, onUnmounted, isMemoSame } from 'vue'
 import store from '@/store'
 import {  useRouter } from 'vue-router'
-import Web3 from '@/tools/web3' 
+import Web3 from '@/tools/web3'
 
 import { useI18n } from 'vue-i18n';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -663,7 +663,7 @@ const showxplan = () => {
             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.mess_xplan_err')}})
         }
     }else{
-        connect()
+        // connect()
     }
 }
 
@@ -687,31 +687,31 @@ const playToEarn = () => {
 const id: any = ref(0)
 const loggined = computed(() => store?.state.wallet?.loggined);
 
-const connect: any = async () => {
-    const ismessage: any = await Web3.hasMetaMask()
-    
-    if( ismessage == 'No install' ){
-        store.dispatch('wallet/metaChange',true);
-        store.dispatch('wallet/metaChangeAni',true);
-        store.dispatch('wallet/checkInstall',false);
-    }else{
-        store.dispatch('wallet/metaChange',true);
-        store.dispatch('wallet/metaChangeAni',true);
-        store.dispatch('wallet/checkInstall',true);
-        const [accounts]: any = await Web3.login().then((res: any) => {
-            store.dispatch('wallet/metaChange',false);
-            store.dispatch('wallet/metaChangeAni',false);
-            store.dispatch('wallet/walletloggined',true);
-            return res;
-        })
-        
-        id.value = accounts;
-        let len = id.value.length-1;
-        id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// include * id、all number id
-        store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
-    }
-}
+// const connect: any = async () => {
+//     const ismessage: any = await Web3.hasMetaMask()
+//
+//     if( ismessage == 'No install' ){
+//         store.dispatch('wallet/metaChange',true);
+//         store.dispatch('wallet/metaChangeAni',true);
+//         store.dispatch('wallet/checkInstall',false);
+//     }else{
+//         store.dispatch('wallet/metaChange',true);
+//         store.dispatch('wallet/metaChangeAni',true);
+//         store.dispatch('wallet/checkInstall',true);
+//         const [accounts]: any = await Web3.login().then((res: any) => {
+//             store.dispatch('wallet/metaChange',false);
+//             store.dispatch('wallet/metaChangeAni',false);
+//             store.dispatch('wallet/walletloggined',true);
+//             return res;
+//         })
+//
+//         id.value = accounts;
+//         let len = id.value.length-1;
+//         id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
+//         store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// include * id、all number id
+//         store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
+//     }
+// }
 
 
 
@@ -745,7 +745,7 @@ const onSlideChangeEnd = (swiper: any) => {
 };
 
 
-// let videoControls: any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwhome/section-btnPlay.svg') 
+// let videoControls: any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwhome/section-btnPlay.svg')
 // let playFlag: any = ref(false);
 // const stopPlay = () => {
 //     let videobg = document.querySelector("#videobg") as HTMLElement;
@@ -760,7 +760,7 @@ const onSlideChangeEnd = (swiper: any) => {
 //         videoControls.value = 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/section-btnPlay.svg';
 //     }
 // }
- 
+
 
 // Right icon scroll
 const myNav:any = ref(null);
@@ -806,7 +806,7 @@ const newsHover = (index: any, txt1:any) => {
             showNewsImg.value = newsFlag.value;
             newsTitle1.value = clickTitle1.value;
         })
-    } 
+    }
 }
 let newsFlag:any = ref(0);
 let clickTitle1:any = ref( 'message.home.news_rtitle1' );
@@ -915,13 +915,13 @@ const checkScrollHeightAndLoadAnimation: any = () => {
         let roles = document.getElementsByClassName("role");
         const roleListLen = roles.length;
         const ele1Top: Number = ele1.getBoundingClientRect().top; //Distance from top of screen
-        const ele2Top: Number = ele2.getBoundingClientRect().top; 
-        const ele3Top: Number = ele3.getBoundingClientRect().top; 
-        const ele4Top: Number = ele4.getBoundingClientRect().top; 
-        const ele5Top: Number = ele5.getBoundingClientRect().top; 
-        const ele6Top: Number = ele6.getBoundingClientRect().top; 
-        const ele7Top: Number = ele7.getBoundingClientRect().top; 
-        const roleTop: Number = roles[0].getBoundingClientRect().top; 
+        const ele2Top: Number = ele2.getBoundingClientRect().top;
+        const ele3Top: Number = ele3.getBoundingClientRect().top;
+        const ele4Top: Number = ele4.getBoundingClientRect().top;
+        const ele5Top: Number = ele5.getBoundingClientRect().top;
+        const ele6Top: Number = ele6.getBoundingClientRect().top;
+        const ele7Top: Number = ele7.getBoundingClientRect().top;
+        const roleTop: Number = roles[0].getBoundingClientRect().top;
 
         let timeTop:any = {};
         for( let t = 0; t < mapListLen; t++){
@@ -1081,7 +1081,7 @@ onMounted(() => {
                 background-position: left top;
                 .title-wrap{
                     height: 100%;
-                    flex-direction: column;            
+                    flex-direction: column;
                     .title1{
                         // width: 64.84vw;
                         height: 10.41vw;
@@ -1370,7 +1370,7 @@ onMounted(() => {
             border-top: 1px solid #8147FF;
             transform: rotateX(180deg);
         }
-        
+
     }
     .welcome{
         position: relative;
@@ -1450,8 +1450,8 @@ onMounted(() => {
                             background-color: #EDFF00;
                         }
                     }
-                    
-                    
+
+
                 }
                 .swiper1{
                     z-index: 1;
@@ -1469,8 +1469,8 @@ onMounted(() => {
                         filter: blur(2vw);
                         -webkit-filter: blur(2vw);
                         -moz-filter: blur(2vw);
-                        -ms-filter: blur(2vw);   
-                        -o-filter: blur(2vw);   
+                        -ms-filter: blur(2vw);
+                        -o-filter: blur(2vw);
                         img{
                             width: 100%;
                             height: 100%;
@@ -1742,7 +1742,7 @@ onMounted(() => {
                         height: 100%;
                         background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/white-border.svg');
                         background-repeat: no-repeat;
-                        background-size: 100% 100%;  
+                        background-size: 100% 100%;
                         background-position: left top;
                         // clip-path: polygon(0 0, 100% 0, 100% 67%, 95% 100%, 0 100%);
                         cursor: pointer;
@@ -1774,7 +1774,7 @@ onMounted(() => {
         background-color: #000000;
         .make-wrap{
             display: flex;
-            flex-direction: column;            
+            flex-direction: column;
             justify-content: center;
             height: 100%;
             margin-left: 19.53vw;
@@ -1957,7 +1957,7 @@ onMounted(() => {
         height: 100vh;
         background-color: #000000;
         .news-wrap{
-            flex-direction: column;            
+            flex-direction: column;
             height: 100%;
             .title{
                 font-size: 2.6vw;
@@ -2206,7 +2206,7 @@ onMounted(() => {
                     font-family: AlibabaPuHuiTi_2_85_Bold;
                     color: #ffffff;
                     line-height: 2.6vw;
-                }  
+                }
                 .date{
                     position: relative;
                     font-size: 2.2vw;
@@ -2236,7 +2236,7 @@ onMounted(() => {
                     line-height: 1.56vw;
                     background: #141314;
                 }
-                
+
             }
             .checkgreen{
                 color: #04ffa2 !important;
@@ -2521,7 +2521,7 @@ onMounted(() => {
                 .logo14{
                     width: 8vw;
                 }
-                
+
             }
             a:hover,div:not(.line1):hover{
                 background: rgba(40, 38, 38,.6);
@@ -2544,7 +2544,7 @@ onMounted(() => {
         .logo{
             margin-top: 3.8vw;
             margin-bottom: 7vw;
-            overflow: hidden;  
+            overflow: hidden;
             li{
                 display: flex;
                 align-items: center;
@@ -2615,7 +2615,7 @@ onMounted(() => {
                     height: 100%;
                     padding-right: 1.25vw;
                     font-size: 1.04vw;
-                    color: #565656; 
+                    color: #565656;
                     text-indent: 1.25vw;
                     line-height: 1.56vw;
                     font-family: AlibabaPuHuiTi_2_55_Regular;

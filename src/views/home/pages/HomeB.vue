@@ -6,7 +6,7 @@
         <div class="name">IDO WHITELISTS OPEN</div>
         <div class="total">Total Raise：<span>$750,000</span></div>
         <div class="desc">
-            Limited to <span>2500</span> whitelists <br/> 
+            Limited to <span>2500</span> whitelists <br/>
             Basic quota per person: <span>$300</span> <br/>
             Reach <span>4000</span> points to get a whitelist!
         </div>
@@ -14,10 +14,10 @@
     </div> -->
     <div class="banner">
         <section>
-            <video-bg 
+            <video-bg
 id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed6255c8406b7294d.mp4`]" img="https://d2cimmz3cflrbm.cloudfront.net/nwhome/videobg3.png">
             </video-bg>
-            <div class="titles"> 
+            <div class="titles">
                 <div class="title-wrap flex_center">
                     <div class="title1" id="title1">{{$t('message.home.banner_title1Bef')}}<br/>{{$t('message.home.banner_title1Aft')}}</div>
                     <div class="title2">
@@ -128,7 +128,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                             class="swiper-bg3"
                             direction="vertical"
                             :slides-per-view="1"
-                            :mousewheel="true" 
+                            :mousewheel="true"
                             @slideChangeTransitionEnd="onSlideChangeEnd"
                             :loop="true"
                             :speed="200"
@@ -210,64 +210,6 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             </div>
         </div>
     </div>
-    <div class="make">
-        <div class="make-wrap">
-            <!-- <img class="title-bg" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/title-bg.png" alt=""> -->
-            <div class="title" id="ele3">{{$t('message.home.make_title_b')}}</div>
-            <div class="subtitle">{{$t('message.home.make_subtitle')}}</div>
-            <div class="desc">
-                {{$t('message.home.make_desc')}}
-            </div>
-            <div class="icon">
-                <div class="txt">{{$t('message.home.make_cross')}}</div>
-                <div class="icon-img">
-                    <div>
-                        <img class="icon4" src="@/assets/nwhome/make-avala.svg" alt="">
-                        <!-- <img class="icon1" src="@/assets/nwhome/make-flow.svg" alt=""> -->
-                        <img class="icon3" src="@/assets/nwhome/make-ethernet.png" alt="">
-                    </div>
-                    <div>
-                        <img class="icon2" src="@/assets/nwhome/make-polygon.svg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="make-img">
-                <img class="yellowBg-r" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/yellowBg-r.svg" alt="">
-                <img class="yellowBg-l" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/yellowBg-l.svg" alt="">
-                <ul>
-                    <li>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-img1.png" alt="">
-                        <div>{{$t('message.home.make_img_txt1')}}</div>
-                    </li>
-                    <li>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-img2.png" alt="">
-                        <div>{{$t('message.home.make_img_txt2')}}</div>
-                    </li>
-                    <li>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-img3.png" alt="">
-                        <div>{{$t('message.home.make_img_txt3')}}</div>
-                    </li>
-                    <li>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-img4.png" alt="">
-                        <div class="tech">{{$t('message.home.make_img_txt4')}}</div>
-                    </li>
-                </ul>
-            </div>
-            <!-- <div class="opensea" @mouseenter="openseaEnter()" @mouseleave="openseaLeave()"> -->
-            <div class="opensea">
-                <div class="opensea-title">{{$t('message.home.make_opensea_title')}}</div>
-                <div class="openUrl" target="view_window">
-                    <!-- <a href=""> -->
-                    <div>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/openSea.png" alt="">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-rightArrow.svg" alt="">
-                    </div>
-                    <!-- </a> -->
-                </div>
-                <div id="openMask" class="mask"></div>
-            </div>  
-        </div>
-    </div>
     <div class="news">
         <div class="news-wrap">
             <div class="title" id="ele4">{{$t('message.home.news_title')}}</div>
@@ -324,7 +266,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <div class="event-r checkgreen">
                     {{ $t('message.home.roadmap_s1_d1_e1') }} <br/>
                     {{ $t('message.home.roadmap_s1_d1_e2') }} <br/>
-                    {{ $t('message.home.roadmap_s1_d1_e3') }} 
+                    {{ $t('message.home.roadmap_s1_d1_e3') }}
                 </div>
             </div>
             <div class="time2 timeWidth-l maptime" id="time2">
@@ -543,7 +485,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
 import { onMounted, ref, reactive, computed, getCurrentInstance, onUnmounted } from 'vue'
 import store from '@/store'
 import {  useRouter } from 'vue-router'
-import Web3 from '@/tools/web3' 
+import Web3 from '@/tools/web3'
 
 import { useI18n } from 'vue-i18n';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -618,28 +560,7 @@ const teamInfo: any = ref([
 // xplan
 const realId = computed(() => store?.state.wallet?.realId);
 const idTemp = computed(() => store?.state.wallet?.idTemp);
-const xplanActive = computed(() => store?.state.user?.xplanActive);
-const chainId: any = computed(() => store.state.user?.chainId );
-const showxplan = () => {
-    if( realId.value != -1 ){
-        if( chainId.value == 80001 ){
-            Web3.getBalance(idTemp.value).then((res: any) => {
-                token0Number.value = res[0];
-                if(token0Number.value <= 0){
-                    store.dispatch('user/changeXplan',true);
-                    store.dispatch('user/xplanChangeAni',true);
-                }else{
-                    window.open('https://xplan.cyberpop.online');
-                }
-            })
-        }else{
-            store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
-            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.common.mess_xplan_err')}})
-        }
-    }else{
-        connect()
-    }
-}
+
 
 // register
 let showDown:any = ref(false);
@@ -648,40 +569,13 @@ const playToEarn = () => {
     router.push({ path: '/download', query: { code: router.currentRoute.value.query.code, isClick: 1 } })
     return;
     if( realId.value != -1 ){
-        showDown.value = true; 
+        showDown.value = true;
         isOut.value = false;
-    }else{
-        connect()
     }
 }
 
 
 const id: any = ref(0)
-const connect: any = async () => {
-    store.dispatch('wallet/walletMenuAni', false)
-    const ismessage: any = await Web3.hasMetaMask()
-
-    if( ismessage == 'No install' ){
-        store.dispatch('wallet/metaChange',true);
-        store.dispatch('wallet/metaChangeAni',true);
-        store.dispatch('wallet/checkInstall',false);
-    }else{
-        store.dispatch('wallet/metaChange',true);
-        store.dispatch('wallet/metaChangeAni',true);
-        store.dispatch('wallet/checkInstall',true);
-        const [accounts]: any = await Web3.login().then((res: any) => {
-            store.dispatch('wallet/metaChange',false);
-            store.dispatch('wallet/metaChangeAni',false);
-            store.dispatch('wallet/walletloggined',true);
-            return res;
-        })
-        id.value = accounts;
-        let len = id.value.length-1;
-        id.value = id.value[0]+id.value[1]+id.value[2]+id.value[3]+id.value[4]+"*****"+id.value[len-3]+id.value[len-2]+id.value[len-1]+id.value[len];
-        store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// include * id、all number id
-        store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.common.mess_succ')}})
-    }
-}
 
 // download
 let isOut:any = ref(false)
@@ -716,7 +610,7 @@ let tipIndex: any = ref(0);
 const onSlideLeft = (swiper: any) => {
     tipIndex.value = swiper.realIndex;
 };
- 
+
 
 // Right icon scroll
 const myNav:any = ref(null);
@@ -761,7 +655,7 @@ const newsHover = (index: any, txt1:any) => {
             showNewsImg.value = newsFlag.value;
             newsTitle1.value = clickTitle1.value;
         })
-    } 
+    }
 }
 let newsFlag:any = ref(0);
 let clickTitle1:any = ref( 'message.home.news_rtitle1' );
@@ -778,7 +672,7 @@ const newsActive = (index: any, txt1:any) => {
             showNewsImg.value = index;
             newsTitle1.value = txt1;
         })
-    } 
+    }
 }
 
 const newsActiveSrc = () => {
@@ -874,11 +768,11 @@ const checkScrollHeightAndLoadAnimation: any = () => {
         let mapList = document.getElementsByClassName('maptime');
         const mapListLen = mapList.length;
         const ele1Top: Number = ele1.getBoundingClientRect().top; // Distance from top of screen
-        const ele2Top: Number = ele2.getBoundingClientRect().top; 
-        const ele3Top: Number = ele3.getBoundingClientRect().top; 
-        const ele4Top: Number = ele4.getBoundingClientRect().top; 
-        const ele5Top: Number = ele5.getBoundingClientRect().top; 
-        const ele6Top: Number = ele6.getBoundingClientRect().top; 
+        const ele2Top: Number = ele2.getBoundingClientRect().top;
+        const ele3Top: Number = ele3.getBoundingClientRect().top;
+        const ele4Top: Number = ele4.getBoundingClientRect().top;
+        const ele5Top: Number = ele5.getBoundingClientRect().top;
+        const ele6Top: Number = ele6.getBoundingClientRect().top;
         let timeTop:any = {};
         for( let t = 0; t < mapListLen; t++){
             timeTop['timeTop' + t] = mapList[t].getBoundingClientRect().top;
@@ -914,7 +808,7 @@ const checkScrollHeightAndLoadAnimation: any = () => {
             if(arr[i].top < windowHeight){
                 arr[i].el.classList.add('fadeInUp')
             }
-            
+
         }
         if( timeTop.timeTop0 < windowHeight) mapList[0].classList.add('fadeInRight')
         if( timeTop.timeTop2 < windowHeight) mapList[2].classList.add('fadeInRight')
@@ -938,7 +832,6 @@ onMounted(() => {
     window.addEventListener('scroll', windowScroll, true);
     store.dispatch('user/showDialog',{show: false, info: {}});
     window.scrollTo(0,0);
-    console.log(router.currentRoute.value.query.code, 'router.currentRoute.value.query.code');
 })
 
 </script>
@@ -982,7 +875,7 @@ onMounted(() => {
             font-family: AlibabaPuHuiTi_2_105_Heavy;
             line-height: 22px;
             span{
-                color: #12FD00; 
+                color: #12FD00;
                 font-size: 28px;
             }
         }
@@ -1025,7 +918,7 @@ onMounted(() => {
                 background-position: -1vw 1vw;
                 .title-wrap{
                     height: 100%;
-                    flex-direction: column;  
+                    flex-direction: column;
                     .title1{
                         // width: 273px;
                         // height: 47px;
@@ -1156,7 +1049,7 @@ onMounted(() => {
                     line-height: 18px;
                     margin: 0 auto;
                     position: relative;
-                    
+
                     input{
                         line-height: 18px;
                         border: none;
@@ -1292,7 +1185,7 @@ onMounted(() => {
             border-top: 1px solid #8147FF;
             transform: rotateX(180deg);
         }
-        
+
     }
     .welcome{
         position: relative;
@@ -1370,8 +1263,8 @@ onMounted(() => {
                             background-color: #EDFF00;
                         }
                     }
-                    
-                    
+
+
                 }
                 .swiper1{
                     z-index: 1;
@@ -1389,7 +1282,7 @@ onMounted(() => {
                             filter: blur(4vw);
                             -webkit-filter: blur(4vw);
                             -moz-filter: blur(4vw);
-                            -ms-filter: blur(4vw);   
+                            -ms-filter: blur(4vw);
                             -o-filter: blur(4vw);
                             img{
                                 width: 100%;
@@ -1635,7 +1528,7 @@ onMounted(() => {
                         height: 100%;
                         background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/white-border.svg');
                         background-repeat: no-repeat;
-                        background-size: 100% 100%;  
+                        background-size: 100% 100%;
                         background-position: left top;
                         cursor: pointer;
                     }
@@ -1668,7 +1561,7 @@ onMounted(() => {
         .make-wrap{
             position: relative;
             display: flex;
-            flex-direction: column;            
+            flex-direction: column;
             align-items: center;
             text-align: center;
             width: 100%;
@@ -2118,7 +2011,7 @@ onMounted(() => {
                     font-family: AlibabaPuHuiTi_2_85_Bold;
                     color: #ffffff;
                     line-height: 22px;
-                }  
+                }
                 .date{
                     position: relative;
                     font-size: 18px;
@@ -2278,7 +2171,7 @@ onMounted(() => {
                     .avator{
                         height: 38px;
                     }
-                }   
+                }
                 li:nth-child(8){
                     top: 240px;
                     right: 29px;
@@ -2300,7 +2193,7 @@ onMounted(() => {
                     .avator{
                         height: 38px;
                     }
-                }   
+                }
                 li:hover{
                     transform: translate(0,-10px);
                 }
@@ -2332,7 +2225,7 @@ onMounted(() => {
         }
         .logo{
             flex-wrap: wrap;
-            width: 100%;   
+            width: 100%;
             padding: 0 38px;
             a,div{
                 display: flex;
