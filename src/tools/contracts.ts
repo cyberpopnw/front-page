@@ -12041,8 +12041,8 @@ const cytV2 = {
 
 //cyt from wu: stake coin get coin(CYT)  only getReward
 const CYTStakingRewards = {
-    // address: '0x29daC362A0f14d733d86561149ac16034E37e8C4',
-    address: '0x2583c308945229a2fFA18B80dD4E9F786A8397d0',
+    address: '0x29daC362A0f14d733d86561149ac16034E37e8C4',
+    // address: '0x2583c308945229a2fFA18B80dD4E9F786A8397d0',
     abi: [
         {
             "inputs": [
