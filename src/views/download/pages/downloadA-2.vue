@@ -87,13 +87,13 @@ const downloadGame = (type: number) => {
     }
     switch(type){
         case 2:
-            window.location.href = 'https://apps.apple.com/app/cyberpop/id1613478998'
+            window.location.href = 'https://apps.apple.com/us/app/cyberpop/id1613478998?l=zh'
             break;
         case 0:
-            window.location.href = 'https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_19_09_40_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk'
+            window.location.href = 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.4_2022_06_14_18_48_53_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk'
             break;
         case 1:
-            window.location.href = 'https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_18_11_53_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe'
+            window.location.href = 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.0.4_2022_06_14_19_19_02_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe'
             break;
     }
     proxy.$api.get(`/code/user/download?address=${thisAcounts.value}`).then((res: any) => {
