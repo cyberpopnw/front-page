@@ -3,10 +3,8 @@
         "apps": [],
         "details": [
             {
-                "appIDs": "C278QLJBMA.online.cyberpop.metaverse",
-                "paths": [
-                    "*"
-                ]
+                "appID": "X7Y43RVNDT.online.cyberpop.metaverse",
+                "paths": [ "*"]
             }
         ]
     }

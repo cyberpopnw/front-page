@@ -342,19 +342,19 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <div class="event-r checkgreen">
                     {{ $t('message.home.roadmap_s1_d3_e1') }} <br/>
                     {{ $t('message.home.roadmap_s1_d3_e2') }} <br/>
-                    <span class="incomplete">{{ $t('message.home.roadmap_s1_d3_e3') }} </span> <br/>
+                    {{ $t('message.home.roadmap_s1_d3_e3') }} <br/>
                     {{ $t('message.home.roadmap_s1_d3_e4') }}
                 </div>
             </div>
             <div class="time4 timeWidth-l maptime" id="time4">
                 <div class="stage">{{ $t('message.home.roadmap_s2') }}</div>
                 <div class="date">2022.06<span class="span-r"></span></div>
-                <div class="event-l">
+                <div class="event-l checkgreen">
                     {{ $t('message.home.roadmap_s2_d1_e1') }} <br/>
-                    {{ $t('message.home.roadmap_s2_d1_e2') }} <br/>
-                    {{ $t('message.home.roadmap_s2_d1_e3') }} <br/>
+                    <span style="color: #fff;">{{ $t('message.home.roadmap_s2_d1_e2') }}</span> <br/>
+                    <span style="color: #fff;">{{ $t('message.home.roadmap_s2_d1_e3') }}</span> <br/>
                     {{ $t('message.home.roadmap_s2_d1_e4') }} <br/>
-                    {{ $t('message.home.roadmap_s2_d1_e5') }}
+                    <span style="color: #fff;">{{ $t('message.home.roadmap_s2_d1_e5') }}</span>
                 </div>
             </div>
             <div class="time5 timeWidth-r maptime" id="time5">

@@ -25,7 +25,8 @@
                 <div class="line"></div>
                 <div class="text2">
                     <div>{{$t('message.details.box_sale')}}</div>
-                    <div>21<span>H</span>:33<span>M</span>:48<span>S</span></div>
+                    <!-- <div>21<span>H</span>:33<span>M</span>:48<span>S</span></div> -->
+                    <div>00<span>H</span>:00<span>M</span>:00<span>S</span></div>
                 </div>
             </div>
             <div class="btn">
@@ -102,6 +103,30 @@
                         </li>
                     </ul>
                 </li> 
+                <li v-if="index == 9">
+                    <ul>
+                        <li class="desc_wrap">
+                            <div class="wrap">
+                                <div class="pic">
+                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/box9_icon.png" alt="">
+                                </div>
+                                <div class="data">
+                                    <div class="prob">
+                                        <div class="prince">{{$t('message.details.list.name1')}}</div>
+                                        <div class="num">100%</div>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="attr">
+                                        <div class="name">{{$t('message.details.list.name2')}}</div>
+                                        <div class="txt">
+                                            {{ $t('message.details.list.HeroText') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li> 
+                    </ul>
+                </li>
                 <li v-if="index == 3">
                     <ul>
                         <li class="attr_warp">
@@ -264,7 +289,7 @@ const index: any = Route.query.type || 1; //Current box type
 const isProduction = ref(true);
 
 // changeMenu
-let exMenu:any = ref(1) 
+let exMenu:any = ref(0) 
 const intClick = (type:any) => {
     exMenu.value = type    
 }
@@ -673,6 +698,9 @@ onMounted( () => {
                                 linear-gradient(100deg, rgba(4, 255, 162, 0.1) 0%, rgba(27, 54, 44, 0) 100%);
                     border: 2px solid;
                     border-image: linear-gradient(270deg, rgba(176, 65, 216, 1), rgba(139, 255, 178, 0.5)) 2 2;
+                    .pic{
+                        text-align: center;
+                    }
                     .data{
                         .prob{
                             margin: 20px 0;
