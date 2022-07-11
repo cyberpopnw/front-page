@@ -41,6 +41,16 @@ const routes = [
         },
     },
     {
+        name: 'help',
+        path: '/help',
+        component: () => import('../views/help/index.vue'),
+        meta: {
+            keepAlive: false,
+            showFooter: true,
+            transition: 'slide-right',
+        },
+    },
+    {
         name: 'mining',
         path: '/mining',
         component: () => import('../views/mining/index.vue'),

@@ -119,6 +119,31 @@
                         </li>
                     </ul>    
                 </li>
+                <li v-if="index == 9">
+                    <ul class="list_box">
+                        <li>
+                            <div class="wrap">
+                                <div class="pic">
+                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/box9_icon.png" alt="">
+                                </div>
+                                <div class="data">
+                                    <div class="prob">
+                                        <div class="name">{{$t('message.details.list.name1')}}</div>
+                                        <div class="num">100%</div>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="attr">
+                                        <div class="name">{{$t('message.details.list.name2')}}</div>
+                                        <div class="txt">
+                                            {{ $t('message.details.list.HeroText') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prince">{{$t('message.details.list.prince5')}}</div>
+                        </li> 
+                    </ul>    
+                </li>
                 <li v-if="index == 3">
                     <ul class="list_box">
                         <li>
@@ -375,7 +400,7 @@ const index: any = Route.query.type || 9; //Current box type
 const isProduction = ref(true);
 
 // changeMenu
-let exMenu:any = ref(1) 
+let exMenu:any = ref(0) 
 const intClick = (type:any) => {
     exMenu.value = type    
 }
@@ -814,9 +839,6 @@ onMounted(() => {
                             text-align: center;
                             clip-path: polygon(0 0, 100% 0%, 80% 0%, 100% 100%, 0% 100%);
                             box-sizing: border-box;
-                        }
-                        .prince:hover{
-                            border: 2px solid #a5cab4;
                         }
                         .wrap{
                             display: flex;

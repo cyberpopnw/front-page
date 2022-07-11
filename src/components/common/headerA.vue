@@ -97,6 +97,7 @@
                                     <a href="https://pdf.cyberpop.online/" @click="showDoc = false" target="view_window">{{t('message.common.doc_whitePaper')}}</a>
                                     <!-- <a href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopTechnologyArchitecture2.pdf" @click="showDoc = false" target="view_window">{{$t('message.common.doc_greenPaper')}}</a> -->
                                     <a href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopMetaverseDeck.pdf" @click="showDoc = false" target="view_window">{{t('message.common.doc_deck')}}</a>
+                                    <!-- <router-link to="/help">Help</router-link> -->
                                 </div>
                             </div>
                         </li>
