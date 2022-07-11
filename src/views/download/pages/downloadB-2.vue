@@ -1,5 +1,5 @@
 <template>
-    <header-b path="/download" :type="0" v-if="isClick"></header-b>
+    <header-b path="/" :type="0" ></header-b>
     <div class="download bounceShow">
         <div class="banner">
             <div class="welmsg">{{ $t('message.download.welmsg_txt1') }} <span>{{ $t('message.download.welmsg_txt2') }}</span></div>
@@ -24,7 +24,7 @@
         <div class="down_button">
             <div class="arrow"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_arrow.svg" alt=""></div>
             <div class="step2">
-                <span class="green">{{ $t('message.download.step2_name') }} :</span> <br/>{{ $t('message.download.download_txt') }} <br/> 
+                <span class="green">{{ $t('message.download.step2_name') }} :</span> <br/>{{ $t('message.download.download_txt') }} <br/>
                 <div>{{ $t('message.download.version') }}</div>
             </div>
             <div class="person"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt=""></div>
@@ -47,12 +47,12 @@
     <footer-b></footer-b>
 </template>
 
-<script setup lang='ts'> 
+<script setup lang='ts'>
     import { onMounted, onUnmounted, ref, reactive, getCurrentInstance, computed } from 'vue'
     import store from '@/store'
     import { useI18n } from 'vue-i18n';
     import {  useRouter } from 'vue-router'
-    import Web3 from '@/tools/web3' 
+    import Web3 from '@/tools/web3'
     const { proxy } = getCurrentInstance() as any;
     const router = useRouter()
     const { t } = useI18n()
@@ -101,7 +101,7 @@
                 store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.download.tips6') }})
                 return;
             }
-        
+
             if(res.data.code != 55555) {
                 isDonload.value = true;
                 store.dispatch('wallet/messSing', code.value);
@@ -120,7 +120,7 @@
         proxy.$api.get(`/code/user/baddress?address=${thisAcounts.value}`).then((result: any) => {
             store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: "You're bound: " + result.data }})
         }).catch((err: any) => {
-            console.log(err); 
+            console.log(err);
         })
     }
 
@@ -176,7 +176,7 @@
 
 
     const submit = () => {
-           
+
         const ethereum = (window as any).ethereum // Get fox instanc
         if(!ethereum && emailInput()){
             email.value = 'hello@cyberpop.online'
@@ -235,7 +235,7 @@
 
 
     const emailCodeInput = () => {
-        var regu = /^\d{6}$/; 
+        var regu = /^\d{6}$/;
         console.log(regu.test(emailCode.value));
         if(emailCode.value.length > 6) emailCode.value = emailCode.value.slice(0, 6)
         if(regu.test(emailCode.value)){
@@ -425,8 +425,8 @@
             .step2{
                 font-size: 20px;
                 font-family: AlibabaPuHuiTi_2_105_Heavy;
-                line-height: 28px;    
-                text-align: center;        
+                line-height: 28px;
+                text-align: center;
                 div{
                     font-size: 16px;
                 }

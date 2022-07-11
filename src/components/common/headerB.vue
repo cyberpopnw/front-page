@@ -58,6 +58,7 @@
           <!--                        <span>{{$t('message.common.menu7')}}</span>-->
           <!--                    </li>-->
           <!-- <li @click="changeMenu(5, '/')" :class="{'active': active == 5}">{{$t('message.common.menu6')}}</li> -->
+          <li @click="changeMenu(6, '/download')" :class="{'active': active == 6}">Download</li>
         </ul>
         <div class="language">
           <div @click="openLang()">{{ $t('message.common.language_switch') }} <span
@@ -79,7 +80,7 @@
             <span>Open game in <b>Android</b></span>
           </a>
 
-          <a href="test.cyberpop.online" class="button">
+          <a href="http://test.cyberpop.online" class="button">
             <img class="button__icon" src="https://d3fnwpfk23lv4d.cloudfront.net/common/ios.png" alt="IOS">
             <span>Open game in <b>IOS</b></span>
           </a>

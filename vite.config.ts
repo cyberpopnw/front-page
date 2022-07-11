@@ -11,45 +11,25 @@ export default defineConfig({
             deleteOriginFile: false
         })
     ],
-    // Expose local service to LAN
+    // 暴露本地服务到局域网
     server:{
         host: '0.0.0.0',
         proxy: {
-            '/api': {
-              target: 'https://data.cyberpop.online/', //Actual request address
+            '/sand': {
+              target: 'https://miniapp-sandbox.gateapi.io/',
               changeOrigin: true,
-              rewrite: (path) => path.replace(/^\/api/, '')
+              rewrite: (path) => path.replace(/^\/sand/, '')
             },
-            '/text': {
-                target: 'https://d2cimmz3cflrbm.cloudfront.net/', //Actual request address
+            '/gate': {
+                target: 'https://www.gate.io/',
                 changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/text/, '')
+                rewrite: (path) => path.replace(/^\/gate/, '')
             },
-            '/data': {
-                target: 'https://api.cyberpop.online/', //Actual request address
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/data/, '')
-            },
-            '/game': {
-                target: 'https://gamepool.cyberpop.online/', //Actual request address
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/game/, '')
-            },
-            '/code': {
-                target: 'https://invitecode.cyberpop.online/', //Actual request address
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/code/, '')
-            },
-            '/email': {
-                target: 'http://192.168.0.134/', //Actual request address
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/game/, '')
-            },
-            '/bobabrewery': {
-                target: 'https://bobabrewery.com/', //Actual request address
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/bobabrewery/, '')
-            }
+            // '/openapi': { // 正式上线接口
+            //     target: 'https://openapi.gate.io/',
+            //     changeOrigin: true,
+            //     rewrite: (path) => path.replace(/^\/openapi/, '')
+            // },
         },
     },
     define: {

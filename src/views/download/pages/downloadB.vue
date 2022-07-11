@@ -1,5 +1,5 @@
 <template>
-    <header-b path="/download" :type="0" v-if="isClick"></header-b>
+    <header-b path="/" :type="0" />
     <div class="download bounceShow">
         <div class="download-mask">
             <div class="wrap">
@@ -9,7 +9,7 @@
                     </div>
                     <div class="button">
                         <input type="text" v-model="email"  @input="emailInput()" :placeholder="$t('message.download.inputEmail')"/>
-                        <div class="tip" v-if="emailErr">{{ $t('message.download.tips3') }}</div> 
+                        <div class="tip" v-if="emailErr">{{ $t('message.download.tips3') }}</div>
                     </div>
                     <!-- <div class="button" style="margin-top: 28px;margin-bottom: 9px;">
                         <input type="text" v-model="emailCode" placeholder="Email verification code" @input="emailCodeInput"/>
@@ -39,12 +39,12 @@
     </div>
 </template>
 
-<script setup lang='ts'> 
+<script setup lang='ts'>
     import { onMounted, onUnmounted, ref, reactive, getCurrentInstance, computed } from 'vue'
     import store from '@/store'
     import { useI18n } from 'vue-i18n';
     import {  useRouter } from 'vue-router'
-    import Web3 from '@/tools/web3' 
+    import Web3 from '@/tools/web3'
     const { proxy } = getCurrentInstance() as any;
     const router = useRouter()
     const { t } = useI18n()
@@ -86,7 +86,7 @@
                 store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.download.tips6') }})
                 return;
             }
-        
+
             if(res.data.code != 55555) {
                 isDonload.value = true;
                 store.dispatch('wallet/messSing', code.value);
@@ -204,7 +204,7 @@
 
 
     const emailCodeInput = () => {
-        var regu = /^\d{6}$/; 
+        var regu = /^\d{6}$/;
         console.log(regu.test(emailCode.value));
         if(emailCode.value.length > 6) emailCode.value = emailCode.value.slice(0, 6)
         if(regu.test(emailCode.value)){
