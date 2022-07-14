@@ -1,7 +1,8 @@
 import _axios from 'axios'
+import type { AxiosAuthRefreshRequestConfig } from 'axios-auth-refresh';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import qs from 'qs'
-import type { AxiosAuthRefreshRequestConfig } from 'axios-auth-refresh';
+import { clearToken, getToken, hasToken, setToken } from '@/tools/gateIo'
 
 const axios = _axios.create({
   baseURL: '/sand'
@@ -51,31 +52,6 @@ export const tokenItemKey = 'gateToken'
 export const authorizationUri = `https://miniapp-sandbox.gateapi.io/oauth/authorize?response_type=code&client_id=${clientID}&redirect_uri=https://h5.cyberpop.online&state=CSRF_TOKEN&scope=read_profile,read_wallet`
 
 
-
-// Utils
-export const setToken = (response: AuthorizeResponse) => {
-  localStorage.setItem(tokenItemKey, JSON.stringify({
-    accessToken: response['access_token'],
-    refreshToken: response['refresh_token'],
-    scope: response.scope,
-    tokenType: response['token_type']
-  }))
-}
-
-export const getToken = () => {
-  const token = window.localStorage.getItem('token')
-  if (token) {
-    try {
-      return (JSON.parse(token) as Token)
-    } catch (e) {
-    }
-  }
-  return
-}
-
-export const hasToken = () => Boolean(getToken())
-
-export const clearToken = () => localStorage.removeItem(tokenItemKey)
 
 // Request
 export const requestToken = <T>(data: FormData) => axios.post<T>('/oauth/token', data, {

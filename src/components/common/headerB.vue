@@ -74,17 +74,7 @@
             </li>
           </ul>
         </div>
-        <div class="button-group">
-          <a href="unitydl://cyberpop" class="button">
-            <img class="button__icon" src="https://d3fnwpfk23lv4d.cloudfront.net/common/android.png" alt="Android">
-            <span>Open game in <b>Android</b></span>
-          </a>
-
-          <a href="http://test.cyberpop.online" class="button">
-            <img class="button__icon" src="https://d3fnwpfk23lv4d.cloudfront.net/common/ios.png" alt="IOS">
-            <span>Open game in <b>IOS</b></span>
-          </a>
-        </div>
+        <OpenGame />
       </div>
     </header>
   </div>
@@ -100,6 +90,7 @@ import store from '@/store'
 import NFT from '@/tools/web3'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import OpenGame from '@/components/OpenGame.vue'
 
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter()
@@ -111,6 +102,8 @@ const props = defineProps({
   path: String,
   type: Number
 })
+
+
 const warning: any = computed(() => store.state.common?.warning);
 const closeWarn = () => {
   store.dispatch('common/warningShow', false)
@@ -405,7 +398,6 @@ const toAssets = () => {
 const toMarket = () => {
   window.open('https://market.cyberpop.online/#/', '_blank');
 }
-
 
 const cursor: any = ref(null)
 const handleOtherClick = (e: any) => {
@@ -811,20 +803,17 @@ body {
 .spacer {
   width: 80%;
   height: .1rem;
-  border-top: 1px solid rgba(0,0,0,.4);
+  border-top: 1px solid rgba(0, 0, 0, .4);
   margin: 1rem auto;
 }
 
-.button-group {
-  display: grid;
-  grid-template-rows: auto;
-  grid-row-gap: 1rem;
-  align-items: center;
-  justify-content: center;
+.open-game-iframe {
   margin: 1rem;
   padding: 1rem;
   position: absolute;
   bottom: 1rem;
+  border: none;
+  background: transparent;
 }
 
 .button {
