@@ -22,6 +22,10 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                     </div>
                 </div>
             </div>
+            <div class="toGuide">
+                <b class="txt2">How to start cyberpop?  </b>
+                <router-link to="/help" class="txt1">let’s have a tutorial</router-link>
+            </div>
             <div class="botm">#0 <span class="txt1">{{$t('message.home.banner_botmBef')}}</span><span class="txt2">{{$t('message.home.banner_botmAft')}}</span></div>
         </section>
         <footer>
@@ -1153,6 +1157,27 @@ onMounted(() => {
                             filter: drop-shadow(0 0 0.75rem #c42edb);
                         }
                     }
+                }
+            }
+            .toGuide{
+                position: absolute;
+                bottom: 4.8vw;
+                width: 100%;
+                text-align: center;
+                font-size: 1.25vw;
+                color: #04FFA2;
+                line-height: 1.71vw;
+                font-family: AlibabaPuHuiTi_2_55_Regular;
+                font-weight: 400;
+                .txt2{
+                    color: #fff;
+                } 
+                .txt1{
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+                a{
+                    color: #04FFA2;
                 }
             }
             .botm{

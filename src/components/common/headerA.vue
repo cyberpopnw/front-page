@@ -23,7 +23,7 @@
                                 <div class="cover"></div>
                                 <div class="coverborder"></div>
                                 <div class="network">
-                                    <div v-for="(value,key,index) in chainList" @click="changeChain(value)" :key="index" class="item" v-show="!value.active"><img :src="value.img" alt=""><span>{{ value.name }}</span></div>
+                                    <div v-for="(value, key, index) in chainList" @click="changeChain(value)" :key="index" class="item" v-show="!value.active"><img :src="value.img" alt=""><span>{{ value.name }}</span></div>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                     <a href="https://pdf.cyberpop.online/" @click="showDoc = false" target="view_window">{{t('message.common.doc_whitePaper')}}</a>
                                     <!-- <a href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopTechnologyArchitecture2.pdf" @click="showDoc = false" target="view_window">{{$t('message.common.doc_greenPaper')}}</a> -->
                                     <a href="https://d3bhixjyozyk2o.cloudfront.net/CyberpopMetaverseDeck.pdf" @click="showDoc = false" target="view_window">{{t('message.common.doc_deck')}}</a>
-                                    <!-- <router-link to="/help">Help</router-link> -->
+                                    <router-link to="/help">Help</router-link>
                                 </div>
                             </div>
                         </li>
@@ -1048,7 +1048,7 @@ onMounted(() => {
                                 position: relative;
                                 width: 8.3vw;
                                 // height: 7.96vw;
-                                height: 5.6vw;
+                                height: 7.6vw;
                                 margin-top: .6vw;
                                 background: linear-gradient(180deg, #30304D 0%, #232F37 100%);
                                 border: .15vw solid;

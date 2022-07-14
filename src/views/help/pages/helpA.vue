@@ -16,9 +16,9 @@
                 </div>
             </div>
         </div>
-        <div class="center_title">
-            <h2 class="title">Create Your MetaMask wallet</h2>
-            <h5 class="des">Wallet is your boarding pass to our digital nation</h5>
+        <div class="center_title" v-for="(item, i) in select_title" :key="i">
+            <h2 class="title" v-if="siderIndex == i">{{ item.bigTitle }}</h2>
+            <h5 class="des" v-if="siderIndex == i">{{ item.des }}</h5>
         </div>
         <div class="swiper_box">
             <swiper
@@ -50,7 +50,7 @@
                                             <b>Chrome</b>
                                         </div>
                                     </a>
-                                    <a href="https://metamask.io" target="view_window">
+                                    <!-- <a href="https://metamask.io" target="view_window">
                                         <div class="content_button">
                                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/firefox_icon.png" alt="">
                                             <b>Firefox</b>
@@ -61,10 +61,10 @@
                                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/edge_icon.png" alt="">
                                             <b>Edge</b>
                                         </div>
-                                    </a>
+                                    </a> -->
                                 </div>
                                 <div class="content_chunk">
-                                    <h2 class="content_title">Mobile App</h2>
+                                    <!-- <h2 class="content_title">Mobile App</h2>
                                     <a href="https://play.google.com/store/apps/details?id=io.metamask&hl=zh&gl=US" target="view_window">
                                         <div class="content_button">
                                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/google_icon.png" alt="">
@@ -82,7 +82,7 @@
                                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/and_icon.png" alt="">
                                             <b>Android</b>
                                         </div>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -93,8 +93,10 @@
                             <div class="content">
                                 <div class="text_chunk">
                                     <h2 class="content_title">What is Wallet for?</h2>
-                                    <p class="des">Storing digital assets such as Cyberpop assets and other tokens</p>
-                                    <p class="des">Support multi-chain transaction, convenient cross-platform</p>
+                                    <!-- <p class="des">Storing digital assets such as Cyberpop assets and other tokens</p>
+                                    <p class="des">Support multi-chain transaction, convenient cross-platform</p> -->
+                                    <p class="des">This means that you have full ownership of these assets in your wallet</p>
+                                    <p class="des">We recommend that you create a new wallet to start your journey, or you can create this after downloading our game</p>
                                 </div>
                             </div>
                         </div>
@@ -111,16 +113,14 @@
                                     <h2 class="content_title" style="margin-bottom: 1.3vw">Deposit CYT on MetaMask and Cyberpop official market to purchase exclusive BD NFT</h2>
                                     <h2 class="content_title" style="margin-bottom: 1.04vw">Buy CYT directly from the Cyberpop market</h2>
                                     <div class="buttons">   
-                                        <a href="https://market.cyberpop.online/#/list" target="view_window">
-                                            <div class="getBD_button">
-                                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/market_icon.png" alt="">
-                                                <span>Get BD NFT</span>
-                                            </div>
-                                        </a>
-                                        <div class="getCYT_button">
+                                        <div class="getBD_button" @click="getBD">
+                                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/market_icon.png" alt="">
+                                            <span>Get BD NFT</span>
+                                        </div>
+                                        <!-- <div class="getCYT_button">
                                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/market_icon.png" alt="">
                                             <span>Get CYT</span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +205,8 @@
                                     <div class="wallet_box">
                                         <h2 class="wallet_title">Connect Wallet</h2>
                                         <div class="wallet_button"><span>Wallet Connect</span></div>
-                                        <div class="wallet_button"><span>Cyberpop Wallet</span></div>
+                                        <div class="wallet_button"><span>wallet login</span></div>
+                                        <img class="point" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_point.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -222,6 +223,7 @@
                                         <h2 class="wallet_title">Cyberpop Wallet</h2>
                                         <div class="wallet_button"  style="width: 10.03vw"><span>Create Wallet</span></div>
                                         <div class="wallet_button"  style="width: 10.03vw"><span>Import Secret Recove</span></div>
+                                        <img class="point" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_point.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -231,7 +233,7 @@
             </swiper>
         </div>
         <div class="elements">
-            <div class="icons">
+            <!-- <div class="icons">
                 <ul>
                     <li v-for="(item, i) in icons" :key="i">
                         <a :href="i == 3 ? 'https://play.google.com/store/apps/details?id=io.metamask&hl=zh&gl=US' : 'https://metamask.io'" target="view_window">
@@ -239,7 +241,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
             <div class="buttons">
                 <button class="swiper-button-prev left" @mousemove="hoverIn = 0" @mouseout="hoverIn = false">
                     <img :src="hoverIn === 0 ? 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/point_left_hover.png' : 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/point_icon_left.png'" alt="">
@@ -253,6 +255,7 @@
         </div>
     </div>
     <footer-a></footer-a>
+    <GetBD v-if="GetBDAlert" :isShowTips="GetBDAlert" @closeGetBD="closeGetBD"/>
 </template>
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue'
@@ -263,6 +266,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { EffectFade, EffectCreative, Mousewheel, Autoplay, Navigation, Keyboard, Pagination, Scrollbar} from "swiper";
 import SwiperType from 'swiper/types'
 import 'swiper/css';
+import GetBD from '@/components/Guide/getBd.vue'
 
 SwiperCore.use([EffectFade, EffectCreative, Mousewheel, Autoplay, Navigation]);
 
@@ -272,6 +276,8 @@ const mySwiper: any = ref(null);
 
 const swiperEvent: any = ref(null) 
 
+const siderIndex: any = ref(0)
+
 const onSwiper = (swiper: SwiperType.Swiper) => {
     // swiper.slideTo(1);
     swiperEvent.value = swiper
@@ -280,6 +286,7 @@ const onSlideChange = (e: any) => {
     console.log('slide change', e.realIndex);
     if(!swiperEvent.value) return
     selectpage(e.realIndex)
+    siderIndex.value = e.realIndex
 };
 
 const router = useRouter()
@@ -288,24 +295,29 @@ const select_title = ref([
         title: 'Create MetaMask wall',
         selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title1.png',
         select: true,
+        bigTitle: 'Prepare the metamask wallet',
+        des: 'Wallet is your boarding pass to our digital nation',
     },
     {
         title: 'In Cyberpop website',
         selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title2.png',
         select: false,
-
+        bigTitle: 'Get Cyberpop BD NFT',
+        des: 'Cyberpop BD NFT can be obtained in a number of ways',
     },
     {
         title: 'Get Cyberpop NFT',
         selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title3.png',
         select: false,
-
+        bigTitle: 'Download Cyberpop',
+        des: '',
     },
     {
         title: 'Download & Play',
         selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title4.png',
         select: false,
-
+        bigTitle: 'Login Cyberpop',
+        des: 'Log in to the game and earn with BD',
     },
 ])
 const icons = [
@@ -334,6 +346,21 @@ const next = () => {
     console.log(swiperEvent);
     swiperEvent.value.slideTo(2)
 }
+
+const getBD = () => {
+    GetBDAlert.value = true;
+    store.dispatch('user/xplanChangeAni', true);
+}
+
+const closeGetBD = () => {
+    console.log(11);
+    store.dispatch('user/xplanChangeAni', false);
+    setTimeout(() => {
+        GetBDAlert.value = false
+    }, 300);
+}
+
+const GetBDAlert: any = ref(false)
 
 const selectpage = (index: number) => {
     select_title.value.forEach(object => {
@@ -565,6 +592,7 @@ onMounted(() => {
                                     justify-content: center;
                                     align-items: center;
                                     cursor: pointer;
+                                    transition: all .2s ease-in-out;
                                     img{
                                         width: 1.45vw;
                                         height: 1.45vw;
@@ -576,6 +604,9 @@ onMounted(() => {
                                         font-family: AlibabaPuHuiTi_2_105_Heavy;
                                         color: #000000;
                                     }
+                                }
+                                .getBD_button:hover{
+                                    opacity: .7;
                                 }
                                 .buttons{
                                     display: flex;
@@ -617,6 +648,14 @@ onMounted(() => {
                                     display: flex;
                                     justify-content: center;
                                     flex-wrap: wrap;
+                                    position: relative;
+                                    .point{
+                                        width: 0.78vw;
+                                        height: 0.78vw;
+                                        position: absolute;
+                                        right: 2vw;
+                                        bottom: 0;
+                                    }
                                     .wallet_title{
                                         font-size: .73vw;
                                         font-family: AlibabaPuHuiTi_2_85_Bold;
@@ -761,7 +800,7 @@ onMounted(() => {
             width: 62.5vw;
             position: relative;
             margin: 0 auto;
-            margin-top: 1.45vw;
+            margin-top: 2.9vw;
             .icons{
                 padding-left: 4.06vw;
                 ul{
