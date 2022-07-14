@@ -175,6 +175,48 @@ const unpack = (abi: any, address: any, id: any, number: any) => {
     })
 }
 
+const testUnpack = (abi: any, address: any, id: number, boxAddress: any) => {
+    return new Promise((resolve, reject) => {
+        const web3 = new Web3((window as any ).ethereum)
+        const bb = new web3.eth.Contract(abi, address)
+        console.log(abi, address, id, accounts.value);
+        bb.methods.unpack(boxAddress, id).send({ from: accounts.value }).then((receipt:any) => {
+            resolve(receipt)
+        }).catch((err:any) => {
+            resolve(0)
+        })
+    })
+}
+
+const boxAddresses = (abi: any, address: any) => {
+    return new Promise(async (resolve, reject) => {
+        const web3 = new Web3((window as any ).ethereum)
+        const bb = new web3.eth.Contract(abi, address)
+        let a = await bb.methods.boxAddresses().call()
+        resolve(a)
+    })
+}
+
+const safeMint = (abi: any, address: any) => {
+    return new Promise(async (resolve, reject) => {
+        const web3 = new Web3((window as any ).ethereum)
+        const box = new web3.eth.Contract(abi, address)
+        box.methods.safeMint(accounts.value).send({ from: accounts.value }).then((receipt:any) => {
+            resolve(receipt)
+        }).catch((err:any) => {
+            resolve(0)
+        })
+    })
+}
+
+const tokenOfOwnerByIndex = (abi: any, address: any, index: number) => {
+    return new Promise(async (resolve, reject) => {
+        const web3 = new Web3((window as any ).ethereum)
+        const box = new web3.eth.Contract(abi, address)
+        let a = await box.methods.tokenOfOwnerByIndex(accounts.value, index).call()
+        resolve(a)
+    })
+}
 
 // Query 721 contract
 const tokensOfOwner = (abi: any, address: any) => {
@@ -701,5 +743,9 @@ export default {
     DaysNeededPredictionx,
     leftNumber,
     rewards,
+    testUnpack,
+    boxAddresses,
+    safeMint,
+    tokenOfOwnerByIndex,
     contracts,
 }

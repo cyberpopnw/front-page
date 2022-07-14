@@ -112,7 +112,7 @@
                                     </video>
                                 </div>
                                 <div class="name"><div class="loadName" v-if="item.isLoading"></div>{{item.data.name}}<span>x{{item.number}}</span></div>
-                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji' && item.type != 'box_bsc'">
+                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji' && item.type != 'box_bsc' && item.type != 'box_bscTest'">
                                     <div class="transfer" :class="{'not-allowed': item.isLoading}" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
                                     <div class="sell not-allowed">{{$t('message.assets.btn_sell')}}</div>
                                 </div>
@@ -120,9 +120,9 @@
                                     <div class="load" :class="{'not-allowed': item.isLoading}" @click="loadPool(item)">{{$t('message.assets.btn_load')}}</div>
                                     <div class="claim" :class="{'not-allowed': !item.isLoading}" @click="withdrawRole(item)">&nbsp;&nbsp;{{$t('message.assets.but_claim')}}</div>
                                 </div>
-                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji' || item.type == 'box_bsc'">
+                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji' || item.type == 'box_bsc' || item.type == 'box_bscTest'">
                                     <div class="transfer" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
-                                    <div class="sell" :class="{'not-allowed': item.type == 'box_bsc'}" @click="open(item)">{{$t('message.assets.btn_unpack')}}</div>
+                                    <div class="sell" :class="{'not-allowed': item.type == 'box_bsc'}" @click="open(item, item.type == 'box_bscTest' ? true : false)">{{$t('message.assets.btn_unpack')}}</div>
                                 </div>
                             </li>
                         </ul>
@@ -259,9 +259,9 @@ const email: any = ref('')
 const whiteList: any = ref(false); //Have you purchased a white paper
 const boxId9: any = ref(false);
 
-watch(chainId, (newVal, oldVal: any) => {
+watch(chainId, (newVal: any, oldVal: any) => {
     if(!oldVal || oldVal == -1) return;
-    console.log('her2');
+    console.log('her2', newVal);
 	getData(ecrType.value)
 }, {immediate:true,deep:true});
 
@@ -484,7 +484,7 @@ const initLoad = () => {
 }
 
 
-const { nft, nft_fuji, arms, gamePool, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, LootBox, lootBox_Bsc, cytV2, coin, game_bsc } = Web3.contracts;
+const { nft, nft_fuji, arms, gamePool, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, LootBox, lootBox_Bsc, cytV2, coin, game_bsc, bscTestnetBlindFactory, bscTestnetBlind } = Web3.contracts;
 
 const getData: any = async (type: Number, filter: any = false) => {
     if(!filter) {
@@ -687,6 +687,38 @@ const getData: any = async (type: Number, filter: any = false) => {
                     await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
                 }
             }
+            if(chainId.value == 97){
+                if(!type){
+                    let box_result: any = await Web3.boxAddresses(bscTestnetBlindFactory.abi, bscTestnetBlindFactory.address);
+                    console.log(box_result);
+                    // await Web3.safeMint(bscTestnetBlind.abi, box_result[0])
+                    let batchBalanceOf: any = await Web3.batchBalanceOf(bscTestnetBlindFactory.abi, bscTestnetBlindFactory.address)
+                    console.log(batchBalanceOf);
+
+
+
+                    let a1 = await Web3.tokenOfOwnerByIndex(bscTestnetBlind.abi, box_result[0], 0)
+                    console.log(a1);
+
+                    let a2 = await Web3.tokenOfOwnerByIndex(bscTestnetBlind.abi, box_result[1], 0)
+                    console.log(a2);
+
+                    let a3 = await Web3.tokenOfOwnerByIndex(bscTestnetBlind.abi, box_result[2], 0)
+                    console.log(a3);
+
+                    await getNFTData(batchBalanceOf, 'box', 'box_bscTest', [0, 1, 2], false, true, [a1, a2, a3], box_result);
+
+
+                    console.log(data.value);
+                    
+                    // await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+                }else if(type == 1){
+
+                }else{
+                    let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
+                    await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+                }
+            }
 
             loadingState.value = 2; // Left column filter
             resolve(1);
@@ -722,7 +754,7 @@ const getHead: any = async (res: any, path: any, type: any, isLoading?: any) => 
 }
 
 // The array [0,1] indicates that the NFT with ID 0 has no assets, and the NTF asset with ID 1 is 1
-const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoading?: any) => {
+const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoading?: any, is721Box?: any, realIds?: any, BoxAddress?: any) => {
     return new Promise((resolve, reject) => {
          (function loop(index){
              if(res[index] == 0) { //To reduce unnecessary requests
@@ -736,10 +768,12 @@ const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoad
              proxy.$api.get(`https://api.cyberpop.online/${path}/${ids[index]}`).then((result:any) => {
                 if(res[index] > 0 || index == 101101){
                     data.value.push({
-                        id: ids[index],
+                        id: is721Box ? realIds[index] : ids[index],
                         type: type,
                         isLoading: isLoading || false,
                         number: res[index],
+                        box721: is721Box,
+                        BoxAddress: BoxAddress,
                         data: result || { name: res[index], image: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
                     })
                 }
@@ -823,11 +857,24 @@ const transferPopup = (item:any) => {
 
 
 // Open the box
-const open = (item: any) => {
-    if(item.number == 0 || item.type == 'box_bsc') return;
-    // getLast(); // Query the last asset opened immediately in the asset contract
-    store.dispatch('user/xplanChangeAni', true);
-    store.dispatch('user/TipsState', {show: true, info: { hasLoading: true, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'),   addNetwork: false, boxId: item.id, haveNFT: item.number }});
+const open = async (item: any, is721Box?: any) => {
+    console.log(item, is721Box);
+    
+    if(!is721Box){
+        if(item.number == 0 || item.type == 'box_bsc') return;
+        // getLast(); // Query the last asset opened immediately in the asset contract
+        store.dispatch('user/xplanChangeAni', true);
+        
+
+        store.dispatch('user/TipsState', {show: true, info: { hasLoading: true, hasClose: true, title: t('message.box.opening'), content: t('message.box.open_text'),   addNetwork: false, boxId: item.id, haveNFT: item.number }});
+    }else{
+
+        
+        let res = await Web3.testUnpack(bscTestnetBlindFactory.abi, bscTestnetBlindFactory.address, Number(item.id), '0x36053d93568E195cBBe8cA7d4372436Eea061430')
+
+        if(res) store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); //After the operation is successful, the page listens and refreshes the data
+
+    }
 }
 
 
