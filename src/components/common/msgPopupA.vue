@@ -306,7 +306,7 @@ onMounted(() => {
                         span:hover{
                             color: rgb(255, 24, 255);
                             border: 1px solid rgb(255, 24, 255);
-                            filter: drop-shadow(0 0 1px rgb(255, 24, 255));
+                            filter: drop-shadow(0 0 1px rgb(255, 24, 255)); 
                         }
                         span:last-child{
                             margin-right: 0;

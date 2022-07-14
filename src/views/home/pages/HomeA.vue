@@ -391,7 +391,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             </div>
         </div>
     </div>
-    <!-- <div class="team">
+    <div class="team">
         <div class="title" id="ele7">{{ $t('message.home.team_title') }}</div>
         <div class="wrap">
             <ul>
@@ -406,13 +406,13 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                             <div>{{ item.name }}</div>
                             <span>{{ item.desc }}</span>
                         </div>
-                        <div class="text">{{ $t(item.info) }}</div>
+                        <div class="text" v-html="$t(item.info)"></div>
                     </div>
                 </li>
             </ul>
         </div>
-    </div> -->
-    <div class="new-team">
+    </div>
+    <!-- <div class="new-team">
         <div class="title" id="ele7">{{ $t('message.home.team_title') }}</div>
         <div class="content">
             <ul>
@@ -437,7 +437,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
     <div class="partners">
         <div class="title flex_center" id="ele6">{{ $t('message.home.part_title') }}
             <img class="xplan" @click="showxplan()" src="@/assets/nwhome/xplan.svg" alt="" >
@@ -588,53 +588,71 @@ const { proxy } = getCurrentInstance() as any;
 const leftModules:any = [Navigation];
 const teamInfo: any = ref([
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/teme2.png',
-        name: 'Yu Vitalik ',
-        desc: 'CMO',
-        info: 'message.home.team_mem_frank',
-        card: false,
-        hover: false,
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_jie.png',
+        name: 'JIE',
+        desc: 'Art Director',
+        info: 'message.home.team_mem_jie',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team6.png',
-        name: 'haeka',
-        desc: 'CEO',
-        info: 'message.home.team_mem_ice',
-        card: false,
-        hover: false,
-    },
-    {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/teme1.png',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team2.jpg',
         name: 'Yeldar Botabayev',
-        desc: 'Co-Founder',
+        desc: 'Market manager',
         info: 'message.home.team_mem_YuSonEn',
-        card: false,
-        hover: false,
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team3.png',
-        name: 'Cheyun Lim',
-        desc: 'CMO',
-        info: 'message.home.team_mem_CheyunLim',
-        card: false,
-        hover: false,
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team1.jpg',
+        name: 'Yu Vitalik ',
+        desc: 'Co-Founder',
+        info: 'message.home.team_mem_frank',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team4.png',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_nick.png',
+        name: 'Nick',
+        desc: 'Back-end Developer',
+        info: 'message.home.team_mem_nick',
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team4.jpg',
         name: 'Eunji Park',
-        desc: 'Co-Founder',
+        desc: 'Framework Designer',
         info: 'message.home.team_mem_EunjiPark',
-        card: false,
-        hover: false,
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team5.png',
-        name: 'Heewon Kwak',
-        desc: 'Co-Founder',
-        info: 'message.home.team_mem_HeewonKwak',
-        card: false,
-        hover: false,
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team7.png',
+        name: 'Emran Malik',
+        desc: 'Marketing Director',
+        info: 'message.home.team_mem_EmranMalik',
     },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team5.jpg',
+        name: 'Heewon Kwak',
+        desc: 'Chief Back-end',
+        info: 'message.home.team_mem_HeewonKwak',
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team3.jpg',
+        name: 'Cheyun Lim',
+        desc: 'Technical Director',
+        info: 'message.home.team_mem_CheyunLim',
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_john.png',
+        name: 'John',
+        desc: 'Technical Director',
+        info: 'message.home.team_mem_john',
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team6.jpg',
+        name: 'Haeka',
+        desc: 'CMO',
+        info: 'message.home.team_mem_hason',
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_ice.png',
+        name: 'ICE',
+        desc: 'Back-end Developer',
+        info: 'message.home.team_mem_ice',
+    }
 ])
 
 const showTeamCard:any = ref(-1);
@@ -2320,6 +2338,7 @@ onMounted(() => {
                         margin-right: 1.04vw;
                         img{
                             height: 100%;
+                            border-radius: 50%;
                         }
                     }
                     .msg{
@@ -2380,7 +2399,7 @@ onMounted(() => {
                 li:nth-child(2){
                     top: 6.6vw;
                     left: 55.8vw;
-                    width: 13.54vw;
+                    width: 19.54vw;
                     height: 5.2vw;
                     .msg > div{
                         color: #04FFA2;
