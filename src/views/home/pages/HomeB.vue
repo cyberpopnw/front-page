@@ -589,11 +589,43 @@ const teamInfo: any = ref([
         card: false,
     },
     {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team6.png',
+        name: 'haeka',
+        desc: 'CEO',
+        info: 'message.home.team_mem_ice',
+        card: false,
+        hover: false,
+    },
+    {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/teme1.png',
         name: 'Yeldar Botabayev',
         desc: 'Co-Founder',
         info: 'message.home.team_mem_YuSonEn',
         card: false,
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team3.png',
+        name: 'Cheyun Lim',
+        desc: 'CMO',
+        info: 'message.home.team_mem_CheyunLim',
+        card: false,
+        hover: false,
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team4.png',
+        name: 'Eunji Park',
+        desc: 'Co-Founder',
+        info: 'message.home.team_mem_EunjiPark',
+        card: false,
+        hover: false,
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team5.png',
+        name: 'Heewon Kwak',
+        desc: 'Co-Founder',
+        info: 'message.home.team_mem_HeewonKwak',
+        card: false,
+        hover: false,
     },
 ])
 

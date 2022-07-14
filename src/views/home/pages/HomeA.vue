@@ -596,10 +596,42 @@ const teamInfo: any = ref([
         hover: false,
     },
     {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team6.png',
+        name: 'haeka',
+        desc: 'CEO',
+        info: 'message.home.team_mem_ice',
+        card: false,
+        hover: false,
+    },
+    {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/teme1.png',
         name: 'Yeldar Botabayev',
         desc: 'Co-Founder',
         info: 'message.home.team_mem_YuSonEn',
+        card: false,
+        hover: false,
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team3.png',
+        name: 'Cheyun Lim',
+        desc: 'CMO',
+        info: 'message.home.team_mem_CheyunLim',
+        card: false,
+        hover: false,
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team4.png',
+        name: 'Eunji Park',
+        desc: 'Co-Founder',
+        info: 'message.home.team_mem_EunjiPark',
+        card: false,
+        hover: false,
+    },
+    {
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team5.png',
+        name: 'Heewon Kwak',
+        desc: 'Co-Founder',
+        info: 'message.home.team_mem_HeewonKwak',
         card: false,
         hover: false,
     },
@@ -2434,9 +2466,9 @@ onMounted(() => {
             ul{
                 overflow: hidden;
                 padding-top: 2px;
-                height: calc(18.75vw + 2px);
+                height: calc(40.75vw + 2px);
                 .top{
-                    margin-top: -2px;
+                    top: -2px;
                 }
                 li{
                     float: left;
