@@ -637,7 +637,7 @@ const teamInfo: any = ref([
     },
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team6.jpg',
-        name: 'Haeka',
+        name: 'Haechul',
         desc: 'CMO',
         info: 'message.home.team_mem_hason',
     },
