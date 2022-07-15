@@ -16,9 +16,9 @@
                 </div>
             </div>
         </div>
-        <div class="center_title" v-for="(item, i) in select_title" :key="i">
+        <div class="center_title" v-for="(item, i) in select_title" :key="i" v-show="siderIndex == i">
             <h2 class="title" v-if="siderIndex == i">{{ item.bigTitle }}</h2>
-            <h5 class="des" v-if="siderIndex == i">{{ item.des }}</h5>
+            <h5 class="des" v-if="siderIndex == i">{{ item.des || '&nbsp' }}</h5>
         </div>
         <div class="swiper_box">
             <swiper
@@ -244,12 +244,12 @@
             </div> -->
             <div class="buttons">
                 <button class="swiper-button-prev left" @mousemove="hoverIn = 0" @mouseout="hoverIn = false">
-                    <img :src="hoverIn === 0 ? 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/point_left_hover.png' : 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/point_icon_left.png'" alt="">
+                    <img :src="hoverIn === 0 ? pointImgLeftHover : pointImgLeft" alt="">
                     <span :class="hoverIn === 0 ? 'hoverIn' : ''">Prev</span>
                 </button>
                 <button class="swiper-button-next right" @mousemove="hoverIn = 1" @mouseout="hoverIn = false">
                     <span :class="hoverIn === 1 ? 'hoverIn' : ''">Next</span>
-                    <img :src="hoverIn === 1 ? 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/point_icon_right_hover.png' : 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/point_icon_right.png'" alt="">
+                    <img :src="hoverIn === 1 ? pointImgRightHover : pointImgRight" alt="">
                 </button>
             </div>
         </div>
@@ -342,6 +342,25 @@ const icons = [
 ]
 const hoverIn: any = ref(false)
 
+let pointImgLeft: any = ref(''); 
+let pointImgRight: any = ref(''); 
+let pointImgLeftHover: any = ref(''); 
+let pointImgRightHover: any = ref(''); 
+
+const logoHImport = async() => {
+    const a: any = await import('@/assets/nwGuide/point_icon_left.png');
+    const b: any = await import('@/assets/nwGuide/point_icon_right.png');
+    const c: any = await import('@/assets/nwGuide/point_left_hover.png');
+    const d: any = await import('@/assets/nwGuide/point_icon_right_hover.png');
+    pointImgLeft.value = a.default;
+    pointImgRight.value = b.default;
+    pointImgLeftHover.value = c.default;
+    pointImgRightHover.value = d.default
+}
+
+
+
+
 const next = () => {
     console.log(swiperEvent);
     swiperEvent.value.slideTo(2)
@@ -371,6 +390,7 @@ const selectpage = (index: number) => {
 }
 
 onMounted(() => {
+    logoHImport()
 })
 
 </script>
