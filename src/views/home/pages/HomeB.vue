@@ -513,7 +513,7 @@ import SwiperCore, { EffectFade, EffectCreative, Mousewheel, Autoplay } from "sw
 SwiperCore.use([EffectFade, EffectCreative, Mousewheel, Autoplay]);
 
 import { gateAuthorization, getUserInfo } from '@/api/gateOauth'
-import { isGateClient } from '@/tools/gateIo'
+import { clearToken, goToAuthorization, isGateClient } from '@/tools/gateIo'
 
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
@@ -843,6 +843,10 @@ onMounted(() => {
   if (isGateClient()) {
     gateAuthorization()
         .then(getUserInfo)
+        .catch(() => {
+          clearToken()
+          goToAuthorization()
+        })
   }
 
   store.dispatch('user/changeXplan', false);

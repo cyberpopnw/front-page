@@ -2,7 +2,8 @@ import _axios from 'axios'
 import type { AxiosAuthRefreshRequestConfig } from 'axios-auth-refresh';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import qs from 'qs'
-import { clearToken, getToken, hasToken, setToken } from '@/tools/gateIo'
+import { clearToken, getToken, hasToken, setToken, clientID, secret, authorizationUri } from '@/tools/gateIo'
+import type { Token } from '@/tools/gateIo'
 
 const axios = _axios.create({
   baseURL: '/sand'
@@ -12,7 +13,7 @@ axios.interceptors.request.use(
   config => {
     const token = getToken()
     config.headers = {
-      Authorization:  token ? `${token?.tokenType} ${token?.accessToken}` : '',
+      Authorization:  token ? `${token.tokenType} ${token.accessCode}` : '',
       ...config.headers,
     }
     return config
@@ -27,42 +28,29 @@ createAuthRefreshInterceptor(
   failedRequest => refreshToken()
     .then(() => {
       const token = getToken()
-      return failedRequest.response.config.headers['Authorization'] = token ? `${token?.tokenType} ${token?.accessToken}` : ''
+      return failedRequest.response.config.headers['Authorization'] = token ? `${token.tokenType} ${token.accessCode}` : ''
     })
 )
 
 
-export type Token = {
-  accessToken: string;
-  refreshToken: string;
-  scope: string;
-  tokenType: string;
-}
-
 export type AuthorizeResponse = {
-  'access_token': string;
+  'access_code': string;
   'refresh_token': string;
   'token_type': string;
   scope: string;
 }
 
-const clientID = '9a5a0d70-1ac1-5160-8eb2-8186ae35b6ec'
-const secret = '2EX6pMu9JsEWBcPZWHAmMDl4lZ8oj4dT'
-export const tokenItemKey = 'gateToken'
-export const authorizationUri = `https://miniapp-sandbox.gateapi.io/oauth/authorize?response_type=code&client_id=${clientID}&redirect_uri=https://h5.cyberpop.online&state=CSRF_TOKEN&scope=read_profile,read_wallet`
-
-
-
 // Request
 export const requestToken = <T>(data: FormData) => axios.post<T>('/oauth/token', data, {
   skipAuthRefresh: true,
   headers: {
-    'content-type': 'application/x-www-form-urlencoded'
+    'content-type': 'application/x-www-form-urlencoded',
+    'Authorization': ''
   }
 } as AxiosAuthRefreshRequestConfig)
   .catch(res => {
     clearToken()
-    window.location.replace(authorizationUri)
+    // window.location.replace(authorizationUri)
     return Promise.reject(res)
   })
 
@@ -87,7 +75,6 @@ export const changeToken = (code: string) => {
   data.append('client_secret', secret)
 
   return requestToken<AuthorizeResponse>(data)
-    .then(({ data }) => setToken(data))
 }
 
 export const getUserInfo = () => axios.get('/openapi/v1/user_profile')
@@ -100,6 +87,11 @@ export const gateAuthorization = async () => {
     return Promise.reject('Token not exist.')
   } else if (queryParams.code) {
     return changeToken(queryParams.code as string)
+      .then(({ data }) => setToken(data))
+      .then(() => {
+        window.location.replace('/')
+        return Promise.resolve()
+      })
   }
   return Promise.resolve()
 }
