@@ -547,7 +547,7 @@ const cn = {
             ios: 'iOS',
             Android: 'Android',
             windows: 'Windows',
-            version: '最新版本1.0.4',
+            version: '最新版本1.0.5',
             inputEmail: '輸入電子郵件',
             tips2: '沒有ios app',
             tips3: '電子郵件錯誤',

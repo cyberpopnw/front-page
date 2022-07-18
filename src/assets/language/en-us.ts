@@ -553,7 +553,7 @@ const us = {
             ios: 'iOS',
             Android: 'Android',
             windows: 'Windows',
-            version: 'Latest Version 1.0.4',
+            version: 'Latest Version 1.0.5',
             inputEmail: 'Input Email',
             tips2: 'No iOS app present',
             tips3: 'Email error',
