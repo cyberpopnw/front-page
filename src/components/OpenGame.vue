@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { checkClient } from '@/tools/gateIo'
+import { isGateClient } from '@/tools/gateIo'
 import { modal } from '@/components/Modal'
+import { checkMobileSystem } from '@/tools/checkMobileSystem'
 
 const router = useRouter()
+const { isAndroid, isIOS } = checkMobileSystem()
 
 const openLoadingModal = () => modal({
   title: 'Open Cyberpop Online',
@@ -13,20 +14,16 @@ const openLoadingModal = () => modal({
   acceptClose: false
 })
 
-const openFailedModal = () => new Promise((resolve) => {
+const openFailedModal = () => {
   modal({
     title: 'Open Cyberpop Online',
     subTitle: 'Failed',
     status: 'error',
     acceptClose: true,
-    content: "Maybe you haven't downloaded our game?"
+    content: "Maybe you haven't downloaded game?"
   })
-  return resolve('')
-}).then(() => router.push('/download'))
-
-const { isGateClient, gateClientType } = checkClient()
-const isAndroid = computed(() => gateClientType === 'Android')
-const isIOS = computed(() => gateClientType === 'IOS')
+  router.push('/download')
+}
 
 let timer: NodeJS.Timer
 
@@ -35,30 +32,33 @@ const openProcess = () => {
   timer = setTimeout(() => {
     loadingModal.close()
     openFailedModal()
-  }, 3000)
+  }, 10000)
 }
 
 const fakeOpen = openProcess
 
 const realOpen = () => {
+
   openProcess()
 
   window.addEventListener('pagehide', () => clearTimeout(timer))
 
-  window.location.replace(
-      isAndroid
-          ? 'intent://cyberpop/#Intent;scheme=unitydl;package=online.cyberpop.avesta;end'
-          : 'https://test.cyberpop.online'
-  )
+  if (isAndroid) {
+    window.location.replace('intent://cyberpop/#Intent;scheme=unitydl;package=online.cyberpop.avesta;end')
+  }
+
+  if (isIOS) {
+    window.location.replace('https://test.cyberpop.online')
+  }
 }
 
-const openGame = isGateClient ? fakeOpen : realOpen
+const openGame = isGateClient() ? fakeOpen : realOpen
 
 </script>
 
 <template>
   <a @click="openGame" class="open-game-button">
-    <div>
+    <div v-if="isAndroid">
       <img class="icon" src="https://d3fnwpfk23lv4d.cloudfront.net/common/android.png" alt="Android">
       <span>Open game in <b>Android</b></span>
     </div>
@@ -67,7 +67,6 @@ const openGame = isGateClient ? fakeOpen : realOpen
       <span>Open game in <b>IOS</b></span>
     </div>
   </a>
-
 </template>
 
 <style scoped lang="less">

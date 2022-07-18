@@ -513,6 +513,7 @@ import SwiperCore, { EffectFade, EffectCreative, Mousewheel, Autoplay } from "sw
 SwiperCore.use([EffectFade, EffectCreative, Mousewheel, Autoplay]);
 
 import { gateAuthorization, getUserInfo } from '@/api/gateOauth'
+import { isGateClient } from '@/tools/gateIo'
 
 const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
@@ -839,8 +840,10 @@ onUnmounted(() => {
 })
 
 onMounted(() => {
-  gateAuthorization()
-      .then(getUserInfo)
+  if (isGateClient()) {
+    gateAuthorization()
+        .then(getUserInfo)
+  }
 
   store.dispatch('user/changeXplan', false);
   window.addEventListener('scroll', checkScrollHeightAndLoadAnimation, true);

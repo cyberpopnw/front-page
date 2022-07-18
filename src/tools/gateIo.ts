@@ -24,13 +24,7 @@ export const hasToken = () => Boolean(getToken())
 
 export const clearToken = () => localStorage.removeItem(tokenItemKey)
 
-export const checkClient = () => {
+export const isGateClient = () => {
   const { userAgent }  = navigator
-  const flagIndex = userAgent.indexOf('GateIO')
-  const isGateClient = flagIndex > -1
-
-  return {
-    isGateClient,
-    gateClientType: isGateClient ? userAgent.slice(flagIndex).split('/')[1] as 'Android' | 'IOS' : undefined
-  }
+  return userAgent.indexOf('GateIO') > -1
 }
