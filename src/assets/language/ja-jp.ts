@@ -98,7 +98,7 @@ const kr = {
             banner_title1Bef: 'サイバーニューワールドで真の自分を見つけましょう',
             banner_title1Aft: '',
             banner_title2: 'このメタバースゲームは探索、戦い、x-to-earnと UGCの要素が含まれる',
-            banner_btn1: 'プレイしながら稼ぐ',
+            banner_btn1: 'ゲームを始める',
             banner_btn2: 'プレビュー',
             banner_botmBef: 'サイバーニューワールドが間もなく登場 ',
             banner_botmAft: '',

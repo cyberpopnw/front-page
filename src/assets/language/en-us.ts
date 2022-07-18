@@ -101,7 +101,7 @@ const us = {
             banner_title1Bef: 'FIND YOUR TRUE SELF',
             banner_title1Aft: 'IN THE NEW WORLD OF CYBERPOP',
             banner_title2: 'This new metaverse game combines exploration, combat, x-to-earn, and UGC into one.',
-            banner_btn1: 'PLAY TO EARN',
+            banner_btn1: 'START THE GAME',
             banner_btn2: 'DEMO',
             banner_botmBef: 'CYBERPOP NEW WORLD',
             banner_botmAft: 'COMING SOON',

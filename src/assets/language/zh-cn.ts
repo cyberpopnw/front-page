@@ -98,7 +98,7 @@ const cn = {
             banner_title1Bef: '找尋真實的自我',
             banner_title1Aft: '於賽博新世界',
             banner_title2: '該款元宇宙遊戲集探險、戰鬥、x-to-earn和UGC於一體',
-            banner_btn1: '邊玩邊賺',
+            banner_btn1: '開始遊戲',
             banner_btn2: '預覽',
             banner_botmBef: '賽博新世界 ',
             banner_botmAft: '即將震撼上線',

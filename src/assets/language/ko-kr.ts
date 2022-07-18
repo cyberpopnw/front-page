@@ -98,7 +98,7 @@ const kr = {
             banner_title1Bef: '사이버 뉴월드에서 진정한 자기를 찾기',
             banner_title1Aft: '',
             banner_title2: '이 메티바스 게임은 탐험, 전투, x-to-earn과 UGC를 하나로 모은 것입니다',
-            banner_btn1: '플레이투언',
+            banner_btn1: '게임 시작',
             banner_btn2: '프리뷰',
             banner_botmBef: '사이버 뉴월드는 곧 출시 될 예정입니다 ',
             banner_botmAft: '',
