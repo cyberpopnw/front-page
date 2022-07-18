@@ -1,8 +1,9 @@
 import _axios from 'axios'
-import type { AxiosAuthRefreshRequestConfig } from 'axios-auth-refresh';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import qs from 'qs'
-import { clearToken, getToken, hasToken, setToken, clientID, secret, authorizationUri } from '@/tools/gateIo'
+import { clearToken, getToken, hasToken, setToken, clientID, secret, goToAuthorization } from '@/tools/gateIo'
+
+import type { AxiosAuthRefreshRequestConfig } from 'axios-auth-refresh';
 import type { Token } from '@/tools/gateIo'
 
 const axios = _axios.create({
@@ -19,16 +20,12 @@ axios.interceptors.request.use(
     return config
   })
 
-axios.interceptors.response.use(
-  res => res
-)
-
 createAuthRefreshInterceptor(
   axios,
   failedRequest => refreshToken()
     .then(() => {
-      const token = getToken()
-      return failedRequest.response.config.headers['Authorization'] = token ? `${token.tokenType} ${token.accessCode}` : ''
+      const token = getToken() as Token
+      failedRequest.response.config.headers['Authorization'] = `${token.tokenType} ${token.accessCode}`
     })
 )
 
@@ -41,7 +38,7 @@ export type AuthorizeResponse = {
 }
 
 // Request
-export const requestToken = <T>(data: FormData) => axios.post<T>('/oauth/token', data, {
+export const requestToken = (data: FormData) => axios.post<AuthorizeResponse>('/oauth/token', data, {
   skipAuthRefresh: true,
   headers: {
     'content-type': 'application/x-www-form-urlencoded',
@@ -50,7 +47,7 @@ export const requestToken = <T>(data: FormData) => axios.post<T>('/oauth/token',
 } as AxiosAuthRefreshRequestConfig)
   .catch(res => {
     clearToken()
-    // window.location.replace(authorizationUri)
+    goToAuthorization()
     return Promise.reject(res)
   })
 
@@ -64,6 +61,10 @@ export const refreshToken = () => {
   data.append('client_secret', secret)
 
   return requestToken(data)
+    .then(res => {
+      setToken(res.data)
+      return res
+    })
 }
 
 export const changeToken = (code: string) => {
@@ -74,7 +75,11 @@ export const changeToken = (code: string) => {
   data.append('client_id', clientID)
   data.append('client_secret', secret)
 
-  return requestToken<AuthorizeResponse>(data)
+  return requestToken(data)
+    .then(res => {
+      setToken(res.data)
+      return res
+    })
 }
 
 export const getUserInfo = () => axios.get('/openapi/v1/user_profile')
@@ -83,11 +88,10 @@ export const getUserInfo = () => axios.get('/openapi/v1/user_profile')
 export const gateAuthorization = async () => {
   const queryParams = qs.parse(window.location.search.slice(1))
   if (!hasToken() && !queryParams.code) {
-    window.location.replace(authorizationUri)
+    goToAuthorization()
     return Promise.reject('Token not exist.')
   } else if (queryParams.code) {
     return changeToken(queryParams.code as string)
-      .then(({ data }) => setToken(data))
       .then(() => {
         window.location.replace('/')
         return Promise.resolve()
