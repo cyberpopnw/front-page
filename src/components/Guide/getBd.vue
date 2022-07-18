@@ -5,7 +5,7 @@
             <div class="coverborder"></div>
             <img class="close" src="@/assets/nwhome/close.svg" alt=""  @click="closeDialog">
             <div class="content">
-                <div class="text">1、You need to prepare some chain-side tokens as handling fee Because we are currently testing the network, you can get it for free through this connection</div>
+                <div class="text">1、You need to prepare some chain-side tokens as handling fee Because we are currently testing the network, you can get it for free through this connection <div style="display: flex"><a href="https://faucet.avax.network/" target="view_window">https://faucet.avax.network/</a>&nbsp;&nbsp;&nbsp;<a href="https://market.cyberpop.online/" target="view_window">https://market.cyberpop.online/</a></div> </div>
                 <div class="text">2、Please buy BD in our trading market, BD can be used for gold playing, you can also cultivate BD by yourself after you are familiar with the game play You can check our game play introduction through wiki: <a href="https://wiki.cyberpop.online" target="view_window">https://wiki.cyberpop.online</a></div>
                 <div class="text">3、Your output coin and CYT are the game output of cyberpop, the current coin tokens are in the test network stage, CYT is not released, the others are scams</div>
                 <div class="text">4、Please join our discord for your better game experience</div>
@@ -142,7 +142,7 @@ onMounted(() => {
                     font-weight: normal;
                     line-height: 1.4vw;
                     a{
-                        color: blue;
+                        color: rgb(107, 107, 241);
                     }
                 }
             }
