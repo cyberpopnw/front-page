@@ -31,8 +31,8 @@
       <img class="close" src="@/assets/nwhome/close.svg" @click="iperror = false" alt="">
     </div>
     <div class="ip_error_Mobile flex_center" v-if="iperror && innerWidth <= 1025">
-      <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">
-      {{ $t('message.common.ip') }}
+<!--      <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">-->
+      {{ $t('message.common.coming_soon') }}
       <img class="close" src="@/assets/nwhome/close.svg" @click="iperror = false" alt="">
     </div>
     <!-- <div style="background: #333;color: #fff" v-if="cname">{{ cname }}</div> -->
@@ -53,7 +53,7 @@ const router = useRouter()
 
 
 const innerWidth = computed(() => store.state.sys?.innerWidth || 0)
-const iperror = ref(false);
+const iperror = ref(true);
 
 
 const TipsState = computed(() => store.state.user?.TipsState);
@@ -119,11 +119,11 @@ onMounted(() => {
   margin-top: 8vw;
   font-size: .83vw;
   font-family: AlibabaPuHuiTi_2_55_Regular;
-  color: #F2FF0B;
+  color: #FFFFFF;
   line-height: 2.3vw;
-  background: rgba(243, 255, 41, 0.42);
+  background: rgba(4, 255, 162, 0.42);
   border-radius: 4px;
-  border: 1px solid #F3FF29;
+  border: 1px solid #04FFA2;
   white-space: nowrap;
   /* animation-fill-mode: forwards; */
 
@@ -139,7 +139,7 @@ onMounted(() => {
 }
 
 .ip_error_Mobile {
-  top: 10vw;
+  top: 30vw;
   width: calc(100vw - 40px);
   height: auto;
   padding: 6px;
