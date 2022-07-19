@@ -7,10 +7,7 @@
         <img class="close" src="@/assets/nwhome/close.svg" @click="closeWarn" alt="">
       </div>
       <div class="content flex_between_center" id="header">
-        <div class="logo">
-          <a :href="path"><img v-show="!logoHFlag" :src="logoHSrcP" @mouseenter="logoHFlag = true" alt=""></a>
-          <a :href="path"><img v-show="logoHFlag" :src="logoHSrcG" @mouseleave="logoHFlag = false" alt=""></a>
-        </div>
+        <Logo />
         <img class="menu" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/header-menu.svg" @click="showMenu()"
              alt="">
       </div>
@@ -77,6 +74,7 @@ import { useI18n } from 'vue-i18n'
 
 // Component
 import OpenGame from '@/components/OpenGame.vue'
+import Logo from '@/components/Logo.vue'
 
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter()
@@ -208,19 +206,6 @@ const mouseLeave = () => {
   connectMove.value = false;
 }
 
-
-let logoHSrcP: any = ref('');
-let logoHSrcG: any = ref('');
-const logoHImport = async () => {
-  const logoHSrcPng: any = await import('@/assets/nwhome/logo_101.png');
-  const logoHSrcGif: any = await import('@/assets/nwhome/logo.gif');
-  logoHSrcP.value = logoHSrcPng.default;
-  logoHSrcG.value = logoHSrcGif.default;
-}
-
-// header
-let logoHFlag: any = ref(false);
-
 // footer
 let logoFlag: any = ref(false);
 
@@ -315,7 +300,6 @@ onUnmounted(() => {
 
 onMounted(() => {
   window.addEventListener('click', handleOtherClick, true)
-  logoHImport();
   store.dispatch('user/changeActive', props.type)
   store.dispatch('wallet/metaChange', false)
   store.dispatch('user/showDialog', { show: false, info: {} });
@@ -400,23 +384,6 @@ body {
     .content {
       width: 100%;
       height: 55px;
-
-      .logo {
-        width: 151px;
-        height: 41px;
-        overflow: hidden;
-
-        img {
-          width: 100.2%;
-          height: 100.2%;
-          border: none;
-          margin: -2px;
-        }
-
-        img[src=""], img:not([src]) {
-          opacity: 0;
-        }
-      }
 
       .menu {
         width: 30px;
