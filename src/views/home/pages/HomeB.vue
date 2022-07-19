@@ -393,20 +393,7 @@
       </li>
     </ul>
   </div>
-  <div class="register flex_align_center">
-    <div class="title">{{ $t('message.home.reg_title') }}</div>
-    <div class="subtitle">{{ $t('message.home.reg_subtitle') }}</div>
-    <div class="email">
-      <div class="email-wrap">
-        <input class="email-input" type="text" v-model="email" :placeholder="$t('message.home.reg_Email')">
-      </div>
-      <div class="sub" @click="submit()">{{ $t('message.home.reg_submit') }}</div>
-    </div>
-    <a class="link" href="https://forms.gle/VvU8nZymrikgFipR7" target="view_window">{{
-        $t('message.home.reg_link')
-      }}</a>
-  </div>
-  <footer-b></footer-b>
+  <footer-b />
   <!--    <xplanpro-b v-if="xplanActive"></xplanpro-b>-->
 </template>
 <script setup lang="ts">
