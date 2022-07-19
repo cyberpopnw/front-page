@@ -1,26 +1,28 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { isGateClient } from '@/tools/gateIo'
 import { modal } from '@/components/Modal'
 import { checkMobileSystem } from '@/tools/checkMobileSystem'
 
 const router = useRouter()
+const { t } = useI18n()
 const { isAndroid, isIOS } = checkMobileSystem()
 
 const openLoadingModal = () => modal({
-  title: 'Open Cyberpop Online',
-  subTitle: 'Please Wait...',
+  title: t('message.modal.open_game.title'),
+  subTitle: t('message.modal.open_game.loading_sub_title'),
   status: 'loading',
   acceptClose: false
 })
 
 const openFailedModal = () => {
   modal({
-    title: 'Open Cyberpop Online',
-    subTitle: 'Failed',
+    title: t('message.modal.open_game.title'),
+    subTitle: t('message.modal.open_game.failed_sub_title'),
     status: 'error',
     acceptClose: true,
-    content: "Maybe you haven't downloaded game?"
+    content: t('message.modal.open_game.error_content')
   })
   router.push('/download')
 }
@@ -60,11 +62,11 @@ const openGame = isGateClient() ? fakeOpen : realOpen
   <a @click="openGame" class="open-game-button">
     <div v-if="isAndroid">
       <img class="icon" src="https://d3fnwpfk23lv4d.cloudfront.net/common/android.png" alt="Android">
-      <span>Open game in <b>Android</b></span>
+      <span>{{ $t('message.menu.open_game.android') }}</span>
     </div>
     <div v-if="isIOS">
       <img class="button__icon" src="https://d3fnwpfk23lv4d.cloudfront.net/common/ios.png" alt="IOS">
-      <span>Open game in <b>IOS</b></span>
+      <span>{{ $t('message.menu.open_game.ios') }}</span>
     </div>
   </a>
 </template>

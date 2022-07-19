@@ -2,6 +2,7 @@ const us = {
     message:{
         common: {
             // headerA
+            coming_soon: 'Coming soon!',
             menu1: 'Homepage',
             menu2: 'Mining',
             menu3: 'Mystery Box',
@@ -10,6 +11,7 @@ const us = {
             menu6: 'Whitelist',
             menu7: 'Market',
             menu8: 'Vote',
+            download_menu: 'Download',
             language1: 'English',
             language2: 'Chinese',
             language3: 'Japanese',
@@ -86,7 +88,7 @@ const us = {
                 tips5: 'Email has been registered',
                 level: 'level',
                 tips0: 'Account will be automatically registered',
-                
+
             },
             // common
             ip: 'Our service is only available in certain compliant countries and regions. Unauthorized access will not be protected.',
@@ -94,7 +96,20 @@ const us = {
             tips1: "Please make sure you are visiting",
             tips2: "- Please check carefully, this is the only official URL of cyberpop."
         },
-
+        menu: {
+          open_game: {
+              android: 'Open Game in Android',
+              ios: 'Open Game in IOS'
+          }
+        },
+        modal: {
+          open_game: {
+              title: 'Open Cyberpop Online',
+              loading_sub_title: 'Please Wait...',
+              failed_sub_title: 'Failed',
+              error_content: 'Maybe you haven\'t downloaded game?'
+          }
+        },
         // homeA
         home:{
             // homeA-banner
@@ -308,7 +323,7 @@ const us = {
             STAKE: 'STAKE',
             Cancel: 'Withdraw',
             getMsg: 'Progress not completed',
-            // update 
+            // update
             pool_amount: 'Mining PooL Amount (COIN)',
             pool: 'Mining PooL',
             total_power: 'Total Mining Power',
@@ -489,12 +504,12 @@ const us = {
             type1_item2: 'Weapon',
             type1_item3: 'Support Card',
             type1_item4: 'Item',
-            type1_item5: 'Mystery Box',  
+            type1_item5: 'Mystery Box',
             type1_item6: 'Game',
             type1_item7: 'Badge',
             type1_item8: 'Role',
-            type1_item9: 'Avatar', 
-            type1_item10: 'Mystery box', 
+            type1_item9: 'Avatar',
+            type1_item10: 'Mystery box',
             type2: 'Quality',
             type2_b: 'Legendary, Epic, Rare, Common',
             type2_item_b: 'Quality Level',

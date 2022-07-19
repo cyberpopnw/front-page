@@ -58,7 +58,7 @@
           <!--                        <span>{{$t('message.common.menu7')}}</span>-->
           <!--                    </li>-->
           <!-- <li @click="changeMenu(5, '/')" :class="{'active': active == 5}">{{$t('message.common.menu6')}}</li> -->
-          <li @click="changeMenu(6, '/download')" :class="{'active': active == 6}">Download</li>
+          <li @click="changeMenu(6, '/download')" :class="{'active': active == 6}">{{ $t('message.common.download_menu') }}</li>
         </ul>
         <div class="language">
           <div @click="openLang()">{{ $t('message.common.language_switch') }} <span
