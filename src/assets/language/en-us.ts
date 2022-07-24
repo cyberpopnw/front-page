@@ -112,11 +112,13 @@ const us = {
         },
         // homeA
         home:{
+            // Top tips
+            tips: "Will debut at Gate.io!",
             // homeA-banner
             banner_title1Bef: 'FIND YOUR TRUE SELF',
             banner_title1Aft: 'IN THE NEW WORLD OF CYBERPOP',
             banner_title2: 'This new metaverse game combines exploration, combat, x-to-earn, and UGC into one.',
-            banner_btn1: 'PLAY TO EARN',
+            banner_btn1: 'START THE GAME',
             banner_btn2: 'DEMO',
             banner_botmBef: 'CYBERPOP NEW WORLD',
             banner_botmAft: 'COMING SOON',
@@ -217,6 +219,9 @@ const us = {
             team_mem_hason: 'Worked for Ubisoft and participated in the production of PC-side ORPG online game Devil Raiders and the PC and iPad version of TCG Devil Champions Showdown; won the best performance evaluation from Ubisoft EX multiple times.',
             team_mem_nick: 'Worked as a core developer of Microsoft. He has made a breakthrough in the industry through the reconstruction of the uniswap source code. In addition, he is capable of a complete Permissionless Blockchain development through his knowledge in Consortium Blockchain such as Hyperledger Fabric, FISCO, and BCO.',
             team_mem_caroline: 'Has a rich experience in the blockchain industry; Highly influential in Southeast Asia,  founded the NFT platform Roseon Finance, and worked in Chumbivalley.',
+            team_mem_CheyunLim: '2007.05 ~ 2008.03 (Playwith) operation team Seals online games Event planning, 1:1 door response <br /> 2008.03 ~ 2012.10 (PlayWith) QA team MMORPG Rohan Game testing, game system and content suggestions <br /> 2011.11 ~ 2012.11 (PlayWith) server team MMORPG Rohan Game server management, content development, hotspot correction<br /> 2016.12 ~ 2019.03 (JadMedia) Advertising website production, database management, solution data operation and management <br /> 2019.03 ~ 2019.10 Mocha tree Casino game golden wing Website login, performance, email, chat, task content development Website DB structure development <br /> 2020.09 ~ 2022.01 2hksoft development team RPG label dual Galaxy Develop the overall server function of the game and develop dB.',
+            team_mem_EunjiPark: '2011.01 ~ 2011.12 (CCR) MMORPG rf online Port 2 red Game testing, real-time server version management <br /> 2012.03 ~ 2014.12 (Multiplayer) games MMORPG ASTA Progress of FGT, CBT, OBT and commercialized services Content and system testing <br /> 2015.04 ~ 2016.03 (Capcom entertainment Korea) Exorcist prentil 2 Bryce fire 6 Game content and system testing <br /> 2018.02 ~ 2022.03 (Nate mabuneo) Japan The second country Game content and system testing Build test automation program.',
+            team_mem_HeewonKwak: '2005.08 ~ 2009.09 (Ynk games QA team MMORPG Luohan) FPS String Leisure racing crayon Game content testing and balance planning <br /> 2009.09 ~ 2010.12 (If QA team part field) Third person shooter Hessen Racing Games Game testing and test plan <br /> 2011.12 ~ 2016.11 (Multiplayer games) MMORPG ASTA Mobile game blade Waltz Mobile game light: light expedition As QA team leader, make personnel management and test plan Run the operating system, h/w compatibility test and all tests of content, system, etc <br /> 2017.06 ~ 2021.02 (Inur apus) Hit the roll jack HTML5 blockchain game website All development summaries and tests of servers and clients <br /> 2021.03 ~ 2021.11 (Dehong software) Horse Race Championship Development Manager, build development team, game concept design, structure design.',
             team_mem_fy: "'Former Amazon Cloud Service back-end developer. He has published two machine learning related patents; has very rich experience in microservice architecture design, edge computing, etc.; is a full-stack engineer, familiar with Web3.0 technical architecture and contract interaction.",
             team_mem_han: 'Worked in NEXT Studio as a senior back-end programmer with 10 years of experience. He has researched back-end security and stability, and technical trends in depth.',
             team_mem_quanbug: '15 years of full-platform full-end architecture experience. As a former member of Ubisoft’s advanced program, his code was used by Ubisoft Quebec in high-quality code research. Highly recommended by Freelancer editors.',
@@ -564,7 +569,7 @@ const us = {
             ios: 'iOS',
             Android: 'Android',
             windows: 'Windows',
-            version: 'Latest Version 1.0.4',
+            version: 'Latest Version 1.0.5',
             inputEmail: 'Input Email',
             tips2: 'No iOS app present',
             tips3: 'Email error',

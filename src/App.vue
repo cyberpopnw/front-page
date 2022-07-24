@@ -32,7 +32,7 @@
     </div>
     <div class="ip_error_Mobile flex_center" v-if="iperror && innerWidth <= 1025">
 <!--      <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/warning.svg" alt="">-->
-      {{ $t('message.common.coming_soon') }}
+      {{ $t('message.home.tips') }}
       <img class="close" src="@/assets/nwhome/close.svg" @click="iperror = false" alt="">
     </div>
     <!-- <div style="background: #333;color: #fff" v-if="cname">{{ cname }}</div> -->

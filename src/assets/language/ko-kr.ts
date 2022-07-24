@@ -109,11 +109,13 @@ const kr = {
     },
     // homeA
     home: {
+      // Top tips
+      tips: "Gate.io 에서 첫선을 보였습니다 !",
       // homeA-banner
       banner_title1Bef: '사이버 뉴월드에서 진정한 자기를 찾기',
       banner_title1Aft: '',
       banner_title2: '이 메티바스 게임은 탐험, 전투, x-to-earn과 UGC를 하나로 모은 것입니다',
-      banner_btn1: '플레이투언',
+      banner_btn1: '게임 시작',
       banner_btn2: '프리뷰',
       banner_botmBef: '사이버 뉴월드는 곧 출시 될 예정입니다 ',
       banner_botmAft: '',
@@ -556,7 +558,7 @@ const kr = {
       ios: 'iOS',
       Android: 'Android',
       windows: 'Windows',
-      version: '최신 버전 1.0.3',
+      version: '최신 버전 1.0.5',
       inputEmail: '이메일 주소',
       tips2: 'ios 앱 없음',
       tips3: 'e-메일 오류',

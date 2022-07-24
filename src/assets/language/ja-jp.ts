@@ -109,11 +109,13 @@ const kr = {
     },
     // homeA
     home: {
+      // Top tips
+      tips: "Gate.io で初披露される!",
       // homeA-banner
       banner_title1Bef: 'サイバーニューワールドで真の自分を見つけましょう',
       banner_title1Aft: '',
       banner_title2: 'このメタバースゲームは探索、戦い、x-to-earnと UGCの要素が含まれる',
-      banner_btn1: 'プレイしながら稼ぐ',
+      banner_btn1: 'ゲームを始める',
       banner_btn2: 'プレビュー',
       banner_botmBef: 'サイバーニューワールドが間もなく登場 ',
       banner_botmAft: '',
@@ -556,7 +558,7 @@ const kr = {
       ios: 'iOS',
       Android: 'Android',
       windows: 'Windows',
-      version: '最新バージョン1.0.4',
+      version: '最新バージョン1.0.5',
       inputEmail: 'メールアドレス',
       tips2: 'ios appはありません',
       tips3: '電子メールエラー',

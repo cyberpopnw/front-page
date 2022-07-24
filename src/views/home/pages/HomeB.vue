@@ -416,16 +416,19 @@ const { t } = useI18n();
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter()
 let close: any = ref(true)
+
 const teamInfo: any = ref([
   {
-    img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_frank.png',
-    name: 'Frank',
-    desc: 'Co-Founder',
+    img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team6.jpg',
+    name: 'Haechul',
+    desc: 'CMO',
+    info: 'message.home.team_mem_frank',
   },
   {
-    img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_caroline.png',
-    name: 'Caroline',
-    desc: 'Marketing director',
+    img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team2.jpg',
+    name: 'Yeldar Botabayev',
+    desc: 'Market manager',
+    info: 'message.home.team_mem_YuSonEn',
   },
   {
     img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_hason.png',
@@ -473,7 +476,6 @@ const teamInfo: any = ref([
     desc: 'Back-end Developer',
   },
 ])
-
 
 // xplan
 const realId = computed(() => store?.state.wallet?.realId);
@@ -2212,6 +2214,7 @@ onMounted(() => {
           margin-right: 10px;
 
           img {
+            border-radius: 50%;
             height: 100%;
           }
         }
