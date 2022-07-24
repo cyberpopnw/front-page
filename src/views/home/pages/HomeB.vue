@@ -99,10 +99,10 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <div class="swiper1">
                     <div class="swiper-bg">
                         <div>
-                            <img :class="imgIndex == 0 ? 'show' : ''" src="@/assets/nwhome/vSwiper_1.png" alt="">
+                            <img :class="imgIndex == 0 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_1.png" alt="">
                         </div>
                         <div>
-                            <img :class="imgIndex == 1 ? 'show' : ''" src="@/assets/nwhome/vSwiper_2.png" alt="">
+                            <img :class="imgIndex == 1 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_2.png" alt="">
                         </div>
                         <div>
                             <img :class="imgIndex == 2 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/moonlightCentury3.png" alt="">
@@ -134,8 +134,8 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                             :speed="200"
                             :autoplay="true"
                         >
-                            <swiper-slide><img src="@/assets/nwhome/vSwiper_1.png" alt=""></swiper-slide>
-                            <swiper-slide><img src="@/assets/nwhome/vSwiper_2.png" alt=""></swiper-slide>
+                            <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_1.png" alt=""></swiper-slide>
+                            <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_2.png" alt=""></swiper-slide>
                             <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/moonlightCentury3.png" alt=""></swiper-slide>
                             <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/futureCity3.png"  alt=""></swiper-slide>
                         </swiper>
@@ -179,10 +179,10 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                         <img class="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/nobody-leftBg3.png" alt="">
                     </swiper-slide>
                     <swiper-slide>
-                        <img class="role" src="@/assets/nwhome/lSwiper_1.png" alt="">
+                        <img class="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/lSwiper_1.png" alt="">
                     </swiper-slide>
                     <swiper-slide>
-                        <img class="role" src="@/assets/nwhome/lSwiper_2.png" alt="">
+                        <img class="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/lSwiper_2.png" alt="">
                     </swiper-slide>
                 </swiper>
             </div>
@@ -556,14 +556,16 @@ const router = useRouter()
 let close:any = ref(true)
 const teamInfo: any = ref([
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_frank.png',
-        name: 'Frank',
-        desc: 'Co-Founder',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team6.jpg',
+        name: 'Haechul',
+        desc: 'CMO',
+        info: 'message.home.team_mem_frank',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_caroline.png',
-        name: 'Caroline',
-        desc: 'Marketing director',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team2.jpg',
+        name: 'Yeldar Botabayev',
+        desc: 'Market manager',
+        info: 'message.home.team_mem_YuSonEn',
     },
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_hason.png',
@@ -645,14 +647,8 @@ const showxplan = () => {
 let showDown:any = ref(false);
 
 const playToEarn = () => {
-    router.push({ path: '/download', query: { code: router.currentRoute.value.query.code, isClick: 1 } })
-    return;
-    if( realId.value != -1 ){
-        showDown.value = true; 
-        isOut.value = false;
-    }else{
-        connect()
-    }
+    // router.push({ path: '/download', query: { code: router.currentRoute.value.query.code, isClick: 1 } })
+    router.push({ path: '/help' })
 }
 
 
@@ -1020,7 +1016,7 @@ onMounted(() => {
                 top: 0;
                 width: 100%;
                 height: 100%;
-                background-image: url('../../../assets/nwhome/section-cover.png');
+                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/section-cover.png');
                 background-size: 101% 101%;
                 background-position: -1vw 1vw;
                 .title-wrap{
@@ -2219,6 +2215,7 @@ onMounted(() => {
                         margin-right: 10px;
                         img{
                             height: 100%;
+                            border-radius: 50%;
                         }
                     }
                     .msg{

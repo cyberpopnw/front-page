@@ -17,7 +17,7 @@
                         <span @click="changeChain(56)">{{ $t('message.common.metamask.switchBSC') }}</span>
                         <span @click="changeChain(43113)">{{ $t('message.common.metamask.switchFuji') }}</span> 
                         <span @click="changeChain(80001)">{{ $t('message.common.metamask.switchMumbai') }}</span>    
-                        <span @click="changeChain(85)">{{ $t('message.common.metamask.switchGate') }}</span>  
+                        <!-- <span @click="changeChain(85)">{{ $t('message.common.metamask.switchGate') }}</span>   -->
                     </div>
                 </div>
                 <!-- Open the box -->

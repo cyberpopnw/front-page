@@ -1,17 +1,18 @@
 <template>
-    <header-a path="/help" :type="0"></header-a>
+    <header-a path="/" :type="0"></header-a>
     <div class="container">
         <div class="select_pages">
             <div class="bk1"></div>
             <div class="warp">
-                <div class="item" v-for="(item, i) in select_title" :key="i" @click="selectpage(i)">
+                <div class="item" v-for="(item, i) in select_title" :key="i" @click="selectpage(i)" @mousemove="item.hover = true" @mouseout="item.hover = false">
                     <div class="selected" v-show="item.select">
                         <img :style="{'margin-left': i == 3 ? '-1.2vw':''}" :src="item.selectImg" alt="">
+                        <p class="title">{{ item.title }}</p>
                     </div>
                     <div class="Unselected" v-show="!item.select" >
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/help/Unselected.png" alt="">
+                        <img :src="item.hover ? UnselectedHover : Unselected" alt="">
                         <span class="index">{{ '0' + (i + 1) }}</span>
-                        <p class="title">{{ item.title }}</p>
+                        <p class="title" :style="{'opacity': item.hover == true ? '1' : '0.7'}">{{ item.title }}</p>
                     </div>
                 </div>
             </div>
@@ -39,11 +40,11 @@
                         <div class="chunk1">
                             <div class="title">
                                 <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/fix_icon.png" alt="">
-                                <span>Download & setup</span>
+                                <span>{{ $t('message.guide.page1ContentTitle1') }}</span>
                             </div>
                             <div class="content">
                                 <div class="content_chunk">
-                                    <h2 class="content_title">Extension</h2>
+                                    <h2 class="content_title">{{ $t('message.guide.page1Content1') }}</h2>
                                     <a href="https://metamask.io" target="view_window">
                                         <div class="content_button">
                                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/chrome_icon.png" alt="">
@@ -88,15 +89,15 @@
                         </div>
                         <div class="chunk1">
                             <div class="title">
-                                <span>Create your address</span>
+                                <span>{{ $t('message.guide.page1ContentTitle2') }}</span>
                             </div>
                             <div class="content">
                                 <div class="text_chunk">
-                                    <h2 class="content_title">What is Wallet for?</h2>
+                                    <h2 class="content_title">{{ $t('message.guide.page1Content2') }}</h2>
                                     <!-- <p class="des">Storing digital assets such as Cyberpop assets and other tokens</p>
                                     <p class="des">Support multi-chain transaction, convenient cross-platform</p> -->
-                                    <p class="des">This means that you have full ownership of these assets in your wallet</p>
-                                    <p class="des">We recommend that you create a new wallet to start your journey, or you can create this after downloading our game</p>
+                                    <p class="des">{{ $t('message.guide.page1Content3') }}</p>
+                                    <p class="des">{{ $t('message.guide.page1Content4') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -106,16 +107,16 @@
                     <div class="box">
                         <div class="chunk1">
                             <div class="title">
-                                <span>Buy exclusive BD NFT in our market</span>
+                                <span>{{ $t('message.guide.page2ContentTitle1') }}</span>
                             </div>
                             <div class="content">
                                 <div class="text_chunk">
-                                    <h2 class="content_title" style="margin-bottom: 1.3vw">Deposit CYT on MetaMask and Cyberpop official market to purchase exclusive BD NFT</h2>
-                                    <h2 class="content_title" style="margin-bottom: 1.04vw">Buy CYT directly from the Cyberpop market</h2>
+                                    <h2 class="content_title" style="margin-bottom: 1.3vw">{{ $t('message.guide.page2Content1') }}</h2>
+                                    <h2 class="content_title" style="margin-bottom: 1.04vw">{{ $t('message.guide.page2Content2') }}</h2>
                                     <div class="buttons">   
                                         <div class="getBD_button" @click="getBD">
                                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/market_icon.png" alt="">
-                                            <span>Get BD NFT</span>
+                                            <span>{{ $t('message.guide.page2Content3') }}</span>
                                         </div>
                                         <!-- <div class="getCYT_button">
                                             <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/market_icon.png" alt="">
@@ -127,16 +128,16 @@
                         </div>
                         <div class="chunk1">
                             <div class="title">
-                                <span>Apply for reward</span>
+                                <span>{{ $t('message.guide.page2ContentTitle2') }}</span>
                             </div>
                             <div class="content">
                                 <div class="text_chunk">
-                                    <h2 class="content_title" style="margin-bottom: 1.04vw">Join the Cyberpop Discord community to apply for rewards and start your adventure</h2>
+                                    <h2 class="content_title" style="margin-bottom: 1.04vw">{{ $t('message.guide.page2Content4') }}</h2>
                                     <div class="buttons">
                                         <a href="https://discord.gg/y9b8p5C9TR" target="view_window">
                                             <div class="getCYT_button" style="width: 15.6vw; margin-left: 0; background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/big_white_broder.svg')">
                                                 <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/dc_icon.png" alt="">
-                                                <span>Join the Cyberpop Discord</span>
+                                                <span>{{ $t('message.guide.page2Content5') }}</span>
                                             </div>
                                         </a>
                                     </div>
@@ -150,15 +151,15 @@
                         <div class="chunk2">
                             <div class="imgs">
                                 <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
-                                <p>Download</p>
-                                <span>Cyberpop Metaverse</span>
+                                <p>{{ $t('message.guide.page3ContentTitle1') }}</p>
+                                <span>{{ $t('message.guide.page3ContentTitle2') }}</span>
                             </div>
                             <div class="line"></div>
                             <div class="buttons">
                                 <div class="button_group">
                                     <div class="button_title">
                                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/desktop.png" alt="">
-                                        <span>Desktop</span>
+                                        <span>{{ $t('message.guide.page3Content1') }}</span>
                                     </div>
                                     <div class="dowload">
                                         <a href="https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_18_11_53_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe" target="view_window">
@@ -172,7 +173,7 @@
                                 <div class="button_group" style="margin-bottom: 0;">
                                     <div class="button_title">
                                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/phone.png" alt="">
-                                        <span>Mobile</span>
+                                        <span>{{ $t('message.guide.page3Content2') }}</span>
                                     </div>
                                     <div class="dowload">
                                         <a href="https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_19_09_40_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk" target="view_window">
@@ -197,15 +198,15 @@
                     <div class="box">
                         <div class="chunk1">
                             <div class="title">
-                                <span>Login Mode</span>
+                                <span>{{ $t('message.guide.page4ContentTitle1') }}</span>
                             </div>
                             <div class="content">
                                 <div class="text_chunk">
-                                    <h2 class="des" style="margin-top: 0;">Click the link wallet button, select the wallet to be linked, and enter the game after relevant authorization</h2>
+                                    <h2 class="des" style="margin-top: 0;">{{ $t('message.guide.page4Content1') }}</h2>
                                     <div class="wallet_box">
-                                        <h2 class="wallet_title">Connect Wallet</h2>
-                                        <div class="wallet_button"><span>Wallet Connect</span></div>
-                                        <div class="wallet_button"><span>wallet login</span></div>
+                                        <h2 class="wallet_title">{{ $t('message.guide.page4Content2') }}</h2>
+                                        <div class="wallet_button"><span>{{ $t('message.guide.page4Content3') }}</span></div>
+                                        <div class="wallet_button"><span>{{ $t('message.guide.page4Content4') }}</span></div>
                                         <img class="point" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_point.png" alt="">
                                     </div>
                                 </div>
@@ -213,16 +214,16 @@
                         </div>
                         <div class="chunk1">
                             <div class="title">
-                                <span>Import Secret Recove</span>
+                                <span>{{ $t('message.guide.page4ContentTitle2') }}</span>
                             </div>
                             <div class="content">
                                 <div class="text_chunk">
-                                    <h2 class="des" style="margin-top: 0">Create an account, obtain your Secret Recovery Phrase, and keep it safe</h2>
-                                    <h2 class="des">Log in the game using Secret Recovery Phrase</h2>
+                                    <h2 class="des" style="margin-top: 0">{{ $t('message.guide.page4Content5') }}</h2>
+                                    <h2 class="des">{{ $t('message.guide.page4Content6') }}</h2>
                                     <div class="wallet_box">
-                                        <h2 class="wallet_title">Cyberpop Wallet</h2>
-                                        <div class="wallet_button"  style="width: 10.03vw"><span>Create Wallet</span></div>
-                                        <div class="wallet_button"  style="width: 10.03vw"><span>Import Secret Recove</span></div>
+                                        <h2 class="wallet_title">{{ $t('message.guide.page4Content7') }}</h2>
+                                        <div class="wallet_button"  style="width: 10.03vw"><span>{{ $t('message.guide.page4Content8') }}</span></div>
+                                        <div class="wallet_button"  style="width: 10.03vw"><span>{{ $t('message.guide.page4Content9') }}</span></div>
                                         <img class="point" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_point.png" alt="">
                                     </div>
                                 </div>
@@ -245,10 +246,10 @@
             <div class="buttons">
                 <button class="swiper-button-prev left" @mousemove="hoverIn = 0" @mouseout="hoverIn = false">
                     <img :src="hoverIn === 0 ? pointImgLeftHover : pointImgLeft" alt="">
-                    <span :class="hoverIn === 0 ? 'hoverIn' : ''">Prev</span>
+                    <span :class="hoverIn === 0 ? 'hoverIn' : ''">{{ $t('message.guide.prev') }}</span>
                 </button>
                 <button class="swiper-button-next right" @mousemove="hoverIn = 1" @mouseout="hoverIn = false">
-                    <span :class="hoverIn === 1 ? 'hoverIn' : ''">Next</span>
+                    <span :class="hoverIn === 1 ? 'hoverIn' : ''">{{ $t('message.guide.next') }}</span>
                     <img :src="hoverIn === 1 ? pointImgRightHover : pointImgRight" alt="">
                 </button>
             </div>
@@ -267,6 +268,9 @@ import SwiperCore, { EffectFade, EffectCreative, Mousewheel, Autoplay, Navigatio
 import SwiperType from 'swiper/types'
 import 'swiper/css';
 import GetBD from '@/components/Guide/getBd.vue'
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n(); 
 
 SwiperCore.use([EffectFade, EffectCreative, Mousewheel, Autoplay, Navigation]);
 
@@ -292,32 +296,36 @@ const onSlideChange = (e: any) => {
 const router = useRouter()
 const select_title = ref([
     {
-        title: 'Create MetaMask wall',
+        title: t('message.guide.selecPageTitle1'),
         selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title1.png',
         select: true,
-        bigTitle: 'Prepare the metamask wallet',
-        des: 'Wallet is your boarding pass to our digital nation',
+        hover: false,
+        bigTitle: t('message.guide.pageTitle1'),
+        des:  t('message.guide.pageDes1'),
     },
     {
-        title: 'In Cyberpop website',
+        title: t('message.guide.selecPageTitle2'),
         selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title2.png',
         select: false,
-        bigTitle: 'Get Cyberpop BD NFT',
-        des: 'Cyberpop BD NFT can be obtained in a number of ways',
+        hover: false,
+        bigTitle: t('message.guide.pageTitle2'),
+        des: t('message.guide.pageDes2'),
     },
     {
-        title: 'Get Cyberpop NFT',
+        title: t('message.guide.selecPageTitle3'),
         selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title3.png',
         select: false,
-        bigTitle: 'Download Cyberpop',
+        hover: false,
+        bigTitle: t('message.guide.pageTitle3'),
         des: '',
     },
     {
-        title: 'Download & Play',
+        title: t('message.guide.selecPageTitle4'),
         selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title4.png',
         select: false,
-        bigTitle: 'Login Cyberpop',
-        des: 'Log in to the game and earn with BD',
+        hover: false,
+        bigTitle: t('message.guide.pageTitle4'),
+        des:  t('message.guide.pageDes4'),
     },
 ])
 const icons = [
@@ -346,16 +354,22 @@ let pointImgLeft: any = ref('');
 let pointImgRight: any = ref(''); 
 let pointImgLeftHover: any = ref(''); 
 let pointImgRightHover: any = ref(''); 
-
+let Unselected: any = ref('');
+let UnselectedHover: any = ref('');
 const logoHImport = async() => {
     const a: any = await import('@/assets/nwGuide/point_icon_left.png');
     const b: any = await import('@/assets/nwGuide/point_icon_right.png');
     const c: any = await import('@/assets/nwGuide/point_left_hover.png');
     const d: any = await import('@/assets/nwGuide/point_icon_right_hover.png');
+    const e: any = await import('@/assets/nwGuide/Unselected.png');
+    const f: any = await import('@/assets/nwGuide/Unselected_hover.png');
+
     pointImgLeft.value = a.default;
     pointImgRight.value = b.default;
     pointImgLeftHover.value = c.default;
-    pointImgRightHover.value = d.default
+    pointImgRightHover.value = d.default;
+    Unselected.value = e.default;
+    UnselectedHover.value = f.default;
 }
 
 
@@ -454,10 +468,21 @@ onMounted(() => {
                         width: 100%;
                         height: 100%;
                         background: linear-gradient(180deg, rgba(53,241,200,0.2500) 0%, rgba(53,241,200,0) 100%);
+                        position: relative;
                         img{
                             width: 100%;
                             height: 100%;
                             transform: scale(1.5);
+                        }
+                        .title{
+                            position: absolute;
+                            font-size: 0.83vw;
+                            font-family: AlibabaPuHuiTi_2_85_Bold;
+                            color: #FFFFFF;
+                            line-height: 1.3vw;
+                            top: 9.5vw;
+                            width: 100%;
+                            text-align: center;
                         }
                     }
                 }
@@ -663,12 +688,13 @@ onMounted(() => {
                                     height: 6.92vw;
                                     background: rgba(12, 11, 11, 0.06);
                                     border: 1.5px solid rgba(255, 255, 255, 0.3);
-                                    margin-top: 1.04vw;
                                     padding-top: .73vw;
                                     display: flex;
                                     justify-content: center;
                                     flex-wrap: wrap;
                                     position: relative;
+                                    margin: 0 auto;
+                                    margin-top: 1.04vw;
                                     .point{
                                         width: 0.78vw;
                                         height: 0.78vw;

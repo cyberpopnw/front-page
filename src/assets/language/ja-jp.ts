@@ -98,10 +98,13 @@ const kr = {
             banner_title1Bef: 'サイバーニューワールドで真の自分を見つけましょう',
             banner_title1Aft: '',
             banner_title2: 'このメタバースゲームは探索、戦い、x-to-earnと UGCの要素が含まれる',
-            banner_btn1: 'プレイしながら稼ぐ',
+            banner_btn1: 'ゲームを始める',
             banner_btn2: 'プレビュー',
             banner_botmBef: 'サイバーニューワールドが間もなく登場 ',
             banner_botmAft: '',
+            banner_botmBef2: 'サイバーポップを始める方法?',
+            banner_botmAft2: 'チュートリアルを持ちましょう',
+            
             // homeA-download
             download_message: '申し訳ありませんが、ダウンロードできません。現在授権されたプレイヤーのみに公開されています。体験するにはお問い合わせてください。',
             download_btn1: 'ダウンロード',
@@ -201,6 +204,7 @@ const kr = {
             team_mem_caroline: 'ブロックチェーン業界には豊富な履歴と経験があります。東南アジアでは非常に影響力があり、NFTプラットフォームRoseon Financeを設立し、Chumbivalleyのコンサルタントに参加したことがある。',
             team_mem_fy: 'ファーウェイのクラウドサービスバックエンドの開発、そして2つの機械学習関連特許を発表したことがあり、マイクロサービスアーキテクチャの設計、エッジ計算などの麺で非常に豊富な経験があり、全スタックエンジニア、Web 3を熟知している。0技術アーキテクチャと契約の相互作用。',
             team_mem_han: 'テンセント光子スタジオ、NEXTスタジオ前の高級バックエンド、10年以上の仕事経験。後端の安全と安定性、技術潮流の麺で長期的に深い研究がある。',
+            team_mem_YuSonEn: '1993年卒業 <br /> 1993年-1997年カサク・アルマッティ国民師範大学卒業 <br /> 1993年-1997年カサク・アルマッティ国民師範大学卒業 <br /> 1998年～2000年公務員 <br /> 2000年個人事業者 <br /> 2013年-2018年サムスンエンジニアリング&amp;サムスン物産事業（ヴァルハーシュ火力発電所プロジェクトBTPP） <br /> 2014年-現在のANGEL投資家 <br /> 2019年-現在のBlockchain教授.',
             team_mem_quanbug: '前育碧高級プログラム、コードは育碧ケベックに逸品コードの研究に持って行かれたことがある。Freelancerは推奨プログラムを編集します。15年間の全プラットフォームの全端アーキテクチャの経験。',
             team_mem_john: '前育碧高級技術美術、3 A級製品の研究開発経験。その後、テンセント天美の初期グラフィックスエンジン技術顧問に参加し、エンジンは「王者栄光」プロジェクトチームをサポートするために使用された。現在、自己研究レンダリングパイプラインはマルチプラットフォーム（携帯電話端末を含む）3 Aクラスのレンダリングをサポートするために使用されています。15年間のゲーム業界の経験。',
             team_mem_water: 'インテルアジア太平洋研究開発有限会社のクラウドコンピューティングエンジニアに就任し、ファーウェイの前クラウド技術監督に就任し、クラウド設計を担当し、クラウドコンピューティングとブロックチェーン業界の経験が豊富である。チームを設立して元界のゲーム開発を深く耕し、独立したMMORPGゲームの設計に成功した。',
@@ -559,6 +563,64 @@ const kr = {
             step1_name: '手順1',
             step2_name: '手順2',
             download_txt: 'ダウンロード CYBERPOP'
+        },
+
+
+        //guide
+        guide: {
+            //title
+            selecPageTitle1: '作成メタウォール',
+            selecPageTitle2: 'cyberpop nft を取得する',
+            selecPageTitle3: '「ダウンロードゲーム」',
+            selecPageTitle4: 'ログイン',
+            
+            
+            //page title
+            pageTitle1: 'Metaamask Wallet を準備します',
+            pageDes1: '財布は、我々のデジタル国への搭乗券です',
+            pageTitle2: 'cyberpop bd nft を取得します',
+            pageDes2: '「サイバーポップBD NFTはいくつかの方法で得られる」',
+            pageTitle3: 'cyberpop をダウンロードします',
+            pageTitle4: 'ログインcyberpop',
+            pageDes4: 'ゲームにログインし、BD を獲得',
+
+            //content
+            page1ContentTitle1: 'ダウンロードとセットアップ',
+            page1ContentTitle2: 'アドレスを作成',
+            page1Content1: '拡張',
+            page1Content2: '何の財布ですか。',
+            page1Content3: 'これは、あなたの財布にこれらの資産の完全な所有権を持っていることを意味します',
+            page1Content4: '私たちはあなたの旅を開始する新しい財布を作成するか、我々のゲームをダウンロードした後、これを作成することをお勧めします',
+            
+            page2ContentTitle1: '我々の市場で独占的なBD NFTを買ってください',
+            page2ContentTitle2: '報酬を申し込む',
+            page2Content1: '入金金は、独占的なBD NFTを購入するために、MetamaskとCyberPop公式市場で',
+            page2Content2: 'サイバーポップ市場から直接CYTを買ってください',
+            page2Content3: 'ゲット BD NFT',
+            page2Content4: '参加サイバーコミュニティDisordコミュニティ報酬を申請し、あなたの冒険を開始する',
+            page2Content5: 'サイバーポップDiscordに加わってください',
+
+            page3ContentTitle1: 'ダウンロード',
+            page3ContentTitle2: 'Cyberpop Metaverse',
+            page3Content1: 'デスクトップ',
+            page3Content2: 'モバイル',
+
+            page4ContentTitle1: 'ログインモード',
+            page4ContentTitle2: 'Import Secret Recove',
+            page4Content1: 'リンクのボタンをクリックし、リンクされる財布を選択し、関連の承認後にゲームを入力してください',
+            page4Content2: '接続財布',
+            page4Content3: '接続する',
+            page4Content4: '財布ログイン',
+            page4Content5: 'アカウントを作成し、あなたの秘密の回復フレーズを取得し、それを安全に保つ',
+            page4Content6: '秘密の回復フレーズを使っているゲームにログインしてください',
+            page4Content7: 'Cyberpopウォレット',
+            page4Content8: 'クリエイトウォレット',
+            page4Content9: 'インポート秘密回復',
+
+            //element
+            prev: '前置',
+            next: '次',
+
         }
     }
 }

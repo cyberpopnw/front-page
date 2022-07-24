@@ -98,10 +98,13 @@ const cn = {
             banner_title1Bef: '找尋真實的自我',
             banner_title1Aft: '於賽博新世界',
             banner_title2: '該款元宇宙遊戲集探險、戰鬥、x-to-earn和UGC於一體',
-            banner_btn1: '邊玩邊賺',
+            banner_btn1: '開始遊戲',
             banner_btn2: '預覽',
             banner_botmBef: '賽博新世界 ',
             banner_botmAft: '即將震撼上線',
+            banner_botmBef2: '如何啟動cyberpop?',
+            banner_botmAft2: '讓我們有一個教程',
+
             // homeA-download
             download_message: '抱歉，您無法下載。賽博新世界目前僅對內部授權測試群體開放。如要加入，敬請聯繫我們',
             download_btn1: '下載',
@@ -201,6 +204,7 @@ const cn = {
             team_mem_caroline: '在区块链行业有丰富的履历和经验; 在东南亚非常有影响力，创办了 NFT 平台 Roseon Finance，参与过 Chumbivalley 的顾问。',
             team_mem_fy: '前亚马逊云服务后端开发人员。 发表了两项机器学习相关专利； 在微服务架构设计、边缘计算等方面有非常丰富的经验； 全栈工程师，熟悉Web3.0技术架构和合约交互。',
             team_mem_han: '曾在NEXT Studio担任资深后端程序员，10年经验。 他对后端的安全性和稳定性以及技术趋势进行了深入的研究。',
+            team_mem_YuSonEn: '1993年畢業 <br /> 1993年-1997年畢業於卡薩克·阿爾馬蒂國民師範大學 <br /> 1995年3月-1996年2月大邱嶺南大學教育 <br /> 1998年-2000年公務員 <br /> 2000年個人事業者 <br /> 2013年-2018年三星工程&amp;三星物產工作（瓦爾哈什火力發電廠項目BTPP） <br /> 2014年-現時ANGEL投資者 <br /> 2019年-現任Blockchain教授.',
             team_mem_quanbug: '15年全平台全端架构经验。 作为育碧高级计划的前成员，他的代码被育碧魁北克用于高质量的代码研究。 自由职业者编辑强烈推荐。',
             team_mem_john: '前育碧高级技术美术，3A 级产品研发经验。后参与腾讯天美早期图形引擎技术顾问， 引擎用于支持《王者荣耀》项目组。现自研渲染管线用于支持多平台（含手机端）3A 级呈现。15 年游戏行业经验。',
             team_mem_water: '曾任英特尔亚太研发有限公司云计算工程师，后任华为前云技术总监。 曾负责云设计，在云计算和区块链行业拥有丰富的经验。 他组建了一个团队开发元界游戏，并成功设计了一款独立的MMORPG游戏。',
@@ -565,6 +569,68 @@ const cn = {
             step1_name: '步驟1',
             step2_name: '步驟2',
             download_txt: '下載 CYBERPOP'
+        },
+
+        //guide
+        guide: {
+            //title
+            selecPageTitle1: '創建元遮罩牆',
+            selecPageTitle2: '獲取Cyberpop NFT',
+            selecPageTitle3: '下載遊戲',
+            selecPageTitle4: '登入',
+            
+            //page title
+            pageTitle1: '準備metamask錢包',
+            pageDes1: '錢包是您進入我們數位國家的登機牌',
+            pageTitle2: '獲取Cyberpop BD NFT',
+            pageDes2: 'Cyberpop BD NFT可以通過多種方式獲得',
+            pageTitle3: '下載Cyberpop',
+            pageTitle4: '登入Cyberpop',
+            pageDes4: '登入遊戲並使用BD贏取',
+
+            //content
+            page1ContentTitle1: '下載和設定',
+            page1ContentTitle2: '創建您的地址',
+            page1Content1: '副檔名',
+            page1Content2: '錢包是用來做什麼的？',
+            page1Content3: '這意味著你對錢包中的這些資產擁有完全所有權',
+            page1Content4: '我們建議您創建一個新的錢包來開始您的旅程，或者您可以在下載我們的遊戲後創建它',
+            
+            page2ContentTitle1: '在我們的市場上購買獨家BD NFT',
+            page2ContentTitle2: '申請獎勵',
+            page2Content1: '將CYT存入MetaMask和Cyberpop官方市場，購買獨家BD NFT',
+            page2Content2: '直接從Cyberpop市場購買CYT',
+            page2Content3: '獲取 BD NFT',
+            page2Content4: '加入Cyberpop Discord社區，申請獎勵，開始你的冒險',
+            page2Content5: '加入 Cyberpop Discord',
+
+            page3ContentTitle1: '下載',
+            page3ContentTitle2: 'Cyberpop Metaverse',
+            page3Content1: '桌面',
+            page3Content2: '手機',
+
+            page4ContentTitle1: '登入模式',
+            page4ContentTitle2: '導入機密記錄',
+            page4Content1: '點擊連結錢包按鈕，選擇要連結的錢包，經相關授權後進入遊戲',
+            page4Content2: '連接錢包',
+            page4Content3: '錢包連接',
+            page4Content4: '錢包連接',
+            page4Content5: '創建一個帳戶，獲取您的秘密恢復短語，並確保其安全',
+            page4Content6: '使用秘密恢復短語登入遊戲',
+            page4Content7: 'Cyberpop錢包',
+            page4Content8: '創建錢包',
+            page4Content9: '導入機密記錄',
+
+            //element
+            prev: '上一頁',
+            next: '下一頁',
+
+            bgWindow: {
+                txt1: '1、你需要準備一些鏈端代幣作為手續費，因為我們目前正在測試網絡，你可以通過這個連接免費獲得。',
+                txt2: '2、請在我們的交易市場購買BD，BD可以用來玩黃金，你也可以在熟悉遊戲後自己培養BD，你可以通過wiki查看我們的遊戲介紹：',
+                txt3: '3、你的輸出幣和CYT是cyberpop的遊戲輸出，現時的硬幣代幣處於測試網絡階段，CYT沒有發佈，其他都是騙局',
+                txt4: '4、請加入我們的discord，為您帶來更好的遊戲體驗',
+            }
         }
 
     }

@@ -163,7 +163,7 @@ const transfer = async () => {
             console.log(props.transferInfo?.type, 'props.transferInfo?.type');
             TipsState.value = true;
             store.dispatch('user/xplanChangeAni', true);
-            if(props.transferInfo?.type == 'role_mumbai' || props.transferInfo?.type == 'role_fuji' || props.transferInfo?.type == 'head_mumbai' || props.transferInfo?.type == 'head_fuji'){
+            if(props.transferInfo?.type == 'role_mumbai' || props.transferInfo?.type == 'role_fuji' || props.transferInfo?.type == 'head_mumbai' || props.transferInfo?.type == 'head_fuji' || props.transferInfo?.type == 'ERC721box_bsc'){
                 let result = await Web3.safeTransferFrom(abiMsg.value, addressMsg.value, inputAddress.value, Number(idMsg.value));
                 TipsState.value = false;
                 if(!result){ // If the transfer fails

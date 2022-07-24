@@ -91,8 +91,6 @@ const safeTransferFrom = async (abi:any, address:any, TransferFrom:any, id:any, 
     const contract = new web3.eth.Contract(abi, address)
     return new Promise((resolve, reject) => {
         if(!number){  // 721 No need to transfer quantity
-            console.log('这里');
-            
             contract.methods.safeTransferFrom(accounts.value, TransferFrom, id, '0x').send({ from: accounts.value }).then( (receipt:any) => {
                 resolve(receipt)
             }).catch((err:any) => {
@@ -157,7 +155,7 @@ const unpack = (abi: any, address: any, id: any, number: any) => {
         console.log(intNumber, 'intNumber');
         const web3 = new Web3((window as any ).ethereum)
         const contract = new web3.eth.Contract(abi, address)
-        contract.methods.unpack(id, intNumber).send({ from: accounts.value})
+        contract.methods.unpack(id, intNumber).send({ from: accounts.value })
         .on('transactionHash', function (hash: any) {
             console.log(`---------->:hash`, hash)
         })
@@ -188,7 +186,7 @@ const testUnpack = (abi: any, address: any, id: number, boxAddress: any) => {
     })
 }
 
-const boxAddresses = (abi: any, address: any) => {
+const boxAddresses: any = (abi: any, address: any) => {
     return new Promise(async (resolve, reject) => {
         const web3 = new Web3((window as any ).ethereum)
         const bb = new web3.eth.Contract(abi, address)
@@ -211,10 +209,14 @@ const safeMint = (abi: any, address: any) => {
 
 const tokenOfOwnerByIndex = (abi: any, address: any, index: number) => {
     return new Promise(async (resolve, reject) => {
-        const web3 = new Web3((window as any ).ethereum)
-        const box = new web3.eth.Contract(abi, address)
-        let a = await box.methods.tokenOfOwnerByIndex(accounts.value, index).call()
-        resolve(a)
+        try{
+            const web3 = new Web3((window as any ).ethereum)
+            const box = new web3.eth.Contract(abi, address)
+            let a = await box.methods.tokenOfOwnerByIndex(accounts.value, index).call()
+            resolve(a)
+        }catch(err){
+            resolve(0)
+        }
     })
 }
 

@@ -7,15 +7,15 @@
             </div>
             <div class="content flex_between_center" id="header">
                 <div class="logo">
-                    <a :href="path"><img v-show="!logoHFlag" :src="logoHSrcP" @mouseenter="logoHFlag = true" alt=""></a>
-                    <a :href="path"><img v-show="logoHFlag" :src="logoHSrcG" @mouseleave="logoHFlag = false" alt=""></a>
+                    <a :href="path"><img v-show="!logoHFlag" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwhome/logo_101.png'" @mouseenter="logoHFlag = true" alt=""></a>
+                    <a :href="path"><img v-show="logoHFlag" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwhome/logo.gif'" @mouseleave="logoHFlag = false" alt=""></a>
                 </div>
                 <img class="menu" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/header-menu.svg" @click="showMenu()" alt="">
             </div>
             <div class="menuMask" ref="cursor" :class="isPage && (showMenuAni ? 'menuAnimation' : 'stopMenuAnimation')">
                 <div class="close-menu flex_between">
                     <div v-show="realId == -1"></div>
-                    <div class="select_chain flex_align_center" v-show="realId !== -1" @click="showMsgPop()"><img :src="chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 85 || chainId == 80001 ? chainList.select.name : chainList.notSupported.name }}</span></div>
+                    <div class="select_chain flex_align_center" v-show="realId !== -1" @click="showMsgPop()"><img :src="chainId == 56 || chainId == 43113 || chainId == 80001 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 80001 ? chainList.select.name : chainList.notSupported.name }}</span></div>
                     <img @click="closeMenuIcon()" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/close-menu.svg" alt="">
                 </div>
                 <div class="login_in" v-if="!loggined" @click="login()">
@@ -89,8 +89,8 @@ const props = defineProps({
     path: String, 
     type: Number
 })
-const warning: any = computed(() => store.state.common?.warning );
-const closeWarn = () => {store.dispatch('common/warningShow',false)}
+const warning: any = computed(() => store.state.common?.warning )
+const closeWarn = () => { store.dispatch('common/warningShow', false) }
 let showLang:any = ref(false)
 let langArrow:any = ref(false)
 const openLang = () => {
@@ -123,11 +123,11 @@ const chainList = ref({
         img: 'https://mumbai.polygonscan.com/images/svg/brands/poly.png?v=1.3',
         chainId: 80001,
     },
-    Gate: {
-        name: 'Gate',
-        img: 'https://www.gatechain.io/docs/assets/img/logo.svg',
-        chainId: 85,
-    },
+    // Gate: {
+    //     name: 'Gate',
+    //     img: 'https://www.gatechain.io/docs/assets/img/logo.svg',
+    //     chainId: 85,
+    // },
     select: {
         name: 'BSC',
         img: 'https://testnet.bscscan.com/images/favicon.ico',
@@ -198,16 +198,6 @@ const mouseLeave = () => {
     connectMove.value = false;
 }
 
-
-
-let logoHSrcP:any = ref(''); 
-let logoHSrcG:any = ref(''); 
-const logoHImport = async() => {
-    const logoHSrcPng:any = await import('@/assets/nwhome/logo_101.png');
-    const logoHSrcGif:any = await import('@/assets/nwhome/logo.gif');
-    logoHSrcP.value = logoHSrcPng.default;
-    logoHSrcG.value = logoHSrcGif.default;
-}
 
 // header
 let logoHFlag: any = ref(false) ;
@@ -282,7 +272,7 @@ const connect: any = async () => {
         let web3obj = new Web3((Web3 as any).givenProvider)
         await web3obj.eth.net.getId().then((chainId: any) => {
             store.dispatch('user/chageChainId', Number(chainId))
-            if(chainId != 56 && chainId != 43113 && chainId != 85 && chainId != 80001) {
+            if(chainId != 56 && chainId != 43113 && chainId != 80001) {
                 store.dispatch('user/xplanChangeAni', true);
                 store.dispatch('user/TipsState', {show: true, info: { hasLoading: false, hasClose: true, title: 'Network Error', content: t('message.common.metamask.switch'), addNetwork: true}});
             }
@@ -360,8 +350,10 @@ const signout = () => {
 
 // router
 const toAssets = () => {
-    router.push('/knapsack');
-    store.dispatch('wallet/walletMenuAni', false);
+    // router.push('/knapsack');
+    window.open('https://market.cyberpop.online/#/knapsack', '_blank')
+
+    // store.dispatch('wallet/walletMenuAni', false);
 }
 const toMarket = () => {
     window.open('https://market.cyberpop.online/#/', '_blank');
@@ -385,7 +377,6 @@ onMounted(() => {
     if( realId.value != -1){
         store.dispatch('wallet/walletloggined',true);
     }
-    logoHImport();
     store.dispatch('user/changeActive', props.type)
     store.dispatch('wallet/metaChange',false)
     store.dispatch('user/showDialog',{show: false, info: {}});

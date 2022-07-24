@@ -172,7 +172,7 @@ const transfer = async () => {
         }else{
             console.log(abiMsg.value, addressMsg.value, inputAddress.value, idMsg.value, valueIn.value);
             console.log(props.transferInfo?.type, 'props.transferInfo?.type');
-            if(props.transferInfo?.type == 'role_mumbai' || props.transferInfo?.type == 'role_fuji' || props.transferInfo?.type == 'head_mumbai' || props.transferInfo?.type == 'head_fuji'){
+            if(props.transferInfo?.type == 'role_mumbai' || props.transferInfo?.type == 'role_fuji' || props.transferInfo?.type == 'head_mumbai' || props.transferInfo?.type == 'head_fuji' || props.transferInfo?.type == 'ERC721box_bscTest' || props.transferInfo?.type == 'ERC721box_bsc'){
                 let result = await Web3.safeTransferFrom(abiMsg.value, addressMsg.value, inputAddress.value, Number(idMsg.value));
                 if(!result){ // If the transfer fails
                     store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_stop')}})

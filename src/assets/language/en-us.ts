@@ -101,10 +101,13 @@ const us = {
             banner_title1Bef: 'FIND YOUR TRUE SELF',
             banner_title1Aft: 'IN THE NEW WORLD OF CYBERPOP',
             banner_title2: 'This new metaverse game combines exploration, combat, x-to-earn, and UGC into one.',
-            banner_btn1: 'PLAY TO EARN',
+            banner_btn1: 'START THE GAME',
             banner_btn2: 'DEMO',
             banner_botmBef: 'CYBERPOP NEW WORLD',
             banner_botmAft: 'COMING SOON',
+            banner_botmBef2: 'How to start cyberpop?',
+            banner_botmAft2: 'let’s have a tutorial',
+            
             // homeA-download
             download_message: 'Sorry, you are not permitted to download the game. Cyberpop ​​New World is currently only open to internal authorized test groups. To join, please contact us.',
             download_btn1: 'Download',
@@ -203,6 +206,8 @@ const us = {
             team_mem_nick: 'Worked as a core developer of Microsoft. He has made a breakthrough in the industry through the reconstruction of the uniswap source code. In addition, he is capable of a complete Permissionless Blockchain development through his knowledge in Consortium Blockchain such as Hyperledger Fabric, FISCO, and BCO.',
             team_mem_caroline: 'Has a rich experience in the blockchain industry; Highly influential in Southeast Asia,  founded the NFT platform Roseon Finance, and worked in Chumbivalley.',
             team_mem_fy: "'Former Amazon Cloud Service back-end developer. He has published two machine learning related patents; has very rich experience in microservice architecture design, edge computing, etc.; is a full-stack engineer, familiar with Web3.0 technical architecture and contract interaction.",
+            team_mem_EunjiPark: '2011.01 ~ 2011.12 (CCR) MMORPG rf online Port 2 red Game testing, real-time server version management <br /> 2012.03 ~ 2014.12 (Multiplayer) games MMORPG ASTA Progress of FGT, CBT, OBT and commercialized services Content and system testing <br /> 2015.04 ~ 2016.03 (Capcom entertainment Korea) Exorcist prentil 2 Bryce fire 6 Game content and system testing <br /> 2018.02 ~ 2022.03 (Nate mabuneo) Japan The second country Game content and system testing Build test automation program.',
+            team_mem_YuSonEn: 'Graduated in 1993 <br /> 1993-1997 graduated from Kazak Almaty National Normal University <br /> March, 1995 February, 1996 education of Daegu Lingnan University <br /> 1998-2000 civil servant <br /> 2000 individual entrepreneur <br /> 2013-2018 Samsung project &amp; Samsung property work <br /> 2014 - current angel investors <br /> 2019 - current blockchain Professor.',
             team_mem_han: 'Worked in NEXT Studio as a senior back-end programmer with 10 years of experience. He has researched back-end security and stability, and technical trends in depth.',
             team_mem_quanbug: '15 years of full-platform full-end architecture experience. As a former member of Ubisoft’s advanced program, his code was used by Ubisoft Quebec in high-quality code research. Highly recommended by Freelancer editors.',
             team_mem_john: '15 years of gaming industry experience. Worked as a former Ubisoft senior Technical Art designer with rich AAA product development experience. The self-developed rendering pipeline is now used to support multi-platform (including mobile phone) AAA level rendering.',
@@ -568,6 +573,68 @@ const us = {
             step2_name: 'STEP2',
             download_txt: 'DOWNLOAD CYBERPOP'
         },
+        guide: {
+            //title
+            selecPageTitle1: '메타마스크 벽 만들기',
+            selecPageTitle2: 'Cyberpop NFT 가져오기',
+            selecPageTitle3: '게임 다운로드',
+            selecPageTitle4: '로그인',
+            
+            //page title
+            pageTitle1: 'metamask 지갑 준비',
+            pageDes1: '지갑은 당신이 우리 디지털 국가에 들어온 탑승권입니다',
+            pageTitle2: 'Cyberpop BD NFT 가져오기',
+            pageDes2: 'Cyberpop BD NFT는 다양한 방법으로 얻을 수 있습니다.',
+            pageTitle3: 'Cyberpop 다운로드',
+            pageTitle4: 'Cyberpop 로그인',
+            pageDes4: '게임에 로그인하고 BD로 이기기',
+
+            //content
+            page1ContentTitle1: '다운로드 및 설정',
+            page1ContentTitle2: '주소 만들기',
+            page1Content1: '확장자',
+            page1Content2: '지갑은 무엇에 쓰입니까?',
+            page1Content3: '지갑에 있는 자산에 대해 완전한 소유권을 가진다는 뜻',
+            page1Content4: '여정을 시작하기 위해 새 지갑을 만들거나 게임을 다운로드한 후에 만들 수 있습니다.',
+            
+            page2ContentTitle1: 'BD NFT 독점 구매',
+            page2ContentTitle2: '보상 신청',
+            page2Content1: 'CYT를 MetaMask와 Cyberpop 공식 시장에 보관하고 독점 BD NFT를 구매합니다',
+            page2Content2: 'Cyberpop 시장에서 CYT를 직접 구매',
+            page2Content3: 'Get BD NFT',
+            page2Content4: 'Cyberpop Discord 커뮤니티 가입, 보상 신청, 모험 시작',
+            page2Content5: 'Cyberpop Discord 가입',
+
+            page3ContentTitle1: '다운로드',
+            page3ContentTitle2: 'Cyberpop Metaverse',
+            page3Content1: '데스크톱',
+            page3Content2: '휴대폰',
+
+            page4ContentTitle1: '로그인 모드"',
+            page4ContentTitle2: '기밀 로깅 가져오기',
+            page4Content1: '지갑 연결 버튼을 클릭하고 연결할 지갑을 선택하여 관련 권한을 부여받은 후 게임에 들어갑니다',
+            page4Content2: '지갑 연결',
+            page4Content3: '지갑 연결',
+            page4Content4: '지갑 로그인',
+            page4Content5: '계정을 만들어서 비밀 복구 단어를 얻고 안전을 확보합니다.',
+            page4Content6: '비밀 복구 구문으로 게임에 로그인하기',
+            page4Content7: 'Cyberpop 지갑',
+            page4Content8: '지갑 만들기',
+            page4Content9: '기밀 로깅 가져오기',
+
+            //element
+            prev: '이전',
+            next: '다음',
+
+
+            bgWindow: {
+                txt1: '1. 당신은 수수료로 체인 사이드카드를 준비해야 합니다. 왜냐하면 우리는 현재 네트워크를 테스트하고 있기 때문에 이 연결을 통해 무료로 얻을 수 있습니다',
+                txt2: '2、우리 거래시장에서 BD를 구매하세요. BD는 황금 게임에 사용할 수 있고 게임에 익숙해진 후에 스스로 BD를 키울 수 있습니다. wiki를 통해 우리의 게임 소개를 볼 수 있습니다.',
+                txt3: '3. 당신의 출력 코인과 CYT는cyberpop의 게임 출력입니다. 현재의 코인 영패는 테스트 네트워크 단계에 있습니다. CYT는 발표되지 않았습니다. 다른 것은 모두 사기입니다.',
+                txt4: '4, 더 나은 게임 경험을 얻기 위해 우리의 discord에 가입하십시오',
+            }
+
+        }
     }
 }
 

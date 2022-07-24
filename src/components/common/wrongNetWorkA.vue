@@ -13,7 +13,7 @@
                 <span class="btn" @click="changeChain(56)">{{ $t('message.common.metamask.switchBSC') }}</span>
                 <span class="btn" @click="changeChain(43113)">{{ $t('message.common.metamask.switchFuji') }}</span> 
                 <span class="btn" @click="changeChain(80001)">{{ $t('message.common.metamask.switchMumbai') }}</span>    
-                <span class="btn" @click="changeChain(85)">{{ $t('message.common.metamask.switchGate') }}</span>  
+                <!-- <span class="btn" @click="changeChain(85)">{{ $t('message.common.metamask.switchGate') }}</span>   -->
             </div>
         </div>
     </div>

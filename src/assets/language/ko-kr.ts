@@ -98,10 +98,13 @@ const kr = {
             banner_title1Bef: '사이버 뉴월드에서 진정한 자기를 찾기',
             banner_title1Aft: '',
             banner_title2: '이 메티바스 게임은 탐험, 전투, x-to-earn과 UGC를 하나로 모은 것입니다',
-            banner_btn1: '플레이투언',
+            banner_btn1: '게임 시작',
             banner_btn2: '프리뷰',
             banner_botmBef: '사이버 뉴월드는 곧 출시 될 예정입니다 ',
             banner_botmAft: '',
+            banner_botmBef2: '어떻게 cyberpop을 시작합니까?',
+            banner_botmAft2: '저희가 튜토리얼을 하나 드릴게요.',
+
             // homeA-download
             download_message: '다운로드할 수 없습니다.사이버 뉴월드는 현재 내부 라이선스 테스트 그룹에만 공개합니다. 가입하시려면 연락해 주세요',
             download_btn1: '다운로드',
@@ -201,6 +204,7 @@ const kr = {
             team_mem_caroline: '블록체인 업계에서 풍부한 이력과 경험을 가지고 있다.동남아에서 영향력이 커서 NFT 플랫폼인 Roseon Finance를 창립했고 Chumbivalley의 고문으로 참여한 적이 있습니다.',
             team_mem_fy: '화웨이 클라우드 서비스 백엔드 개발, 그리고 두 편의 기계 학습 관련 특허를 발표했는데 마이크로 서비스 구조 디자인, 테두리 계산 등 분야에서 매우 풍부한 경험을 가지고 창고 엔지니어, 웹 3.0 기술 구조와 계약 상호작용을 잘 알고 있다.',
             team_mem_han: '텐센트 광자 스튜디오, NEXT Studio 전 고급 백엔드, 10년 이상 경력.백엔드의 안전과 안정성, 기술 흐름에 대해 장기적으로 깊이 있게 연구했다.',
+            team_mem_YuSonEn: '1993년 학교 졸업  <br /> 1993년 -1997년 카작 알마티 국민사범대학 졸업 <br /> 1995년3월 - 1996년2월 대구 영남대 교육 <br /> 1998년 - 2000년 공무원 <br /> 2000년 개인 사업자  <br /> 2013년 - 2018년 삼성 엔지니어링 & 삼성 물산 근무(발하쉬 화력 발전소 project BTPP)  <br /> 2014년 - 현재 ANGEL투자자 <br /> 2019년 -현재 Blockchain 교수.',
             team_mem_quanbug: '전 육벽 고급 프로그램, 코드는 육벽 퀘벡에 의해 우수한 코드 연구로 가져갔다.Freelancer 편집 추천 프로그램.15년 전체 플랫폼 전체 아키텍처 경험.',
             team_mem_john: '전육벽 고급 기술 미술, 3A급 제품 연구 개발 경험.이후 텐센트 천미 초기 도형 엔진 기술 고문에 참여했고 엔진은 프로젝트 팀을 지원하는 데 사용되었다.현재 자체 렌더링 파이프라인은 다중 플랫폼(휴대폰 쪽 포함) 3A급 표현을 지원하는 데 사용됩니다.15년 게임 업계 경험.',
             team_mem_water: 'Intel 아시아태평양연구개발유한공사 클라우드 컴퓨팅 엔지니어를 맡았고 화웨이의 전 클라우드 기술 총감독을 맡았으며 클라우드 디자인, 클라우드 컴퓨팅과 블록체인 업계의 경험이 풍부하다.팀을 결성하여 원계 게임 개발을 깊이 연구하고 독립된 MMORPG 게임을 성공적으로 설계했다.',
@@ -559,6 +563,62 @@ const kr = {
             step1_name: '단계1',
             step2_name: '단계2',
             download_txt: '다운로드 CYBERPOP'
+        },
+
+        //guide
+        guide: {
+            //title
+            selecPageTitle1: 'Create MetaMask wall',
+            selecPageTitle2: 'Get Cyberpop NFT',
+            selecPageTitle3: 'Download Game',
+            selecPageTitle4: 'Log In',
+            
+            //page title
+            pageTitle1: 'Prepare the metamask wallet',
+            pageDes1: 'Wallet is your boarding pass to our digital nation',
+            pageTitle2: 'Get Cyberpop BD NFT',
+            pageDes2: 'Cyberpop BD NFT can be obtained in a number of ways',
+            pageTitle3: 'Download Cyberpop',
+            pageTitle4: 'Login Cyberpop',
+            pageDes4: 'Log in to the game and earn with BD',
+
+            //content
+            page1ContentTitle1: 'Download & setup',
+            page1ContentTitle2: 'Create your address',
+            page1Content1: 'Extension',
+            page1Content2: 'What is Wallet for?',
+            page1Content3: 'This means that you have full ownership of these assets in your wallet',
+            page1Content4: 'We recommend that you create a new wallet to start your journey, or you can create this after downloading our game',
+            
+            page2ContentTitle1: 'Buy exclusive BD NFT in our market',
+            page2ContentTitle2: 'Apply for reward',
+            page2Content1: 'Deposit CYT on MetaMask and Cyberpop official market to purchase exclusive BD NFT',
+            page2Content2: 'Buy CYT directly from the Cyberpop market',
+            page2Content3: 'Get BD NFT',
+            page2Content4: 'Join the Cyberpop Discord community to apply for rewards and start your adventure',
+            page2Content5: 'Join the Cyberpop Discord',
+
+            page3ContentTitle1: 'Download',
+            page3ContentTitle2: 'Cyberpop Metaverse',
+            page3Content1: 'Desktop',
+            page3Content2: 'Mobile',
+
+            page4ContentTitle1: 'Login Mode',
+            page4ContentTitle2: 'Import Secret Recove',
+            page4Content1: 'Click the link wallet button, select the wallet to be linked, and enter the game after relevant authorization',
+            page4Content2: 'Connect Wallet',
+            page4Content3: 'Wallet Connect',
+            page4Content4: 'wallet login',
+            page4Content5: 'Create an account, obtain your Secret Recovery Phrase, and keep it safe',
+            page4Content6: 'Log in the game using Secret Recovery Phrase',
+            page4Content7: 'Cyberpop Wallet',
+            page4Content8: 'Create Wallet',
+            page4Content9: 'Import Secret Recove',
+
+            //element
+            prev: 'Prev',
+            next: 'Next',
+
         }
 
     }

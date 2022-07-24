@@ -23,8 +23,8 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 </div>
             </div>
             <div class="toGuide">
-                <b class="txt2">How to start cyberpop?  </b>
-                <router-link to="/help" class="txt1">let’s have a tutorial</router-link>
+                <b class="txt2">{{$t('message.home.banner_botmBef2')}}</b>
+                <router-link to="/help" class="txt1">{{$t('message.home.banner_botmAft2')}}</router-link>
             </div>
             <div class="botm">#0 <span class="txt1">{{$t('message.home.banner_botmBef')}}</span><span class="txt2">{{$t('message.home.banner_botmAft')}}</span></div>
         </section>
@@ -93,8 +93,8 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 </div>
                 <div class="swiper1">
                     <div class="swiper-bg">
-                        <img :class="imgIndex == 0 ? 'show' : ''" src="@/assets/nwhome/vSwiper_1.png" alt="">
-                        <img :class="imgIndex == 1 ? 'show' : ''" src="@/assets/nwhome/vSwiper_2.png" alt="">
+                        <img :class="imgIndex == 0 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_1.png" alt="">
+                        <img :class="imgIndex == 1 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_2.png" alt="">
                         <img :class="imgIndex == 2 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/moonlightCentury3.png" alt="">
                         <img :class="imgIndex == 3 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/futureCity3.png" alt="">
                     </div>
@@ -121,8 +121,8 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                             :speed="200"
                             :autoplay="true"
                         >
-                            <swiper-slide><img src="@/assets/nwhome/vSwiper_1.png" alt=""></swiper-slide>
-                            <swiper-slide><img src="@/assets/nwhome/vSwiper_2.png" alt=""></swiper-slide>
+                            <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_1.png" alt=""></swiper-slide>
+                            <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_2.png" alt=""></swiper-slide>
                             <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/moonlightCentury3.png" alt=""></swiper-slide>
                             <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/futureCity3.png"  alt=""></swiper-slide>
                         </swiper>
@@ -168,7 +168,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                     </swiper-slide>
                     <swiper-slide>
                         <div class="box">
-                            <img class="role" src="@/assets/nwhome/lSwiper_1.png" alt="">
+                            <img class="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/lSwiper_1.png" alt="">
                             <div class="nobody-left-tip">
                                 <div>{{$t('message.home.nobody_role_tipBef_2')}}</div>
                             </div>
@@ -176,7 +176,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                     </swiper-slide>
                     <swiper-slide>
                         <div class="box">
-                            <img class="role" src="@/assets/nwhome/lSwiper_2.png" alt="">
+                            <img class="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/lSwiper_2.png" alt="">
                             <div class="nobody-left-tip">
                                 <div>{{$t('message.home.nobody_role_tipBef_3')}}</div>
                             </div>
@@ -410,7 +410,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                             <div>{{ item.name }}</div>
                             <span>{{ item.desc }}</span>
                         </div>
-                        <div class="text">{{ $t(item.info) }}</div>
+                        <div class="text" v-html="$t(item.info)"></div>
                     </div>
                 </li>
             </ul>
@@ -572,9 +572,9 @@ const teamInfo: any = ref([
         info: 'message.home.team_mem_jie',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_frank.png',
-        name: 'Frank',
-        desc: 'Co-Founder',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team6.jpg',
+        name: 'Haechul',
+        desc: 'CMO',
         info: 'message.home.team_mem_frank',
     },
     {
@@ -590,10 +590,10 @@ const teamInfo: any = ref([
         info: 'message.home.team_mem_nick',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_caroline.png',
-        name: 'Caroline',
-        desc: 'Marketing director',
-        info: 'message.home.team_mem_caroline',
+        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team2.jpg',
+        name: 'Yeldar Botabayev',
+        desc: 'Market manager',
+        info: 'message.home.team_mem_YuSonEn',
     },
     {
         img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_fy.png',
@@ -678,7 +678,8 @@ const showxplan = () => {
 const isOut = ref(false);
 let showDown:any = ref(false);
 const playToEarn = () => {
-    router.push({ path: '/download', query: { code: router.currentRoute.value.query.code, isClick: 1 } })
+    // router.push({ path: '/download', query: { code: router.currentRoute.value.query.code, isClick: 1 } })
+    router.push({ path: '/help' })
     return;
 }
 
@@ -1074,7 +1075,7 @@ onMounted(() => {
                 top: 0;
                 width: 100%;
                 height: 100%;
-                background-image: url('../../../assets/nwhome/section-cover.png');
+                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/section-cover.png');
                 background-size: 100% 103%;
                 background-position: left top;
                 .title-wrap{
@@ -2328,8 +2329,11 @@ onMounted(() => {
                     .avator{
                         height: 100%;
                         margin-right: 1.04vw;
+                        // width: vw;
                         img{
                             height: 100%;
+                            // width: 100%;
+                            border-radius: 50%;
                         }
                     }
                     .msg{
@@ -2414,8 +2418,11 @@ onMounted(() => {
                 li:nth-child(5){
                     top: 13.6vw;
                     left: 65.4vw;
-                    width: 13.75vw;
+                    width: 15.75vw;
                     height: 3.95vw;
+                    img{
+                        width: 3vw;
+                    }
                 }
                 li:nth-child(6){
                     top: 20.5vw;

@@ -112,7 +112,7 @@
                                     </video>
                                 </div>
                                 <div class="name"><div class="loadName" v-if="item.isLoading"></div>{{item.data.name}}<span>x{{item.number}}</span></div>
-                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji' && item.type != 'box_bsc' && item.type != 'box_bscTest'">
+                                <div class="btn" v-if="item.type != 'box_mumbai' && item.type != 'box_fuji' && item.type != 'box_bsc' && item.type != 'ERC721box_bscTest' && item.type != 'ERC721box_bsc'">
                                     <div class="transfer" :class="{'not-allowed': item.isLoading}" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
                                     <div class="sell not-allowed">{{$t('message.assets.btn_sell')}}</div>
                                 </div>
@@ -120,9 +120,9 @@
                                     <div class="load" :class="{'not-allowed': item.isLoading}" @click="loadPool(item)">{{$t('message.assets.btn_load')}}</div>
                                     <div class="claim" :class="{'not-allowed': !item.isLoading}" @click="withdrawRole(item)">&nbsp;&nbsp;{{$t('message.assets.but_claim')}}</div>
                                 </div>
-                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji' || item.type == 'box_bsc' || item.type == 'box_bscTest'">
+                                <div class="btn" v-if="item.type == 'box_mumbai' || item.type == 'box_fuji' || item.type == 'box_bsc' || item.type == 'ERC721box_bscTest' || item.type == 'ERC721box_bsc'">
                                     <div class="transfer" @click="transferPopup(item)">{{$t('message.assets.btn_tran')}}</div>
-                                    <div class="sell" :class="{'not-allowed': item.type == 'box_bsc'}" @click="open(item, item.type == 'box_bscTest' ? true : false)">{{$t('message.assets.btn_unpack')}}</div>
+                                    <div class="sell" :class="{'not-allowed': item.type == 'box_bsc'}" @click="open(item, item.type == 'ERC721box_bscTest' || item.type == 'ERC721box_bsc' ? true : false)">{{$t('message.assets.btn_unpack')}}</div>
                                 </div>
                             </li>
                         </ul>
@@ -484,7 +484,9 @@ const initLoad = () => {
 }
 
 
-const { nft, nft_fuji, arms, gamePool, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, game_Fuji, LootBox, lootBox_Bsc, cytV2, coin, game_bsc, bscTestnetBlindFactory, bscTestnetBlind } = Web3.contracts;
+const { nft, nft_fuji, arms, gamePool, GiftBox, cyberClub, cyberClub_Fuji, Cyborg, Cyborg_Fuji, 
+game_Fuji, LootBox, lootBox_Bsc, cytV2, coin, game_bsc, bscTestnetBlindFactory, bscBlindFactory, 
+fujiBlindFactory, bscTestnetBlindBoxAbi } = Web3.contracts;
 
 const getData: any = async (type: Number, filter: any = false) => {
     if(!filter) {
@@ -550,6 +552,7 @@ const getData: any = async (type: Number, filter: any = false) => {
                     // // await getNFTData(weapons, 'weapons', 'weapons_mumbai', false, true);
                     // await getNFTData(badge, 'badge', 'badge_mumbai', store.state.myBox?.badge);
                     let game_resulte = await Web3.balanceOfBatch(arms.abi , arms.address, store.state.myBox?.game);
+                    console.log(game_resulte, 'game_resulte');
                     await getNFTData(game_resulte, 'game', 'game_mumbai', store.state.myBox?.game);
                     let role_result = await Web3.tokensOfOwner(Cyborg.abi, Cyborg.address);
                     await getHead(role_result, 'role', 'role_mumbai');
@@ -629,6 +632,23 @@ const getData: any = async (type: Number, filter: any = false) => {
                     await getHead(cyberClub_result, 'head', 'head_fuji');
                     let box_result: any = await Web3.balanceOfBatch(GiftBox.abi, GiftBox.address, store.state.myBox?.box);
                     await getNFTData(box_result, 'box', 'box_fuji', store.state.myBox?.box);
+
+                    // let box: any = await Web3.boxAddresses(fujiBlindFactory.abi, fujiBlindFactory.address);
+                    // console.log(box);
+                    // // await Web3.safeMint(bscTestnetBlind.abi, box_result[0])
+                    // let batchBalanceOf: any = await Web3.batchBalanceOf(fujiBlindFactory.abi, fujiBlindFactory.address)
+                    // console.log(batchBalanceOf);
+
+                    // let a1 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box[0], 0)
+                    // console.log(a1);
+
+                    // let a2 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box[1], 0)
+                    // console.log(a2);
+
+                    // let a3 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box[2], 0)
+                    // console.log(a3);
+
+                    // await getNFTData(batchBalanceOf, 'box', 'box_bscTest', [0, 0, 0], false, true, [a1, a2, a3], box);
                     
                 }else if(type == 1){
                     if(filter){ // Left column filter
@@ -671,20 +691,39 @@ const getData: any = async (type: Number, filter: any = false) => {
             }
             if(chainId.value == 56){
                 if(!type){
+                    let box: any = await Web3.boxAddresses(bscBlindFactory.abi, bscBlindFactory.address);
+                    console.log(box);
+                    // await Web3.safeMint(bscTestnetBlind.abi, box_result[0])
+                    let batchBalanceOf: any = await Web3.batchBalanceOf(bscBlindFactory.abi, bscBlindFactory.address)
+                    let a1 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box[0], 0)
+                    let a2 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box[1], 0)
+                    let a3 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box[2], 0)
+                    await getNFTData(batchBalanceOf, 'gatebox', 'ERC721box_bsc', [0, 0, 0], false, true, [a1, a2, a3], box);
                     let game_result: any = await Web3.balanceOfBatch(game_bsc.abi, game_bsc.address, store.state.myBox?.game);
                     await getNFTData(game_result, 'game', 'game_bsc', store.state.myBox?.game)
                     let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
                     if(box_result[9] > 0) boxId9.value = true;
                     await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+                    console.log(data.value);
                     
                 }else if(type == 1){
 
                 }else{
+                    let box: any = await Web3.boxAddresses(bscBlindFactory.abi, bscBlindFactory.address);
+                    console.log(box);
+                    // await Web3.safeMint(bscTestnetBlind.abi, box_result[0])
+                    let batchBalanceOf: any = await Web3.batchBalanceOf(bscBlindFactory.abi, bscBlindFactory.address)
+                    let a1 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box[0], 0)
+                    let a2 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box[1], 0)
+                    let a3 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box[2], 0)
+                    await getNFTData(batchBalanceOf, 'gatebox', 'ERC721box_bsc', [0, 0, 0], false, true, [a1, a2, a3], box);
                     let game_result: any = await Web3.balanceOfBatch(game_bsc.abi, game_bsc.address, store.state.myBox?.game);
                     await getNFTData(game_result, 'game', 'game_bsc', store.state.myBox?.game)
                     let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
                     if(box_result[9] > 0) boxId9.value = true;
                     await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+                    console.log(data.value);
+                    
                 }
             }
             if(chainId.value == 97){
@@ -695,18 +734,16 @@ const getData: any = async (type: Number, filter: any = false) => {
                     let batchBalanceOf: any = await Web3.batchBalanceOf(bscTestnetBlindFactory.abi, bscTestnetBlindFactory.address)
                     console.log(batchBalanceOf);
 
-
-
-                    let a1 = await Web3.tokenOfOwnerByIndex(bscTestnetBlind.abi, box_result[0], 0)
+                    let a1 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box_result[0], 0)
                     console.log(a1);
 
-                    let a2 = await Web3.tokenOfOwnerByIndex(bscTestnetBlind.abi, box_result[1], 0)
+                    let a2 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box_result[1], 0)
                     console.log(a2);
 
-                    let a3 = await Web3.tokenOfOwnerByIndex(bscTestnetBlind.abi, box_result[2], 0)
+                    let a3 = await Web3.tokenOfOwnerByIndex(bscTestnetBlindBoxAbi.abi, box_result[2], 0)
                     console.log(a3);
 
-                    await getNFTData(batchBalanceOf, 'box', 'box_bscTest', [0, 1, 2], false, true, [a1, a2, a3], box_result);
+                    await getNFTData(batchBalanceOf, 'gatebox', 'ERC721box_bscTest', [0, 1, 2], false, true, [a1, a2, a3], box_result);
 
 
                     console.log(data.value);
@@ -716,7 +753,7 @@ const getData: any = async (type: Number, filter: any = false) => {
 
                 }else{
                     let box_result: any = await Web3.balanceOfBatch(lootBox_Bsc.abi, lootBox_Bsc.address, store.state.myBox?.box);
-                    await getNFTData(box_result, 'box', 'box_bsc', store.state.myBox?.box);
+                    await getNFTData(box_result, 'gatebox', 'ERC721box_bscTest', store.state.myBox?.box);
                 }
             }
 
@@ -765,7 +802,8 @@ const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoad
                 }
                 return;
              }
-             proxy.$api.get(`https://api.cyberpop.online/${path}/${ids[index]}`).then((result:any) => {
+             
+             proxy.$api.get(`https://api.cyberpop.online/${path == 'gatebox' ? 'gatebox' + index : path}/${path == 'gatebox' ? 0 : ids[index]}`).then((result:any) => {
                 if(res[index] > 0 || index == 101101){
                     data.value.push({
                         id: is721Box ? realIds[index] : ids[index],
@@ -773,7 +811,7 @@ const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoad
                         isLoading: isLoading || false,
                         number: res[index],
                         box721: is721Box,
-                        BoxAddress: BoxAddress,
+                        BoxAddress: BoxAddress ?  BoxAddress[index] : false,
                         data: result || { name: res[index], image: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
                     })
                 }
@@ -850,6 +888,12 @@ const transferPopup = (item:any) => {
     }else if( item.type == 'game_bsc'){
         abiSelect.value = Web3.contracts.game_bsc.abi
         addressSelect.value = Web3.contracts.game_bsc.address
+    }else if( item.type == 'ERC721box_bsc'){
+        abiSelect.value = Web3.contracts.bscTestnetBlindBoxAbi.abi
+        addressSelect.value = item.BoxAddress
+    }else if( item.type == 'ERC721box_bscTest'){
+        abiSelect.value = Web3.contracts.bscTestnetBlindBoxAbi.abi
+        addressSelect.value = item.BoxAddress
     }
     console.log(item.type, 'item.type');
     console.log(transferItem.value , 'transferItem.value ');
@@ -870,7 +914,7 @@ const open = async (item: any, is721Box?: any) => {
     }else{
 
         
-        let res = await Web3.testUnpack(bscTestnetBlindFactory.abi, bscTestnetBlindFactory.address, Number(item.id), '0x36053d93568E195cBBe8cA7d4372436Eea061430')
+        let res = await Web3.testUnpack(bscTestnetBlindFactory.abi, item.type == 'ERC721box_bsc' ? bscBlindFactory.address : bscTestnetBlindFactory.address, Number(item.id), item.BoxAddress)
 
         if(res) store.dispatch('myAssets/dataSumSearch', { flag: readyAssetsF.value + 1 }); //After the operation is successful, the page listens and refreshes the data
 
@@ -1238,7 +1282,7 @@ onMounted(() => {
                                 }
                                 .name{
                                     height: 1.56vw;
-                                    margin: 1.04vw 0 1.3vw 0;
+                                    margin: 1.04vw 0 1.9vw 0;
                                     font-size: 1.04vw;
                                     font-family: AlibabaPuHuiTi_2_75_SemiBold;
                                     color: #FFFFFF;
