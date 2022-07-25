@@ -210,7 +210,7 @@ const verification = () => {
         }else{
             isDonload.value = true;
             store.dispatch('wallet/messSing', code.value);
-            store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.download.tips4') }});
+            store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.download.tips4') }});
         }
     }).catch( (err: any) => {
         const ethereum = (window as any).ethereum // Get fox instance

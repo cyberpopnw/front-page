@@ -166,7 +166,7 @@
             }else{
                 isDonload.value = true;
                 store.dispatch('wallet/messSing', code.value);
-                store.dispatch('user/showDialog',{show: true, info: {state: 1, txt: t('message.assets.pop.tran_succ')}});
+                store.dispatch('user/showDialog',{show: true, info: {state: 0, txt: t('message.assets.pop.tran_succ')}});
             }
         }).catch( (err: any) => {
             const ethereum = (window as any).ethereum // Get fox instance
