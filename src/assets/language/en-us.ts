@@ -573,66 +573,59 @@ const us = {
             step2_name: 'STEP2',
             download_txt: 'DOWNLOAD CYBERPOP'
         },
+        //guide
         guide: {
             //title
-            selecPageTitle1: '메타마스크 벽 만들기',
-            selecPageTitle2: 'Cyberpop NFT 가져오기',
-            selecPageTitle3: '게임 다운로드',
-            selecPageTitle4: '로그인',
+            selecPageTitle1: 'Create MetaMask wall',
+            selecPageTitle2: 'Get Cyberpop NFT',
+            selecPageTitle3: 'Download Game',
+            selecPageTitle4: 'Log In',
             
             //page title
-            pageTitle1: 'metamask 지갑 준비',
-            pageDes1: '지갑은 당신이 우리 디지털 국가에 들어온 탑승권입니다',
-            pageTitle2: 'Cyberpop BD NFT 가져오기',
-            pageDes2: 'Cyberpop BD NFT는 다양한 방법으로 얻을 수 있습니다.',
-            pageTitle3: 'Cyberpop 다운로드',
-            pageTitle4: 'Cyberpop 로그인',
-            pageDes4: '게임에 로그인하고 BD로 이기기',
+            pageTitle1: 'Prepare the metamask wallet',
+            pageDes1: 'Wallet is your boarding pass to our digital nation',
+            pageTitle2: 'Get Cyberpop BD NFT',
+            pageDes2: 'Cyberpop BD NFT can be obtained in a number of ways',
+            pageTitle3: 'Download Cyberpop',
+            pageTitle4: 'Login Cyberpop',
+            pageDes4: 'Log in to the game and earn with BD',
 
             //content
-            page1ContentTitle1: '다운로드 및 설정',
-            page1ContentTitle2: '주소 만들기',
-            page1Content1: '확장자',
-            page1Content2: '지갑은 무엇에 쓰입니까?',
-            page1Content3: '지갑에 있는 자산에 대해 완전한 소유권을 가진다는 뜻',
-            page1Content4: '여정을 시작하기 위해 새 지갑을 만들거나 게임을 다운로드한 후에 만들 수 있습니다.',
+            page1ContentTitle1: 'Download & setup',
+            page1ContentTitle2: 'Create your address',
+            page1Content1: 'Extension',
+            page1Content2: 'What is Wallet for?',
+            page1Content3: 'This means that you have full ownership of these assets in your wallet',
+            page1Content4: 'We recommend that you create a new wallet to start your journey, or you can create this after downloading our game',
             
-            page2ContentTitle1: 'BD NFT 독점 구매',
-            page2ContentTitle2: '보상 신청',
-            page2Content1: 'CYT를 MetaMask와 Cyberpop 공식 시장에 보관하고 독점 BD NFT를 구매합니다',
-            page2Content2: 'Cyberpop 시장에서 CYT를 직접 구매',
+            page2ContentTitle1: 'Buy exclusive BD NFT in our market',
+            page2ContentTitle2: 'Apply for reward',
+            page2Content1: 'Deposit CYT on MetaMask and Cyberpop official market to purchase exclusive BD NFT',
+            page2Content2: 'Buy CYT directly from the Cyberpop market',
             page2Content3: 'Get BD NFT',
-            page2Content4: 'Cyberpop Discord 커뮤니티 가입, 보상 신청, 모험 시작',
-            page2Content5: 'Cyberpop Discord 가입',
+            page2Content4: 'Join the Cyberpop Discord community to apply for rewards and start your adventure',
+            page2Content5: 'Join the Cyberpop Discord',
 
-            page3ContentTitle1: '다운로드',
+            page3ContentTitle1: 'Download',
             page3ContentTitle2: 'Cyberpop Metaverse',
-            page3Content1: '데스크톱',
-            page3Content2: '휴대폰',
+            page3Content1: 'Desktop',
+            page3Content2: 'Mobile',
 
-            page4ContentTitle1: '로그인 모드"',
-            page4ContentTitle2: '기밀 로깅 가져오기',
-            page4Content1: '지갑 연결 버튼을 클릭하고 연결할 지갑을 선택하여 관련 권한을 부여받은 후 게임에 들어갑니다',
-            page4Content2: '지갑 연결',
-            page4Content3: '지갑 연결',
-            page4Content4: '지갑 로그인',
-            page4Content5: '계정을 만들어서 비밀 복구 단어를 얻고 안전을 확보합니다.',
-            page4Content6: '비밀 복구 구문으로 게임에 로그인하기',
-            page4Content7: 'Cyberpop 지갑',
-            page4Content8: '지갑 만들기',
-            page4Content9: '기밀 로깅 가져오기',
+            page4ContentTitle1: 'Login Mode',
+            page4ContentTitle2: 'Import Secret Recove',
+            page4Content1: 'Click the link wallet button, select the wallet to be linked, and enter the game after relevant authorization',
+            page4Content2: 'Connect Wallet',
+            page4Content3: 'Wallet Connect',
+            page4Content4: 'wallet login',
+            page4Content5: 'Create an account, obtain your Secret Recovery Phrase, and keep it safe',
+            page4Content6: 'Log in the game using Secret Recovery Phrase',
+            page4Content7: 'Cyberpop Wallet',
+            page4Content8: 'Create Wallet',
+            page4Content9: 'Import Secret Recove',
 
             //element
-            prev: '이전',
-            next: '다음',
-
-
-            bgWindow: {
-                txt1: '1. 당신은 수수료로 체인 사이드카드를 준비해야 합니다. 왜냐하면 우리는 현재 네트워크를 테스트하고 있기 때문에 이 연결을 통해 무료로 얻을 수 있습니다',
-                txt2: '2、우리 거래시장에서 BD를 구매하세요. BD는 황금 게임에 사용할 수 있고 게임에 익숙해진 후에 스스로 BD를 키울 수 있습니다. wiki를 통해 우리의 게임 소개를 볼 수 있습니다.',
-                txt3: '3. 당신의 출력 코인과 CYT는cyberpop의 게임 출력입니다. 현재의 코인 영패는 테스트 네트워크 단계에 있습니다. CYT는 발표되지 않았습니다. 다른 것은 모두 사기입니다.',
-                txt4: '4, 더 나은 게임 경험을 얻기 위해 우리의 discord에 가입하십시오',
-            }
+            prev: 'Prev',
+            next: 'Next',
 
         }
     }

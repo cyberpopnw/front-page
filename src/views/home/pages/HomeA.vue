@@ -29,7 +29,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             <div class="botm">#0 <span class="txt1">{{$t('message.home.banner_botmBef')}}</span><span class="txt2">{{$t('message.home.banner_botmAft')}}</span></div>
         </section>
         <footer>
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/section_buttom.svg" alt="" class="buttom">
+            <img loading="lazy" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/section_buttom.svg" alt="" class="buttom">
         </footer>
     </div>
     <!-- <div class="download" v-show="showDown" :class="!isOut ? 'bounceShow' : 'bounceHide'">
@@ -61,17 +61,17 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
     </div> -->
     <div class="nav-logos" ref="myNav">
         <a href="#" target="view_window">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/joinus.svg" alt="" class="joinus">
+            <img loading="lazy" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/joinus.svg" alt="" class="joinus">
             <div>{{$t('message.home.nav_logos_join')}}</div>
         </a>
         <a href="https://discord.gg/y9b8p5C9TR" target="view_window">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/discordlogo.svg" alt="" class="nav-img1">
+            <img loading="lazy" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/discordlogo.svg" alt="" class="nav-img1">
         </a>
         <a href="https://twitter.com/cyberpopnw" target="view_window">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/twitter.svg" alt="" class="nav-img2">
+            <img loading="lazy" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/twitter.svg" alt="" class="nav-img2">
         </a>
         <a href="https://t.me/cyberpopnw" target="view_window">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/dianbao.svg" alt="" class="nav-img3">
+            <img loading="lazy" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/dianbao.svg" alt="" class="nav-img3">
         </a>
     </div>
     <div class="welcome">
@@ -84,22 +84,22 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <div class="left">
                    <div class="start">01</div>
                    <div class="pList">
-                        <img id="lImg1" :src="imgIndex == 0 ? imgSrc : imgSrc0" alt="">
-                        <img id="lImg2" :src="imgIndex == 1 ? imgSrc : imgSrc0" alt="">
-                        <img id="lImg3" :src="imgIndex == 2 ? imgSrc : imgSrc0" alt="">
-                        <img id="lImg4" :src="imgIndex == 3 ? imgSrc : imgSrc0" alt="">
+                        <img loading="lazy" id="lImg1" :src="imgIndex == 0 ? imgSrc : imgSrc0" alt="">
+                        <img loading="lazy" id="lImg2" :src="imgIndex == 1 ? imgSrc : imgSrc0" alt="">
+                        <img loading="lazy" id="lImg3" :src="imgIndex == 2 ? imgSrc : imgSrc0" alt="">
+                        <img loading="lazy" id="lImg4" :src="imgIndex == 3 ? imgSrc : imgSrc0" alt="">
                    </div>
                    <div class="end">/04</div>
                 </div>
                 <div class="swiper1">
                     <div class="swiper-bg">
-                        <img :class="imgIndex == 0 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_1.png" alt="">
-                        <img :class="imgIndex == 1 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_2.png" alt="">
-                        <img :class="imgIndex == 2 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/moonlightCentury3.png" alt="">
-                        <img :class="imgIndex == 3 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/futureCity3.png" alt="">
+                        <img loading="lazy" :class="imgIndex == 0 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_1.png" alt="">
+                        <img loading="lazy" :class="imgIndex == 1 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_2.png" alt="">
+                        <img loading="lazy" :class="imgIndex == 2 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/moonlightCentury3.png" alt="">
+                        <img loading="lazy" :class="imgIndex == 3 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/futureCity3.png" alt="">
                     </div>
                     <div class="swiper-bg2">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/swiper-bg2.png" alt="">
+                        <img loading="lazy" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/swiper-bg2.png" alt="">
                     </div>
                     <div class="swiper-leftTop">
                         <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/swiper-leftTop.svg" alt="">
