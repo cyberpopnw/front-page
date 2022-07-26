@@ -549,7 +549,6 @@ const stake = (abi: any[], address: string, number: number) => { // two staking 
     })
 }
 
-
 // Remaining days of pledge cyt
 const DaysRemaining = (abi: any[], address: string, tokenId: number) => {
     return new Promise(async (resolve, reject) => {
@@ -563,12 +562,29 @@ const DaysRemaining = (abi: any[], address: string, tokenId: number) => {
 
         const rewardRate = await contract.methods.rewardRate().call()
         const totalSupply = await contract.methods.getTotalSupply().call();
-        const rewardPerToken = rewardRate*getBalanceOf / totalSupply  // one person stake one coin get coin /s 
+        let rewardPerToken = rewardRate*getBalanceOf / totalSupply  // one person stake one coin get coin /s 
+        if( !rewardPerToken ) rewardPerToken = 0
         console.log(rewardRate ,getBalanceOf,totalSupply , rewardPerToken);
         resolve({result,earned,rewardPerToken,rewardAllToken  });
     })
 }
 
+// Remaining days of pledge coin
+// const DaysRemainingCoin = (abi: any[], address: string) => {
+//     return new Promise(async (resolve, reject) => {
+//         const web3 = new Web3((Web3 as any).givenProvider);
+//         const contract = new web3.eth.Contract(abi, address)
+//         const earned = await contract.methods.earned(accounts.value).call();
+//         // const rewardAllToken = await contract.methods.rewardPerToken().call(); // all person get coin from notifyRewardAmount
+
+//         const rewardRate = await contract.methods.rewardRate().call()
+//         const getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
+//         const totalSupply = await contract.methods.getTotalSupply().call();
+//         const rewardPerToken = rewardRate*getBalanceOf / totalSupply // one person stake one coin get coin /s 
+//         console.log(rewardRate,getBalanceOf,totalSupply , rewardPerToken);
+//         resolve({earned,rewardPerToken });
+//     })
+// }
 // Remaining days of pledge coin
 const DaysRemainingCoin = (abi: any[], address: string) => {
     return new Promise(async (resolve, reject) => {
@@ -577,15 +593,19 @@ const DaysRemainingCoin = (abi: any[], address: string) => {
         const earned = await contract.methods.earned(accounts.value).call();
         // const rewardAllToken = await contract.methods.rewardPerToken().call(); // all person get coin from notifyRewardAmount
 
-        const rewardRate = await contract.methods.rewardRate().call()
+        // const rewardRate = await contract.methods.rewardRate().call()
+        const rewardsDuration = await contract.methods.rewardsDuration().call()
         const getBalanceOf = await contract.methods.getBalanceOf(accounts.value).call();
         const totalSupply = await contract.methods.getTotalSupply().call();
-        const rewardPerToken = rewardRate*getBalanceOf / totalSupply // one person stake one coin get coin /s 
+        const rewardRate =  Number(totalSupply) /  Number(rewardsDuration)
+        let rewardPerToken = rewardRate*Number(getBalanceOf) / Number(totalSupply) // one person stake one coin get coin /s 
+        if( !rewardPerToken ) rewardPerToken = 0
         console.log(rewardRate,getBalanceOf,totalSupply , rewardPerToken);
         
         resolve({earned,rewardPerToken });
     })
 }
+
 
 
 // DaysRemaining speed
