@@ -6,7 +6,7 @@
             <div class="warp">
                 <div class="item" v-for="(item, i) in select_title" :key="i" @click="selectpage(i)" @mousemove="item.hover = true" @mouseout="item.hover = false">
                     <div class="selected" v-show="item.select">
-                        <img :style="{'margin-left': i == 3 ? '-1.2vw':''}" :src="item.selectImg" alt="">
+                        <img :style="{'margin-left': i == 3 ? '-1.2vw' : ''}" :src="item.selectImg" alt="">
                         <p class="title">{{ item.title }}</p>
                     </div>
                     <div class="Unselected" v-show="!item.select" >
