@@ -17,7 +17,7 @@
             </div>
             <div class="right">
                 <video-bg 
-id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.mp4`]">
+id="videobg" :sources="[`https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/boxbanner.mp4`]">
                 </video-bg>
                 <div class="title">Sale Start time</div>
                 <div class="countDown">
@@ -29,18 +29,18 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
             <div class="nftCard">
                 <ul class="type">
                     <li class="type-common">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwboxPhone/type-common.png" alt="">
-                        <img class="border" src="https://d2cimmz3cflrbm.cloudfront.net/nwboxPhone/type-commonBorder0.svg" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwboxPhone/type-common.png" alt="">
+                        <img class="border" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwboxPhone/type-commonBorder0.svg" alt="">
                         <div class="mask">Common</div>
                     </li>
                     <li class="type-rare">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwboxPhone/type-rare.png" alt="">
-                        <img class="border" src="https://d2cimmz3cflrbm.cloudfront.net/nwboxPhone/type-rareBorder0.svg" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwboxPhone/type-rare.png" alt="">
+                        <img class="border" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwboxPhone/type-rareBorder0.svg" alt="">
                         <div class="mask">Rare</div>
                     </li>
                     <li class="type-epic">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwboxPhone/type-epic.png" alt="">
-                        <img class="border" src="https://d2cimmz3cflrbm.cloudfront.net/nwboxPhone/type-rareBorder0.svg" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwboxPhone/type-epic.png" alt="">
+                        <img class="border" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwboxPhone/type-rareBorder0.svg" alt="">
                         <div class="mask">Epic</div>
                     </li>
                 </ul>
@@ -370,7 +370,7 @@ onMounted(() => {
                             font-family: AlibabaPuHuiTi_2_115_Black;
                             color: #FFFFFF;
                             line-height: 50px;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwboxPhone/purchase.svg');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwboxPhone/purchase.svg');
                             background-repeat: no-repeat;
                             background-size: 100% auto;
                             background-position: left top;
@@ -385,7 +385,7 @@ onMounted(() => {
                         font-family: AlibabaPuHuiTi_2_115_Black;
                         color: #FFFFFF;
                         line-height: 51px;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwboxPhone/detailb.svg');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwboxPhone/detailb.svg');
                         background-repeat: no-repeat;
                         background-size: 100% 100%;
                         background-position: left top;

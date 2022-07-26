@@ -7,7 +7,7 @@
             <div class="content">
                 <div class="title">{{ props.title }}</div>
                 <div class="icon">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/metaMask.svg" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/metaMask.svg" alt="">
                     <div class="subtitle">{{t('message.common.metamask.logoText')}}</div>
                 </div>
                 <!-- <div class="text">{{ props.content == 'netWork' ? $t('message.common.metamask.switch') : props.content }} <a v-if="props.addNetwork" href="https://chainlist.org/" target="_blank">{{ $t('message.common.metamask.add1') }}</a> </div> -->
@@ -400,7 +400,7 @@ onMounted(() => {
                     }
                 }
                 .unpack{
-                    background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwbox/details2.png);
+                    background-image: url(https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/details2.png);
                     width: 11.94vw;
                     height: 3.125vw;
                     float: right;

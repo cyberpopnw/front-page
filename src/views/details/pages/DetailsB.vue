@@ -12,7 +12,7 @@
             <div class="left">
                 <div class="text1">{{$t('message.details.box_price')}} ≈ $4545</div>
                 <div class="text2">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/eth_icon.png" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/eth_icon.png" alt="">
                     <div>0.36 <span>{{$t('message.details.box_eth')}}</span></div>
                 </div>
                 <div class="text2"><div>{{$t('message.details.box_have')}} : <b style="color: #A81BFF;"> &nbsp;{{ ownerNumber }}</b></div></div>
@@ -47,7 +47,7 @@
                         <li class="desc_wrap">
                             <div>
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/head_rander.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/head_rander.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -67,7 +67,7 @@
                         <li class="desc_wrap">
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/HP.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/HP.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -86,7 +86,7 @@
                         <li class="desc_wrap">
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/sandtime.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/sandtime.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -108,7 +108,7 @@
                         <li class="desc_wrap">
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/box9_icon.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/box9_icon.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -131,7 +131,7 @@
                     <ul>
                         <li class="attr_warp">
                             <div class="image">
-                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/news-img1.png" alt="">
+                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/news-img1.png" alt="">
                             </div>
                             <div class="title">{{$t('message.details.list.prince_b')}}</div>
                             <div class="prob">
@@ -149,7 +149,7 @@
                         </li>
                         <li class="attr_warp">
                             <div class="image">
-                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/person2.png" alt="">
+                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/person2.png" alt="">
                             </div>
                             <div class="title">{{$t('message.details.list.name2')}}</div>
                             <div class="prob">
@@ -168,7 +168,7 @@
                         </li> 
                         <li class="attr_warp">
                             <div class="image">
-                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/person1.png" alt="">
+                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/person1.png" alt="">
                             </div>
                             <div class="title">{{$t('message.details.list.name2')}}</div>
                             <div class="prob">
@@ -296,22 +296,22 @@ const intClick = (type:any) => {
 
 // video
 let thirdVideo:any = ref(null)
-let videoUrlType:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwbox/blindbox1.mp4');
+let videoUrlType:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/blindbox1.mp4');
 const videoUrl = () => {
     const type:any = proxy.$route.params.type;
     switch (type){
         case '1':
-            videoUrlType.value = 'https://d2cimmz3cflrbm.cloudfront.net/nwbox/blindbox1.mp4';
+            videoUrlType.value = 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/blindbox1.mp4';
             break;
         case '2':
-            videoUrlType.value = 'https://d2cimmz3cflrbm.cloudfront.net/nwbox/blindbox2.mp4';
+            videoUrlType.value = 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/blindbox2.mp4';
             break;
         case '3':
             thirdVideo.value.classList.add('third')
-            videoUrlType.value = 'https://d2cimmz3cflrbm.cloudfront.net/nwbox/blindbox3.mp4';
+            videoUrlType.value = 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/blindbox3.mp4';
             break;
         default:
-            videoUrlType.value = 'https://d2cimmz3cflrbm.cloudfront.net/nwbox/blindbox4.mp4';
+            videoUrlType.value = 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/blindbox4.mp4';
             break;
     }
 }

@@ -561,7 +561,7 @@ onMounted(() => {
                     color: #FFFFFF;
                     line-height: 30px;
                     text-align: center;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/purchase.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/purchase.png');
                     background-size: 100% 100%;
                     cursor: pointer;
                     transition: all .2s ease-in-out;

@@ -22,23 +22,23 @@
             </form>
         </div>
         <div class="down_button">
-            <div class="arrow"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_arrow.svg" alt=""></div>
+            <div class="arrow"><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_arrow.svg" alt=""></div>
             <div class="step2">
                 <span class="green">{{ $t('message.download.step2_name') }} :</span> <br/>{{ $t('message.download.download_txt') }} <br/> 
                 <div>{{ $t('message.download.version') }}</div>
             </div>
-            <div class="person"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt=""></div>
+            <div class="person"><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alen.png" alt=""></div>
             <div class="buttons">
                 <div class="down_cyberpop" @click="downloadGame(0)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/android.png" alt="">
                     <b>{{ $t('message.download.Android') }}</b>
                 </div>
                 <div class="down_cyberpop not-error" @click="downloadGame(2)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/ios.png" alt="">
                     <b>{{ $t('message.download.ios') }}</b>
                 </div>
                 <div class="down_cyberpop" @click="downloadGame(1)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/windows.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/windows.png" alt="">
                     <b>{{ $t('message.download.windows') }}</b>
                 </div>
             </div>
@@ -286,7 +286,7 @@
             height: 260px;
             margin-top: 55px;
             color: #fff;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_background_pc3-b-2.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_background_pc3-b-2.png');
             background-size: auto 100%;
             background-position: center top;
             text-align: center;
@@ -343,7 +343,7 @@
                     font-size: 13px;
                     font-family: AlibabaPuHuiTi_2_85_Bold;
                     line-height: 18px;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/withborder-2.svg');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/withborder-2.svg');
                     background-size: 100% 100%;
                     input{
                         line-height: 18px;
@@ -387,7 +387,7 @@
                 button{
                     border: none;
                     background: transparent;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/greenButton-2.svg');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/greenButton-2.svg');
                     background-size: 100% 100%;
                     width: 212px;
                     height: 54px;
@@ -406,7 +406,7 @@
             margin-bottom: 30px;
             margin-top: -130px;
             color: #FFFFFF;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/step2_bg-b.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/step2_bg-b.png');
             background-repeat: no-repeat;
             background-size: 112% auto;
             transition: all .2s ease-in-out;
@@ -467,7 +467,7 @@
                     font-family: AlibabaPuHuiTi_2_85_Bold;
                     font-weight: bold;
                     line-height: 25px;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_button2-2.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_button2-2.png');
                     background-size: 100% 100%;
                     transition: all .1s ease-in;
                     position: relative;

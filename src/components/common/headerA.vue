@@ -8,8 +8,8 @@
             </div>
             <div class="content flex_between" id="header">
                 <div class="logo">
-                    <a :href="path"><img v-show="!logoHFlag" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwhome/logo_101.png'" @mouseenter="logoHFlag = true" alt=""></a>
-                    <a :href="path"><img v-show="logoHFlag" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwhome/logo.gif'" @mouseleave="logoHFlag = false" alt=""></a>
+                    <a :href="path"><img v-show="!logoHFlag" :src="'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/logo_101.png'" @mouseenter="logoHFlag = true" alt=""></a>
+                    <a :href="path"><img v-show="logoHFlag" :src="'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/logo.gif'" @mouseleave="logoHFlag = false" alt=""></a>
                 </div>
                 <div class="user">
                     <div class="switch_chain flex_center"
@@ -29,10 +29,10 @@
                         </div>
                     </div>
                     <div class="language" @click="changeMenu(5, '/space')">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/cyberSpace.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/cyberSpace.png" alt="">
                     </div>
                     <div class="language" ref="clickCursor3">
-                        <!-- <img @click="showLanguage = !showLanguage" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-language.svg" alt=""> -->
+                        <!-- <img @click="showLanguage = !showLanguage" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/header-language.svg" alt=""> -->
                         <div class="icon" @click="showLanguage = !showLanguage"></div>
                         <div class="langUl" v-show="showLanguage" ref="cursor3">
                             <div class="wrap">
@@ -52,7 +52,7 @@
                     </div>
                     <div class="register">
                         <div class="register_button" @click="isRegister(true)">
-                            <!-- <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/register-email.svg" alt=""> -->
+                            <!-- <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/register-email.svg" alt=""> -->
                             <!-- <span>{{ $t('message.home.reg_submit1') }}</span>
                             <span>{{ $t('message.home.reg_submit2') }}</span> -->
                         </div>
@@ -144,6 +144,8 @@ import store from '@/store'
 import NFT from '@/tools/web3' 
 import {  useRouter } from 'vue-router'
 import { Locale, useI18n } from 'vue-i18n';
+import Web3 from 'web3/dist/web3.min.js'
+
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter()
 let close: any = ref(true);
@@ -161,33 +163,33 @@ const closeWarn = () => {store.dispatch('common/warningShow',false)}
 const chainList = ref({
     BSC: {
         name: 'BSC',
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/BSC.ico',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/BSC.ico',
         chainId: 56,
     },
     avax: {
         name: 'Fuji',
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/avax.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/avax.png',
         chainId: 43113,
     },
     mumbai: {
         name: 'Mumbai',
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/poly.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/poly.png',
         chainId: 80001,
     },
     // Gate: {
     //     name: 'Gate',
-    //     img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/gate.svg',
+    //     img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/gate.svg',
     //     chainId: 85,
     // },
     select: {
         name: 'BSC',
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/BSC.ico',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/BSC.ico',
         chainId: 56,
         active: 1,
     },
     notSupported: {
         name: 'Wrong Network',
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/wrong.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/wrong.png',
         active: 1,
     }
 }) as any
@@ -409,7 +411,7 @@ const connect: any = async () => {
         store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
         store.dispatch('myAssets/dataSumSearch',{flag:0});
         if(readyAssetsF.value <= 0) logined(accounts);
-        const Web3 = (window as any).Web3;
+        // const Web3 = (window as any).Web3;
         let web3obj = new Web3((Web3 as any).givenProvider);
         await web3obj.eth.net.getId().then((chainId: any) => {
             store.dispatch('user/chageChainId', Number(chainId))
@@ -715,11 +717,11 @@ onMounted(() => {
                         .register_button{
                             width: 1.66vw;
                             height: 1.66vw;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-email.svg');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/header-email.svg');
                             background-position: center;
                             background-size: 100%;
                             &:hover{
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-email-hover.svg');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/header-email-hover.svg');
                                 background-size: 100%;
                             }
                         }
@@ -758,7 +760,7 @@ onMounted(() => {
                         width: 10.3vw;
                         height: 2.3vw;
                         margin-top: 1.34vw;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-loginBg.svg');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/header-loginBg.svg');
                         background-size: 102% 100%;
                         background-position: -.1vw top;
                         overflow: hidden;
@@ -900,12 +902,12 @@ onMounted(() => {
                         div{
                             width: 1.66vw;
                             height: 1.66vw;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-down.svg');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/header-down.svg');
                             background-position: center;
                             background-size: 100%;
                             cursor: pointer;
                             &:hover{
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-down-hover.svg');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/header-down-hover.svg');
                                 background-size: 100%;
                             }
                         }
@@ -923,13 +925,13 @@ onMounted(() => {
                         .icon{
                             width: 1.66vw;
                             height: 1.66vw;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-language2.svg');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/header-language2.svg');
                             background-repeat: no-repeat;
                             background-position: center;
                             background-size: 100%;
                             cursor: pointer;
                             &:hover{
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-language-hover.svg');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/header-language-hover.svg');
                                 background-size: 100%;
                             }
                         }

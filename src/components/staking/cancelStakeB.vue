@@ -36,7 +36,7 @@
                         </div>
                     </div> -->
                     <div class="tips flex_align_center">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin13.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin13.png" alt="">
                         <div class="texts">{{$t('message.mining.cancel.warn_tips')}}</div>
                     </div>
                 </div>
@@ -320,7 +320,7 @@ onMounted(() => {
                     font-family: AlibabaPuHuiTi_2_115_Black;
                     font-weight: bold;
                     line-height: 48px;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/confirm_button.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/confirm_button.png');
                     background-size: 100% 100%;
                     text-align: center;
                     cursor: pointer;

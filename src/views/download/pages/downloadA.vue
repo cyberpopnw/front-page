@@ -16,20 +16,20 @@
             </form>
         </div>
         <div class="down_button">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
+            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alen.png" alt="">
             <div class="tips">DOWNLOAD CYBERPOP</div>
             <div class="buttons flex_between">
                 <div class="down_cyberpop flex_center" @click="downloadGame(0)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/android.png" alt="">
                     <b>{{ $t('message.download.Android') }}</b>
                 </div>
                 <div class="down_cyberpop flex_center" @click="downloadGame(1)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/windows.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/windows.png" alt="">
                     <b>{{ $t('message.download.windows') }}</b>
                     <div class="version">{{ $t('message.download.version') }}</div>
                 </div>
                 <div class="down_cyberpop not-error flex_center" @click="downloadGame(2)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/ios.png" alt="">
                     <b>{{ $t('message.download.ios') }}</b>
                 </div>
 
@@ -267,7 +267,7 @@ onMounted(() => {
 
 <style lang="less" scoped>
     .warp{
-        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_background_pc3.png');
+        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_background_pc3.png');
         background-size: auto 100%;
         background-position: center top;
         background-color: rgba(0, 0, 0, 0.9);
@@ -284,7 +284,7 @@ onMounted(() => {
             margin: auto;
             z-index: 1;
             .button{
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/withborder.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/withborder.png');
                 width: 25.02vw;
                 height: 3.75vw;
                 background-size: 100% 100%;
@@ -340,7 +340,7 @@ onMounted(() => {
             button{
                 border: none;
                 background: transparent;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/greenButton.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/greenButton.png');
                 background-size: 100% 100%;
                 width: 17.5vw;
                 height: 4.37vw;
@@ -386,7 +386,7 @@ onMounted(() => {
                 .down_cyberpop{
                     width: 15.10vw;
                     height: 4.06vw;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_button2.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_button2.png');
                     background-size: 100% 100%;
                     font-size: 1.14vw;
                     font-family: AlibabaPuHuiTi_2_115_Black;

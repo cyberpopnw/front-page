@@ -17,7 +17,7 @@
                     <div class="left flex_between">
                         <div class="text1">{{$t('message.details.box_price')}}: $49.00</div>
                         <div class="text2 flex_align_center">
-                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/eth_icon.png" alt="">
+                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/eth_icon.png" alt="">
                             <div>0.03<span>{{$t('message.details.box_eth')}}</span></div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                         <li>
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/head_rander.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/head_rander.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -78,7 +78,7 @@
                         <li>
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/HP.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/HP.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -99,7 +99,7 @@
                         <li>
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/sandtime.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/sandtime.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -124,7 +124,7 @@
                         <li>
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/box9_icon.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/box9_icon.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -149,7 +149,7 @@
                         <li>
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/person2.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/person2.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -185,7 +185,7 @@
                         <li>
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/person1.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/person1.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -225,7 +225,7 @@
                         <li>
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/person2.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/person2.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -261,7 +261,7 @@
                         <li>
                             <div class="wrap">
                                 <div class="pic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/person1.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/person1.png" alt="">
                                 </div>
                                 <div class="data">
                                     <div class="prob">
@@ -600,7 +600,7 @@ onMounted(() => {
             line-height: 8.85vw;
             letter-spacing: 1.04vw;
             text-align: center;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwmining/coming-bg.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwmining/coming-bg.png');
             background-position: center;
             background-size: auto 100%;
         }
@@ -609,7 +609,7 @@ onMounted(() => {
         padding-top: 7.6vw;
         color: #ffffff;
         background-color: #080707;
-        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/bodyBg.png');
+        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/bodyBg.png');
         background-repeat: no-repeat;
         background-position: left top;
         background-size: 100% auto;
@@ -741,10 +741,10 @@ onMounted(() => {
                 line-height: 3.125vw;
                 text-align: center;
                 .purchase{
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/details2.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/details2.png');
                 }
                 .unpack{
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/details1.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/details1.png');
                     margin-right: 1.66vw;
                 }
                 .purchase:hover,
@@ -775,7 +775,7 @@ onMounted(() => {
                     height: 3.125vw;
                     color: #DE2DCF;
                     white-space: nowrap;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/viewBorder.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/viewBorder.png');
                     background-size: 100% 100%;
                     cursor: pointer;
                 }
@@ -822,7 +822,7 @@ onMounted(() => {
                         height: 8.48vw;
                         margin: 0 auto;
                         background-size: 100% 100%;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/contentBg-nohover.png');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/contentBg-nohover.png');
                         transition: all 0.2s ease-in-out;
                         .prince{
                             z-index: 6;
@@ -931,7 +931,7 @@ onMounted(() => {
                         }
                     }
                     li:hover{
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/contentBg.png');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/contentBg.png');
                     }
                     li + li{
                         margin-top: 1.66vw;

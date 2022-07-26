@@ -12,13 +12,13 @@
                         <div class="space">Cyberpop by <span>game</span></div>
                         <div class="share">
                             <div class="sbtn" @click="showShare = !showShare,hoverShare = false" @mouseenter="hoverShare = true" @mouseleave="hoverShare = false">
-                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/share-icon.svg" alt="">
+                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/share-icon.svg" alt="">
                                 <span>Share</span>
                             </div>
                             <div class="swrap" v-show="showShare || hoverShare" @mouseenter="hoverShare = true" @mouseleave="hoverShare = false">
                                 <ul>
-                                    <li class="flex_align_center"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/twitter-w.svg" alt="">Twitter</li>
-                                    <li class="flex_align_center"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/copy-icon.svg" alt="">Copy link</li>
+                                    <li class="flex_align_center"><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/twitter-w.svg" alt="">Twitter</li>
+                                    <li class="flex_align_center"><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/copy-icon.svg" alt="">Copy link</li>
                                 </ul>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                     <li v-for="i in 5" class="flex_between_center">
                                         <div class="flex_align_center"><img src="https://cdn.stamp.fyi/space/cyberpoponline.eth?s=160&cb=1e775ba9559d9a9d" alt="">brantly.eth</div>
                                         <div>For</div>
-                                        <div class="flex_align_center">260k ENS<img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/receipt-icon.svg" alt=""></div>
+                                        <div class="flex_align_center">260k ENS<img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/receipt-icon.svg" alt=""></div>
                                     </li>
                                 </ul>
                                 <div class="more moreCommon"><div>Show more</div></div>
@@ -200,17 +200,17 @@ onMounted(() => {
                         }
                         &.sActive{
                             color: #000;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/state-active.svg');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/state-active.svg');
                             background-size: 100% auto;
                         }
                         &.sPending{
                             color: #fff;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/state-pending.svg');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/state-pending.svg');
                             background-size: 100% auto;
                         }
                         &.sClosed{
                             color: #fff;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/state-closed.svg');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/state-closed.svg');
                             background-size: 100% auto;
                         }
                     }

@@ -16,8 +16,9 @@ step1:
 > npm install
 
 step2:
-node_modules
+>cd node_modules
 
-remove vue-videobg/node_modules
+>remove vue-videobg/node_modules
 
-cd node_modules/vue-videobg    add preload="auto"
+>cd node_modules/vue-videobg
+>add preload="auto"

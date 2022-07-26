@@ -547,7 +547,7 @@ const kr = {
             ios: 'iOS',
             Android: 'Android',
             windows: 'Windows',
-            version: '최신 버전 1.0.5',
+            version: '최신 버전 1.1.0',
             inputEmail: '이메일 주소',
             tips2: 'ios 앱 없음',
             tips3: 'e-메일 오류',

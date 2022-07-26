@@ -55,7 +55,7 @@ const closexplan = () => {
         margin: auto;
         width: 59.68vw;
         height: 33.12vw;
-        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/xplanpro2-home.png');
+        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/xplanpro2-home.png');
         background-size: 100% 100%;
         overflow: hidden;
         .close{

@@ -12,7 +12,7 @@
         </div>
         <div class="total">
             <div class="progressBall">
-                <img class="ballBorder" src="https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/ballBorder.svg" alt="">
+                <img class="ballBorder" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/ballBorder.svg" alt="">
                 <div class="ball-inner"></div>
             </div>
             <div class="right">
@@ -37,7 +37,7 @@
                     <div class="left">{{$t('message.mining.mycoin')}} <br/><span>{{ mycoin }}</span></div>
                 </div>
                 <!-- <div class="coin_logo">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin9.png" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin9.png" alt="">
                 </div> -->
             </div>
         </div>
@@ -72,7 +72,7 @@
             <ul class="data">
                 <li>
                     <div>
-                        <div class="txt">{{$t('message.mining.total_power')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin5.png" alt=""> </div>
+                        <div class="txt">{{$t('message.mining.total_power')}} <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin5.png" alt=""> </div>
                         <div class="percent">{{ getTotalSupply }}</div>
                     </div>
                 </li>
@@ -127,7 +127,7 @@
             </div>
         </div> -->
         <div class="more">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin2.png" alt="">
+            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin2.png" alt="">
         </div>
         <!-- <div class="pledge">
             <div class="title">{{$t('message.mining.pledge_title')}}<span>2/4</span></div>
@@ -365,13 +365,13 @@ const flipEnd = () => {
 
 
 // pledge
-let greenImgSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/whiteImg.png')
-let whiteImgSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/whiteImg.png')
-let lockedImgSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/locked.svg')
+let greenImgSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/whiteImg.png')
+let whiteImgSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/whiteImg.png')
+let lockedImgSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/locked.svg')
 
-let greenBorderSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/pledge-border1.svg')
-let whiteBorderSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/pledge-border2.svg')
-let lockedBorderSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/pledge-border3.svg')
+let greenBorderSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/pledge-border1.svg')
+let whiteBorderSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/pledge-border2.svg')
+let lockedBorderSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/pledge-border3.svg')
 
 
 //  my balance
@@ -637,7 +637,7 @@ onMounted(async () => {
             width: 100%;
             // height: 387px;
             height: 272px;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/banner-home-b.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/banner-home-b.png');
             background-repeat: no-repeat;
             background-position: -409px top;
             background-size: auto 100%; 
@@ -675,7 +675,7 @@ onMounted(async () => {
                 width: 109px;
                 height: 110px;
                 margin-left: 20px;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/ballBg.svg');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/ballBg.svg');
                 background-repeat: no-repeat;
                 background-position: left bottom;
                 background-size: 100% 100%; 
@@ -834,7 +834,7 @@ onMounted(async () => {
                     bottom: -102px;
                     width: 100%;
                     height: 102px;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin3.png'); 
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin3.png'); 
                     background-size: 100% 100%;
                     padding-left: 1.56vw;
                     padding-right: 1.30vw;
@@ -864,7 +864,7 @@ onMounted(async () => {
                         color: #FFFFFF;
                         line-height: 46px;
                         text-align: center;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin8.png'); 
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin8.png'); 
                         background-size: 100% 100%;
                     }
                 }
@@ -1055,7 +1055,7 @@ onMounted(async () => {
             border: 2px solid;
             border-image: linear-gradient(45deg, rgba(35, 71, 54, 1), rgba(51, 32, 91, 1)) 2 2;
             box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.69);
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin9.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin9.png');
             background-position: right bottom;
             background-repeat: no-repeat;
             background-size: 90px auto;
@@ -1092,7 +1092,7 @@ onMounted(async () => {
                         color: #FFFFFF;
                         line-height: 50px;
                         text-align: center;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin10.png');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin10.png');
                         background-size: 100% 100%;
                     }
                 }
@@ -1118,7 +1118,7 @@ onMounted(async () => {
         .farms{
             .background{
                 color: #ffffff;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin6-b.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin6-b.png');
                 background-size: 100% auto;
                 overflow: hidden;
                 .title{
@@ -1141,7 +1141,7 @@ onMounted(async () => {
                         width: 115px;
                         height: 98px;
                         margin: 0 23px 0 18px;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin1-b.png');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin1-b.png');
                         background-size: 100% 100%;
                     }
                     &-info{
@@ -1227,7 +1227,7 @@ onMounted(async () => {
                             margin: 0 auto;
                             margin-top: 30px;
                             color: #A4F238;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin4.png');
                             background-repeat: no-repeat;
                             background-size: 100% 100%; 
                         }
@@ -1261,13 +1261,13 @@ onMounted(async () => {
                             .harvest, .stake{
                                 margin-top: 30px;
                                 color: #A4F238;
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin4.png');
                                 background-repeat: no-repeat;
                                 background-size: 100% 100%; 
                             }
                             .stake{
                                 color: #363A54;
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin12.png');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin12.png');
                             }
                         }
                         .line{
@@ -1296,13 +1296,13 @@ onMounted(async () => {
                 justify-content: flex-end;
                 .btns{
                     color: #A4F238;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin4.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin4.png');
                     background-repeat: no-repeat;
                     background-size: 100% 100%; 
                 }
                 .btns.stake{
                     color: #363A54;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakin12.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakin12.png');
                 }
                 .btns + .btns{
                     margin-top: 24px;

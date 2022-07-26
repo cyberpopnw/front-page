@@ -9,7 +9,7 @@
             </div>
             <div class="content">
                 <div class="title">{{ $t('message.common.metamask.opened') }}</div>
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/opened.png" class="opened" alt="">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/opened.png" class="opened" alt="">
                 <div class="text"> <span v-if="nftID > 0"> {{ $t('message.common.metamask.openedText1')}}</span><span v-if="nftID > 0">{{ nftID }}</span> {{ $t('message.common.metamask.openedText2') }}</div>
             </div>
             <div class="btns">
@@ -204,12 +204,12 @@ onMounted(() => {
                     color: #FFFFFF;
                 }
                 .btn:first-child{
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/withBorder.png');
                     background-size: 100% 100%;
                     margin-right: 1.25vw;
                 }
                 .btn:last-child{
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/purchase.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/purchase.png');
                     background-size: 100% 100%;
                 }
                 .btn:hover{

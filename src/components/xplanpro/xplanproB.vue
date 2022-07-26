@@ -89,7 +89,7 @@ const closexplan = () => {
             position: relative;
             width: 100%;
             height: 174px;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/xplanpro2-phone-home.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/xplanpro2-phone-home.png');
             background-size: 101% 100%;
             background-position: left -11px;
             overflow: hidden;

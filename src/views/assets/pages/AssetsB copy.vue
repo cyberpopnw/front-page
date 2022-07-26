@@ -18,8 +18,8 @@
                 <div class="whiteList">
                     <p v-if="bobabrewery">{{ bobabrewery }}</p>
                     <p v-else>
-                        <span v-if="whiteList" @click="whiteListWindows">{{ $t('message.assets.haveWhite')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/whitelist.png" alt=""></span>
-                        <span v-else-if="boxId9" @click="whiteListWindows">{{ $t('message.assets.box9HaveWhite')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/whitelist.png" alt=""></span>
+                        <span v-if="whiteList" @click="whiteListWindows">{{ $t('message.assets.haveWhite')}} <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/whitelist.png" alt=""></span>
+                        <span v-else-if="boxId9" @click="whiteListWindows">{{ $t('message.assets.box9HaveWhite')}} <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/whitelist.png" alt=""></span>
                         <span v-else>{{ $t('message.assets.notHaveWhite') }}</span>
                     </p>
                 </div>
@@ -691,7 +691,7 @@ const getHead: any = async (res: any, path: any, type: any, isLoading?: any) => 
                     type: type,
                     isLoading: isLoading || false,
                     number: 1,
-                    data: result || { name: res[index], image: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
+                    data: result || { name: res[index], image: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
                 })
                 if (++index<res.length) {
                     loop(index);
@@ -724,7 +724,7 @@ const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoad
                         type: type,
                         isLoading: isLoading || false,
                         number: res[index],
-                        data: result || { name: res[index], image: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
+                        data: result || { name: res[index], image: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
                     })
                 }
                 if (++index<res.length) {
@@ -908,7 +908,7 @@ onMounted(async () => {
         .wrap{
             width: 100%;
             padding-top: 55px;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/bodybg-phone.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/bodybg-phone.png');
             background-repeat: no-repeat;
             background-position: left top;
             background-size: 100% auto;

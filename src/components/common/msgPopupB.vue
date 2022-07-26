@@ -297,7 +297,7 @@ onMounted(() => {
                     }
                 }
                 .unpack{
-                    background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwbox/details2.png);
+                    background-image: url(https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/details2.png);
                     width: 100%;
                     padding: 3vw 0;                    
                     background-size: 100% 100%;

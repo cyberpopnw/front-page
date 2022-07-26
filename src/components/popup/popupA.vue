@@ -364,7 +364,7 @@ onMounted(() => {
                         color: #FFFFFF;
                         line-height: 2.91vw;
                         text-align: center;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/meta-cancle.svg');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/meta-cancle.svg');
                         background-size: 100% 100%;
                         cursor: pointer;
                     }

@@ -243,7 +243,7 @@ onMounted(() => {
                         font-family: AlibabaPuHuiTi_2_115_Black;
                         font-weight: bold;
                         .stak{
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/confirm_button.png');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/confirm_button.png');
                             background-size: 100% 100%;
                             width: 8.54vw;
                             line-height: 2.91vw;
@@ -261,7 +261,7 @@ onMounted(() => {
                         color: #FFFFFF;
                         line-height: 2.91vw;
                         text-align: center;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwStaking/confirm_button.png');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/confirm_button.png');
                         background-size: 100% 100%;
                         cursor: pointer;
                         margin: 0 auto;

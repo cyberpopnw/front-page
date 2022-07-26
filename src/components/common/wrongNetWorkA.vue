@@ -187,22 +187,22 @@ onMounted(() => {
                     cursor: pointer;
                 }
                 // .btn:first-child{
-                //     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
+                //     background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/withBorder.png');
                 //     background-size: 100% 100%;
                 //     margin-right: 1.25vw;
                 // }
                 // .btn:nth-child(2){
-                //     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
+                //     background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/withBorder.png');
                 //     background-size: 100% 100%;
                 //     margin-right: 1.25vw;
                 // }
                 // .btn:nth-child(3){
-                //     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withBorder.png');
+                //     background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/withBorder.png');
                 //     background-size: 100% 100%;
                 //     margin-right: 1.25vw;
                 // }
                 // .btn:last-child{
-                //     background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/purchase.png');
+                //     background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/purchase.png');
                 //     background-size: 100% 100%;
                 // }
                 .btn:hover{

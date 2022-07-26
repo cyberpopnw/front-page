@@ -1,21 +1,21 @@
 <template>
     <div class="footer">
-        <img class="logo" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/logo.png'" alt="">
+        <img class="logo" :src="'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/logo.png'" alt="">
         <!-- <img class="logo" v-show="logoFlag" :src="logoHSrcG" @mouseleave="logoFlag = false" alt=""> -->
         <div class="policy"><router-link to="/privacy">{{$t('message.common.footer_policy')}}</router-link></div>
         <div class="terms"><router-link to="/terms">{{$t('message.common.footer_terms')}}</router-link></div>
         <div class="icon">
             <a href="https://medium.com/@Cyberpopmetaverse" target="view_window">
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/medium_1.png" alt="">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/medium_1.png" alt="">
             </a>
             <a href="https://t.me/cyberpopnw" target="view_window">
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/medium.svg" alt="">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/medium.svg" alt="">
             </a>
             <a href="https://discord.gg/y9b8p5C9TR" target="view_window">
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/discord.svg" alt="" class="navLogo2">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/discord.svg" alt="" class="navLogo2">
             </a>
             <a href="https://twitter.com/cyberpopnw" target="view_window">
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/twitter-footer.svg" alt="">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/twitter-footer.svg" alt="">
             </a>
         </div>
         <div class="line"></div>
@@ -24,7 +24,7 @@
             <div class="des">{{$t('message.common.footer_email_desc')}}</div>
             <div class="email_botton flex_center" @click="openEmail">
                 <div class="border"></div>
-                <div>{{$t('message.common.footer_email_title')}}</div><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt="">
+                <div>{{$t('message.common.footer_email_title')}}</div><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/hand.png" alt="">
             </div>
         </div>
     </div>

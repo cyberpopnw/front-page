@@ -1,13 +1,13 @@
 <template>
     <div class="footer">
         <div class="footer-wrap">
-            <img class="logo" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/logo.png'" alt="">
+            <img class="logo" :src="'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/logo.png'" alt="">
             <div class="email_box">
                 <div class="title">{{$t('message.common.footer_email_title')}}</div>
                 <div class="des">{{$t('message.common.footer_email_desc')}}</div>
                 <div class="email_botton flex_center" @click="openEmail">
-                    <!-- <a href="mailto:business@cyberpop.online">{{$t('message.common.footer_email_title')}}</a><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt=""> -->
-                    <div>{{$t('message.common.footer_email_title')}}</div><img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/hand.png" alt="">
+                    <!-- <a href="mailto:business@cyberpop.online">{{$t('message.common.footer_email_title')}}</a><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/hand.png" alt=""> -->
+                    <div>{{$t('message.common.footer_email_title')}}</div><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/hand.png" alt="">
                 </div>
             </div>
             <div class="clause">
@@ -16,16 +16,16 @@
             </div>
             <div class="icon flex_centent_center">
                 <a href="https://medium.com/@Cyberpopmetaverse" target="view_window">
-                    <img class="first" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/medium_1.png" alt="">
+                    <img class="first" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/medium_1.png" alt="">
                 </a>
                 <a href="https://t.me/cyberpopnw" target="view_window">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/medium-footer.svg" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/medium-footer.svg" alt="">
                 </a>
                 <a href="https://discord.gg/y9b8p5C9TR" target="view_window">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/discord-footer.svg" alt="" class="navLogo2">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/discord-footer.svg" alt="" class="navLogo2">
                 </a>
                 <a href="https://twitter.com/cyberpopnw" target="view_window">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/twitter-footer0.svg" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/twitter-footer0.svg" alt="">
                 </a>
             </div>
             <div class="desc">{{$t('message.common.footer_desc')}}</div>

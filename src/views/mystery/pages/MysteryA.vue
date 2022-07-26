@@ -6,7 +6,7 @@
     <div class="boxBg">
         <div class="video">
             <video-bg 
-id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.mp4`]">
+id="videobg" :sources="[`https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/boxbanner.mp4`]">
             </video-bg>
             <div class="titles"> 
                 <div class="titles-wrap">
@@ -23,18 +23,18 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                             <div class="type-title">TYPE</div>
                             <ul>
                                 <li class="type-common">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/type-common.png" alt="">
-                                    <img class="border" src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/type-commonBorder.svg" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/type-common.png" alt="">
+                                    <img class="border" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/type-commonBorder.svg" alt="">
                                     <div class="mask">Common</div>
                                 </li>
                                 <li class="type-rare">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/type-rare.png" alt="">
-                                    <img class="border" src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/type-rareBorder.svg" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/type-rare.png" alt="">
+                                    <img class="border" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/type-rareBorder.svg" alt="">
                                     <div class="mask">Rare</div>
                                 </li>
                                 <li class="type-epic">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/type-epic.png" alt="">
-                                    <img class="border" src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/type-rareBorder.svg" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/type-epic.png" alt="">
+                                    <img class="border" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/type-rareBorder.svg" alt="">
                                     <div class="mask">Epic</div>
                                 </li>
                             </ul>
@@ -43,7 +43,7 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
                             <div class="purchase">Purchase</div>
                             <div class="detailbtn">
                                 Detail
-                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwbox/detailb.svg" alt="">
+                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/detailb.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -262,13 +262,13 @@ id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.m
             <div class="desc">Cyberpop Labs Ltd. Games, Inc. ALL Rights Reserved.</div>
             <div class="icon">
                 <a href="https://t.me/cyberpopnw" target="view_window">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/medium.svg" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/medium.svg" alt="">
                 </a>
             <a href="https://discord.gg/y9b8p5C9TR" target="view_window">
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/discord.svg" alt="" class="navLogo2">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/discord.svg" alt="" class="navLogo2">
                 </a>
                 <a href="https://twitter.com/cyberpopnw" target="view_window">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/twitter-footer.svg" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/twitter-footer.svg" alt="">
                 </a>
             </div>
         </div> -->
@@ -470,7 +470,7 @@ onMounted(() => {
                                 font-family: AlibabaPuHuiTi_2_115_Black;
                                 color: #FFFFFF;
                                 line-height: 2.55vw;
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/purchase.svg');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/purchase.svg');
                                 background-repeat: no-repeat;
                                 background-size: 100% auto;
                                 background-position: left top;
@@ -483,7 +483,7 @@ onMounted(() => {
                                 font-family: AlibabaPuHuiTi_2_115_Black;
                                 color: #FFFFFF;
                                 line-height: 2.65vw;
-                                // background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/detailb.svg');
+                                // background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/detailb.svg');
                                 // background-repeat: no-repeat;
                                 // background-size: 100% auto;
                                 // background-position: left top;

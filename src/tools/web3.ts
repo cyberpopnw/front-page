@@ -2,7 +2,9 @@ import store from '@/store'
 import contracts from '@/tools/contracts'
 import { resolve } from 'path/posix'
 import { ref, computed } from 'vue'
-const Web3 = (window as any).Web3 // Reference the global Web3 in index HTML file CDN import<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+import Web3 from 'web3/dist/web3.min.js'
+
+// const Web3 = (window as any).Web3 // Reference the global Web3 in index HTML file CDN import<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 
 
 

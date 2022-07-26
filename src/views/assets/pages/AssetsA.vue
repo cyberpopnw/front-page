@@ -22,8 +22,8 @@
                     <div class="whiteList">
                         <p v-if="bobabrewery">{{ bobabrewery }}</p>
                         <p v-else>
-                            <span v-if="whiteList" @click="whiteListWindows">{{ $t('message.assets.haveWhite')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/whitelist.png" alt=""></span>
-                            <span v-else-if="boxId9" @click="whiteListWindows">{{ $t('message.assets.box9HaveWhite')}} <img src="https://d2cimmz3cflrbm.cloudfront.net/nwAssets/whitelist.png" alt=""></span>
+                            <span v-if="whiteList" @click="whiteListWindows">{{ $t('message.assets.haveWhite')}} <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/whitelist.png" alt=""></span>
+                            <span v-else-if="boxId9" @click="whiteListWindows">{{ $t('message.assets.box9HaveWhite')}} <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/whitelist.png" alt=""></span>
                             <span v-else>{{ $t('message.assets.notHaveWhite') }}</span>
                         </p>
                     </div>
@@ -776,7 +776,7 @@ const getHead: any = async (res: any, path: any, type: any, isLoading?: any) => 
                     type: type,
                     isLoading: isLoading || false,
                     number: 1,
-                    data: result || { name: res[index], image: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
+                    data: result || { name: res[index], image: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
                 })
                 if (++index<res.length) {
                     loop(index);
@@ -812,7 +812,7 @@ const getNFTData: any = async (res: any, path: any, type: any, ids?: any, isLoad
                         number: res[index],
                         box721: is721Box,
                         BoxAddress: BoxAddress ?  BoxAddress[index] : false,
-                        data: result || { name: res[index], image: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
+                        data: result || { name: res[index], image: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/ba5fcf2b4854eebdc64dc80089f2cc26.png' },
                     })
                 }
                 if (++index<res.length) {
@@ -984,7 +984,7 @@ onMounted(() => {
             width: 100%;
             min-height: 96vw;
             padding-top: 5.5vw;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/bodyBg.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/bodyBg.png');
             background-repeat: no-repeat;
             background-position: left top;
             background-size: 100% auto;
@@ -1320,26 +1320,26 @@ onMounted(() => {
                                     }
                                     .transfer{
                                         width: 8.07vw;
-                                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/blackbg.svg');
+                                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/blackbg.svg');
                                         background-size: 100% 100%;
                                         transition: all .2s ease;
                                     }
                                     .sell{
                                         width: 8.22vw;
-                                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/purplebg.svg');
+                                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/purplebg.svg');
                                         background-size: 100% 100%;
                                         transition: all .3s ease;
                                     }
                                     .load{
                                         width: 10.47vw;
-                                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/load_button.png');
+                                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/load_button.png');
                                         background-size: 100% 100%;
                                         transition: all .2s ease;
                                         color: #23262F;
                                     }
                                     .claim{
                                         width: 5.93vw;
-                                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/claim_button.png');
+                                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/claim_button.png');
                                         background-size: 100% 100%;
                                         transition: all .3s ease;
                                     }
@@ -1361,7 +1361,7 @@ onMounted(() => {
                                         height: 2.91vw;
                                         margin-top: -.4vw;
                                         line-height: 2.91vw;
-                                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/unpackbg.svg');
+                                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/unpackbg.svg');
                                         background-position: left top;
                                         background-size: 100% 100%;
                                     }

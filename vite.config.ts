@@ -21,7 +21,7 @@ export default defineConfig({
               rewrite: (path) => path.replace(/^\/api/, '')
             },
             '/text': {
-                target: 'https://d2cimmz3cflrbm.cloudfront.net/', //Actual request address
+                target: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/', //Actual request address
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/text/, '')
             },

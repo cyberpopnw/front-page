@@ -7,16 +7,16 @@
             </div>
             <div class="content flex_between_center" id="header">
                 <div class="logo">
-                    <a :href="path"><img v-show="!logoHFlag" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwhome/logo_101.png'" @mouseenter="logoHFlag = true" alt=""></a>
-                    <a :href="path"><img v-show="logoHFlag" :src="'https://d2cimmz3cflrbm.cloudfront.net/nwhome/logo.gif'" @mouseleave="logoHFlag = false" alt=""></a>
+                    <a :href="path"><img v-show="!logoHFlag" :src="'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/logo_101.png'" @mouseenter="logoHFlag = true" alt=""></a>
+                    <a :href="path"><img v-show="logoHFlag" :src="'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/logo.gif'" @mouseleave="logoHFlag = false" alt=""></a>
                 </div>
-                <img class="menu" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/header-menu.svg" @click="showMenu()" alt="">
+                <img class="menu" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/header-menu.svg" @click="showMenu()" alt="">
             </div>
             <div class="menuMask" ref="cursor" :class="isPage && (showMenuAni ? 'menuAnimation' : 'stopMenuAnimation')">
                 <div class="close-menu flex_between">
                     <div v-show="realId == -1"></div>
                     <div class="select_chain flex_align_center" v-show="realId !== -1" @click="showMsgPop()"><img :src="chainId == 56 || chainId == 43113 || chainId == 80001 ? chainList.select.img : chainList.notSupported.img" alt=""><span>{{ chainId == 56 || chainId == 43113 || chainId == 80001 ? chainList.select.name : chainList.notSupported.name }}</span></div>
-                    <img @click="closeMenuIcon()" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/close-menu.svg" alt="">
+                    <img @click="closeMenuIcon()" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/close-menu.svg" alt="">
                 </div>
                 <div class="login_in" v-if="!loggined" @click="login()">
                     <div class="txt">{{$t('message.common.wallet')}}</div>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="code"> 
                     <div class="email-wrap flex_center" @click="isRegister(true)">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/register-email-b.svg" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/register-email-b.svg" alt="">
                         <span>Email Register</span>
                     </div>
                     <div v-if="code">{{ $t('message.home.inviter_Code') }}: {{ code }} &nbsp; {{ $t('message.home.level') }}: {{ level }}</div> 
@@ -79,6 +79,8 @@ import store from '@/store'
 import NFT from '@/tools/web3' 
 import {  useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import Web3 from 'web3/dist/web3.min.js'
+
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter()
 const register = ref(false);
@@ -136,7 +138,7 @@ const chainList = ref({
     },
     notSupported: {
         name: 'Wrong Network',
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwAssets/wrong.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/wrong.png',
         active: 1,
     }
 }) as any
@@ -268,7 +270,7 @@ const connect: any = async () => {
         store.dispatch('wallet/connectWallet',{realId:id.value, idTemp:accounts});// Store asterisk ID and complete id
         store.dispatch('myAssets/dataSumSearch',{flag:0});
         if(readyAssetsF.value <= 0) logined(accounts);
-        const Web3 = (window as any).Web3
+        // const Web3 = (window as any).Web3
         let web3obj = new Web3((Web3 as any).givenProvider)
         await web3obj.eth.net.getId().then((chainId: any) => {
             store.dispatch('user/chageChainId', Number(chainId))
@@ -522,7 +524,7 @@ onMounted(() => {
                         color: #000000;
                         line-height: 54px;
                         text-align: center;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/header-loginBg.svg');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/header-loginBg.svg');
                         background-size: 100% 100%;
                         background-position: left top;
                         white-space: nowrap;

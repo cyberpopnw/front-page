@@ -3,7 +3,7 @@
 
     <div class="container" :style="{'padding-top': warning ? '28.6666667vw' : '14.6666667vw'}">
         <div class="select_pages">
-            <img class="bk" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/mobile_bk.png" alt="">
+            <img class="bk" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/mobile_bk.png" alt="">
             <div class="box">
                 <swiper
                     class="mySwiper swiper-no-swiping"
@@ -36,14 +36,14 @@
         </div>
         <div class="content" v-show="siderIndex == 0">
             <div class="title">
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/fix_icon.png" alt="">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/fix_icon.png" alt="">
                 <span>Download & setup</span>
             </div>
             <div class="content_chunk">
                 <h2 class="content_title">Extension</h2>
                 <a href="https://metamask.io" target="view_window">
                     <div class="content_button">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/chrome_icon.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/chrome_icon.png" alt="">
                         <b>Chrome</b>
                     </div>
                 </a>
@@ -68,11 +68,11 @@
                 <h2 class="text_title">Buy CYT directly from the Cyberpop market</h2>
                 <div class="buttons">   
                     <div class="getBD_button" @click="getBD">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/market_icon.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/market_icon.png" alt="">
                         <span>Get BD NFT</span>
                     </div>
                     <!-- <div class="getCYT_button">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/market_icon.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/market_icon.png" alt="">
                         <span>Get CYT</span>
                     </div> -->
                 </div>
@@ -87,7 +87,7 @@
                 <div class="buttons">
                     <a href="https://discord.gg/y9b8p5C9TR" target="view_window">
                         <div class="getCYT_button">
-                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/dc_icon.png" alt="">
+                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/dc_icon.png" alt="">
                             <span>Join the Cyberpop Discord</span>
                         </div>
                     </a>
@@ -96,7 +96,7 @@
         </div>
         <div class="notLineContent" v-show="siderIndex == 2">
             <div class="imgs">
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alen.png" alt="">
                 <p>Download</p>
                 <span>Cyberpop Metaverse</span>
             </div>
@@ -104,13 +104,13 @@
                 <div class="button_group">
                     <div>
                         <div class="button_title">
-                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/desktop.png" alt="">
+                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/desktop.png" alt="">
                             <span>Desktop</span>
                         </div>
                         <div class="dowload">
-                            <a href="https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_18_11_53_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe" target="view_window">
+                            <a href="https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.1.0_2022_07_25_18_15_47_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe" target="view_window">
                                 <div class="button">
-                                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/windows_icon.png" alt="">
+                                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/windows_icon.png" alt="">
                                     <span>Windows</span>
                                 </div>
                             </a>
@@ -120,19 +120,19 @@
                 <div class="button_group" style="margin-bottom: 0;">
                     <div>
                         <div class="button_title">
-                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/phone.png" alt="">
+                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/phone.png" alt="">
                             <span>Mobile</span>
                         </div>
                         <div class="dowload">
-                            <a href="https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_19_09_40_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk" target="view_window">
+                            <a href="https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.1.0_2022_07_25_18_11_13_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk" target="view_window">
                                 <div class="button">
-                                    <img style="filter: invert(100%)" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/and_icon.png" alt="">
+                                    <img style="filter: invert(100%)" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/and_icon.png" alt="">
                                     <span>Android</span>
                                 </div>
                             </a>
                             <a href="https://apps.apple.com/app/cyberpop/id1613478998" target="view_window">
                                 <div class="button">
-                                    <img style="filter: invert(100%)" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/apple_icon.png" alt="">
+                                    <img style="filter: invert(100%)" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/apple_icon.png" alt="">
                                     <span>iOS</span>
                                 </div>
                             </a>
@@ -151,7 +151,7 @@
                     <h2 class="wallet_title">Connect Wallet</h2>
                     <div class="wallet_button"><span>Wallet Connect</span></div>
                     <div class="wallet_button"><span>wallet login</span></div>
-                    <img class="point" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_point.png" alt="">
+                    <img class="point" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/white_point.png" alt="">
                 </div>
                 <div class="position"></div>
             </div>
@@ -167,7 +167,7 @@
                     <h2 class="wallet_title">Connect Wallet</h2>
                     <div class="wallet_button" style="width: 182px"><span>Create Wallet</span></div>
                     <div class="wallet_button" style="width: 182px"><span>Import Secret Recove</span></div>
-                    <img class="point" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_point.png" alt="">
+                    <img class="point" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/white_point.png" alt="">
                 </div>
                 <div class="position"></div>
             </div>
@@ -196,7 +196,7 @@ import {  useRouter } from 'vue-router'
 import Web3 from '@/tools/web3' 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { EffectFade, EffectCreative, Mousewheel, Autoplay, Navigation, Keyboard, Pagination, Scrollbar} from "swiper";
-import SwiperType from 'swiper/types'
+// import SwiperType from 'swiper/types'
 import 'swiper/css';
 import GetBDB from '@/components/Guide/getBdB.vue'
 
@@ -212,7 +212,7 @@ const swiperEvent: any = ref(null)
 
 const siderIndex: any = ref(0)
 
-const onSwiper = (swiper: SwiperType.Swiper) => {
+const onSwiper = (swiper: any) => {
     // swiper.slideTo(1);
     swiperEvent.value = swiper
 };
@@ -230,7 +230,7 @@ const router = useRouter()
 const select_title = ref([
     {
         title: 'Create MetaMask wall',
-        selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/mobile_selectPage1.svg',
+        selectImg: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/mobile_selectPage1.svg',
         select: false,
         leftPoint: false,
         rightPoint: true,
@@ -239,7 +239,7 @@ const select_title = ref([
     },
     {
         title: 'In Cyberpop website',
-        selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/mobile_selectPage2.svg',
+        selectImg: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/mobile_selectPage2.svg',
         select: false,
         leftPoint: true,
         rightPoint: true,
@@ -248,7 +248,7 @@ const select_title = ref([
     },
     {
         title: 'Get Cyberpop NFT',
-        selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/mobile_selectPage4.png',
+        selectImg: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/mobile_selectPage4.png',
         select: false,
         leftPoint: true,
         rightPoint: true,
@@ -257,7 +257,7 @@ const select_title = ref([
     },
     {
         title: 'Download & Play',
-        selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/mobile_selectPage3.svg',
+        selectImg: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/mobile_selectPage3.svg',
         select: false,
         leftPoint: true,
         rightPoint: false,
@@ -267,22 +267,22 @@ const select_title = ref([
 ])
 const icons = [
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/chrome_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/chrome_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/firefox_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/firefox_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/edge_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/edge_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/google_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/google_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/apple_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/apple_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/and_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/and_icon.png'
     },
 ]
 
@@ -430,7 +430,7 @@ onMounted(() => {
             }
         }
         .content, .notLineContent{
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/mobile_bk3.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/mobile_bk3.png');
             background-size: 100% 100%;
             width: 355px;
             min-height: 290px;
@@ -555,7 +555,7 @@ onMounted(() => {
                     align-items: center;
                     justify-content: center;
                     .getBD_button{
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/rainbow.png');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/rainbow.png');
                         background-size: 100% 100%;
                         height: 50px;
                         width: 220px;
@@ -581,7 +581,7 @@ onMounted(() => {
                         opacity: .7;
                     }
                     .getCYT_button{
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/big_white_broder.svg');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/big_white_broder.svg');
                         background-size: 100% 100%;
                         height: 50px;
                         width: 319px;
@@ -622,7 +622,7 @@ onMounted(() => {
             }
         }
         .notLineContent{
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/mobile_bk4.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/mobile_bk4.png');
             height: 600px;
             .imgs{
                 margin-top: 29px;
@@ -675,7 +675,7 @@ onMounted(() => {
                     .dowload{
                         margin: 1;
                         .button{
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/rainbow.png');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/rainbow.png');
                             width: 220px;
                             height: 50px;
                             background-size: 100% 100%;

@@ -8,7 +8,7 @@
                 <div class="title" v-if="!isInstall">{{$t('message.common.metamask.title')}}</div>
                 <div class="title" v-if="isInstall">{{$t('message.common.metamask.title1')}}</div>
                 <div class="icon">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/metaMask.svg" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/metaMask.svg" alt="">
                     <div class="subtitle">{{$t('message.common.metamask.logoText')}}</div>
                 </div>
                 <div class="desc" v-if="!isInstall">{{$t('message.common.metamask.descBef')}}<strong>{{$t('message.common.metamask.logoText')}}</strong>{{$t('message.common.metamask.descNAft')}}</div>
@@ -150,14 +150,14 @@ const closePopUp = () => {
                 .cancel{
                     width: 100px;
                     height: 48px;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/meta-cancle.svg');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/meta-cancle.svg');
                     background-size: 100% 100%;
                     cursor: pointer;
                 }
                 .open{
                     width: 160px;
                     height: 48px;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/meta-open.svg');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/meta-open.svg');
                     background-size: 100% 100%;
                     cursor: pointer;
                     a{

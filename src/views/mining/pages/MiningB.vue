@@ -10,7 +10,7 @@
         </div>
         <div class="total">
             <div class="progressBall">
-                <img class="ballBorder" src="https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/ballBorder.svg" alt="">
+                <img class="ballBorder" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/ballBorder.svg" alt="">
                 <div class="ball-inner"></div>
             </div>
             <div class="right">
@@ -100,13 +100,13 @@ import Web3 from '@/tools/web3'
 const router = useRouter()
 
 // pledge
-let greenImgSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/whiteImg.png')
-let whiteImgSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/whiteImg.png')
-let lockedImgSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/locked.svg')
+let greenImgSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/whiteImg.png')
+let whiteImgSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/whiteImg.png')
+let lockedImgSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/locked.svg')
 
-let greenBorderSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/pledge-border1.svg')
-let whiteBorderSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/pledge-border2.svg')
-let lockedBorderSrc:any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/pledge-border3.svg')
+let greenBorderSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/pledge-border1.svg')
+let whiteBorderSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/pledge-border2.svg')
+let lockedBorderSrc:any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/pledge-border3.svg')
 
 
 
@@ -160,7 +160,7 @@ onMounted(() => {
         .banner{
             width: 100%;
             height: 387px;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/banner-phone.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/banner-phone.png');
             background-repeat: no-repeat;
             background-position: -311px top;
             background-size: auto 100%; 
@@ -193,7 +193,7 @@ onMounted(() => {
                 width: 109px;
                 height: 110px;
                 margin-left: 20px;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwminingPhone/ballBg.svg');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwminingPhone/ballBg.svg');
                 background-repeat: no-repeat;
                 background-position: left bottom;
                 background-size: 100% 100%; 

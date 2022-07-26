@@ -15,7 +15,7 @@
     <div class="banner">
         <section>
             <video-bg 
-id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed6255c8406b7294d.mp4`]" img="https://d2cimmz3cflrbm.cloudfront.net/nwhome/videobg3.png">
+                id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed6255c8406b7294d.mp4`]" img="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/videobg3.png">
             </video-bg>
             <div class="titles"> 
                 <div class="title-wrap flex_center">
@@ -27,7 +27,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                         <div class="btn-register flex_center" @click="playToEarn()"><div>{{$t('message.home.banner_btn1')}}</div></div>
                         <div class="btn-video flex_center" @click="playVideo(5)">
                             <div>{{$t('message.home.banner_btn2')}}</div>
-                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/section-btnPlay.svg" alt="">
+                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/section-btnPlay.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             <div class="botm">#0 <span class="txt1">{{$t('message.home.banner_botmBef')}}</span><span class="txt2">{{$t('message.home.banner_botmAft')}}</span></div>
         </section>
         <footer>
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/section_buttom.svg" alt="" class="buttom">
+            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/section_buttom.svg" alt="" class="buttom">
         </footer>
     </div>
     <div class="download" v-show="showDown" :class="!isOut ? 'bounceShow' : 'bounceHide'">
@@ -55,26 +55,26 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             </div>
         </div>
         <div class="down_button" @click="downloadGame">
-            <img class="person" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
+            <img class="person" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alen.png" alt="">
             <div class="down_cyberpop flex_center">
-                <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
+                <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/android.png" alt="">
                 <b>DOWNLOAD CYBERPOP</b>
             </div>
         </div>
     </div>
     <div class="nav-logos" ref="myNav">
         <a href="#">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/joinus.svg" alt="" class="joinus">
+            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/joinus.svg" alt="" class="joinus">
             <div>{{$t('message.home.nav_logos_join')}}</div>
         </a>
         <a href="https://discord.gg/y9b8p5C9TR" target="view_window">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/discordlogo.svg" alt="" class="nav-img1">
+            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/discordlogo.svg" alt="" class="nav-img1">
         </a>
         <a href="https://twitter.com/cyberpopnw" target="view_window">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/twitter.svg" alt="" class="nav-img2">
+            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/twitter.svg" alt="" class="nav-img2">
         </a>
         <a href="https://t.me/cyberpopnw" target="view_window">
-            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/dianbao.svg" alt="" class="nav-img3">
+            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/dianbao.svg" alt="" class="nav-img3">
         </a>
     </div>
     <div class="welcome">
@@ -86,7 +86,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             <div class="content">
                 <div class="left">
                    <!-- <div class="start">01</div> -->
-                   <img class="start" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/01-icon.svg" alt="">
+                   <img class="start" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/01-icon.svg" alt="">
                    <div class="pList">
                         <img id="lImg1" :src="imgIndex == 0 ? imgSrc : imgSrc0" alt="">
                         <img id="lImg2" :src="imgIndex == 1 ? imgSrc : imgSrc0" alt="">
@@ -94,28 +94,28 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                         <img id="lImg4" :src="imgIndex == 3 ? imgSrc : imgSrc0" alt="">
                    </div>
                    <!-- <div class="end">/04</div> -->
-                   <img class="end" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/04-icon.svg" alt="">
+                   <img class="end" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/04-icon.svg" alt="">
                 </div>
                 <div class="swiper1">
                     <div class="swiper-bg">
                         <div>
-                            <img :class="imgIndex == 0 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_1.png" alt="">
+                            <img :class="imgIndex == 0 ? 'show' : ''" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/vSwiper_1.png" alt="">
                         </div>
                         <div>
-                            <img :class="imgIndex == 1 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_2.png" alt="">
+                            <img :class="imgIndex == 1 ? 'show' : ''" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/vSwiper_2.png" alt="">
                         </div>
                         <div>
-                            <img :class="imgIndex == 2 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/moonlightCentury3.png" alt="">
+                            <img :class="imgIndex == 2 ? 'show' : ''" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/moonlightCentury3.png" alt="">
                         </div>
                         <div>
-                            <img :class="imgIndex == 3 ? 'show' : ''" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/futureCity3.png" alt="">
+                            <img :class="imgIndex == 3 ? 'show' : ''" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/futureCity3.png" alt="">
                         </div>
                     </div>
                     <div class="swiper-bg2">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/swiper-bgBlack.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/swiper-bgBlack.png" alt="">
                     </div>
                     <div class="swiper-leftTop">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/swiper-leftTop.svg" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/swiper-leftTop.svg" alt="">
                         <ul>
                             <li :class="imgIndex == 0 ? 'show' : ''">{{$t('message.home.wel_swiper_title1')}}</li>
                             <li :class="imgIndex == 1 ? 'show' : ''">{{$t('message.home.wel_swiper_title2')}}</li>
@@ -134,10 +134,10 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                             :speed="200"
                             :autoplay="true"
                         >
-                            <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_1.png" alt=""></swiper-slide>
-                            <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/vSwiper_2.png" alt=""></swiper-slide>
-                            <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/moonlightCentury3.png" alt=""></swiper-slide>
-                            <swiper-slide><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/futureCity3.png"  alt=""></swiper-slide>
+                            <swiper-slide><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/vSwiper_1.png" alt=""></swiper-slide>
+                            <swiper-slide><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/vSwiper_2.png" alt=""></swiper-slide>
+                            <swiper-slide><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/moonlightCentury3.png" alt=""></swiper-slide>
+                            <swiper-slide><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/futureCity3.png"  alt=""></swiper-slide>
                         </swiper>
                     </div>
                 </div>
@@ -148,7 +148,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
         <div class="nobody-wrap flex_align_center">
             <div class="nobody-left">
                 <div class="nobody-img"></div>
-                <!-- <img id="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/nobody-leftBg3.png" alt="">
+                <!-- <img id="role" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/nobody-leftBg3.png" alt="">
                 <div class="nobody-left-tip">
                     <div>{{$t('message.home.nobody_role_tipBef')}}</div>
                 </div> -->
@@ -176,13 +176,13 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                     }"
                 >
                     <swiper-slide>
-                        <img class="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/nobody-leftBg3.png" alt="">
+                        <img class="role" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/nobody-leftBg3.png" alt="">
                     </swiper-slide>
                     <swiper-slide>
-                        <img class="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/lSwiper_1.png" alt="">
+                        <img class="role" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/lSwiper_1.png" alt="">
                     </swiper-slide>
                     <swiper-slide>
-                        <img class="role" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/lSwiper_2.png" alt="">
+                        <img class="role" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/lSwiper_2.png" alt="">
                     </swiper-slide>
                 </swiper>
             </div>
@@ -193,10 +193,10 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                     {{$t('message.home.nobody_r_desc1')}}
                 </div>
                 <div class="video">
-                    <img class="videoBg" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/yellowBg-r.svg" alt="">
-                    <img class="banner" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/nobody-videoBg.png" alt="">
+                    <img class="videoBg" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/yellowBg-r.svg" alt="">
+                    <img class="banner" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/nobody-videoBg.png" alt="">
                     <div class="video-wrap flex_center">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/nobody-controls.svg" alt="" @click="playVideo(4)">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/nobody-controls.svg" alt="" @click="playVideo(4)">
                     </div>
                     <div class="content">
                         <div class="video-title">#0 {{$t('message.home.nobody_r_video_txtBef')}}<span class="yellow">{{$t('message.home.nobody_r_video_txtAft')}}</span></div>
@@ -212,7 +212,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
     </div>
     <div class="make">
         <div class="make-wrap">
-            <!-- <img class="title-bg" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/title-bg.png" alt=""> -->
+            <!-- <img class="title-bg" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/title-bg.png" alt=""> -->
             <div class="title" id="ele3">{{$t('message.home.make_title_b')}}</div>
             <div class="subtitle">{{$t('message.home.make_subtitle')}}</div>
             <div class="desc">
@@ -232,23 +232,23 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 </div>
             </div>
             <div class="make-img">
-                <img class="yellowBg-r" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/yellowBg-r.svg" alt="">
-                <img class="yellowBg-l" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/yellowBg-l.svg" alt="">
+                <img class="yellowBg-r" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/yellowBg-r.svg" alt="">
+                <img class="yellowBg-l" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/yellowBg-l.svg" alt="">
                 <ul>
                     <li>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-img1.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/make-img1.png" alt="">
                         <div>{{$t('message.home.make_img_txt1')}}</div>
                     </li>
                     <li>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-img2.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/make-img2.png" alt="">
                         <div>{{$t('message.home.make_img_txt2')}}</div>
                     </li>
                     <li>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-img3.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/make-img3.png" alt="">
                         <div>{{$t('message.home.make_img_txt3')}}</div>
                     </li>
                     <li>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-img4.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/make-img4.png" alt="">
                         <div class="tech">{{$t('message.home.make_img_txt4')}}</div>
                     </li>
                 </ul>
@@ -259,8 +259,8 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <div class="openUrl" target="view_window">
                     <!-- <a href=""> -->
                     <div>
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/openSea.png" alt="">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-rightArrow.svg" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/openSea.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/make-rightArrow.svg" alt="">
                     </div>
                     <!-- </a> -->
                 </div>
@@ -275,20 +275,20 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <div class="channel">{{$t('message.home.news_lt_channel')}}</div>
                 <div class="arrival">{{$t('message.home.news_lt_arrival')}}</div>
                 <div class="news-logo flex_align_center">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/news-logo.svg" alt="">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/youtube-play.svg" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/news-logo.svg" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/youtube-play.svg" alt="">
                 </div>
             </div>
             <div class="news-img" @click="newsActiveSrc()">
-                <img :class="{'newsShow': showNewsImg == 0}" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/news-bg-3.png" alt="">
-                <img :class="{'newsShow': showNewsImg == 1}" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/news-bg2-3.png" alt="">
+                <img :class="{'newsShow': showNewsImg == 0}" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/news-bg-3.png" alt="">
+                <img :class="{'newsShow': showNewsImg == 1}" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/news-bg2-3.png" alt="">
                 <div class="desc">
                     <div>{{ $t(newsTitle1) }}</div>
                 </div>
             </div>
             <ul @click="newsActiveSrc()">
                 <li>
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/news-img1.png" id="myNews1" class="myNews" @mouseover="newsHover(0,newsStatictxt1)" @click="newsActive(0,newsStatictxt1)" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/news-img1.png" id="myNews1" class="myNews" @mouseover="newsHover(0,newsStatictxt1)" @click="newsActive(0,newsStatictxt1)" alt="">
                     <div class="read">
                         <div class="txt">{{$t('message.home.news_lcard1_txt')}}</div>
                         <div class="date">{{$t('message.home.news_lcard1_date')}}</div>
@@ -296,7 +296,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                     </div>
                 </li>
                 <li>
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/news-img2.png" id="myNews2" class="myNews" @mouseover="newsHover(1,newsStatictxt2)" @click="newsActive(1,newsStatictxt2)" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/news-img2.png" id="myNews2" class="myNews" @mouseover="newsHover(1,newsStatictxt2)" @click="newsActive(1,newsStatictxt2)" alt="">
                     <div class="read">
                         <div class="txt">{{$t('message.home.news_lcard2_txt')}}</div>
                         <div class="date">{{$t('message.home.news_lcard1_date')}}</div>
@@ -308,12 +308,12 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
     </div>
     <div class="roadmap">
         <div class="roadmap-bg">
-            <img class="roadmap-bg1" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/roadmap-bg1.png" alt="">
+            <img class="roadmap-bg1" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/roadmap-bg1.png" alt="">
             <div class="roadmap-center">
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/roadmap-icon.svg" alt="">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/roadmap-icon.svg" alt="">
                 <div></div>
             </div>
-            <img class="roadmap-bg2" src="https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/roadmap-bg2.svg" alt="">
+            <img class="roadmap-bg2" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/roadmap-bg2.svg" alt="">
         </div>
         <div class="roadmap-wrap">
             <div class="title" id="ele5">{{ $t('message.home.roadmap_title') }}</div>
@@ -419,7 +419,7 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <img class="logo9" src="@/assets/nwhome/UBISOFT.png" alt="">
             </a>
             <a href="https://aws.amazon.com/" target="view_window">
-                <img class="logo2" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/aws.png" alt="">
+                <img class="logo2" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/aws.png" alt="">
             </a>
             <a href="https://www.avax.network/" target="view_window">
                 <img class="logo8" src="@/assets/nwhome/make-avala.svg" alt="">
@@ -431,31 +431,31 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <img class="logo12" src="@/assets/nwhome/mexc.png" alt="">
             </a>
             <a href="https://www.gate.io" target="view_window">
-                <img class="logo10" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_gate.png" alt="">
+                <img class="logo10" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_gate.png" alt="">
             </a>
             <div>
-                <img class="logo8" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/hashshareBank.png" alt="">
+                <img class="logo8" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/hashshareBank.png" alt="">
             </div>
             <a href="https://consensys.net/" target="view_window">
-                <img class="logo7" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/consensys-logo.svg" alt="">
+                <img class="logo7" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/consensys-logo.svg" alt="">
             </a>
             <div>
-                <img class="logo1" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/partners4.png" alt="">
+                <img class="logo1" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/partners4.png" alt="">
             </div>
             <a href="https://skywater.vc/" target="view_window">
-                <img class="logo3" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/skywater2.png" alt="">
+                <img class="logo3" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/skywater2.png" alt="">
             </a>
             <a href="https://www.jinance.org/" target="view_window">
-                <img class="logo4" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/partners3.png" alt="">
+                <img class="logo4" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/partners3.png" alt="">
             </a>
             <a href="https://t3e.vc/" target="view_window">
-                <img class="logo5" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/T3E-Logo.png" alt="">
+                <img class="logo5" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/T3E-Logo.png" alt="">
             </a>
             <a href="https://polygon.technology/" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_polygon.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_polygon.png" alt="">
             </a>
             <div>
-                <img class="logo6" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/partners5-2.png" alt="">
+                <img class="logo6" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/partners5-2.png" alt="">
             </div>
             <a href="http://www.abga.asia/" target="view_window">
                 <img class="logo10" src="@/assets/nwhome/ABGA.svg" alt="">
@@ -464,43 +464,43 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <img class="logo11" src="@/assets/nwhome/Earn-Guild.png" alt="">
             </a>
             <!-- <a href="https://ethereum.org/en/" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_eth.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_eth.png" alt="">
             </a> -->
             <!-- <a href="https://www.binance.com/" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_binan.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_binan.png" alt="">
             </a> -->
             <a href="https://pancakeswap.finance/" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_pancake.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_pancake.png" alt="">
             </a>
             <a href="https://metamask.io/" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_metamask.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_metamask.png" alt="">
             </a>
             <a href="https://www.tokenpocket.pro/" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_tokenpocket.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_tokenpocket.png" alt="">
             </a>
             <a href="https://opensea.io/" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_opensea.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_opensea.png" alt="">
             </a>
             <a href="https://tofunft.com/" target="view_window">
-                <img class="logo11" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_tofu.png" alt="">
+                <img class="logo11" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_tofu.png" alt="">
             </a>
             <a href="https://chain.link/" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/chain_link.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/chain_link.png" alt="">
             </a>
             <!-- <a href="https://www.bybit.com/en-US/" target="view_window">
-                <img class="logo10" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_bybit.png" alt="">
+                <img class="logo10" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_bybit.png" alt="">
             </a> -->
             <div>
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_jdventures.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_jdventures.png" alt="">
             </div>
             <a href="https://www.nsguild.net/guild" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_nsguild.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_nsguild.png" alt="">
             </a>
             <div>
-                <img class="logo11" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_richmeta.png" alt="">
+                <img class="logo11" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_richmeta.png" alt="">
             </div>
             <a href="https://coinmarketcap.com/" target="view_window">
-                <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_coinMarkrt.png" alt="">
+                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_coinMarkrt.png" alt="">
             </a>
         </div>
     </div>
@@ -556,59 +556,59 @@ const router = useRouter()
 let close:any = ref(true)
 const teamInfo: any = ref([
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team6.jpg',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/team6.jpg',
         name: 'Haechul',
         desc: 'CMO',
         info: 'message.home.team_mem_frank',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/team2.jpg',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/team2.jpg',
         name: 'Yeldar Botabayev',
         desc: 'Market manager',
         info: 'message.home.team_mem_YuSonEn',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_hason.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/mem_hason.png',
         name: 'Hason',
         desc: 'Co-Founder',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_quanbug.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/mem_quanbug.png',
         name: 'Quanbug',
         desc: 'Framework Designer',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_fy.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/mem_fy.png',
         name: 'Fy',
         desc: 'Back-end Developer',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_ice.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/mem_ice.png',
         name: 'ICE',
         desc: 'Back-end Developer',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_john.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/mem_john.png',
         name: 'John',
         desc: 'Technical Director',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_water.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/mem_water.png',
         name: 'Water',
         desc: 'Co-Founder',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_jie.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/mem_jie.png',
         name: 'JIE',
         desc: 'Art Director',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_han.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/mem_han.png',
         name: 'Han',
         desc: 'Chief Back-end',
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/mem_nick.png',
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/mem_nick.png',
         name: 'Nick',
         desc: 'Back-end Developer',
     },
@@ -695,8 +695,8 @@ const downloadGame = () => {
 
 
 // swiper
-let imgSrc0: any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwhome/welcome-leftGray.svg');
-let imgSrc: any = ref('https://d2cimmz3cflrbm.cloudfront.net/nwhome/welcome-leftYellow.svg');
+let imgSrc0: any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/welcome-leftGray.svg');
+let imgSrc: any = ref('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/welcome-leftYellow.svg');
 let imgIndex: any = ref(0);
 
 const onSwiper = (swiper: any) => {
@@ -704,7 +704,7 @@ const onSwiper = (swiper: any) => {
 };
 
 const onSlideChangeEnd = (swiper: any) => {
-    imgSrc.value = 'https://d2cimmz3cflrbm.cloudfront.net/nwhome/welcome-leftYellow.svg';
+    imgSrc.value = 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/welcome-leftYellow.svg';
     imgIndex.value = swiper.realIndex;
 };
 
@@ -1016,7 +1016,7 @@ onMounted(() => {
                 top: 0;
                 width: 100%;
                 height: 100%;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/section-cover.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/section-cover.png');
                 background-size: 101% 101%;
                 background-position: -1vw 1vw;
                 .title-wrap{
@@ -1052,7 +1052,7 @@ onMounted(() => {
                             margin-right: -6%;
                             color: #fff;
                             text-align: center;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/section-btn1.svg');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/section-btn1.svg');
                             background-position: center;
                             background-size: 100% auto;
                             cursor: pointer;
@@ -1066,7 +1066,7 @@ onMounted(() => {
                             width: 213px;
                             height: 75px;
                             margin-left: -6%;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/section-btn2.svg');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/section-btn2.svg');
                             background-position: center;
                             background-size: 100% auto;
                             cursor: pointer;
@@ -1127,7 +1127,7 @@ onMounted(() => {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_backgournd.png');
+        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_backgournd.png');
         background-size: auto 100%;
         background-position: center top;
         .download-mask{
@@ -1142,7 +1142,7 @@ onMounted(() => {
             background: #000000;
             .wrap{
                 .button{
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/withborder.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/withborder.png');
                     width: 302px;
                     height: 44px;
                     background-size: 100% 100%;
@@ -1188,7 +1188,7 @@ onMounted(() => {
                 button{
                     border: none;
                     background: transparent;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/greenButton.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/greenButton.png');
                     background-size: 100% 100%;
                     width: 210px;
                     height: 52px;
@@ -1219,7 +1219,7 @@ onMounted(() => {
             .down_cyberpop{
                 width: 270px;
                 height: 60px;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_button2.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_button2.png');
                 background-size: 100% 100%;
                 font-size: 16px;
                 font-family: AlibabaPuHuiTi_2_115_Black;
@@ -1244,7 +1244,7 @@ onMounted(() => {
         width: 47px;
         height: 280px;
         padding-bottom: 40px;
-        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/nav-logoBg.svg');
+        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/nav-logoBg.svg');
         background-position: right bottom;
         background-repeat: no-repeat;
         background-size: auto 100%;
@@ -1500,7 +1500,7 @@ onMounted(() => {
                         color: #FFFFFF;
                         line-height: 29px;
                         text-align: right;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/nobody-leftYellow.svg');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/nobody-leftYellow.svg');
                         background-repeat: no-repeat;
                         background-position: right top;
                         background-size: 64px 64px;
@@ -1629,7 +1629,7 @@ onMounted(() => {
                         top: 0;
                         width: 100%;
                         height: 100%;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/white-border.svg');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/white-border.svg');
                         background-repeat: no-repeat;
                         background-size: 100% 100%;  
                         background-position: left top;
@@ -1669,7 +1669,7 @@ onMounted(() => {
             text-align: center;
             width: 100%;
             height: 88%;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhomePhone/make-bg3.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhomePhone/make-bg3.png');
             // background-position: -1210px -2px;
             background-position: center top;
             background-size: auto 100%;
@@ -2178,7 +2178,7 @@ onMounted(() => {
         width: 100%;
         height: 618px;
         background-color: #000000;
-        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/teamBg_phone.png');
+        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/teamBg_phone.png');
         background-size: auto 100%;
         background-position: 718px top;
         overflow: hidden;
@@ -2198,7 +2198,7 @@ onMounted(() => {
                 position: relative;
                 width: 100%;
                 height: 100%;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/teamLogo_phone.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/teamLogo_phone.png');
                 background-size: auto 52px;
                 background-position: 206px 177px;
                 background-repeat: no-repeat;

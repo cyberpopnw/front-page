@@ -19,7 +19,7 @@
                 x5-video-orientation="landscape"
                 x5-video-player-fullscreen="true"
                 v-if="videotype == 4">
-            <source src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/output2.mp4" type="video/mp4">
+            <source src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/output2.mp4" type="video/mp4">
         </video>
 
         <!-- <vue3VideoPlay v-bind="options" poster='' v-if="videotype == 4"/> -->
@@ -69,7 +69,7 @@ const options = reactive({
 //   height: '450px', //Player height
   color: "#409eff", //Theme color
   title: '', //Video name
-  src: "https://d2cimmz3cflrbm.cloudfront.net/nwhome/output.mp4", //Video source
+  src: "https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/output.mp4", //Video source
   muted: true, //Mute
   webFullScreen: true,
   speedRate: ["0.75", "1.0", "1.25", "1.5", "2.0"], //Playback speed

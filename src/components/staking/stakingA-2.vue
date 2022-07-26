@@ -32,7 +32,7 @@
                             </div>
                             <div class="tips">{{$t('message.mining.stakingA.insuff_cyt')}},<span>Get COIN.</span></div>
                         </div>
-                        <img class="addicon" src="https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stake_addicon.svg" alt="">
+                        <img class="addicon" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stake_addicon.svg" alt="">
                         <div class="item">
                             <div class="border flex_between">
                                 <div class="number" :class="numState == 'error' ? 'error':''">
@@ -434,7 +434,7 @@ onMounted(() => {
                             }
                             &::before {   
                                 content: "";
-                                background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwStaking/stakingA_bthbg.png);
+                                background-image: url(https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwStaking/stakingA_bthbg.png);
                                 background-size: 100% 100%;
                                 position: absolute;  
                                 top: 0;

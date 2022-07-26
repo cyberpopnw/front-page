@@ -11,7 +11,7 @@
         <div class="register">
             <div class="step1"><span class="green">{{ $t('message.download.step1_name') }} :</span> {{ $t('message.download.welmsg_txt2') }}</div>
             <div class="step1_content">
-                <div class="img"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/step1_img.png" alt=""></div>
+                <div class="img"><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/step1_img.png" alt=""></div>
                 <form action="#" onsubmit="">
                     <label for="Email">{{ $t('message.common.register.Email') }}</label>
                     <div class="button">
@@ -28,28 +28,28 @@
             </div>
         </div>
         <div class="down_button">
-            <div class="arrow"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_arrow.svg" alt=""></div>
+            <div class="arrow"><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_arrow.svg" alt=""></div>
             <div class="step2_wrap">
-                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alen.png" alt="">
                 <div class="step2">
                     <span class="green">{{ $t('message.download.step2_name') }} :</span> <br/>{{ $t('message.download.download_txt') }} <br/> 
                     <div>{{ $t('message.download.version') }}</div>
                 </div>
             </div>
             <div class="card" v-show="AndroidQcode">
-                <img src="@/assets/nwDownload/ad.png" alt="">
+                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/help/http___d3bhixjyozyk2o.cloudfront.net_Cyberpop_1.1.0_2022_07_25_18_11_13_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk.png" alt="">
             </div>
             <div class="buttons flex_between_center">
                 <div class="down_cyberpop" @mouseenter="AndroidQcode = true" @mouseleave="AndroidQcode = false" @click="downloadGame(0)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/android.png" alt="">
                     <b>{{ $t('message.download.Android') }}</b>
                 </div>
                 <div class="down_cyberpop" @click="downloadGame(2)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/ios.png" alt="">
                     <b>{{ $t('message.download.ios') }}</b>
                 </div>
                 <div class="down_cyberpop" @click="downloadGame(1)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/windows.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/windows.png" alt="">
                     <b>{{ $t('message.download.windows') }}</b>
                 </div>
             </div>
@@ -90,10 +90,10 @@ const downloadGame = (type: number) => {
             window.location.href = 'https://apps.apple.com/app/cyberpop/id1613478998'
             break;
         case 0:
-            window.location.href = 'https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_19_09_40_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk'
+            window.location.href = 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.1.0_2022_07_25_18_11_13_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk'
             break;
         case 1:
-            window.location.href = 'https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_18_11_53_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe'
+            window.location.href = 'https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.1.0_2022_07_25_18_15_47_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe'
             break;
     }
     proxy.$api.get(`/code/user/download?address=${thisAcounts.value}`).then((res: any) => {
@@ -326,7 +326,7 @@ onMounted(() => {
             height: 18.85vw;
             margin-top: 5.5vw;
             color: #fff;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_background_pc3-2.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_background_pc3-2.png');
             background-size: auto 100%;
             background-position: center top;
             overflow: hidden;
@@ -414,7 +414,7 @@ onMounted(() => {
                         width: 24.68vw;
                         height: 3.22vw;
                         margin-top: 1.14vw;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/withborder-2.svg');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/withborder-2.svg');
                         background-size: 100% 100%;
                         input{
                             width: 24.68vw;
@@ -466,7 +466,7 @@ onMounted(() => {
                         line-height: 3.64vw;
                         border: none;
                         background: transparent;
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/greenButton-2.svg');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/greenButton-2.svg');
                         background-size: 100% 100%;
                         cursor: pointer;
                         transition: all .1s ease-in;
@@ -482,7 +482,7 @@ onMounted(() => {
             height: 36vw;
             margin: -9.47vw 0 .6vw 20.1vw;
             color: #ffffff;
-            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/step2_bg.png');
+            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/step2_bg.png');
             background-size: 100% 100%;
             transition: all .2s ease-in-out;
             cursor: pointer;
@@ -570,7 +570,7 @@ onMounted(() => {
                     font-weight: bold;
                     color: #FFFFFF;
                     line-height: 1.56vw;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_button2-2.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_button2-2.png');
                     background-size: 100% 100%;
                     transition: all .1s ease-in;
                     position: relative;

@@ -9,3 +9,4 @@ declare module '*.vue' {
 declare module 'vue-videobg';
 declare module 'vue3-video-play';
 declare module 'default-passive-events';
+declare module 'web3/dist/web3.min.js';

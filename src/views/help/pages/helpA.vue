@@ -39,7 +39,7 @@
                     <div class="box">
                         <div class="chunk1">
                             <div class="title">
-                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/fix_icon.png" alt="">
+                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/fix_icon.png" alt="">
                                 <span>{{ $t('message.guide.page1ContentTitle1') }}</span>
                             </div>
                             <div class="content">
@@ -47,19 +47,19 @@
                                     <h2 class="content_title">{{ $t('message.guide.page1Content1') }}</h2>
                                     <a href="https://metamask.io" target="view_window">
                                         <div class="content_button">
-                                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/chrome_icon.png" alt="">
+                                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/chrome_icon.png" alt="">
                                             <b>Chrome</b>
                                         </div>
                                     </a>
                                     <!-- <a href="https://metamask.io" target="view_window">
                                         <div class="content_button">
-                                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/firefox_icon.png" alt="">
+                                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/firefox_icon.png" alt="">
                                             <b>Firefox</b>
                                         </div>
                                     </a>
                                     <a href="https://metamask.io" target="view_window">
                                         <div class="content_button">
-                                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/edge_icon.png" alt="">
+                                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/edge_icon.png" alt="">
                                             <b>Edge</b>
                                         </div>
                                     </a> -->
@@ -68,19 +68,19 @@
                                     <!-- <h2 class="content_title">Mobile App</h2>
                                     <a href="https://play.google.com/store/apps/details?id=io.metamask&hl=zh&gl=US" target="view_window">
                                         <div class="content_button">
-                                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/google_icon.png" alt="">
+                                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/google_icon.png" alt="">
                                             <b>Google Play</b>
                                         </div>
                                     </a>
                                     <a href="https://metamask.io" target="view_window">
                                         <div class="content_button">
-                                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/apple_icon.png" alt="">
+                                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/apple_icon.png" alt="">
                                             <b>App Store</b>
                                         </div>
                                     </a>
                                     <a href="https://metamask.io" target="view_window">
                                         <div class="content_button">
-                                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/and_icon.png" alt="">
+                                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/and_icon.png" alt="">
                                             <b>Android</b>
                                         </div>
                                     </a> -->
@@ -115,11 +115,11 @@
                                     <h2 class="content_title" style="margin-bottom: 1.04vw">{{ $t('message.guide.page2Content2') }}</h2>
                                     <div class="buttons">   
                                         <div class="getBD_button" @click="getBD">
-                                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/market_icon.png" alt="">
+                                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/market_icon.png" alt="">
                                             <span>{{ $t('message.guide.page2Content3') }}</span>
                                         </div>
                                         <!-- <div class="getCYT_button">
-                                            <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/market_icon.png" alt="">
+                                            <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/market_icon.png" alt="">
                                             <span>Get CYT</span>
                                         </div> -->
                                     </div>
@@ -135,8 +135,8 @@
                                     <h2 class="content_title" style="margin-bottom: 1.04vw">{{ $t('message.guide.page2Content4') }}</h2>
                                     <div class="buttons">
                                         <a href="https://discord.gg/y9b8p5C9TR" target="view_window">
-                                            <div class="getCYT_button" style="width: 15.6vw; margin-left: 0; background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/big_white_broder.svg')">
-                                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/dc_icon.png" alt="">
+                                            <div class="getCYT_button" style="width: 15.6vw; margin-left: 0; background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/big_white_broder.svg')">
+                                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/dc_icon.png" alt="">
                                                 <span>{{ $t('message.guide.page2Content5') }}</span>
                                             </div>
                                         </a>
@@ -150,7 +150,7 @@
                     <div class="box">
                         <div class="chunk2">
                             <div class="imgs">
-                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
+                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alen.png" alt="">
                                 <p>{{ $t('message.guide.page3ContentTitle1') }}</p>
                                 <span>{{ $t('message.guide.page3ContentTitle2') }}</span>
                             </div>
@@ -158,13 +158,13 @@
                             <div class="buttons">
                                 <div class="button_group">
                                     <div class="button_title">
-                                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/desktop.png" alt="">
+                                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/desktop.png" alt="">
                                         <span>{{ $t('message.guide.page3Content1') }}</span>
                                     </div>
                                     <div class="dowload">
-                                        <a href="https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_18_11_53_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe" target="view_window">
+                                        <a href="https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.1.0_2022_07_25_18_15_47_V25_Dev.false_Symbols.USE_NFT_ASSETS.exe" target="view_window">
                                             <div class="button">
-                                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/windows_icon.png" alt="">
+                                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/windows_icon.png" alt="">
                                                 <span>Windows</span>
                                             </div>
                                         </a>
@@ -172,19 +172,19 @@
                                 </div>
                                 <div class="button_group" style="margin-bottom: 0;">
                                     <div class="button_title">
-                                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/phone.png" alt="">
+                                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/phone.png" alt="">
                                         <span>{{ $t('message.guide.page3Content2') }}</span>
                                     </div>
                                     <div class="dowload">
-                                        <a href="https://zengeon-cos-assets-1259788321.cos.ap-shanghai.myqcloud.com/PrinceOfPersia/Jenkins/AppFiles/Cyberpop_1.0.5_2022_07_07_19_09_40_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk" target="view_window">
+                                        <a href="https://d3bhixjyozyk2o.cloudfront.net/Cyberpop_1.1.0_2022_07_25_18_11_13_V25_Dev.false_Symbols.USE_NFT_ASSETS.apk" target="view_window">
                                             <div class="button">
-                                                <img style="filter: invert(100%)" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/and_icon.png" alt="">
+                                                <img style="filter: invert(100%)" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/and_icon.png" alt="">
                                                 <span>Android</span>
                                             </div>
                                         </a>
                                         <a href="https://apps.apple.com/app/cyberpop/id1613478998" target="view_window">
                                             <div class="button">
-                                                <img style="filter: invert(100%)" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/apple_icon.png" alt="">
+                                                <img style="filter: invert(100%)" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/apple_icon.png" alt="">
                                                 <span>iOS</span>
                                             </div>
                                         </a>
@@ -207,7 +207,7 @@
                                         <h2 class="wallet_title">{{ $t('message.guide.page4Content2') }}</h2>
                                         <div class="wallet_button"><span>{{ $t('message.guide.page4Content3') }}</span></div>
                                         <div class="wallet_button"><span>{{ $t('message.guide.page4Content4') }}</span></div>
-                                        <img class="point" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_point.png" alt="">
+                                        <img class="point" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/white_point.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -224,7 +224,7 @@
                                         <h2 class="wallet_title">{{ $t('message.guide.page4Content7') }}</h2>
                                         <div class="wallet_button"  style="width: 10.03vw"><span>{{ $t('message.guide.page4Content8') }}</span></div>
                                         <div class="wallet_button"  style="width: 10.03vw"><span>{{ $t('message.guide.page4Content9') }}</span></div>
-                                        <img class="point" src="https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_point.png" alt="">
+                                        <img class="point" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/white_point.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +265,7 @@ import {  useRouter } from 'vue-router'
 import Web3 from '@/tools/web3' 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { EffectFade, EffectCreative, Mousewheel, Autoplay, Navigation, Keyboard, Pagination, Scrollbar} from "swiper";
-import SwiperType from 'swiper/types'
+// import SwiperType from 'swiper/types'
 import 'swiper/css';
 import GetBD from '@/components/Guide/getBd.vue'
 import { useI18n } from 'vue-i18n';
@@ -282,7 +282,7 @@ const swiperEvent: any = ref(null)
 
 const siderIndex: any = ref(0)
 
-const onSwiper = (swiper: SwiperType.Swiper) => {
+const onSwiper = (swiper: any) => {
     // swiper.slideTo(1);
     swiperEvent.value = swiper
 };
@@ -297,7 +297,7 @@ const router = useRouter()
 const select_title = ref([
     {
         title: t('message.guide.selecPageTitle1'),
-        selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title1.png',
+        selectImg: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/help/select_title1.png',
         select: true,
         hover: false,
         bigTitle: t('message.guide.pageTitle1'),
@@ -305,7 +305,7 @@ const select_title = ref([
     },
     {
         title: t('message.guide.selecPageTitle2'),
-        selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title2.png',
+        selectImg: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/help/select_title2.png',
         select: false,
         hover: false,
         bigTitle: t('message.guide.pageTitle2'),
@@ -313,7 +313,7 @@ const select_title = ref([
     },
     {
         title: t('message.guide.selecPageTitle3'),
-        selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title3.png',
+        selectImg: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/help/select_title3.png',
         select: false,
         hover: false,
         bigTitle: t('message.guide.pageTitle3'),
@@ -321,7 +321,7 @@ const select_title = ref([
     },
     {
         title: t('message.guide.selecPageTitle4'),
-        selectImg: 'https://d2cimmz3cflrbm.cloudfront.net/help/select_title4.png',
+        selectImg: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/help/select_title4.png',
         select: false,
         hover: false,
         bigTitle: t('message.guide.pageTitle4'),
@@ -330,22 +330,22 @@ const select_title = ref([
 ])
 const icons = [
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/chrome_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/chrome_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/firefox_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/firefox_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/edge_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/edge_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/google_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/google_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/apple_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/apple_icon.png'
     },
     {
-        img: 'https://d2cimmz3cflrbm.cloudfront.net/nwGuide/and_icon.png'
+        img: 'https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/and_icon.png'
     },
 ]
 const hoverIn: any = ref(false)
@@ -418,7 +418,7 @@ onMounted(() => {
             .warp{
                 width: 64.06vw;
                 height: 18.92vw;
-                // background-image: url('https://d2cimmz3cflrbm.cloudfront.net/help/bk4.png');
+                // background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/help/bk4.png');
                 // background-size: 100% 100%;
                 margin: 0 auto;
                 display: flex;
@@ -501,7 +501,7 @@ onMounted(() => {
             .bk1{
                 width: 83.07vw;
                 height: 33.69vw;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/help/new_bk1.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/help/new_bk1.png');
                 background-size: 100% 100%;
                 position: absolute;
                 right: 0;
@@ -549,7 +549,7 @@ onMounted(() => {
                     display: flex;
                     justify-content: space-between;
                     .chunk1{
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/swiper_chunk1.png');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/swiper_chunk1.png');
                         background-size: 100% 100%;
                         height: 100%;
                         width: 30.2vw;
@@ -629,7 +629,7 @@ onMounted(() => {
                                     margin-top: 1.04vw;
                                 }
                                 .getBD_button{
-                                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/rainbow.png');
+                                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/rainbow.png');
                                     background-size: 100% 100%;
                                     height: 2.7vw;
                                     width: 9.79vw;
@@ -658,7 +658,7 @@ onMounted(() => {
                                     align-items: center;
                                 }
                                 .getCYT_button{
-                                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_broder.svg');
+                                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/white_broder.svg');
                                     background-size: 100% 100%;
                                     height: 2.7vw;
                                     width: 8.22vw;
@@ -680,7 +680,7 @@ onMounted(() => {
                                     }
                                 }
                                 .getCYT_button:hover{
-                                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/white_broder_hover.svg');
+                                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/white_broder_hover.svg');
                                     filter: invert(50%) sepia(42%) saturate(1116%) hue-rotate(124deg) brightness(99.8155%) contrast(327%);
                                 }
                                 .wallet_box{
@@ -752,7 +752,7 @@ onMounted(() => {
                         }
                     }
                     .chunk2{
-                        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/chunk2_bk.png');
+                        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/chunk2_bk.png');
                         background-size: 100% 100%;
                         height: 100%;
                         width: 100%;
@@ -814,7 +814,7 @@ onMounted(() => {
                                 display: flex;
                                 align-items: center;
                                 .button{
-                                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwGuide/rainbow.png');
+                                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwGuide/rainbow.png');
                                     width: 13.02vw;
                                     height: 2.7vw;
                                     background-size: 100% 100%;

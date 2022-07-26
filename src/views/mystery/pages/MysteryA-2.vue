@@ -6,7 +6,7 @@
     <div class="boxBg">
         <div class="video">
             <video-bg 
-id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.mp4`]">
+id="videobg" :sources="[`https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/boxbanner.mp4`]">
             </video-bg>
             <div class="titles flex_align_center"> 
                 <div class="titles-wrap">
@@ -348,7 +348,7 @@ onMounted(() => {
             }
             ul{
                 padding: .3vw 0 2.91vw;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxBg.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/boxBg.png');
                 background-repeat: no-repeat;
                 background-position: center bottom;
                 background-size: 100% auto;
@@ -448,7 +448,7 @@ onMounted(() => {
                                 width: 11.09vw;
                                 height: 2.81vw;
                                 margin-right: 1.25vw;
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/purchase.png');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/purchase.png');
                                 background-size: 100% 100%;
                                 cursor: pointer;
                                 transition: all 0.2s ease;
@@ -469,7 +469,7 @@ onMounted(() => {
                                 height: 2.81vw;
                                 margin-right: 0; 
                                 margin-right: 1.25vw;
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/purchase.png');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/purchase.png');
                                 background-size: 100% 100%;
                                 cursor: pointer;
                                 transition: all 0.2s ease;
@@ -478,7 +478,7 @@ onMounted(() => {
                                 position: relative;
                                 width: 9.89vw;
                                 height: 2.81vw;
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwAssets/withboder.png');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwAssets/withboder.png');
                                 background-size: 100% 100%;
                                 z-index: 5;
                                 transition: all 0.2s ease;
@@ -497,7 +497,7 @@ onMounted(() => {
                                 }
                             }
                             .details:hover{
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/details.png');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/details.png');
                             }
                         }
                     }

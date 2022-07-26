@@ -7,7 +7,7 @@
             <div class="content">
                 <div class="title">Staking</div>
                 <!-- <div class="icon">
-                    <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/metaMask.svg" alt="">
+                    <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/metaMask.svg" alt="">
                     <div class="subtitle">{{t('message.common.metamask.logoText')}}</div>
                 </div> -->
                 <div class="item">
@@ -347,7 +347,7 @@ onMounted(() => {
                         height: 3.125vw;
                         font-size: 1.64vw;
                         font-family: AlibabaPuHuiTi_2_115_Black;
-                        background-image: url(https://d2cimmz3cflrbm.cloudfront.net/nwbox/details2.png);
+                        background-image: url(https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/details2.png);
                         background-size: 100% 100%;
                         background-repeat: no-repeat;
                         transition: all .2s ease-in-out;
@@ -404,7 +404,7 @@ onMounted(() => {
                     color: #FFFFFF;
                     line-height: 2.91vw;
                     text-align: center;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/meta-cancle.svg');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/meta-cancle.svg');
                     background-size: 100% 100%;
                     cursor: pointer;
                 }

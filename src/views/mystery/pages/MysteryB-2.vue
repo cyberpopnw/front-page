@@ -17,7 +17,7 @@
         </div>
         <div class="vBg">
             <video-bg 
-id="videobg" :sources="[`https://d2cimmz3cflrbm.cloudfront.net/nwbox/boxbanner.mp4`]">
+id="videobg" :sources="[`https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/boxbanner.mp4`]">
             </video-bg>
             <div class="maskBlur"></div>
         </div>
@@ -402,14 +402,14 @@ onMounted(() => {
                             width: 100%;
                             height: 54px;
                             margin-bottom: 17px;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/purchase.png');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/purchase.png');
                             background-size: 100% 100%;
                             cursor: pointer;
                         }
                         .details{
                             width: 100%;
                             height: 54px;
-                            background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwbox/cancle.png');
+                            background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwbox/cancle.png');
                             background-size: 100% 100%;
                             cursor: pointer;
                         }

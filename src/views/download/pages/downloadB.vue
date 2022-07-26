@@ -5,7 +5,7 @@
             <div class="wrap">
                 <form action="#" onsubmit="">
                     <div class="logo">
-                        <img src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/logo.png" alt="">
+                        <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/logo.png" alt="">
                     </div>
                     <div class="button">
                         <input type="text" v-model="email"  @input="emailInput()" :placeholder="$t('message.download.inputEmail')"/>
@@ -21,18 +21,18 @@
             </div>
         </div>
         <div class="down_button">
-            <img class="person" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alen.png" alt="">
+            <img class="person" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alen.png" alt="">
             <div class="tips">DOWNLOAD CYBERPOP</div>
             <div class="buttons flex_between">
                 <div class="down_cyberpop flex_center" @click="downloadGame(0)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/android.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/android.png" alt="">
                 </div>
                 <div class="down_cyberpop flex_center" @click="downloadGame(1)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/ios.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/ios.png" alt="">
                     <div class="version">{{ $t('message.download.version') }}</div>
                 </div>
                 <div class="down_cyberpop flex_center" @click="downloadGame(2)">
-                    <img class="media" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/windows.png" alt="">
+                    <img class="media" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/windows.png" alt="">
                 </div>
             </div>
         </div>
@@ -233,7 +233,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/down_backgournd2.png');
+        background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/down_backgournd2.png');
         background-size: auto 100%;
         background-position: center top;
         background-color: rgba(0, 0, 0, 0.9);
@@ -260,7 +260,7 @@
                     }
                 }
                 .button{
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/withborder.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/withborder.png');
                     width: 302px;
                     height: 44px;
                     background-size: 100% 100%;
@@ -314,7 +314,7 @@
                 button{
                     border: none;
                     background: transparent;
-                    background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwhome/greenButton.png');
+                    background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/greenButton.png');
                     background-size: 100% 100%;
                     width: 210px;
                     height: 52px;

@@ -9,7 +9,7 @@
             <div class="content flex_centent_center">
                 <div class="left">
                     <div class="left-wrap">
-                        <div class="img-top"><img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/vote-top.png" alt=""></div>
+                        <div class="img-top"><img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/vote-top.png" alt=""></div>
                         <div class="padding">
                             <div class="title">Vote Community</div>
                             <div class="desc">
@@ -24,7 +24,7 @@
                             <div class="genesis"># Genesis</div>
                             <div class="search flex_between_center">
                                 <input type="text" placeholder="search">
-                                <img src="https://d2cimmz3cflrbm.cloudfront.net/nwvote/search-w.svg" alt="">
+                                <img src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/search-w.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -330,17 +330,17 @@ onMounted(() => {
                             text-align: center;
                             &.sActive{
                                 color: #000;
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/state-active.svg');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/state-active.svg');
                                 background-size: 100% auto;
                             }
                             &.sPending{
                                 color: #fff;
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/state-pending.svg');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/state-pending.svg');
                                 background-size: 100% auto;
                             }
                             &.sClosed{
                                 color: #fff;
-                                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/state-closed.svg');
+                                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/state-closed.svg');
                                 background-size: 100% auto;
                             }
                         }
@@ -366,7 +366,7 @@ onMounted(() => {
                 left: 5.72vw;
                 width: 38.64vw;
                 height: 20.2vw;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/bg-blur1.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/bg-blur1.png');
                 background-size: 100% auto;
                 filter: blur(8px);
             }
@@ -378,7 +378,7 @@ onMounted(() => {
                 right: -2vw;
                 width: 38.64vw;
                 height: 20.2vw;
-                background-image: url('https://d2cimmz3cflrbm.cloudfront.net/nwvote/bg-blue2.png');
+                background-image: url('https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwvote/bg-blue2.png');
                 background-size: 100% auto;
                 filter: blur(8px);
             }
