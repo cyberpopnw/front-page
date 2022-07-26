@@ -428,24 +428,30 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
                 <a href="https://aws.amazon.com/" target="view_window">
                     <img class="logo2" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/aws.png" alt="">
                 </a>
-                <a href="https://www.avax.network/" target="view_window">
-                    <img class="logo8" src="@/assets/nwhome/make-avala.svg" alt="">
-                </a>
-                <a href="https://www.mexc.com/pioneer" target="view_window">
-                    <img class="logo12" src="@/assets/nwhome/pioneerlogo.png" alt="">
-                </a>
                 <a href="https://www.mexc.com/" target="view_window">
                     <img class="logo12" src="@/assets/nwhome/mexc.png" alt="">
                 </a>
-            </div>
-            <a href="https://www.gate.io" target="view_window">
-                <img class="logo10" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_gate.png" alt="">
-            </a>
-             <div>
-                <img class="logo8" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/hashshareBank.png" alt="">
+                <a href="https://www.gate.io" target="view_window">
+                    <img class="logo10" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_gate.png" alt="">
+                </a>
+                <a href="https://polygon.technology/" target="view_window">
+                    <img class="logo12" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/alpha_polygon.png" alt="">
+                </a>
             </div>
             <a href="https://consensys.net/" target="view_window">
-                <img class="logo7" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/consensys-logo.svg" alt="">
+                <img class="logo7" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/consensys-logo.svg" alt="">
+            </a>
+            <div>
+                <img class="logo8" src="https://d2cimmz3cflrbm.cloudfront.net/nwhome/hashshareBank.png" alt="">
+            </div>
+            <a href="https://www.avax.network/" target="view_window">
+                <img class="logo8" src="@/assets/nwhome/make-avala.svg" alt="">
+            </a>
+            <a href="http://www.abga.asia/" target="view_window">
+                <img class="logo10" src="@/assets/nwhome/ABGA.svg" alt="">
+            </a>
+            <a href="https://www.mexc.com/pioneer" target="view_window">
+                <img class="logo12" src="@/assets/nwhome/pioneerlogo.png" alt="">
             </a>
             <div>
                 <img class="logo1" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/partners4.png" alt="">
@@ -459,15 +465,9 @@ id="videobg" :sources="[`https://d3bhixjyozyk2o.cloudfront.net/5c64797a7cb8b72ed
             <a href="https://t3e.vc/" target="view_window">
                 <img class="logo5" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/T3E-Logo.png" alt="">
             </a>
-            <a href="https://polygon.technology/" target="view_window">
-                <img class="logo12" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/alpha_polygon.png" alt="">
-            </a>
             <div>
                 <img class="logo6" src="https://cyberpop-new-page.s3-accelerate.amazonaws.com/nwhome/partners5-2.png" alt="">
             </div>
-            <a href="http://www.abga.asia/" target="view_window">
-                <img class="logo10" src="@/assets/nwhome/ABGA.svg" alt="">
-            </a>
             <a href="https://www.earnguild.io/" target="view_window">
                 <img class="logo11" src="@/assets/nwhome/Earn-Guild.png" alt="">
             </a>
